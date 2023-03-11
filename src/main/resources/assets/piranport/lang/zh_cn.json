@@ -1,0 +1,15 @@
+{
+  "item.piranport.main_icon": "皮兰港图标",
+
+  "item.piranport.aluminum_ingot": "铝锭",
+  "item.piranport.bauxite": "矾土",
+  "item.piranport.aluminum_nugget": "铝粒",
+  "item.piranport.salt": "盐",
+
+  "block.piranport.bauxite_ore": "矾土矿石",
+  "block.piranport.deepslate_bauxite_ore": "深层矾土矿石",
+  "block.piranport.salt_block": "盐块",
+  "block.piranport.aluminum_block": "铝块",
+
+  "itemGroup.piranport.main": "皮兰港"
+}

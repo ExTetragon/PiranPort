@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "piranport:bauxite"
+  },
+  "result": "piranport:aluminum_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

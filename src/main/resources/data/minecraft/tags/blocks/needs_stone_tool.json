@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "piranport:bauxite_ore",
+    "piranport:deepslate_bauxite_ore",
+    "piranport:aluminum_block"
+  ]
+}

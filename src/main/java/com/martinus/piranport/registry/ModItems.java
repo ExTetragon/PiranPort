@@ -1,0 +1,30 @@
+package com.martinus.piranport.registry;
+
+import com.google.common.base.Supplier;
+import com.martinus.piranport.PiranPort;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
+public class ModItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PiranPort.MOD_ID);
+
+    public static RegistryObject<Item> MAIN_ICON = register("main_icon",
+            ()-> new Item(new Item.Properties()));
+
+    //矿物
+    public static RegistryObject<Item> ALUMINUM_INGOT = register("aluminum_ingot",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> BAUXITE = register("bauxite",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> ALUMINUM_NUGGET = register("aluminum_nugget",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static  RegistryObject<Item> SALT = register("salt",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+
+    private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item){
+        return ITEMS.register(name, item);
+    }
+
+}
