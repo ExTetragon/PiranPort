@@ -2,8 +2,10 @@ package com.martinus.piranport.registry;
 
 import com.google.common.base.Supplier;
 import com.martinus.piranport.PiranPort;
+import com.martinus.piranport.block.crop.RiceBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,7 +20,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PiranPort.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = ModItems.ITEMS;
 
-    //矿物
+    //minerals
     public static RegistryObject<Block> BAUXITE_ORE = register("bauxite_ore",
             ()-> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F,3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE)),
             object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
@@ -31,6 +33,11 @@ public class ModBlocks {
     public static RegistryObject<Block> ALUMINUM_BLOCK = register("aluminum_block",
             ()-> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)),
             object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+
+    //crops
+    public static final RegistryObject<Block> RICE = register("rice",
+            ()->new RiceBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)),
+            object -> () -> new ItemNameBlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<T> block){
