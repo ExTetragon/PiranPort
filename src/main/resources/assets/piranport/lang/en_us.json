@@ -1,0 +1,14 @@
+{
+  "item.piranport.main_icon": "Piranbay Icon",
+
+  "item.piranport.aluminum_ingot": "Aluminum Ingot",
+  "item.piranport.bauxite": "Bauxite",
+  "item.piranport.aluminum_nugget": "Aluminum Nugget",
+  "item.piranport.salt": "Salt",
+
+  "block.piranport.bauxite_ore": "Bauxite Ore",
+  "block.piranport.salt_block": "Salt Block",
+  "block.piranport.aluminum_block": "Aluminum Block",
+
+  "itemGroup.piranport.main": "Warship Girls R"
+}

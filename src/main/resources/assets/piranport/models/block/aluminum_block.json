@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "piranport:block/aluminum_block"
+  }
+}
