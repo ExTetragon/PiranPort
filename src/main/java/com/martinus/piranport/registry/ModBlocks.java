@@ -2,12 +2,16 @@ package com.martinus.piranport.registry;
 
 import com.google.common.base.Supplier;
 import com.martinus.piranport.PiranPort;
+import com.martinus.piranport.block.crop.RiceBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BlockNamedItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +23,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, PiranPort.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = ModItems.ITEMS;
 
-    //矿物
+    //Minerals
     public static RegistryObject<Block> BAUXITE_ORE = register("bauxite_ore",
             ()-> new Block(AbstractBlock.Properties.of(Material.STONE).strength(3.0F,3.0F).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(1).sound(SoundType.STONE)),
             object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
@@ -30,7 +34,11 @@ public class ModBlocks {
             ()-> new Block(AbstractBlock.Properties.of(Material.METAL).strength(3.0F, 6.0F).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().harvestLevel(1).sound(SoundType.METAL)),
             object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
 
-    //作物
+    //Crops
+    public static final RegistryObject<Block> RICE = register("rice",
+            ()->new RiceBlock(AbstractBlock.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)),
+            object -> () -> new BlockNamedItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<T> block){
