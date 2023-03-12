@@ -35,9 +35,8 @@ public class ModBlocks {
             object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
 
     //crops
-    public static final RegistryObject<Block> RICE = register("rice",
-            ()->new RiceBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)),
-            object -> () -> new ItemNameBlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static final RegistryObject<Block> RICE = registerBlock("rice",
+            ()->new RiceBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<T> block){

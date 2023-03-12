@@ -5,11 +5,14 @@
   "item.piranport.bauxite": "Bauxite",
   "item.piranport.aluminum_nugget": "Aluminum Nugget",
   "item.piranport.salt": "Salt",
-
   "block.piranport.bauxite_ore": "Bauxite Ore",
   "block.piranport.deepslate_bauxite_ore": "Deepslate Bauxite Ore",
   "block.piranport.salt_block": "Salt Block",
   "block.piranport.aluminum_block": "Aluminum Block",
+
+  "item.piranport.rice": "Rice",
+  "item.piranport.rice_spike": "Rice Spike",
+  "block.piranport.rice": "Rice",
 
   "itemGroup.piranport.main": "Piran Port"
 }

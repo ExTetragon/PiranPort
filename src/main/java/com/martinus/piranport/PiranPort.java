@@ -1,5 +1,6 @@
 package com.martinus.piranport;
 
+import com.martinus.piranport.setup.ClientSetup;
 import com.mojang.logging.LogUtils;
 import com.martinus.piranport.registry.ModBlocks;
 import com.martinus.piranport.registry.ModItems;
@@ -31,10 +32,12 @@ public class PiranPort {
 
         // Register the setup method for modloading
         modEventBus.addListener(this::setup);
+        modEventBus.addListener(ClientSetup::init);
         // Register the enqueueIMC method for modloading
         modEventBus.addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
         modEventBus.addListener(this::processIMC);
+
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);

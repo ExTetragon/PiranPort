@@ -1,7 +1,7 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "iranport:deepslate_bauxite_ore"
+    "item": "piranport:deepslate_bauxite_ore"
   },
   "result": "piranport:aluminum_ingot",
   "experience": 1.0,

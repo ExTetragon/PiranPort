@@ -3,6 +3,7 @@ package com.martinus.piranport.registry;
 import com.google.common.base.Supplier;
 import com.martinus.piranport.PiranPort;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -13,7 +14,7 @@ public class ModItems {
     public static RegistryObject<Item> MAIN_ICON = register("main_icon",
             ()-> new Item(new Item.Properties()));
 
-    //矿物
+    //minerals
     public static RegistryObject<Item> ALUMINUM_INGOT = register("aluminum_ingot",
             ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
     public static RegistryObject<Item> BAUXITE = register("bauxite",
@@ -22,6 +23,12 @@ public class ModItems {
             ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
     public static  RegistryObject<Item> SALT = register("salt",
             ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+
+    //crops
+    public static RegistryObject<Item> RICE_SPIKE = register("rice_spike",
+            ()-> new ItemNameBlockItem(ModBlocks.RICE.get(), new Item.Properties().tab(ModTabs.MODTAB_FOOD)));
+    public static RegistryObject<Item> RICE = register("rice",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_FOOD)));
 
     private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item){
         return ITEMS.register(name, item);

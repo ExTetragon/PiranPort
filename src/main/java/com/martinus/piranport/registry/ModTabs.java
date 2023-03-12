@@ -15,11 +15,11 @@ public class ModTabs {
         public ItemStack makeIcon() {
             return null;
         }
-    };
-
-    public static final CreativeModeTab MODTAB_FOOD = new CreativeModeTab(WarshipGirlsR.MOD_ID + ".food") {
-        public ItemStack makeIcon() {
-            return null;
-        }
     };*/
+
+    public static final CreativeModeTab MODTAB_FOOD = new CreativeModeTab(PiranPort.MOD_ID + ".food") {
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.MAIN_ICON.get());
+        }
+    };
 }
