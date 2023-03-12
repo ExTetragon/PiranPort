@@ -2,6 +2,7 @@ package com.martinus.piranport;
 
 import com.martinus.piranport.registry.ModBlocks;
 import com.martinus.piranport.registry.ModItems;
+import com.martinus.piranport.setup.ClientSetup;
 import com.martinus.piranport.world.gen.OreGeneration;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -40,7 +41,7 @@ public class PiranPort
         // Register the processIMC method for modloading
         modEventBus.addListener(this::processIMC);
         // Register the doClientStuff method for modloading
-        modEventBus.addListener(this::doClientStuff);
+        modEventBus.addListener(ClientSetup::init);
 
         ModItems.ITEMS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
@@ -58,10 +59,6 @@ public class PiranPort
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-        // do something that can only be done on the client
-        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
-    }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
     {

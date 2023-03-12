@@ -16,10 +16,10 @@ public class ModTabs {
             return null;
         }
     };
-
-    public static final ItemGroup MODTAB_FOOD = new ItemGroup(piranport.MOD_ID + ".food") {
+*/
+    public static final ItemGroup MODTAB_FOOD = new ItemGroup(PiranPort.MOD_ID + ".food") {
         public ItemStack makeIcon() {
-            return null;
+            return new ItemStack(ModItems.MAIN_ICON.get());
         }
-    };*/
+    };
 }
