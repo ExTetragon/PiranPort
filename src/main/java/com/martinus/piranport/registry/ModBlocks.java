@@ -2,7 +2,8 @@ package com.martinus.piranport.registry;
 
 import com.google.common.base.Supplier;
 import com.martinus.piranport.PiranPort;
-import com.martinus.piranport.block.crop.RiceBlock;
+import com.martinus.piranport.block.WildVegeBlock;
+import com.martinus.piranport.block.crop.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -37,6 +38,23 @@ public class ModBlocks {
     //crops
     public static final RegistryObject<Block> RICE = registerBlock("rice",
             ()->new RiceBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> LABLAB_BEAN = registerBlock("lablab_bean",
+            ()->new LablabBeanBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> RED_BEAN = registerBlock("red_bean",
+            ()->new RedBeanBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> PINEAPPLE = registerBlock("pineapple",
+            ()->new PineappleBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> CELERY = registerBlock("celery",
+            ()->new CeleryBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> TOMATO = registerBlock("tomato",
+            ()->new TomatoBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> LETTUCE = registerBlock("lettuce",
+            ()->new LettuceBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> SOYBEAN = registerBlock("soybean",
+            ()->new SoybeanBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_VEGE = register("wild_vege",
+            ()->new WildVegeBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().instabreak().sound(SoundType.GRASS)),
+            object -> () -> new BlockItem(object.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(final String name, final Supplier<T> block){

@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "piranport:block/soybean_stage0"
+  }
+}

@@ -4,12 +4,16 @@ import com.martinus.piranport.registry.ModBlocks;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.DiskConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
 import java.util.List;
 
@@ -26,4 +30,10 @@ public class ModConfiguredFeatures {
     public static final Holder<ConfiguredFeature<DiskConfiguration, ?>> DISK_SALT = FeatureUtils.register("disk_salt",
             Feature.DISK, new DiskConfiguration(ModBlocks.SALT_BLOCK.get().defaultBlockState(), UniformInt.of(1, 2), 1,
                     List.of(Blocks.DIRT.defaultBlockState(), Blocks.CLAY.defaultBlockState())));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration,?>> WILD_VEGE =
+            FeatureUtils.register("wild_vege", Feature.FLOWER,
+                    new RandomPatchConfiguration(8, 4,2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_VEGE.get())))));
 }
+

@@ -1,0 +1,82 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "piranport:wild_vege",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "tag": "forge:shears"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:group",
+              "children": [
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:soybean_pod"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:pineapple"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:tomato"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:lettuce"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:celery"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:rice_spike"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:red_bean"
+                },
+                {
+                  "type": "minecraft:item",
+                  "weight": 1,
+                  "name": "piranport:lablab_bean"
+                }
+              ],
+              "functions": [
+                {
+                  "function": "minecraft:apply_bonus",
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "piranport:block/lettuce_stage1"
+  }
+}

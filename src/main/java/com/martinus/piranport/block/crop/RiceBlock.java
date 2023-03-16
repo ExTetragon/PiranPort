@@ -1,6 +1,7 @@
 package com.martinus.piranport.block.crop;
 
 import com.martinus.piranport.registry.ModBlocks;
+import com.martinus.piranport.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
@@ -34,7 +35,7 @@ public class RiceBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ModBlocks.RICE.get().asItem();
+        return ModItems.RICE_SPIKE.get();
     }
 
     @Override

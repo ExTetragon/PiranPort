@@ -13,6 +13,27 @@
   "item.piranport.rice": "Rice",
   "item.piranport.rice_spike": "Rice Spike",
   "block.piranport.rice": "Rice",
+  "item.piranport.lablab_bean": "Lablab Bean",
+  "block.piranport.lablab_bean": "Lablab Bean",
+  "item.piranport.red_bean": "Red Bean",
+  "block.piranport.red_bean": "Red Bean",
+  "item.piranport.pineapple": "Pineapple",
+  "item.piranport.pineapple_seed": "Pineapple Seed",
+  "block.piranport.pineapple": "Pineapple",
+  "item.piranport.celery": "Celery",
+  "item.piranport.celery_seed": "Celery Seed",
+  "block.piranport.celery": "Celery",
+  "item.piranport.tomato": "Tomato",
+  "item.piranport.tomato_seed": "Tomato Seed",
+  "block.piranport.tomato": "Tomato",
+  "item.piranport.lettuce": "Lettuce",
+  "item.piranport.lettuce_seed": "Lettuce Seed",
+  "block.piranport.lettuce": "Lettuce",
+  "item.piranport.soybean": "Soybean",
+  "item.piranport.soybean_pod": "Soybean Pod",
+  "block.piranport.soybean": "soybean",
+  "block.piranport.wild_vege": "Wild Vege",
 
-  "itemGroup.piranport.main": "Piran Port"
+  "itemGroup.piranport.main": "Piran Port",
+  "itemGroup.piranport.food": "Warship Girls Food"
 }

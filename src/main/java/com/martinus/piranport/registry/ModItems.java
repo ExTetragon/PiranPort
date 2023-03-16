@@ -26,9 +26,33 @@ public class ModItems {
 
     //crops
     public static RegistryObject<Item> RICE_SPIKE = register("rice_spike",
-            ()-> new ItemNameBlockItem(ModBlocks.RICE.get(), new Item.Properties().tab(ModTabs.MODTAB_FOOD)));
+            ()-> new ItemNameBlockItem(ModBlocks.RICE.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
     public static RegistryObject<Item> RICE = register("rice",
-            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_FOOD)));
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> LABLAB_BEAN = register("lablab_bean",
+            ()-> new ItemNameBlockItem(ModBlocks.LABLAB_BEAN.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> RED_BEAN = register("red_bean",
+            ()-> new ItemNameBlockItem(ModBlocks.RED_BEAN.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> PINEAPPLE_SEED = register("pineapple_seed",
+            ()-> new ItemNameBlockItem(ModBlocks.PINEAPPLE.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> PINEAPPLE = register("pineapple",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> CELERY_SEED = register("celery_seed",
+            ()-> new ItemNameBlockItem(ModBlocks.CELERY.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> CELERY = register("celery",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> TOMATO_SEED = register("tomato_seed",
+            ()-> new ItemNameBlockItem(ModBlocks.TOMATO.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> TOMATO = register("tomato",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> LETTUCE_SEED = register("lettuce_seed",
+            ()-> new ItemNameBlockItem(ModBlocks.LETTUCE.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> LETTUCE = register("lettuce",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> SOYBEAN_POD = register("soybean_pod",
+            ()-> new ItemNameBlockItem(ModBlocks.SOYBEAN.get(), new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
+    public static RegistryObject<Item> SOYBEAN = register("soybean",
+            ()-> new Item(new Item.Properties().tab(ModTabs.MODTAB_MAIN)));
 
     private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> item){
         return ITEMS.register(name, item);

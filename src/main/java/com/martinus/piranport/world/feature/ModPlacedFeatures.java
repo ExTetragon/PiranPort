@@ -1,12 +1,10 @@
 package com.martinus.piranport.world.feature;
 
+import net.minecraft.client.renderer.entity.RabbitRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.*;
 
 public class ModPlacedFeatures {
 
@@ -16,4 +14,8 @@ public class ModPlacedFeatures {
 
     public static final Holder<PlacedFeature> DISK_SALT_PLACED = PlacementUtils.register("disk_salt_placed",
             ModConfiguredFeatures.DISK_SALT, InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_VEGE_PLACED = PlacementUtils.register("wild_vege_placed",
+            ModConfiguredFeatures.WILD_VEGE, RarityFilter.onAverageOnceEvery(16),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 }

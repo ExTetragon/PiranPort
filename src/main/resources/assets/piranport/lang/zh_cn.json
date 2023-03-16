@@ -13,6 +13,27 @@
   "item.piranport.rice": "大米",
   "item.piranport.rice_spike": "稻穗",
   "block.piranport.rice": "水稻",
+  "item.piranport.lablab_bean": "扁豆",
+  "block.piranport.lablab_bean": "扁豆",
+  "item.piranport.red_bean": "红豆",
+  "block.piranport.red_bean": "红豆",
+  "item.piranport.pineapple": "菠萝",
+  "item.piranport.pineapple_seed": "菠萝种子",
+  "block.piranport.pineapple": "菠萝",
+  "item.piranport.celery": "芹菜",
+  "item.piranport.celery_seed": "芹菜种子",
+  "block.piranport.celery": "芹菜",
+  "item.piranport.tomato": "番茄",
+  "item.piranport.tomato_seed": "番茄种子",
+  "block.piranport.tomato": "番茄",
+  "item.piranport.lettuce": "生菜",
+  "item.piranport.lettuce_seed": "生菜种子",
+  "block.piranport.lettuce": "生菜",
+  "item.piranport.soybean": "大豆",
+  "item.piranport.soybean_pod": "大豆豆荚",
+  "block.piranport.soybean": "大豆",
+  "block.piranport.wild_vege": "野菜",
 
-  "itemGroup.piranport.main": "皮兰港"
+  "itemGroup.piranport.main": "皮兰港",
+  "itemGroup.piranport.food": "港区食物"
 }

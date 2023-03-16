@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "piranport:block/lablab_bean_stage1"
+  }
+}
