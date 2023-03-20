@@ -1,3 +1,6 @@
 {
-  "parent": "piranport:block/wild_vege"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "piranport:block/wild_vege"
+  }
 }
