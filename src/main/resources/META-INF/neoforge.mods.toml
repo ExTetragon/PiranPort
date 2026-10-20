@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="GPL-3.0"
+
+[[mods]]
+modId="piranport"
+version="0.1.0"
+displayName="PiranPort"
+authors="lex0v0"
+description='''
+皮兰港 PiranPort —— Minecraft 战舰少女R mod（开发中）。
+'''
+
+# Mixin 配置示例
+#[[mixins]]
+#config="piranport.mixins.json"
+
+# 访问转换器示例（文件放在 src/main/resources/META-INF/ 下）
+#[[accessTransformers]]
+#file="META-INF/accesstransformer.cfg"
+
+[[dependencies.piranport]]
+    modId="neoforge"
+    type="required"
+    # 下限保持 21.1.0，以兼容所有 1.21.1 的 NeoForge 21.1.x 版本。
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.piranport]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1]"
+    ordering="NONE"
+    side="BOTH"
