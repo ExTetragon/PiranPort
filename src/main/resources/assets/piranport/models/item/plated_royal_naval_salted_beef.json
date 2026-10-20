@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/plated_royal_naval_salted_beef"
+  }
+}

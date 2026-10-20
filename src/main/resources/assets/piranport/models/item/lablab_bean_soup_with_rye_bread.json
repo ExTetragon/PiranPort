@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/lablab_bean_soup_with_rye_bread"
+  }
+}

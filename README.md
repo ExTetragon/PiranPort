@@ -86,10 +86,11 @@ export JAVA_HOME="C:/Program Files/Java/jdk-21"
 ## 项目结构
 
 ```
-src/main/java/com/lex0v0/piranport/  主类、客户端入口、配置
-src/main/resources/META-INF/          neoforge.mods.toml
-src/main/resources/assets/piranport/  语言文件等资源
-src/generated/resources/              数据生成输出
+src/main/java/com/lex0v0/piranport/           主类、客户端入口、配置
+src/main/java/com/lex0v0/piranport/registry/  物品、方块、创造栏注册
+src/main/resources/META-INF/                  neoforge.mods.toml
+src/main/resources/assets/piranport/          语言文件等资源
+src/generated/resources/                      数据生成输出
 ```
 
 ## 模组信息

@@ -88,10 +88,11 @@ Open this folder as a Gradle project in IntelliJ IDEA to get code completion for
 ## Project structure
 
 ```
-src/main/java/com/lex0v0/piranport/  main class, client entry, config
-src/main/resources/META-INF/          neoforge.mods.toml
-src/main/resources/assets/piranport/  language files and other resources
-src/generated/resources/              data generation output
+src/main/java/com/lex0v0/piranport/           main class, client entry, config
+src/main/java/com/lex0v0/piranport/registry/  item, block, and creative tab registration
+src/main/resources/META-INF/                  neoforge.mods.toml
+src/main/resources/assets/piranport/          language files and other resources
+src/generated/resources/                      data generation output
 ```
 
 ## Mod metadata

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "piranport:kholodets",
+    "piranport:american_burger",
+    "piranport:double_american_burger",
+    "piranport:triple_american_burger",
+    "piranport:hot_dog",
+    "piranport:barbecue",
+    "piranport:thuringian_rostbratwurst",
+    "piranport:schweinshaxe",
+    "piranport:weisswurst_with_bagel"
+  ]
+}
