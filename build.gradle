@@ -74,6 +74,20 @@ neoForge {
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
+        worldgenAcceptance {
+            server()
+            gameDirectory = file(providers.gradleProperty('acceptanceWorldDir').getOrElse('run/acceptance-worldgen'))
+            programArgument '--nogui'
+            systemProperty 'piranport.acceptance.worldgen', 'true'
+            systemProperty 'piranport.acceptance.worldgenReport', layout.buildDirectory.file('reports/acceptance/worldgen.json').get().asFile.absolutePath
+        }
+
+        acceptanceClient {
+            client()
+            gameDirectory = file('run/acceptance-client')
+            systemProperty 'piranport.acceptance.clientSmoke', providers.gradleProperty('acceptanceClientSmoke').getOrElse('false')
+        }
+
         data {
             data()
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
@@ -134,3 +148,22 @@ idea {
 
 // Compile the in-game regressions during build; execute them with runGameTestServer.
 tasks.named("check") { dependsOn tasks.named("gameTestClasses") }
+
+// Isolated natural world generation using the normal NeoForge development server.
+tasks.named('runWorldgenAcceptance') {
+    doFirst {
+        def target = file(providers.gradleProperty('acceptanceWorldDir').getOrElse('run/acceptance-worldgen'))
+        target.mkdirs()
+        def props = new File(target, 'server.properties')
+        if (!props.exists()) props.text = '''level-seed=20261022
+level-name=world
+server-ip=127.0.0.1
+server-port=0
+online-mode=false
+max-tick-time=-1
+spawn-protection=0
+view-distance=2
+simulation-distance=2
+'''
+    }
+}

@@ -4,7 +4,7 @@
 
 **皮兰港 PiranPort** — 一个面向 **Minecraft 1.21.1 (NeoForge)** 的 **战舰少女R** 主题综合性 mod：玩家可以扮演舰娘，在生存玩法中开采资源、烹饪食物、制作舰装与武器，与主世界、海图副本和深海世界中的深海敌人战斗，并探索独立剧情。内容分为战斗、后勤、剧情三大系统。
 
-> **状态：早期开发。** 已有 60 个食物/相关物品与 3.1 矿物资源的 14 个物品。燃料桶、流体、配方及世界生成已实现，2026-10-22 修复阶段 17 个服务端 GameTest 通过；当前测试源码缺失，详见开发日志。贴图为占位资源，客户端与第三方模组交互仍需手工验收。
+> **状态：早期开发。** 已有 60 个食物/相关物品与 3.1 矿物资源的 14 个物品。燃料桶、流体、配方及世界生成已实现，2026-10-22 已恢复历史 17 项回归，扩展后的 51 个服务端 GameTest 通过，覆盖范围见测试清单 Q 节。贴图为占位资源，客户端与第三方模组交互仍需手工验收。
 
 ## 计划内容
 
@@ -70,8 +70,21 @@ export JAVA_HOME="C:/Program Files/Java/jdk-21"
 ./gradlew runClient      # 启动客户端
 ./gradlew runServer      # 启动服务端
 ./gradlew runData        # 生成储存方块掉落表和矿石/储存块物品标签
-./gradlew runGameTestServer # 测试源码恢复后执行回归；当前状态见开发日志
+./gradlew runGameTestServer # 执行 51 项服务端自动回归
+./gradlew runAcceptanceClient # 独立验收客户端（JEI、spark）
 ```
+
+完整验收与报告（Python 3.11+，默认不启动图形客户端）：
+
+```powershell
+python tools/run_acceptance.py --worldgen
+# 首次准备独立客户端的辅助模组，版本来自锁文件并校验 SHA-512
+python tools/setup_acceptance_helpers.py
+# 同时验证辅助客户端启动，到达主菜单后自动退出
+python tools/run_acceptance.py --worldgen --client-smoke
+```
+
+报告写入 `build/acceptance/reports/acceptance/summary.json` 和 `summary.md`。`--worldgen` 每次创建独立测试世界；自然油湖密度、视觉效果和第三方管道等未覆盖范围继续保留人工验收。
 
 在 IntelliJ IDEA 中以 Gradle 项目打开本目录，可获得 Minecraft 与 NeoForge 类的代码补全。还需要在 `Settings > Build, Execution, Deployment > Build Tools > Gradle` 把 **Gradle JVM** 设为 JDK 21。
 
@@ -94,11 +107,11 @@ src/generated/resources/                      数据生成输出
 | 包名 | `com.lex0v0.piranport` |
 | 组织 | lex0v0 |
 | Maven Group | `com.lex0v0.piranport` |
-| 产物 | `piranport-0.1.41.jar` |
+| 产物 | `piranport-0.1.44.jar` |
 
 ## 版本策略
 
-- 当前版本为 `0.1.41`，累计 24 项功能实现和 17 项 bug 修复；统计依据见[开发日志](docs/开发日志.md)。
+- 当前版本为 `0.1.44`，累计 27 项功能实现和 17 项 bug 修复；统计依据见[开发日志](docs/开发日志.md)。
 - 每完成一项实际功能或独立修复，末段加 1；文档修改不计。首位与中段仅在用户明确要求时更新。
 
 - 开发与测试固定使用 NeoForge `21.1.259`。

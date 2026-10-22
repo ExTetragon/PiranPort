@@ -40,4 +40,4 @@ repo/
 !**/src/**/repo/
 # Keep design documents and their source workbooks under version control.
 docs/~$*.xlsx
-/src/gameTest/
+/tools/__pycache__/
