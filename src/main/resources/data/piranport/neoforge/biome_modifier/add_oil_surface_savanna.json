@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_savanna",
+  "features": "piranport:oil_lake_stone_surface",
+  "step": "lakes"
+}

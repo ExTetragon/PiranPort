@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "piranport:crude_oil_bucket"
+  },
+  "result": {
+    "id": "piranport:fuel_oil_bucket",
+    "count": 1
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "piranport:bauxite"
+    }
+  },
+  "result": {
+    "id": "piranport:bauxite_block",
+    "count": 1
+  }
+}

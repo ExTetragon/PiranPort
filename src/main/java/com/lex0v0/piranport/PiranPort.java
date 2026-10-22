@@ -1,7 +1,11 @@
 package com.lex0v0.piranport;
 
+import com.lex0v0.piranport.registry.ModBlockEntities;
 import com.lex0v0.piranport.registry.ModBlocks;
 import com.lex0v0.piranport.registry.ModCreativeTabs;
+import com.lex0v0.piranport.registry.ModDataComponents;
+import com.lex0v0.piranport.registry.ModFeatures;
+import com.lex0v0.piranport.registry.ModFluids;
 import com.lex0v0.piranport.registry.ModItems;
 import com.mojang.logging.LogUtils;
 
@@ -28,7 +32,12 @@ public class PiranPort {
 
     // IEventBus 和 ModContainer 由 FML 自动注入。
     public PiranPort(IEventBus modEventBus, ModContainer modContainer) {
+        // 流体必须先于方块与物品注册：LiquidBlock 与 BucketItem 在创建时需要已注册的 Fluid。
+        ModFluids.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModDataComponents.register(modEventBus);
+        ModFeatures.register(modEventBus);
         ModItems.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
 

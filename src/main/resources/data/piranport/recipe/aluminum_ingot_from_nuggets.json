@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "piranport:aluminum_nugget"
+    }
+  },
+  "result": {
+    "id": "piranport:aluminum_ingot",
+    "count": 1
+  }
+}

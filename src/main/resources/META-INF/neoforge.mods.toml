@@ -4,8 +4,9 @@ license="GPL-3.0"
 
 [[mods]]
 modId="piranport"
-version="0.1.0"
+version="0.1.41"
 displayName="PiranPort"
+logoFile="piranport.png"
 authors="lex0v0"
 description='''
 皮兰港 PiranPort —— Minecraft 战舰少女R mod（开发中）。

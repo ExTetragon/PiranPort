@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "piranport:steel_nugget"
+    }
+  },
+  "result": {
+    "id": "piranport:steel_ingot",
+    "count": 1
+  }
+}

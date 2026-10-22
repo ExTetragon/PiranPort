@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "piranport:steel_block"
+    }
+  ],
+  "result": {
+    "id": "piranport:steel_ingot",
+    "count": 9
+  }
+}

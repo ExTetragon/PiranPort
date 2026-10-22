@@ -1,9 +1,13 @@
 package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
+import com.lex0v0.piranport.item.FuelBarrelItem;
 
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -194,6 +198,54 @@ public final class ModItems {
 
     public static final DeferredItem<Item> VENETIAN_CUTTLEFISH_NOODLES =
             registerFood("venetian_cuttlefish_noodles", FoodValues.VENETIAN_CUTTLEFISH_NOODLES);
+
+    // 3.1 矿物资源
+    public static final DeferredItem<Item> BAUXITE =
+            ITEMS.registerSimpleItem("bauxite");
+
+    public static final DeferredItem<Item> ALUMINUM_INGOT =
+            ITEMS.registerSimpleItem("aluminum_ingot");
+
+    public static final DeferredItem<Item> ALUMINUM_NUGGET =
+            ITEMS.registerSimpleItem("aluminum_nugget");
+
+    public static final DeferredItem<Item> SALTPETER =
+            ITEMS.registerSimpleItem("saltpeter");
+
+    public static final DeferredItem<Item> STEEL_INGOT =
+            ITEMS.registerSimpleItem("steel_ingot");
+
+    public static final DeferredItem<Item> STEEL_NUGGET =
+            ITEMS.registerSimpleItem("steel_nugget");
+
+    public static final DeferredItem<BlockItem> BAUXITE_ORE_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.BAUXITE_ORE);
+
+    public static final DeferredItem<BlockItem> BAUXITE_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.BAUXITE_BLOCK);
+
+    public static final DeferredItem<BlockItem> ALUMINUM_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.ALUMINUM_BLOCK);
+
+    public static final DeferredItem<BlockItem> SALTPETER_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.SALTPETER_BLOCK);
+
+    public static final DeferredItem<BlockItem> STEEL_BLOCK_ITEM =
+            ITEMS.registerSimpleBlockItem(ModBlocks.STEEL_BLOCK);
+
+    public static final DeferredItem<FuelBarrelItem> FUEL_BARREL_ITEM =
+            ITEMS.register("fuel_barrel",
+                    () -> new FuelBarrelItem(ModBlocks.FUEL_BARREL.get(), new Item.Properties()));
+
+    public static final DeferredItem<BucketItem> CRUDE_OIL_BUCKET =
+            ITEMS.register("crude_oil_bucket",
+                    () -> new BucketItem(ModFluids.CRUDE_OIL.get(),
+                            new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
+    public static final DeferredItem<BucketItem> FUEL_OIL_BUCKET =
+            ITEMS.register("fuel_oil_bucket",
+                    () -> new BucketItem(ModFluids.FUEL_OIL.get(),
+                            new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
 
     private ModItems() {
     }

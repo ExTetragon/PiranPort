@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "piranport:bauxite_ore",
+    "piranport:bauxite_block",
+    "piranport:aluminum_block",
+    "piranport:steel_block"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "piranport:block/fuel_barrel"
+    },
+    "axis=x": {
+      "model": "piranport:block/fuel_barrel",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z": {
+      "model": "piranport:block/fuel_barrel",
+      "x": 90
+    }
+  }
+}

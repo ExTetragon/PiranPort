@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "piranport:steel_ingot",
+    "count": 1
+  },
+  "experience": 0.3,
+  "cookingtime": 100
+}

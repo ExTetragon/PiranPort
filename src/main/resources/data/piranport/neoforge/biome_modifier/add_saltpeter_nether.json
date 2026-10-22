@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "piranport:saltpeter_patch_nether",
+  "step": "underground_decoration"
+}

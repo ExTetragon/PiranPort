@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SBS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "piranport:steel_ingot"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "id": "piranport:fuel_barrel",
+    "count": 1
+  }
+}

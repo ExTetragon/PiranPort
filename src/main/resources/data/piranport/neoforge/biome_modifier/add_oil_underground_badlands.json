@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_badlands",
+  "features": "piranport:oil_lake_red_sandstone_underground",
+  "step": "underground_decoration"
+}

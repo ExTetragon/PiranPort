@@ -1,0 +1,16 @@
+{
+  "type": "piranport:saltpeter_patch",
+  "config": {
+    "block": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "piranport:saltpeter_block"
+      }
+    },
+    "tries": 8,
+    "min_count": 1,
+    "max_count": 3,
+    "xz_spread": 4,
+    "y_spread": 2
+  }
+}

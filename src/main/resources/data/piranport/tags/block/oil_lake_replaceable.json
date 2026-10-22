@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:base_stone_overworld",
+    "#minecraft:terracotta",
+    "minecraft:dirt",
+    "minecraft:grass_block",
+    "minecraft:coarse_dirt",
+    "minecraft:rooted_dirt",
+    "minecraft:podzol",
+    "minecraft:mycelium",
+    "minecraft:sand",
+    "minecraft:red_sand",
+    "minecraft:sandstone",
+    "minecraft:red_sandstone",
+    "minecraft:gravel",
+    "minecraft:clay",
+    "minecraft:mud",
+    "minecraft:packed_mud",
+    "minecraft:calcite"
+  ]
+}

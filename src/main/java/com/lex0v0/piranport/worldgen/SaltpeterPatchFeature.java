@@ -1,0 +1,71 @@
+package com.lex0v0.piranport.worldgen;
+
+import com.mojang.serialization.Codec;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+
+/**
+ * 硝土块生成 Feature。
+ *
+ * <p>只在洞穴空气面附近生成：候选点必须是空气且至少有一面紧贴固体方块，
+ * 因此不会出现在实心岩层中，也不会出现在地表或水下。
+ */
+public class SaltpeterPatchFeature extends Feature<SaltpeterPatchConfiguration> {
+    public SaltpeterPatchFeature(Codec<SaltpeterPatchConfiguration> codec) {
+        super(codec);
+    }
+
+    @Override
+    public boolean place(FeaturePlaceContext<SaltpeterPatchConfiguration> context) {
+        WorldGenLevel level = context.level();
+        RandomSource random = context.random();
+        BlockPos origin = context.origin();
+        SaltpeterPatchConfiguration config = context.config();
+        boolean placed = false;
+
+        for (int attempt = 0; attempt < config.tries(); attempt++) {
+            int dx = random.nextInt(config.xzSpread() * 2 + 1) - config.xzSpread();
+            int dz = random.nextInt(config.xzSpread() * 2 + 1) - config.xzSpread();
+            int dy = random.nextInt(config.ySpread() * 2 + 1) - config.ySpread();
+            BlockPos candidate = origin.offset(dx, dy, dz);
+
+            if (!canPlaceAt(level, candidate)) {
+                continue;
+            }
+
+            int count = config.minCount() + random.nextInt(config.maxCount() - config.minCount() + 1);
+            for (int i = 0; i < count; i++) {
+                BlockPos target = candidate.offset(
+                        random.nextInt(3) - 1,
+                        random.nextInt(3) - 1,
+                        random.nextInt(3) - 1);
+                if (canPlaceAt(level, target)) {
+                    level.setBlock(target, config.block().getState(random, target), 2);
+                    placed = true;
+                }
+            }
+            if (placed) return true; // 每次 feature 调用最多生成一簇，而不是每个候选点都生成一簇。
+        }
+
+        return placed;
+    }
+
+    private static boolean canPlaceAt(WorldGenLevel level, BlockPos pos) {
+        if (level.isOutsideBuildHeight(pos) || !level.ensureCanWrite(pos) || level.canSeeSky(pos)
+                || !level.isEmptyBlock(pos) || !level.getFluidState(pos).isEmpty()) {
+            return false;
+        }
+        for (Direction direction : Direction.values()) {
+            BlockPos neighbor = pos.relative(direction);
+            if (level.getBlockState(neighbor).isFaceSturdy(level, neighbor, direction.getOpposite())) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

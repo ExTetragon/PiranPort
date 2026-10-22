@@ -1,0 +1,20 @@
+{
+  "type": "piranport:oil_lake",
+  "config": {
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "piranport:crude_oil"
+      }
+    },
+    "barrier": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:sandstone"
+      }
+    },
+    "min_radius": 4,
+    "max_radius": 6,
+    "depth": 4
+  }
+}
