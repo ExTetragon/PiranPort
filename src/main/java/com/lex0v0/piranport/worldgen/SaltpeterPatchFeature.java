@@ -9,12 +9,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
-/**
- * 硝土块生成 Feature。
- *
- * <p>只在洞穴空气面附近生成：候选点必须是空气且至少有一面紧贴固体方块，
- * 因此不会出现在实心岩层中，也不会出现在地表或水下。
- */
+// 在遮蔽、无流体且紧贴固体面的洞穴空气中生成一簇硝土。
 public class SaltpeterPatchFeature extends Feature<SaltpeterPatchConfiguration> {
     public SaltpeterPatchFeature(Codec<SaltpeterPatchConfiguration> codec) {
         super(codec);
@@ -49,7 +44,7 @@ public class SaltpeterPatchFeature extends Feature<SaltpeterPatchConfiguration> 
                     placed = true;
                 }
             }
-            if (placed) return true; // 每次 feature 调用最多生成一簇，而不是每个候选点都生成一簇。
+            if (placed) return true; // 单次调用最多生成一簇。
         }
 
         return placed;

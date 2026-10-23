@@ -1,0 +1,190 @@
+{
+  "criteria": {
+    "aircraft_carrier": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/aircraft_carrier"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "battlecruiser": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/battlecruiser"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "battleship": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/battleship"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "destroyer": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/destroyer"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "heavy_cruiser": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/heavy_cruiser"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "light_aircraft_carrier": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/light_aircraft_carrier"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "light_cruiser": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/light_cruiser"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "monitor": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/monitor"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "submarine": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:ship/submarine"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/prismarine.png",
+    "description": {
+      "translate": "advancements.piranport.all_ship_types.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "components": {
+        "piranport:blueprint_content": {
+          "permissions": [
+            "piranport:ship/aircraft_carrier",
+            "piranport:ship/battlecruiser",
+            "piranport:ship/battleship",
+            "piranport:ship/destroyer",
+            "piranport:ship/heavy_cruiser",
+            "piranport:ship/light_aircraft_carrier",
+            "piranport:ship/light_cruiser",
+            "piranport:ship/monitor",
+            "piranport:ship/submarine"
+          ]
+        }
+      },
+      "id": "piranport:ship_blueprint"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.piranport.all_ship_types.title"
+    }
+  },
+  "requirements": [
+    [
+      "battleship"
+    ],
+    [
+      "battlecruiser"
+    ],
+    [
+      "aircraft_carrier"
+    ],
+    [
+      "heavy_cruiser"
+    ],
+    [
+      "light_aircraft_carrier"
+    ],
+    [
+      "light_cruiser"
+    ],
+    [
+      "monitor"
+    ],
+    [
+      "destroyer"
+    ],
+    [
+      "submarine"
+    ]
+  ]
+}

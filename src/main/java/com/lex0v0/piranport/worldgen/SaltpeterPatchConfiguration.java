@@ -7,16 +7,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-/**
- * 硝土块生成配置。
- *
- * @param block     放置的方块
- * @param tries     每次调用尝试的候选点数量
- * @param minCount  单个候选点最少生成数量
- * @param maxCount  单个候选点最多生成数量
- * @param xzSpread  水平随机偏移
- * @param ySpread   垂直随机偏移
- */
+// 定义硝土簇的候选范围与单簇数量，并校验数量上下界。
 public record SaltpeterPatchConfiguration(
         BlockStateProvider block,
         int tries,

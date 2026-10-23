@@ -8,9 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 
-/**
- * 方块能力注册。
- */
+// 为燃料桶暴露共享流体能力。
 @EventBusSubscriber(modid = PiranPort.MODID)
 public final class ModCapabilities {
     private ModCapabilities() {

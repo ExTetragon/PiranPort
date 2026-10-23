@@ -14,11 +14,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/**
- * 方块注册入口。
- *
- * <p>对应的方块物品在 {@link ModItems} 中注册，避免方块与物品注册顺序互相依赖。
- */
+// 注册实体与流体方块，对应物品交由 ModItems 注册。
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PiranPort.MODID);
 

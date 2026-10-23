@@ -26,6 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.fluids.FluidUtil;
 import org.jetbrains.annotations.Nullable;
 
+// 处理燃料桶的放置、交互、连接更新和采集结算。
 public class FuelBarrelBlock extends BaseEntityBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
 
@@ -56,13 +57,15 @@ public class FuelBarrelBlock extends BaseEntityBlock {
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         super.setPlacedBy(level, pos, state, placer, stack);
-        if (level.getBlockEntity(pos) instanceof FuelBarrelBlockEntity barrel) barrel.refreshConnection();
+        // 流体已在物品消耗前恢复，此处记录放置策略并建立连接。
+        if (level.getBlockEntity(pos) instanceof FuelBarrelBlockEntity barrel) barrel.initializePlacement();
     }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
             Player player, InteractionHand hand, BlockHitResult hit) {
         if (!(level.getBlockEntity(pos) instanceof FuelBarrelBlockEntity barrel)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        // 切轴前结算旧配对，再按新轴重连。
         if (stack.is(ItemTags.AXES)) {
             if (!level.isClientSide) {
                 barrel.detachForAxisChange();

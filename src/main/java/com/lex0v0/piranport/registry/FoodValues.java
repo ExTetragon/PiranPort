@@ -4,11 +4,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
-/**
- * 食物属性定义。
- *
- * <p>食物表中的“饱和度”是实际饱和度数值，这里换算为饱和修饰系数。effect 暂未加入，后续补充。
- */
+// 集中定义基础食物值并换算饱和系数，特殊效果尚未接入。
 public final class FoodValues {
     public static final FoodProperties TAPTAP_ICE_CREAM = food(1, 1F);
     public static final FoodProperties INSTANT_NOODLES = food(12, 16F);

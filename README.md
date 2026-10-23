@@ -4,7 +4,7 @@
 
 **皮兰港 PiranPort** — 一个面向 **Minecraft 1.21.1 (NeoForge)** 的 **战舰少女R** 主题综合性 mod：玩家可以扮演舰娘，在生存玩法中开采资源、烹饪食物、制作舰装与武器，与主世界、海图副本和深海世界中的深海敌人战斗，并探索独立剧情。内容分为战斗、后勤、剧情三大系统。
 
-> **状态：早期开发。** 已有 60 个食物/相关物品与 3.1 矿物资源的 14 个物品。燃料桶、流体、配方及世界生成已实现，2026-10-22 已恢复历史 17 项回归，扩展后的 51 个服务端 GameTest 通过，覆盖范围见测试清单 Q 节。贴图为占位资源，客户端与第三方模组交互仍需手工验收。
+> **状态：早期开发，当前版本 0.1.54。** 已有 60 个食物/相关物品、14 个矿物资源物品及 2 个蓝图物品。燃料桶、流体、矿物加工与世界生成已实现；蓝图已支持 23 项许可、合并扩展、宝箱获取及累计收集进度，合并固定产出一张，制造设施尚未实现。自动验证和边界见[开发日志](docs/开发日志.md#blueprint-types-20261023)与[蓝图实现方案](docs/3.2.1-蓝图-实现方案.md)。贴图仍处于占位阶段，世界内界面及第三方模组交互另需人工验收。
 
 ## 计划内容
 
@@ -69,8 +69,8 @@ export JAVA_HOME="C:/Program Files/Java/jdk-21"
 ./gradlew build          # 构建
 ./gradlew runClient      # 启动客户端
 ./gradlew runServer      # 启动服务端
-./gradlew runData        # 生成储存方块掉落表和矿石/储存块物品标签
-./gradlew runGameTestServer # 执行 51 项服务端自动回归
+./gradlew runData        # 生成矿物掉落/标签及图纸配方、奖励和进度
+./gradlew runGameTestServer # 执行 79 项服务端自动回归
 ./gradlew runAcceptanceClient # 独立验收客户端（JEI、spark）
 ```
 
@@ -80,13 +80,24 @@ export JAVA_HOME="C:/Program Files/Java/jdk-21"
 python tools/run_acceptance.py --worldgen
 # 首次准备独立客户端的辅助模组，版本来自锁文件并校验 SHA-512
 python tools/setup_acceptance_helpers.py
-# 同时验证辅助客户端启动，到达主菜单后自动退出
+# 同时验证辅助客户端启动、图纸模型及中英文资源，到达主菜单后自动退出
 python tools/run_acceptance.py --worldgen --client-smoke
 ```
 
 报告写入 `build/acceptance/reports/acceptance/summary.json` 和 `summary.md`。`--worldgen` 每次创建独立测试世界；自然油湖密度、视觉效果和第三方管道等未覆盖范围继续保留人工验收。
 
 在 IntelliJ IDEA 中以 Gradle 项目打开本目录，可获得 Minecraft 与 NeoForge 类的代码补全。还需要在 `Settings > Build, Execution, Deployment > Build Tools > Gradle` 把 **Gradle JVM** 设为 JDK 21。
+
+## 燃料桶配置
+
+当前游戏实例的 `config/piranport-common.toml`（TOML 注释固定中英双语，配置界面名称与悬浮说明随游戏语言切换）：
+
+```toml
+fuelBarrelCapacity = 16000
+fuelBarrelAxialConnection = true
+```
+
+默认单桶 16 桶、连接双桶共 32 桶。容量配置单位为 mB，双桶上限为两倍；降容保留旧流体。轴向连接开关在放置时记录：关闭期间放置的新桶保持独立，已有桶不变；之后重新放置才采用新的开关值。具体兼容规则见[矿物实现方案](docs/3.1-矿物资源-实现方案.md#46-公共配置与放置策略)。
 
 ## 项目结构
 
@@ -107,11 +118,11 @@ src/generated/resources/                      数据生成输出
 | 包名 | `com.lex0v0.piranport` |
 | 组织 | lex0v0 |
 | Maven Group | `com.lex0v0.piranport` |
-| 产物 | `piranport-0.1.44.jar` |
+| 产物 | `piranport-0.1.54.jar` |
 
 ## 版本策略
 
-- 当前版本为 `0.1.44`，累计 27 项功能实现和 17 项 bug 修复；统计依据见[开发日志](docs/开发日志.md)。
+- 当前版本为 `0.1.54`，累计 36 项功能实现和 18 项 bug 修复；统计依据见[开发日志](docs/开发日志.md)。
 - 每完成一项实际功能或独立修复，末段加 1；文档修改不计。首位与中段仅在用户明确要求时更新。
 
 - 开发与测试固定使用 NeoForge `21.1.259`。

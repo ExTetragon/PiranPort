@@ -11,12 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
-/**
- * 流体注册入口。
- *
- * <p>每种流体包含一个 {@link FluidType}、一个静止态和一个流动态；
- * 方块形态与桶物品分别在 {@link ModBlocks} 与 {@link ModItems} 中注册。
- */
+// 注册油的类型及静止和流动态，方块与桶物品分开注册。
 public final class ModFluids {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(NeoForgeRegistries.Keys.FLUID_TYPES, PiranPort.MODID);

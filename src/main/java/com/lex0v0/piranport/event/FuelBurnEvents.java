@@ -8,9 +8,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 
-/**
- * 燃料值注册。
- */
+// 为原油桶和燃油桶提供燃烧时间。
 @EventBusSubscriber(modid = PiranPort.MODID)
 public final class FuelBurnEvents {
     private static final int CRUDE_OIL_BUCKET_BURN_TIME = 4800;

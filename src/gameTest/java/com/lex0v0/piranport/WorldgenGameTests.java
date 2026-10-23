@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvi
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
+// 验证硝土生成边界及固定种子油湖形状。
 @GameTestHolder(PiranPort.MODID)
 @PrefixGameTestTemplate(false)
 public final class WorldgenGameTests {

@@ -7,15 +7,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 
-/**
- * 石油湖生成配置。
- *
- * @param fluid     湖内流体方块
- * @param barrier   湖底方块
- * @param minRadius 最小水平半径
- * @param maxRadius 最大水平半径
- * @param depth     中心最大深度
- */
+// 定义油湖流体、围壳、半径与深度，并校验半径上下界。
 public record OilLakeConfiguration(
         BlockStateProvider fluid,
         BlockStateProvider barrier,

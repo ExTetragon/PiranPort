@@ -13,9 +13,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 
-/**
- * 客户端流体贴图注册。
- */
+// 仅在客户端注册流体贴图、颜色和透明渲染层。
 @EventBusSubscriber(modid = PiranPort.MODID, value = Dist.CLIENT)
 public final class ModClientEvents {
     private static final IClientFluidTypeExtensions CRUDE_OIL = new IClientFluidTypeExtensions() {

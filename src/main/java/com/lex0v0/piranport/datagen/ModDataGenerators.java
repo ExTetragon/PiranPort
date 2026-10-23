@@ -25,7 +25,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
-/** 生成重复且容易漏项的储存方块战利品及对应物品标签。 */
+// 挂接蓝图资源、矿物掉落和通用物品标签的数据生成。
 @EventBusSubscriber(modid = PiranPort.MODID)
 public final class ModDataGenerators {
     private ModDataGenerators() {}
@@ -33,6 +33,7 @@ public final class ModDataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         var generator = event.getGenerator();
+        generator.addProvider(event.includeServer(), new BlueprintData(generator.getPackOutput(), event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new LootTableProvider(generator.getPackOutput(), Set.of(),
                 List.of(new LootTableProvider.SubProviderEntry(BlockLoot::new, LootContextParamSets.BLOCK)), event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new MineralItemTags(generator.getPackOutput(),

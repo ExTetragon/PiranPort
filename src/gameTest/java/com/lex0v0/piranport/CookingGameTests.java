@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
-/** Exercise the real recipe manager, furnace ticks, consumption and XP creation. */
+// 通过真实配方与炉子流程验证加工、扣料和经验。
 @GameTestHolder(PiranPort.MODID)
 @PrefixGameTestTemplate(false)
 public final class CookingGameTests {

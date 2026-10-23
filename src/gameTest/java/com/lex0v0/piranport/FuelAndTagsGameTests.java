@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.entity.BeaconBlockEntity;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
+// 验证油品燃烧、通用标签和信标材料兼容性。
 @GameTestHolder(PiranPort.MODID)
 @PrefixGameTestTemplate(false)
 public final class FuelAndTagsGameTests {

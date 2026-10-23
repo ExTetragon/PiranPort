@@ -1,6 +1,9 @@
 package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
+import com.lex0v0.piranport.item.blueprint.BlueprintRules;
+import com.lex0v0.piranport.item.blueprint.BlueprintSubclass;
+import com.lex0v0.piranport.item.BlueprintItem;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -11,11 +14,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/**
- * 创造模式标签页注册入口。
- *
- * <p>主标签页会自动收录 {@link ModItems#ITEMS} 中注册的全部物品。
- */
+// 注册主创造栏，普通物品自动收录、图纸展示有效许可示例。
 public final class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PiranPort.MODID);
@@ -23,10 +22,13 @@ public final class ModCreativeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MAIN = CREATIVE_MODE_TABS.register("main",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.piranport.main"))
-                    // 占位图标：注册第一个本模组物品后替换为 ModItems 中的物品。
+                    // 主创造栏暂用铁锭图标。
                     .icon(() -> new ItemStack(Items.IRON_INGOT))
-                    .displayItems((parameters, output) ->
-                            ModItems.ITEMS.getEntries().forEach(item -> output.accept(item.get())))
+                    .displayItems((parameters, output) -> {
+                        ModItems.ITEMS.getEntries().stream().filter(item -> !(item.get() instanceof BlueprintItem))
+                                .forEach(item -> output.accept(item.get()));
+                        for (var subclass : BlueprintSubclass.values()) output.accept(BlueprintRules.create(subclass));
+                    })
                     .build());
 
     private ModCreativeTabs() {

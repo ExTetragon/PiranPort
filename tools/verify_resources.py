@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROOTS = [ROOT / 'src/main/resources', ROOT / 'src/generated/resources']
 errors = []
 resources = {}
+# 手写与生成资源统一检查，相同相对路径视为冲突。
 for base in ROOTS:
     if not base.exists():
         continue
@@ -90,7 +91,45 @@ for food in foods:
 for recipe in ['bauxite_block', 'bauxite_from_block']:
     require(f'data/piranport/recipe/{recipe}.json' in jsons, f'missing bauxite compression recipe: {recipe}')
 
+# 图纸资源同时检查配方、奖励来源和累计收集条件。
+blueprint_base = 'data/piranport/'
+for kind in ['ship', 'equipment']:
+    require(f'assets/piranport/models/item/{kind}_blueprint.json' in jsons, f'missing blueprint model: {kind}')
+    adv = jsons.get(f'{blueprint_base}advancement/blueprints/all_{kind}_types.json', {})
+    criteria = adv.get('criteria', {})
+    require(len(criteria) == (9 if kind == 'ship' else 14), f'{kind}: incorrect collection criterion count')
+    requirements = adv.get('requirements', [])
+    require(len(requirements) == len(criteria) and all(len(row) == 1 for row in requirements)
+            and {row[0] for row in requirements} == set(criteria), f'{kind}: collection must require all criteria')
+    for key, criterion in criteria.items():
+        predicates = criterion.get('conditions', {}).get('items', [{}])[0].get('predicates', {})
+        require(criterion.get('trigger') == 'minecraft:inventory_changed'
+                and predicates.get('piranport:blueprint_permission', {}).get('permission') == f'piranport:{kind}/{key}',
+                f'{kind}/{key}: collection must test permission containment')
+for name in ['merge', 'expand']:
+    require(jsons.get(f'{blueprint_base}recipe/blueprint_{name}.json', {}).get('type') == f'piranport:blueprint_{name}',
+            f'missing dynamic blueprint recipe: {name}')
+require('minecraft:paper' in jsons.get('data/c/tags/item/papers.json', {}).get('values', []), 'missing common paper tag')
+glm = jsons.get('data/neoforge/loot_modifiers/global_loot_modifiers.json', {})
+require(glm.get('replace') is False and set(glm.get('entries', [])) == {
+    'piranport:blueprints_shipwreck', 'piranport:blueprints_buried_treasure'}, 'blueprint GLMs must append exactly two target tables')
+for source, suffix in [('shipwreck_treasure', 'shipwreck'), ('buried_treasure', 'buried_treasure')]:
+    modifier = jsons.get(f'{blueprint_base}loot_modifiers/blueprints_{suffix}.json', {})
+    require(modifier.get('type') == 'neoforge:add_table'
+            and modifier.get('table') == f'piranport:blueprints/{suffix}'
+            and modifier.get('conditions') == [{'condition': 'neoforge:loot_table_id', 'loot_table_id': f'minecraft:chests/{source}'}],
+            f'{suffix}: incorrect additive loot table target')
+blueprint_keys = ['item.piranport.ship_blueprint', 'item.piranport.equipment_blueprint',
+                  'tooltip.piranport.blueprint.group', 'tooltip.piranport.blueprint.separator']
+for language in ['zh_cn', 'en_us']:
+    translations = jsons.get(f'assets/piranport/lang/{language}.json', {})
+    require(all(key in translations for key in blueprint_keys), f'{language}: missing blueprint base translations')
+    require(sum(key.startswith('blueprint_type.piranport.') for key in translations) == 23, f'{language}: missing permission translations')
+    require(translations.get('blueprint_type.piranport.equipment.missile_launcher')
+            == ('导弹发射器' if language == 'zh_cn' else 'Missile Launcher'), f'{language}: incorrect missile launcher translation')
+    require(sum(key.startswith('blueprint_subclass.piranport.') for key in translations) == 6, f'{language}: missing subclass translations')
+
 if errors:
     print('\n'.join('ERROR: ' + error for error in errors))
     sys.exit(1)
-print(f'PASS: {len(jsons)} JSON resources; {len(foods)} food textures; complete solid-block loot and common tags; oil biome/radius/rarity mappings; documented feature commands')
+print(f'PASS: {len(jsons)} JSON resources; {len(foods)} food textures; complete solid-block loot and common tags; oil biome/radius/rarity mappings; documented feature commands; blueprint recipes, loot targets, collection criteria and translations')

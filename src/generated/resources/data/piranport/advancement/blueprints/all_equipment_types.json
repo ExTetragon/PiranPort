@@ -1,0 +1,280 @@
+{
+  "criteria": {
+    "armor": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/armor"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bomber": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/bomber"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "damage_control": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/damage_control"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "depth_charge_projector": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/depth_charge_projector"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "fighter": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/fighter"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "main_gun": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/main_gun"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "missile_launcher": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/missile_launcher"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "propulsion_system": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/propulsion_system"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "quick_repair": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/quick_repair"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "radar": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/radar"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "reconnaissance_aircraft": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/reconnaissance_aircraft"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sonar": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/sonar"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "torpedo_bomber": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/torpedo_bomber"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "torpedo_launcher": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/torpedo_launcher"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/prismarine.png",
+    "description": {
+      "translate": "advancements.piranport.all_equipment_types.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "components": {
+        "piranport:blueprint_content": {
+          "permissions": [
+            "piranport:equipment/armor",
+            "piranport:equipment/bomber",
+            "piranport:equipment/damage_control",
+            "piranport:equipment/depth_charge_projector",
+            "piranport:equipment/fighter",
+            "piranport:equipment/main_gun",
+            "piranport:equipment/missile_launcher",
+            "piranport:equipment/propulsion_system",
+            "piranport:equipment/quick_repair",
+            "piranport:equipment/radar",
+            "piranport:equipment/reconnaissance_aircraft",
+            "piranport:equipment/sonar",
+            "piranport:equipment/torpedo_bomber",
+            "piranport:equipment/torpedo_launcher"
+          ]
+        }
+      },
+      "id": "piranport:equipment_blueprint"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.piranport.all_equipment_types.title"
+    }
+  },
+  "requirements": [
+    [
+      "main_gun"
+    ],
+    [
+      "torpedo_launcher"
+    ],
+    [
+      "depth_charge_projector"
+    ],
+    [
+      "missile_launcher"
+    ],
+    [
+      "armor"
+    ],
+    [
+      "propulsion_system"
+    ],
+    [
+      "radar"
+    ],
+    [
+      "sonar"
+    ],
+    [
+      "quick_repair"
+    ],
+    [
+      "damage_control"
+    ],
+    [
+      "fighter"
+    ],
+    [
+      "bomber"
+    ],
+    [
+      "torpedo_bomber"
+    ],
+    [
+      "reconnaissance_aircraft"
+    ]
+  ]
+}

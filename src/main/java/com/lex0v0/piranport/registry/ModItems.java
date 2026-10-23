@@ -2,6 +2,8 @@ package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.item.FuelBarrelItem;
+import com.lex0v0.piranport.item.BlueprintItem;
+import com.lex0v0.piranport.item.blueprint.BlueprintFamily;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -12,11 +14,14 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-/**
- * 物品注册入口。
- */
+// 集中注册食物、矿物材料、流体容器和蓝图物品。
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PiranPort.MODID);
+
+    public static final DeferredItem<BlueprintItem> SHIP_BLUEPRINT = ITEMS.register("ship_blueprint",
+            () -> new BlueprintItem(BlueprintFamily.SHIP, new Item.Properties().stacksTo(64)));
+    public static final DeferredItem<BlueprintItem> EQUIPMENT_BLUEPRINT = ITEMS.register("equipment_blueprint",
+            () -> new BlueprintItem(BlueprintFamily.EQUIPMENT, new Item.Properties().stacksTo(64)));
 
     // 舰R食物
     public static final DeferredItem<Item> TAPTAP_ICE_CREAM =

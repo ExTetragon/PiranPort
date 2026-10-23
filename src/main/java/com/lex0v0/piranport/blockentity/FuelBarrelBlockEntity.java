@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.blockentity;
 
+import com.lex0v0.piranport.Config;
 import com.lex0v0.piranport.block.FuelBarrelBlock;
 import com.lex0v0.piranport.registry.ModBlockEntities;
 import com.lex0v0.piranport.registry.ModDataComponents;
@@ -16,10 +17,9 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.Nullable;
 
-/** 两格逻辑共享、每格独立持久化。稳定的代理不会留下指向旧 master 的管道引用。 */
+// 管理二格共享储量、独立存档和稳定的流体能力代理。
 public class FuelBarrelBlockEntity extends BlockEntity {
-    public static final int CAPACITY_PER_BLOCK = 32_000;
-    private final FluidTank tank = new FluidTank(CAPACITY_PER_BLOCK) {
+    private final FluidTank tank = new FluidTank(Config.FUEL_BARREL_CAPACITY.get()) {
         @Override
         protected void onContentsChanged() {
             contentsChanged();
@@ -29,6 +29,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     @Nullable
     private BlockPos partnerPos;
     private long placeOrder = -1;
+    private boolean axialConnectionAllowed = Config.FUEL_BARREL_AXIAL_CONNECTION.get();
 
     public FuelBarrelBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FUEL_BARREL.get(), pos, state);
@@ -38,11 +39,20 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         return handler;
     }
 
+    // 每次重新放置读取当前开关，不继承物品携带的旧方块实体策略。
+    public void initializePlacement() {
+        partnerPos = null;
+        placeOrder = -1;
+        axialConnectionAllowed = Config.FUEL_BARREL_AXIAL_CONNECTION.get();
+        setChanged();
+        refreshConnection();
+    }
+
     public FluidStack getStoredFluid() {
         return handler.getFluidInTank(0);
     }
 
-    /** 只写本格，不覆盖邻桶；旧版超额存量完整保留，等待配对分摊或抽出。 */
+    // 仅更新本格储量，保留旧版超额流体等待分摊或抽出。
     public void setStoredFluid(FluidStack stack) {
         tank.setFluid(stack.copy());
         contentsChanged();
@@ -57,6 +67,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         return other == null ? this : chooseMaster(this, other);
     }
 
+    // 只访问已加载邻块，避免查询触发区块加载。
     @Nullable
     private FuelBarrelBlockEntity loadedBarrel(BlockPos pos) {
         if (level == null || !level.hasChunkAt(pos)) return null;
@@ -84,6 +95,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         return a.isEmpty() || b.isEmpty() || FluidStack.isSameFluidSameComponents(a, b);
     }
 
+    // 竖直以下桶为主，水平按放置顺序并用坐标打破同 tick 平局。
     private static FuelBarrelBlockEntity chooseMaster(FuelBarrelBlockEntity a, FuelBarrelBlockEntity b) {
         if (a.getBlockState().getValue(FuelBarrelBlock.AXIS) == Direction.Axis.Y) {
             return a.worldPosition.getY() < b.worldPosition.getY() ? a : b;
@@ -92,7 +104,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         return a.worldPosition.compareTo(b.worldPosition) <= 0 ? a : b;
     }
 
-    /** 已有配对保持不变；第三格只能选择未配对且油品兼容的邻桶。 */
+    // 保留有效配对，仅与空闲且兼容的同轴邻桶连接。
     public void refreshConnection() {
         if (level == null || level.isClientSide || isRemoved()) return;
         if (placeOrder < 0) {
@@ -109,13 +121,14 @@ public class FuelBarrelBlockEntity extends BlockEntity {
             }
             disconnect();
         }
+        if (!axialConnectionAllowed) return;
         Direction.Axis axis = getBlockState().getValue(FuelBarrelBlock.AXIS);
         for (Direction direction : Direction.values()) {
             if (direction.getAxis() != axis) continue;
             FuelBarrelBlockEntity other = loadedBarrel(worldPosition.relative(direction));
-            if (other == null || !adjacentOnAxis(other) || other.partnerPos != null
+            if (other == null || !other.axialConnectionAllowed || !adjacentOnAxis(other) || other.partnerPos != null
                     || !compatible(tank.getFluid(), other.tank.getFluid())
-                    || (long) tank.getFluidAmount() + other.tank.getFluidAmount() > 2L * CAPACITY_PER_BLOCK) continue;
+                    || (long) tank.getFluidAmount() + other.tank.getFluidAmount() > 2L * Config.FUEL_BARREL_CAPACITY.get()) continue;
             if (other.placeOrder < 0) other.placeOrder = level.getGameTime();
             partnerPos = other.worldPosition;
             other.partnerPos = worldPosition;
@@ -127,13 +140,14 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         }
     }
 
-    /** 先检查总量和组件兼容性，再完整分配；不截断、不重建丢失组件的流体。 */
+    // 按优先级分摊兼容流体，保持总量和组件不变。
     private static void rebalance(FuelBarrelBlockEntity preferred, FuelBarrelBlockEntity other) {
         FluidStack a = preferred.tank.getFluid();
         FluidStack b = other.tank.getFluid();
         long total = (long) a.getAmount() + b.getAmount();
-        if (!compatible(a, b) || total > 2L * CAPACITY_PER_BLOCK) return;
-        int first = (int) Math.min(CAPACITY_PER_BLOCK, total);
+        int capacity = Config.FUEL_BARREL_CAPACITY.get();
+        if (!compatible(a, b) || total - Math.min(capacity, total) > Integer.MAX_VALUE) return;
+        int first = (int) Math.min(capacity, total);
         int second = (int) total - first;
         if (a.getAmount() == first && b.getAmount() == second) return;
         FluidStack fluid = a.isEmpty() ? b : a;
@@ -152,14 +166,14 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         disconnect();
     }
 
-    /** 玩家采集前让留下的桶优先装满，其余流体通过本格的战利品组件带走。 */
+    // 采集前优先填满留下的桶，余量随本格掉落。
     public void prepareForPlayerRemoval() {
         FuelBarrelBlockEntity other = getPartner();
         if (other != null) rebalance(other, this);
         disconnect();
     }
 
-    /** 爆炸可能已生成战利品，这里只断开关系，不再次搬移或结算流体。 */
+    // 仅断开配对，避免战利品生成后再次转移流体。
     public void disconnect() {
         FuelBarrelBlockEntity other = partnerPos == null ? null : loadedBarrel(partnerPos);
         partnerPos = null;
@@ -180,6 +194,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         }
     }
 
+    // 连接变化同步更新比较器并使外部能力缓存失效。
     private void connectionChanged() {
         contentsChanged();
         if (level != null && !level.isClientSide) level.invalidateCapabilities(worldPosition);
@@ -203,23 +218,26 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         tag.put("Fluid", tank.getFluid().saveOptional(registries));
         tag.putInt("StorageVersion", 2);
         tag.putLong("PlaceOrder", placeOrder);
+        tag.putBoolean("AxialConnectionAllowed", axialConnectionAllowed);
         if (partnerPos != null) tag.putLong("Partner", partnerPos.asLong());
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        // 兼容旧版 Fluid/PlaceOrder；旧版 master 的 64000 mB 先完整读入，再分摊。
+        // 完整读入旧版超额储量，保留内容等待抽出或安全分摊。
         tank.setFluid(FluidStack.parseOptional(registries, tag.getCompound("Fluid")));
         placeOrder = tag.contains("PlaceOrder") ? tag.getLong("PlaceOrder") : -1;
         partnerPos = tag.contains("Partner") ? BlockPos.of(tag.getLong("Partner")) : null;
+        // 旧存档未记录策略，按原有允许连接的行为读取。
+        axialConnectionAllowed = !tag.contains("AxialConnectionAllowed") || tag.getBoolean("AxialConnectionAllowed");
     }
 
     @Override
     protected void applyImplicitComponents(DataComponentInput input) {
         super.applyImplicitComponents(input);
         SimpleFluidContent stored = input.get(ModDataComponents.FLUID_CONTENT.get());
-        // vanilla 在消耗手中物品之前调用，仅恢复本格，然后才建立连接。
+        // 在手中物品消耗前恢复本格，连接稍后建立。
         tank.setFluid(stored == null ? FluidStack.EMPTY : stored.copy());
     }
 
@@ -229,6 +247,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         if (!tank.isEmpty()) components.set(ModDataComponents.FLUID_CONTENT.get(), SimpleFluidContent.copyOf(tank.getFluid()));
     }
 
+    // 保持代理对象稳定，每次调用重新解析当前伙伴。
     private final class SharedHandler implements IFluidHandler {
         private boolean usable() {
             return level != null && !level.isClientSide && !isRemoved();
@@ -249,8 +268,9 @@ public class FuelBarrelBlockEntity extends BlockEntity {
 
         @Override
         public int getTankCapacity(int index) {
-            // 旧版孤立超额存量可继续抽出，但 fill 仍采用正常上限，不能继续灌入。
-            return Math.max(getPartner() == null ? CAPACITY_PER_BLOCK : 2 * CAPACITY_PER_BLOCK,
+            // 旧版超额存量允许抽出，灌入仍受正常容量限制。
+            int capacity = Config.FUEL_BARREL_CAPACITY.get();
+            return Math.max(getPartner() == null ? capacity : 2 * capacity,
                     getFluidInTank(index).getAmount());
         }
 
@@ -263,14 +283,22 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         public int fill(FluidStack resource, FluidAction action) {
             if (!usable() || resource.isEmpty() || !isFluidValid(0, resource)) return 0;
             FuelBarrelBlockEntity other = getPartner();
-            int capacity = other == null ? CAPACITY_PER_BLOCK : 2 * CAPACITY_PER_BLOCK;
+            int perBlock = Config.FUEL_BARREL_CAPACITY.get();
+            int capacity = other == null ? perBlock : 2 * perBlock;
             int accepted = Math.min(resource.getAmount(), Math.max(0, capacity - getFluidInTank(0).getAmount()));
             if (accepted == 0 || action.simulate()) return accepted;
             FuelBarrelBlockEntity master = other == null ? FuelBarrelBlockEntity.this : getMaster();
             FuelBarrelBlockEntity second = other == null ? null : master == FuelBarrelBlockEntity.this ? other : FuelBarrelBlockEntity.this;
-            int first = master.tank.fill(resource.copyWithAmount(accepted), action);
-            if (second != null && accepted > first) second.tank.fill(resource.copyWithAmount(accepted - first), action);
-            return accepted;
+            // 原生 FluidTank 向超额桶灌入会截断存量，必须先跳过已满的本格。
+            int filled = fillLocal(master, resource, accepted, perBlock);
+            if (second != null && accepted > filled) filled += fillLocal(second, resource, accepted - filled, perBlock);
+            return filled;
+        }
+
+        private int fillLocal(FuelBarrelBlockEntity target, FluidStack resource, int amount, int capacity) {
+            if (target.tank.getFluidAmount() >= capacity) return 0;
+            target.tank.setCapacity(capacity);
+            return target.tank.fill(resource.copyWithAmount(amount), FluidAction.EXECUTE);
         }
 
         @Override

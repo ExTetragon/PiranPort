@@ -11,7 +11,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 
-/** Runs only in the opt-in, isolated natural-generation server. Never shipped in the mod jar. */
+// 独立采样自然生成，仅显式启用且不进入发行包。
 @EventBusSubscriber(modid = PiranPort.MODID)
 public final class WorldgenAcceptance {
     private static final java.util.Map<ResourceKey<Level>, java.util.Set<Long>> VISITED = new java.util.HashMap<>();

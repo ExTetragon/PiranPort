@@ -1,0 +1,2415 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": {
+            "type": "minecraft:chest",
+            "pools": [
+              {
+                "entries": [
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/battleship"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/battlecruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/aircraft_carrier"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/battlecruiser",
+                                                  "piranport:ship/battleship"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/aircraft_carrier",
+                                                  "piranport:ship/battleship"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/aircraft_carrier",
+                                                  "piranport:ship/battlecruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/aircraft_carrier",
+                                                  "piranport:ship/battlecruiser",
+                                                  "piranport:ship/battleship"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/heavy_cruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/light_aircraft_carrier"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/light_cruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/heavy_cruiser",
+                                                  "piranport:ship/light_aircraft_carrier"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/heavy_cruiser",
+                                                  "piranport:ship/light_cruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/light_aircraft_carrier",
+                                                  "piranport:ship/light_cruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/heavy_cruiser",
+                                                  "piranport:ship/light_aircraft_carrier",
+                                                  "piranport:ship/light_cruiser"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/monitor"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/destroyer"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/submarine"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/destroyer",
+                                                  "piranport:ship/monitor"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/monitor",
+                                                  "piranport:ship/submarine"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/destroyer",
+                                                  "piranport:ship/submarine"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:ship/destroyer",
+                                                  "piranport:ship/monitor",
+                                                  "piranport:ship/submarine"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:ship_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "rolls": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": {
+            "type": "minecraft:chest",
+            "pools": [
+              {
+                "entries": [
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/main_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/missile_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/main_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/missile_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/missile_launcher",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/missile_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/missile_launcher",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/missile_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/missile_launcher",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/depth_charge_projector",
+                                                  "piranport:equipment/main_gun",
+                                                  "piranport:equipment/missile_launcher",
+                                                  "piranport:equipment/torpedo_launcher"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "minecraft:loot_table",
+                    "value": {
+                      "type": "minecraft:chest",
+                      "pools": [
+                        {
+                          "entries": [
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/fighter"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/reconnaissance_aircraft"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/fighter"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/reconnaissance_aircraft"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/reconnaissance_aircraft"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/reconnaissance_aircraft",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/reconnaissance_aircraft"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/reconnaissance_aircraft",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/reconnaissance_aircraft",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/bomber",
+                                                  "piranport:equipment/fighter",
+                                                  "piranport:equipment/reconnaissance_aircraft",
+                                                  "piranport:equipment/torpedo_bomber"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "rolls": 1
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "rolls": 1
+              }
+            ]
+          }
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}

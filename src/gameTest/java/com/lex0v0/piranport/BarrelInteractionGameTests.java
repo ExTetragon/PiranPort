@@ -29,6 +29,7 @@ import net.neoforged.neoforge.fluids.capability.IFluidHandler.FluidAction;
 import net.neoforged.neoforge.gametest.GameTestHolder;
 import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
+// 验证燃料桶的桶交互、采集和外部容器行为。
 @GameTestHolder(PiranPort.MODID)
 @PrefixGameTestTemplate(false)
 public final class BarrelInteractionGameTests {
@@ -53,14 +54,14 @@ public final class BarrelInteractionGameTests {
         var barrel = place(h, A, Direction.Axis.Y);
         var player = h.makeMockPlayer(GameType.SURVIVAL);
         for (var oil : java.util.List.of(ModItems.CRUDE_OIL_BUCKET.get(), ModItems.FUEL_OIL_BUCKET.get())) {
-            for (int n = 0; n < 32; n++) {
+            for (int n = 0; n < 16; n++) {
                 use(h, A, player, new ItemStack(oil));
                 h.assertTrue(player.getMainHandItem().is(Items.BUCKET)
                         && barrel.getStoredFluid().getAmount() == (n + 1) * 1000, "bucket fills 1000 mB");
             }
             use(h, A, player, new ItemStack(oil));
-            h.assertTrue(player.getMainHandItem().is(oil) && barrel.getStoredFluid().getAmount() == 32000, "full barrel rejects without consuming bucket");
-            for (int n = 31; n >= 0; n--) {
+            h.assertTrue(player.getMainHandItem().is(oil) && barrel.getStoredFluid().getAmount() == 16000, "full barrel rejects without consuming bucket");
+            for (int n = 15; n >= 0; n--) {
                 use(h, A, player, new ItemStack(Items.BUCKET));
                 h.assertTrue(player.getMainHandItem().is(oil)
                         && barrel.getStoredFluid().getAmount() == n * 1000, "empty bucket extracts 1000 mB");
@@ -90,11 +91,11 @@ public final class BarrelInteractionGameTests {
             first.refreshConnection();
             var handler = first.getFluidHandler(null);
             h.assertTrue(first.getMaster() == first && second.getMaster() == first, "earlier placement wins even at larger coordinate");
-            h.assertTrue(handler.fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 65000), FluidAction.EXECUTE) == 64000
-                    && handler.fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 1000), FluidAction.EXECUTE) == 0, "pair has exact 64000 capacity");
-            h.assertTrue(local(h, first) == 32000 && local(h, second) == 32000, "both local shares capped");
+            h.assertTrue(handler.fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 33000), FluidAction.EXECUTE) == 32000
+                    && handler.fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 1000), FluidAction.EXECUTE) == 0, "pair has exact 32000 capacity");
+            h.assertTrue(local(h, first) == 16000 && local(h, second) == 16000, "both local shares capped");
             handler.drain(1000, FluidAction.EXECUTE);
-            h.assertTrue(local(h, first) == 32000 && local(h, second) == 31000, "drain non-master first");
+            h.assertTrue(local(h, first) == 16000 && local(h, second) == 15000, "drain non-master first");
         }
         h.succeed();
     }
@@ -104,13 +105,13 @@ public final class BarrelInteractionGameTests {
         var lower = place(h, A, Direction.Axis.Y);
         var upper = place(h, A.above(), Direction.Axis.Y);
         lower.refreshConnection();
-        lower.getFluidHandler(null).fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 40000), FluidAction.EXECUTE);
+        lower.getFluidHandler(null).fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 20000), FluidAction.EXECUTE);
         var player = h.makeMockPlayer(GameType.SURVIVAL);
         for (var axis : java.util.List.of(Direction.Axis.X, Direction.Axis.Z, Direction.Axis.Y)) {
             use(h, A, player, new ItemStack(Items.IRON_AXE));
             h.assertTrue(h.getBlockState(A).getValue(FuelBarrelBlock.AXIS) == axis, "axe cycle Y-X-Z-Y");
-            h.assertTrue(local(h, lower) + local(h, upper) == 40000, "axis change conserves local shares");
-            h.assertTrue(lower.getFluidHandler(null).getTankCapacity(0) == (axis == Direction.Axis.Y ? 64000 : 32000), "only matching axis reconnects");
+            h.assertTrue(local(h, lower) + local(h, upper) == 20000, "axis change conserves local shares");
+            h.assertTrue(lower.getFluidHandler(null).getTankCapacity(0) == (axis == Direction.Axis.Y ? 32000 : 16000), "only matching axis reconnects");
         }
         h.succeed();
     }
@@ -121,8 +122,8 @@ public final class BarrelInteractionGameTests {
         var second = place(h, A.above(), Direction.Axis.X);
         first.refreshConnection();
         second.refreshConnection();
-        h.assertTrue(first.getFluidHandler(null).getTankCapacity(0) == 32000
-                && second.getFluidHandler(null).getTankCapacity(0) == 32000, "mixed axes remain independent");
+        h.assertTrue(first.getFluidHandler(null).getTankCapacity(0) == 16000
+                && second.getFluidHandler(null).getTankCapacity(0) == 16000, "mixed axes remain independent");
         var cached = first.getFluidHandler(null);
         h.getLevel().setBlock(h.absolutePos(A), Blocks.STONE.defaultBlockState(), Block.UPDATE_ALL);
         h.assertTrue(cached.fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 1000), FluidAction.EXECUTE) == 0
@@ -135,9 +136,9 @@ public final class BarrelInteractionGameTests {
         var lower = place(h, A, Direction.Axis.Y);
         var upper = place(h, A.above(), Direction.Axis.Y);
         lower.refreshConnection();
-        lower.getFluidHandler(null).fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 40000), FluidAction.EXECUTE);
+        lower.getFluidHandler(null).fill(new FluidStack(ModFluids.CRUDE_OIL.get(), 20000), FluidAction.EXECUTE);
         h.getLevel().setBlock(h.absolutePos(A), Blocks.STONE.defaultBlockState(), Block.UPDATE_ALL);
-        h.assertTrue(upper.getStoredFluid().getAmount() == 8000 && upper.getFluidHandler(null).getTankCapacity(0) == 32000,
+        h.assertTrue(upper.getStoredFluid().getAmount() == 4000 && upper.getFluidHandler(null).getTankCapacity(0) == 16000,
                 "replacement discards only removed local share");
         h.assertTrue(h.getLevel().getEntitiesOfClass(ItemEntity.class, new AABB(h.absolutePos(A)).inflate(2)).isEmpty(), "replacement creates no drops");
         h.succeed();
@@ -226,9 +227,9 @@ public final class BarrelInteractionGameTests {
     @GameTest(template = "empty")
     public static void comparatorEmptyHalfFull(GameTestHelper h) {
         var barrel = place(h, A, Direction.Axis.Y);
-        for (int amount : new int[]{0, 16000, 32000}) {
+        for (int amount : new int[]{0, 8000, 16000}) {
             barrel.setStoredFluid(amount == 0 ? FluidStack.EMPTY : new FluidStack(ModFluids.CRUDE_OIL.get(), amount));
-            int expected = amount == 0 ? 0 : amount == 16000 ? 7 : 15;
+            int expected = amount == 0 ? 0 : amount == 8000 ? 7 : 15;
             h.assertTrue(ModBlocks.FUEL_BARREL.get().getAnalogOutputSignal(barrel.getBlockState(), h.getLevel(), h.absolutePos(A)) == expected,
                     "block comparator output: " + expected);
         }

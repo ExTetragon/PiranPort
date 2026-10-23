@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
-/** 先构建并验证整个油湖，再统一写入。只替换明确允许的天然地形。 */
+// 整体预检油湖范围与围壳，通过后统一写入天然地形。
 public class OilLakeFeature extends Feature<OilLakeConfiguration> {
     private static final int FLOOR_SEARCH_DISTANCE = 24;
     private static final TagKey<Block> REPLACEABLE = TagKey.create(Registries.BLOCK,
@@ -41,7 +41,7 @@ public class OilLakeFeature extends Feature<OilLakeConfiguration> {
                 if (distance >= 1.0) continue;
                 int depth = Math.max(1, (int) Math.round(config.depth() * (1.0 - distance)));
                 BlockPos surface = floor.offset(dx, 0, dz);
-                // 湖面略低于中心地面，允许清除少量天然起伏，避免只在完全平坦地形生成。
+                // 湖面略低于中心地面，以适应天然起伏。
                 for (int up = 1; up <= 3; up++) {
                     BlockPos above = surface.above(up);
                     if (level.isOutsideBuildHeight(above) || !level.ensureCanWrite(above)) return false;
@@ -63,7 +63,7 @@ public class OilLakeFeature extends Feature<OilLakeConfiguration> {
         }
         for (BlockPos pos : fluid) if (!safeTerrain(level, pos)) return false;
         for (BlockPos pos : shell) if (!safeTerrain(level, pos)) return false;
-        // 此前没有任何世界写入。失败时整座湖不生成，不留下部分流体或破坏结构。
+        // 全部预检通过后才写入，失败不留部分湖体。
         for (BlockPos pos : clearance) level.setBlock(pos, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
         for (BlockPos pos : shell) level.setBlock(pos, config.barrier().getState(random, pos), Block.UPDATE_CLIENTS);
         for (BlockPos pos : fluid) level.setBlock(pos, config.fluid().getState(random, pos), Block.UPDATE_CLIENTS);

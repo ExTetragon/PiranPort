@@ -50,7 +50,7 @@ import net.neoforged.neoforge.gametest.PrefixGameTestTemplate;
 
 @GameTestHolder("piranport")
 @PrefixGameTestTemplate(false)
-/** Restored from the historical regression bytecode; assertions retain their original scope. */
+// 从历史字节码恢复矿物与燃料桶回归，保留原有断言范围。
 public final class MineralGameTests {
     private static final BlockPos A = new BlockPos(3, 2, 3);
     private static final BlockPos B = A.above();
@@ -88,14 +88,14 @@ public final class MineralGameTests {
         FuelBarrelBlockEntity upper = (FuelBarrelBlockEntity)h.getBlockEntity(B);
         lower.saveWithFullMetadata(h.getLevel().registryAccess());
         upper.saveWithFullMetadata(h.getLevel().registryAccess());
-        lower.getFluidHandler(null).fill(oil(40000), EXECUTE);
-        h.assertTrue(localAmount(h, lower) == 32000 && localAmount(h, upper) == 8000, "each member must save its own share");
+        lower.getFluidHandler(null).fill(oil(20000), EXECUTE);
+        h.assertTrue(localAmount(h, lower) == 16000 && localAmount(h, upper) == 4000, "each member must save its own share");
         CompoundTag savedA = lower.saveWithFullMetadata(h.getLevel().registryAccess());
         CompoundTag savedB = upper.saveWithFullMetadata(h.getLevel().registryAccess());
         lower.loadWithComponents(savedA, h.getLevel().registryAccess());
         upper.loadWithComponents(savedB, h.getLevel().registryAccess());
         lower.refreshConnection();
-        h.assertTrue(amount(lower) == 40000 && amount(upper) == 40000, "shared volume must survive NBT roundtrip");
+        h.assertTrue(amount(lower) == 20000 && amount(upper) == 20000, "shared volume must survive NBT roundtrip");
         h.succeed();
     }
 
@@ -104,13 +104,13 @@ public final class MineralGameTests {
         h.setBlock(A.below(), Blocks.STONE);
         Player player = h.makeMockPlayer(GameType.SURVIVAL);
         ItemStack stack = new ItemStack(ModItems.FUEL_BARREL_ITEM.get());
-        stack.set(ModDataComponents.FLUID_CONTENT.get(), SimpleFluidContent.copyOf(oil(24000)));
+        stack.set(ModDataComponents.FLUID_CONTENT.get(), SimpleFluidContent.copyOf(oil(12000)));
         player.setItemInHand(InteractionHand.MAIN_HAND, stack);
         BlockPos ground = h.absolutePos(A.below());
         BlockHitResult hit = new BlockHitResult(Vec3.atCenterOf(ground), Direction.UP, ground, false);
         InteractionResult result = (ModItems.FUEL_BARREL_ITEM.get()).place(new BlockPlaceContext(player, InteractionHand.MAIN_HAND, stack, hit));
         FuelBarrelBlockEntity placed = (FuelBarrelBlockEntity)h.getBlockEntity(A);
-        h.assertTrue(result.consumesAction() && stack.isEmpty() && amount(placed) == 24000, "last item must restore before consumption");
+        h.assertTrue(result.consumesAction() && stack.isEmpty() && amount(placed) == 12000, "last item must restore before consumption");
         h.succeed();
     }
 
@@ -133,12 +133,12 @@ public final class MineralGameTests {
     public static void thirdBarrelPreservesExistingPair(GameTestHelper h) {
         FuelBarrelBlockEntity lower = pair(h);
         IFluidHandler tank = lower.getFluidHandler(null);
-        h.assertTrue(tank.fill(oil(64000), EXECUTE) == 64000, "pair capacity");
+        h.assertTrue(tank.fill(oil(32000), EXECUTE) == 32000, "pair capacity");
         FuelBarrelBlockEntity third = barrel(h, B.above(), Axis.Y);
         third.refreshConnection();
         lower.refreshConnection();
-        h.assertTrue(tank.getTankCapacity(0) == 64000 && amount(lower) == 64000, "third must not dissolve pair");
-        h.assertTrue(third.getFluidHandler(null).getTankCapacity(0) == 32000 && amount(third) == 0, "third stays independent");
+        h.assertTrue(tank.getTankCapacity(0) == 32000 && amount(lower) == 32000, "third must not dissolve pair");
+        h.assertTrue(third.getFluidHandler(null).getTankCapacity(0) == 16000 && amount(third) == 0, "third stays independent");
         h.succeed();
     }
 
@@ -152,7 +152,7 @@ public final class MineralGameTests {
         lower.refreshConnection();
         upper.refreshConnection();
         h.assertTrue(amount(lower) == 12000 && amount(upper) == 14000, "mixed oils must remain independently accessible");
-        h.assertTrue(lower.getFluidHandler(null).getTankCapacity(0) == 32000, "mixed oils must not gain shared capacity");
+        h.assertTrue(lower.getFluidHandler(null).getTankCapacity(0) == 16000, "mixed oils must not gain shared capacity");
         h.succeed();
     }
 
@@ -162,13 +162,13 @@ public final class MineralGameTests {
         IFluidHandler cached = upper.getFluidHandler(null);
         FuelBarrelBlockEntity lower = barrel(h, A, Axis.Y);
         lower.refreshConnection();
-        cached.fill(oil(40000), EXECUTE);
+        cached.fill(oil(20000), EXECUTE);
         upper.detachForAxisChange();
         h.getLevel().setBlock(h.absolutePos(B), upper.getBlockState().setValue(FuelBarrelBlock.AXIS, Axis.X), 3);
         upper.refreshConnection();
-        h.assertTrue(cached == upper.getFluidHandler(null) && cached.getTankCapacity(0) == 32000, "handler identity must stay stable");
+        h.assertTrue(cached == upper.getFluidHandler(null) && cached.getTankCapacity(0) == 16000, "handler identity must stay stable");
         cached.drain(1000, EXECUTE);
-        h.assertTrue(amount(lower) == 32000 && amount(upper) == 7000, "cached handler must operate its own member after split");
+        h.assertTrue(amount(lower) == 16000 && amount(upper) == 3000, "cached handler must operate its own member after split");
         h.succeed();
     }
 
@@ -177,11 +177,11 @@ public final class MineralGameTests {
         FuelBarrelBlockEntity barrel = barrel(h, A, Axis.Y);
         LevelChunk chunk = h.getLevel().getChunkAt(h.absolutePos(A));
         chunk.setUnsaved(false);
-        barrel.getFluidHandler(null).fill(oil(16000), EXECUTE);
+        barrel.getFluidHandler(null).fill(oil(8000), EXECUTE);
         h.assertTrue(chunk.isUnsaved(), "fill must dirty chunk");
         h.assertTrue(barrel.getBlockState().hasAnalogOutputSignal() && barrel.getComparatorOutput() == 7, "half-full comparator");
         chunk.setUnsaved(false);
-        barrel.getFluidHandler(null).drain(16000, EXECUTE);
+        barrel.getFluidHandler(null).drain(8000, EXECUTE);
         h.assertTrue(chunk.isUnsaved() && barrel.getComparatorOutput() == 0, "drain must dirty chunk and reset comparator");
         h.succeed();
     }
@@ -190,16 +190,16 @@ public final class MineralGameTests {
     public static void simulationDoesNotChangeVolume(GameTestHelper h) {
         FuelBarrelBlockEntity lower = pair(h);
         IFluidHandler tank = lower.getFluidHandler(null);
-        h.assertTrue(tank.fill(oil(70000), SIMULATE) == 64000 && amount(lower) == 0, "fill simulation");
-        tank.fill(oil(40000), EXECUTE);
-        h.assertTrue(tank.drain(50000, SIMULATE).getAmount() == 40000 && amount(lower) == 40000, "drain simulation");
+        h.assertTrue(tank.fill(oil(35000), SIMULATE) == 32000 && amount(lower) == 0, "fill simulation");
+        tank.fill(oil(20000), EXECUTE);
+        h.assertTrue(tank.drain(25000, SIMULATE).getAmount() == 20000 && amount(lower) == 20000, "drain simulation");
         h.succeed();
     }
 
     @GameTest(template = "empty")
     public static void playerBreakPreservesRemainderInDrop(GameTestHelper h) {
         FuelBarrelBlockEntity lower = pair(h);
-        lower.getFluidHandler(null).fill(oil(40000), EXECUTE);
+        lower.getFluidHandler(null).fill(oil(20000), EXECUTE);
         BlockPos pos = h.absolutePos(A);
         BlockState state = lower.getBlockState();
         Player player = h.makeMockPlayer(GameType.SURVIVAL);
@@ -218,14 +218,14 @@ public final class MineralGameTests {
             .filter(s -> s != null)
             .mapToInt(SimpleFluidContent::getAmount)
             .sum();
-        h.assertTrue(amount(remaining) == 32000 && dropped == 8000, "remaining plus drop must equal original volume");
+        h.assertTrue(amount(remaining) == 16000 && dropped == 4000, "remaining plus drop must equal original volume");
         h.succeed();
     }
 
     @GameTest(template = "empty")
     public static void nonPlayerRemovalDoesNotDuplicateOil(GameTestHelper h) {
         FuelBarrelBlockEntity lower = pair(h);
-        lower.getFluidHandler(null).fill(oil(40000), EXECUTE);
+        lower.getFluidHandler(null).fill(oil(20000), EXECUTE);
         h.getLevel().destroyBlock(h.absolutePos(A), true);
         FuelBarrelBlockEntity remaining = (FuelBarrelBlockEntity)h.getBlockEntity(B);
         int dropped = h.getLevel()
@@ -237,7 +237,7 @@ public final class MineralGameTests {
             .mapToInt(SimpleFluidContent::getAmount)
             .sum();
         h.assertTrue(
-            amount(remaining) + dropped == 40000 && remaining.getFluidHandler(null).getTankCapacity(0) == 32000,
+            amount(remaining) + dropped == 20000 && remaining.getFluidHandler(null).getTankCapacity(0) == 16000,
             "loot-before-removal must not double-transfer fluid"
         );
         h.succeed();
@@ -254,7 +254,10 @@ public final class MineralGameTests {
         h.assertTrue(amount(lower) == 64000 && lower.getFluidHandler(null).fill(oil(1000), EXECUTE) == 0, "legacy overflow must not be truncated or refillable");
         FuelBarrelBlockEntity upper = barrel(h, B, Axis.Y);
         lower.refreshConnection();
-        h.assertTrue(localAmount(h, lower) == 32000 && localAmount(h, upper) == 32000, "legacy master must redistribute on reconnection");
+        h.assertTrue(amount(lower) == 64000 && amount(upper) == 0, "overfull legacy master stays independent until safe to pair");
+        lower.getFluidHandler(null).drain(32000, EXECUTE);
+        lower.refreshConnection();
+        h.assertTrue(localAmount(h, lower) == 16000 && localAmount(h, upper) == 16000, "legacy master redistributes without losing remaining oil");
         h.succeed();
     }
 
