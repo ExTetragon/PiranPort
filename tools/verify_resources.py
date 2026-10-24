@@ -129,7 +129,54 @@ for language in ['zh_cn', 'en_us']:
             == ('导弹发射器' if language == 'zh_cn' else 'Missile Launcher'), f'{language}: incorrect missile launcher translation')
     require(sum(key.startswith('blueprint_subclass.piranport.') for key in translations) == 6, f'{language}: missing subclass translations')
 
+# 核心图标按舰名独立映射，区域标签由 provider 生成。
+ship_source = (ROOT / 'src/main/java/com/lex0v0/piranport/domain/ship/ShipDefinitions.java').read_text(encoding='utf-8')
+ships = re.findall(r'ship\("([a-z0-9_]+)"', ship_source)
+require(len(ships) == 10 and len(set(ships)) == 10, 'rigging: expected ten unique ship definitions')
+core_model = jsons.get('assets/piranport/models/item/rigging_core.json', {})
+expected_overrides = [{'predicate': {f'piranport:ship/{ship}': 1}, 'model': f'piranport:item/rigging_core/{ship}'} for ship in ships]
+require(core_model.get('overrides') == expected_overrides, 'rigging: incorrect ship model mapping')
+require(core_model.get('textures', {}).get('layer0') == 'minecraft:item/heart_of_the_sea', 'rigging: missing fallback icon')
+icons = []
+for ship in ships:
+    path = f'assets/piranport/models/item/rigging_core/{ship}.json'
+    model = jsons.get(path, {})
+    require(model.get('parent') == 'minecraft:item/generated'
+            and model.get('textures', {}).get('layer0') == f'piranport:item/rigging_core/{ship}', f'{ship}: incorrect core submodel')
+    texture = resources.get(f'assets/piranport/textures/item/rigging_core/{ship}.png')
+    if texture:
+        content = texture.read_bytes()
+        require(content[:8] == bytes([137,80,78,71,13,10,26,10]) and struct.unpack('>II', content[16:24]) == (16,16), f'{ship}: expected 16x16 core icon')
+        icons.append(content)
+require(len(icons) == 10 and len(set(icons)) == 10, 'rigging: all ten icons must be distinct')
+for region in ['weapons', 'aircraft', 'devices']:
+    require(jsons.get(f'data/piranport/tags/item/{region}.json', {}).get('values') == [], f'rigging: missing empty equipment tag {region}')
+ammunition_points = {'main_gun_ammunition': 2, 'torpedo': 2, 'depth_charge': 1, 'missile': 4}
+require(set(jsons.get('data/piranport/tags/item/ammunition.json', {}).get('values', []))
+        == {f'piranport:{item}' for item in ammunition_points}, 'shipyard: incorrect ammunition tag')
+shipyard_recipes = {path: value for path, value in jsons.items() if path.startswith('data/piranport/recipe/shipyard/')}
+require(len(shipyard_recipes) == 10, 'shipyard: expected ten construction recipes')
+require({value.get('ship') for value in shipyard_recipes.values()} == {f'piranport:{ship}' for ship in ships}, 'shipyard: recipe identities mismatch')
+for path, recipe in shipyard_recipes.items():
+    require(recipe.get('type') == 'piranport:shipyard' and 0 <= recipe.get('fuel', -1) <= 32000
+            and 0 <= recipe.get('ammunition', -1) <= 2147483647 and recipe.get('ammunition', -1) % 4 == 0
+            and 0 <= recipe.get('steel', -1) <= 2147483647 // 9
+            and 0 <= recipe.get('aluminum', -1) <= 2147483647 // 9
+            and 0 < recipe.get('seconds', -1) <= 2147483647 // 20, f'{path}: invalid shipyard recipe values')
+require('assets/piranport/sounds/shipyard_complete.ogg' in resources, 'shipyard: missing completion sound')
+require('assets/piranport/textures/gui/shipyard.png' in resources, 'shipyard: missing GUI background')
+for code in ['zh_cn', 'en_us']:
+    translations = jsons.get(f'assets/piranport/lang/{code}.json', {})
+    require(all(f'ship.piranport.{ship}' in translations for ship in ships), f'{code}: missing ship names')
+    require(sum(k.startswith('ship_type.piranport.') for k in translations) == 9, f'{code}: missing shared ship types')
+    require(sum(k.startswith('ship_size.piranport.') for k in translations) == 3, f'{code}: missing shared ship sizes')
+    require(all(f'tooltip.piranport.rigging.{field}' in translations for field in [
+        'ship', 'size', 'proficiency', 'durability', 'armor', 'speed', 'fuel', 'weapons', 'equipment', 'ammunition', 'cargo',
+        'invalid.missing', 'invalid.unknown_ship', 'invalid.unknown_type', 'invalid.mismatch', 'raw_identity']), f'{code}: missing core tooltip resources')
+    require(translations.get('tooltip.piranport.rigging.size') == ('船型：%s - %s' if code == 'zh_cn' else 'Size: %s - %s'),
+            f'{code}: incorrect combined ship classification or spacing')
+
 if errors:
     print('\n'.join('ERROR: ' + error for error in errors))
     sys.exit(1)
-print(f'PASS: {len(jsons)} JSON resources; {len(foods)} food textures; complete solid-block loot and common tags; oil biome/radius/rarity mappings; documented feature commands; blueprint recipes, loot targets, collection criteria and translations')
+print(f'PASS: {len(jsons)} JSON resources; {len(foods)} food textures; solid-block loot and tags; oil mappings; documented commands; blueprints; ten rigging models/icons and bilingual resources')

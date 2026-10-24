@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:glowworm",
+  "fuel": 1000,
+  "ammunition": 16,
+  "steel": 8,
+  "aluminum": 4,
+  "seconds": 45
+}

@@ -2,6 +2,7 @@ package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.blockentity.FuelBarrelBlockEntity;
+import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -18,6 +19,8 @@ public final class ModBlockEntities {
             BLOCK_ENTITIES.register("fuel_barrel", () -> BlockEntityType.Builder
                     .of(FuelBarrelBlockEntity::new, ModBlocks.FUEL_BARREL.get())
                     .build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShipyardBlockEntity>> SHIPYARD =
+            BLOCK_ENTITIES.register("shipyard", () -> BlockEntityType.Builder.of(ShipyardBlockEntity::new, ModBlocks.SHIPYARD.get()).build(null));
 
     private ModBlockEntities() {
     }

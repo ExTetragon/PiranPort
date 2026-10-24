@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:u47",
+  "fuel": 1000,
+  "ammunition": 24,
+  "steel": 12,
+  "aluminum": 6,
+  "seconds": 60
+}

@@ -1,0 +1,1027 @@
+{
+  "schema": 1,
+  "description": "full covers the stated server-side behavior; partial never auto-completes the checklist.",
+  "checks": {
+    "E1": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.bauxite_smelting"
+      ],
+      "note": ""
+    },
+    "E2": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.bauxite_ore_smelting"
+      ],
+      "note": ""
+    },
+    "E3": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.bauxite_blasting",
+        "CookingGameTests.bauxite_ore_blasting"
+      ],
+      "note": ""
+    },
+    "E4": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.steel_ingot_blasting",
+        "CookingGameTests.steelRequiresBlastFurnace"
+      ],
+      "note": ""
+    },
+    "E5": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.steel_nugget_blasting"
+      ],
+      "note": ""
+    },
+    "E6": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.steel_block_blasting"
+      ],
+      "note": ""
+    },
+    "E7": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.crude_oil_bucket_smelting",
+        "CookingGameTests.crude_oil_bucket_blasting"
+      ],
+      "note": ""
+    },
+    "E8": {
+      "coverage": "full",
+      "tests": [
+        "CookingGameTests.bauxite_smelting",
+        "CookingGameTests.bauxite_ore_smelting",
+        "CookingGameTests.bauxite_blasting",
+        "CookingGameTests.bauxite_ore_blasting",
+        "CookingGameTests.steel_ingot_blasting",
+        "CookingGameTests.steel_nugget_blasting",
+        "CookingGameTests.steel_block_blasting",
+        "CookingGameTests.crude_oil_bucket_smelting",
+        "CookingGameTests.crude_oil_bucket_blasting"
+      ],
+      "note": "Ten crafts per recipe, actual XP orb creation; UI rendering is not measured."
+    },
+    "E9": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.crudeFurnace",
+        "FuelAndTagsGameTests.refinedFurnace"
+      ],
+      "note": ""
+    },
+    "F1": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.crudeFurnace"
+      ],
+      "note": ""
+    },
+    "F2": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.refinedFurnace"
+      ],
+      "note": ""
+    },
+    "F3": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.crudeBlast",
+        "FuelAndTagsGameTests.refinedBlast",
+        "FuelAndTagsGameTests.crudeSmoker",
+        "FuelAndTagsGameTests.refinedSmoker"
+      ],
+      "note": ""
+    },
+    "F4": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.barrelIsNotFuel"
+      ],
+      "note": ""
+    },
+    "J30": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.barrelIsNotFuel"
+      ],
+      "note": ""
+    },
+    "F5": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.crudeFurnace",
+        "FuelAndTagsGameTests.refinedFurnace"
+      ],
+      "note": ""
+    },
+    "G1": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.commonItemAndBlockTags"
+      ],
+      "note": ""
+    },
+    "G2": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.commonItemAndBlockTags"
+      ],
+      "note": ""
+    },
+    "G3": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.beaconPaymentAndEffect"
+      ],
+      "note": ""
+    },
+    "G4": {
+      "coverage": "full",
+      "tests": [
+        "FuelAndTagsGameTests.mixedBeaconBaseActivates"
+      ],
+      "note": ""
+    },
+    "G5": {
+      "coverage": "partial",
+      "tests": [
+        "FuelAndTagsGameTests.commonItemAndBlockTags"
+      ],
+      "note": "Stone/wood pickaxe and saltpeter shovel speed; all tool variants remain a separate check."
+    },
+    "I11": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J5": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J12": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J13": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J14": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J15": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J16": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.bucketTransferAndRejection"
+      ],
+      "note": ""
+    },
+    "J1": {
+      "coverage": "partial",
+      "tests": [
+        "BarrelInteractionGameTests.placementFacesAndAxis"
+      ],
+      "note": "Actual placement state verified; model appearance is manual."
+    },
+    "J2": {
+      "coverage": "partial",
+      "tests": [
+        "BarrelInteractionGameTests.placementFacesAndAxis"
+      ],
+      "note": "Actual placement state verified; model appearance is manual."
+    },
+    "J3": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.placementFacesAndAxis"
+      ],
+      "note": ""
+    },
+    "J6": {
+      "coverage": "full",
+      "tests": [
+        "MineralGameTests.emptyAndSharedBarrelsSave",
+        "MineralGameTests.thirdBarrelPreservesExistingPair"
+      ],
+      "note": ""
+    },
+    "J8": {
+      "coverage": "full",
+      "tests": [
+        "MineralGameTests.emptyAndSharedBarrelsSave",
+        "MineralGameTests.thirdBarrelPreservesExistingPair"
+      ],
+      "note": ""
+    },
+    "J7": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.horizontalMasterAndCapacity"
+      ],
+      "note": ""
+    },
+    "J9": {
+      "coverage": "partial",
+      "tests": [
+        "BarrelInteractionGameTests.horizontalMasterAndCapacity"
+      ],
+      "note": "Earlier placement verified; equal-tick ordering is not exercised."
+    },
+    "J10": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.mixedAxesAndRemovedHandler"
+      ],
+      "note": ""
+    },
+    "J11": {
+      "coverage": "full",
+      "tests": [
+        "MineralGameTests.thirdBarrelPreservesExistingPair"
+      ],
+      "note": ""
+    },
+    "K4": {
+      "coverage": "full",
+      "tests": [
+        "MineralGameTests.thirdBarrelPreservesExistingPair"
+      ],
+      "note": ""
+    },
+    "J17": {
+      "coverage": "partial",
+      "tests": [
+        "BarrelInteractionGameTests.hopperCannotFeedBarrel",
+        "MineralGameTests.cachedHandlerFollowsPairAndSplit"
+      ],
+      "note": "Real hopper and fluid API exercised; third-party pipes remain manual."
+    },
+    "J18": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.comparatorEmptyHalfFull"
+      ],
+      "note": "Block signal API gives 0/7/15; visual redstone layout is not checked."
+    },
+    "J19": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.axeCyclesSplitAndReconnect"
+      ],
+      "note": ""
+    },
+    "J20": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.axeCyclesSplitAndReconnect"
+      ],
+      "note": ""
+    },
+    "J21": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.axeCyclesSplitAndReconnect"
+      ],
+      "note": ""
+    },
+    "J22": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.axeCyclesSplitAndReconnect"
+      ],
+      "note": ""
+    },
+    "J23": {
+      "coverage": "partial",
+      "tests": [
+        "MineralGameTests.singleItemPlacementRestoresFluid",
+        "MineralGameTests.playerBreakPreservesRemainderInDrop"
+      ],
+      "note": "Placement and paired-drop shares checked separately; full break/pick-up/place round trip pending."
+    },
+    "J24": {
+      "coverage": "partial",
+      "tests": [
+        "MineralGameTests.singleItemPlacementRestoresFluid",
+        "MineralGameTests.playerBreakPreservesRemainderInDrop"
+      ],
+      "note": "Placement and paired-drop shares checked separately; full break/pick-up/place round trip pending."
+    },
+    "J25": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.creativeBreakAndPiston"
+      ],
+      "note": ""
+    },
+    "J26": {
+      "coverage": "partial",
+      "tests": [
+        "BarrelInteractionGameTests.creativeBreakAndPiston"
+      ],
+      "note": "PushReaction.BLOCK asserted; physical piston setup pending."
+    },
+    "J27": {
+      "coverage": "partial",
+      "tests": [
+        "MineralGameTests.nonPlayerRemovalDoesNotDuplicateOil"
+      ],
+      "note": "Non-player destroy path; actual TNT remains pending."
+    },
+    "J28": {
+      "coverage": "partial",
+      "tests": [
+        "MineralGameTests.emptyAndSharedBarrelsSave"
+      ],
+      "note": "NBT round trip; complete server restart not exercised."
+    },
+    "K1": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.enchantmentEdgeCases"
+      ],
+      "note": ""
+    },
+    "K2": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.enchantmentEdgeCases"
+      ],
+      "note": ""
+    },
+    "K3": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.hopperCannotFeedBarrel"
+      ],
+      "note": ""
+    },
+    "K5": {
+      "coverage": "full",
+      "tests": [
+        "MineralGameTests.incompatibleOilNeverConnects",
+        "MineralGameTests.differentFluidComponentsDoNotMerge"
+      ],
+      "note": ""
+    },
+    "K6": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.emptyHandLeavesBarrelUnchanged"
+      ],
+      "note": ""
+    },
+    "K7": {
+      "coverage": "full",
+      "tests": [
+        "BarrelInteractionGameTests.commandReplacementKeepsNeighborShare"
+      ],
+      "note": ""
+    },
+    "K8": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.worldHeightAndInvalidRanges"
+      ],
+      "note": "Outside-height feature rejection and invalid Codec ranges; border placement/void scenes remain pending."
+    },
+    "H21": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.worldHeightAndInvalidRanges"
+      ],
+      "note": "Outside-height feature rejection and invalid Codec ranges; border placement/void scenes remain pending."
+    },
+    "H12": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.fixedSeedOilShapes"
+      ],
+      "note": "96 configured feature placements on controlled terrain; natural biome/density and visual appearance are separate."
+    },
+    "H13": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.fixedSeedOilShapes"
+      ],
+      "note": "96 configured feature placements on controlled terrain; natural biome/density and visual appearance are separate."
+    },
+    "H14": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.fixedSeedOilShapes"
+      ],
+      "note": "96 configured feature placements on controlled terrain; natural biome/density and visual appearance are separate."
+    },
+    "H16": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.fixedSeedOilShapes"
+      ],
+      "note": "96 configured feature placements on controlled terrain; natural biome/density and visual appearance are separate."
+    },
+    "H19": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.fixedSeedOilShapes"
+      ],
+      "note": "96 configured feature placements on controlled terrain; natural biome/density and visual appearance are separate."
+    },
+    "H6": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.saltpeterSingleClusterUnderRoof"
+      ],
+      "note": "64 fixed seeds in a constructed roofed cave; natural dimension distribution is sampled separately."
+    },
+    "H9": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.saltpeterSingleClusterUnderRoof"
+      ],
+      "note": "64 fixed seeds in a constructed roofed cave; natural dimension distribution is sampled separately."
+    },
+    "H10": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.saltpeterSingleClusterUnderRoof"
+      ],
+      "note": "64 fixed seeds in a constructed roofed cave; natural dimension distribution is sampled separately."
+    },
+    "H11": {
+      "coverage": "partial",
+      "tests": [
+        "WorldgenGameTests.saltpeterSingleClusterUnderRoof"
+      ],
+      "note": "64 fixed seeds in a constructed roofed cave; natural dimension distribution is sampled separately."
+    },
+    "H20": {
+      "coverage": "partial",
+      "tests": [
+        "MineralGameTests.oilLakeProtectsBlockEntitiesBeforeAnyWrite",
+        "MineralGameTests.oilLakeRejectsLeakingEdgesAndBedrock"
+      ],
+      "note": "Atomic rejection and shell checks; actual WorldGenRegion write boundary still pending."
+    },
+    "BP01": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.componentPersistenceAndNetwork"
+      ],
+      "note": "Immutable component, NBT/Codec/network roundtrips."
+    },
+    "BP02": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.invalidAndUnknownPermissions"
+      ],
+      "note": "Missing, empty, unknown and mixed-family data rejected; unknown IDs preserved."
+    },
+    "BP03": {
+      "coverage": "partial",
+      "tests": [
+        "BlueprintGameTests.namesAndTooltipGroups"
+      ],
+      "note": "Dynamic translation keys and grouping checked; actual Chinese/English client appearance pending."
+    },
+    "BP04": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.mergeSlotBoundaries"
+      ],
+      "note": "2-4 occupied slots in both families, including identical permissions; always output one. Mixed families and extra materials rejected."
+    },
+    "BP05": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.mergeUnionAndPreviewPurity",
+        "BlueprintGameTests.backpackAndWorkbenchSettlement"
+      ],
+      "note": "Union and order independence; output exactly one for identical or different contents, independent of input slot/stack counts; one per slot debited and previews remain pure."
+    },
+    "BP06": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.namesAndExtraComponents"
+      ],
+      "note": "Equal names retained, mixed names reset; expansion preserves extras and merge rejects extra-component conflicts."
+    },
+    "BP07": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.orderedExpansionLayout"
+      ],
+      "note": "Fixed dye/blueprint placement and missing-ingredient rejection."
+    },
+    "BP08": {
+      "coverage": "partial",
+      "tests": [
+        "BlueprintGameTests.orderedExpansionLayout"
+      ],
+      "note": "Vanilla materials are matched via common tags; real third-party/tag-pack mixed materials pending."
+    },
+    "BP09": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.backpackAndWorkbenchSettlement",
+        "BlueprintGameTests.crafterExpansionAndFeedback"
+      ],
+      "note": "Output 8, no remainder, one of each ingredient consumed; automated feedback nets 7."
+    },
+    "BP10": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.shiftCraftingAndBlockedOutput",
+        "BlueprintGameTests.crafterExpansionAndFeedback",
+        "BlueprintGameTests.crafterMergeSettlement"
+      ],
+      "note": "Vanilla menu settlement, repeated quick-move, full inventory, and real redstone crafter pulses; identical inputs also consume one per slot and produce one."
+    },
+    "BP11": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintLootGameTests.rewardCountBranchesAndSeparateStacks",
+        "BlueprintLootGameTests.rewardDistributionAndIndependentContents"
+      ],
+      "note": "Controlled 0/1/2 branches and fixed-seed sample probabilities."
+    },
+    "BP12": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintLootGameTests.rewardCountBranchesAndSeparateStacks",
+        "BlueprintLootGameTests.rewardDistributionAndIndependentContents"
+      ],
+      "note": "Independent count-one objects, including forced equal content; differing random contents observed."
+    },
+    "BP13": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintLootGameTests.allCandidatesAndContentWeights",
+        "BlueprintLootGameTests.onlyTreasureSourcesAreModified"
+      ],
+      "note": "114 valid candidates, balanced family/subclass sampling; only two vanilla treasure sources modified."
+    },
+    "BP14": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.specificAndSubclassQueries"
+      ],
+      "note": "Specific, any and full subclass coverage; queries do not mutate inputs."
+    },
+    "BP15": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintCollectionGameTests.cumulativeCollectionAndFamilyIsolation"
+      ],
+      "note": "9/14 AND criteria, composite items and historical collection, with native persistence."
+    },
+    "BP16": {
+      "coverage": "partial",
+      "tests": [
+        "BlueprintCollectionGameTests.cumulativeCollectionAndFamilyIsolation",
+        "BlueprintCollectionGameTests.loginBackfillAndOffhand",
+        "BlueprintCollectionGameTests.invalidAndUnacquiredBlueprintsGiveNoProgress"
+      ],
+      "note": "Acquisition, inventory removal, login callback and native save/reload tested; full relog/death/trading sessions pending."
+    },
+    "BP17": {
+      "coverage": "partial",
+      "tests": [
+        "BlueprintGameTests.recipesLoadedAndStackEquality",
+        "BlueprintGameTests.namesAndTooltipGroups"
+      ],
+      "note": "Dedicated server load and six valid creative examples checked; actual client/JEI recipe display and remote synchronization pending."
+    },
+    "BP18": {
+      "coverage": "full",
+      "tests": [
+        "BlueprintGameTests.recipesLoadedAndStackEquality"
+      ],
+      "note": "runData and static resource validation plus acceptance-runner release-jar exclusion checks; see report."
+    },
+    "J32": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.configuredCapacityAndSimulation",
+        "FuelBarrelConfigGameTests.capacityIntegerBoundaries"
+      ],
+      "note": ""
+    },
+    "J33": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.disabledPlacementBlocksBothDirectionsAndPersists"
+      ],
+      "note": ""
+    },
+    "J34": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.disablingPreservesExistingStates"
+      ],
+      "note": ""
+    },
+    "J35": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.disabledPlacementBlocksBothDirectionsAndPersists"
+      ],
+      "note": ""
+    },
+    "J36": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.replacedItemUsesCurrentPolicyAndKeepsOverflow"
+      ],
+      "note": ""
+    },
+    "J37": {
+      "coverage": "full",
+      "tests": [
+        "FuelBarrelConfigGameTests.capacityReductionPreservesExistingPair",
+        "FuelBarrelConfigGameTests.fillAfterReductionKeepsOverfullLocalShare"
+      ],
+      "note": ""
+    },
+    "RC01": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.factoryAndSharedBlueprintTypes",
+        "RiggingCoreGameTests.creativeExamplesAndIcon"
+      ],
+      "note": "Registered item and creative contents covered; model rendering checked by RiggingClientChecks; in-world appearance remains manual."
+    },
+    "RC02": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.factoryAndSharedBlueprintTypes"
+      ],
+      "note": "Existing blueprint GameTests also exercise unchanged IDs, recipes, loot and advancement behavior."
+    },
+    "RC03": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.factoryAndSharedBlueprintTypes",
+        "RiggingCoreGameTests.blankAndMismatchedIdentities"
+      ],
+      "note": ""
+    },
+    "RC04": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.blankAndMismatchedIdentities",
+        "RiggingCoreGameTests.fuelOverfillAndInvalidIdentityRecovery",
+        "RiggingCoreGameTests.overflowSlotsAndIdentityRecovery"
+      ],
+      "note": ""
+    },
+    "RC05": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.fullPersistenceAndNetwork",
+        "RiggingCoreGameTests.queryAndCopyIsolation"
+      ],
+      "note": ""
+    },
+    "RC06": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.capacitiesAndRegisteredCapabilities"
+      ],
+      "note": ""
+    },
+    "RC07": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.regionTagsAndSingleItemLimits"
+      ],
+      "note": ""
+    },
+    "RC08": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.directWritesValidateCountsAndBounds",
+        "RiggingCoreGameTests.insertionSimulationAndRemainders"
+      ],
+      "note": ""
+    },
+    "RC09": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.insertionSimulationAndRemainders",
+        "RiggingCoreGameTests.queryAndCopyIsolation",
+        "RiggingCoreGameTests.fluidFilteringAndSimulation",
+        "RiggingCoreGameTests.tooltipAndOccupancyArePure"
+      ],
+      "note": ""
+    },
+    "RC10": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.nestedContainersRejectAllCores"
+      ],
+      "note": "Vanilla container components covered; third-party adapters require their own compatibility validation."
+    },
+    "RC11": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.outerContainersKeepOrdinaryBehavior"
+      ],
+      "note": ""
+    },
+    "RC12": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.tagChangesDoNotDeleteStoredEquipment",
+        "RiggingCoreGameTests.overflowSlotsAndIdentityRecovery"
+      ],
+      "note": "Live tag rebinding and capacity reduction covered; real datapack reload remains manual."
+    },
+    "RC13": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.fluidFilteringAndSimulation",
+        "RiggingCoreGameTests.fluidComponentsAndEmptyEncoding",
+        "RiggingCoreGameTests.fuelOverfillAndInvalidIdentityRecovery"
+      ],
+      "note": ""
+    },
+    "RC14": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.realFuelBarrelTransfer"
+      ],
+      "note": ""
+    },
+    "RC15": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.additiveStatsExcludeCargoAndProficiency"
+      ],
+      "note": ""
+    },
+    "RC16": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.everyShipBaseline"
+      ],
+      "note": ""
+    },
+    "RC17": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.tooltipAndOccupancyArePure"
+      ],
+      "note": "Bilingual names, colors, rename, exact combined classification spacing and Shift/F3+H behavior checked by RiggingClientChecks. ModTooltipClientChecks checks existing native category order after normal and Shift core details without adding or hiding category lines; real anvil and creative-screen interaction remain manual."
+    },
+    "RC18": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.environmentalDamageProtection"
+      ],
+      "note": "Real damage entry points tested; physical lava/cactus/TNT scenarios remain manual."
+    },
+    "RC19": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.lifetimeAndLoadedEntityPersistence"
+      ],
+      "note": "6010 ticks, NBT and world join covered; full process restart and actual dimension transfer remain manual."
+    },
+    "RC20": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.hopperCollectionAndVoid",
+        "RiggingCoreGameTests.outerContainersKeepOrdinaryBehavior"
+      ],
+      "note": "Hopper collection and void covered; real player death and pickup remain manual."
+    },
+    "RC21": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.factoryAndSharedBlueprintTypes"
+      ],
+      "note": "Dedicated GameTest server, static resources, release exclusion and client smoke checked separately; no visual blanket acceptance."
+    },
+    "RC22": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.creativeExamplesAndIcon"
+      ],
+      "note": "Ten distinct models, texture paths and fallback checked by RiggingClientChecks; first-person/frame/drop rendering remains manual."
+    },
+    "RC23": {
+      "coverage": "full",
+      "tests": [
+        "RiggingCoreGameTests.proficiencyBoundariesAndPreservation",
+        "RiggingCoreGameTests.fullPersistenceAndNetwork",
+        "RiggingCoreGameTests.blankAndMismatchedIdentities"
+      ],
+      "note": ""
+    },
+    "UI01": {
+      "coverage": "partial",
+      "tests": [],
+      "note": "ModTooltipClientChecks checks every registered item, valid blueprints and ten cores in both languages, normal/advanced flags and Shift core details. Native category absence stays unchanged; an existing category moves below mod descriptions with its original object and style. Quantity, third-party attribution, titles, lore, custom components and foreign items are preserved. Actual inventory/creative screens and other attribution mods remain manual."
+    },
+    "RC24": {
+      "coverage": "partial",
+      "tests": [
+        "RiggingCoreGameTests.tooltipAndOccupancyArePure",
+        "RiggingCoreGameTests.proficiencyBoundariesAndPreservation"
+      ],
+      "note": "Client display checked separately; automatic progression and benefits are intentionally not implemented."
+    },
+    "SY01": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.recipesAndAmmunition",
+        "ShipyardGameTests.recipeConstraintsAllowLargerBudgets"
+      ],
+      "note": "十舰配方与弹药点数折半；配方合法性不使用初期平衡上限"
+    },
+    "SY02": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.emptyBlueprintQueryAndAdmission",
+        "ShipyardGameTests.shiftBlueprintUsesSingleSlot"
+      ],
+      "note": "单图纸槽跨船型许可；无图纸查询由独立客户端验证"
+    },
+    "SY03": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.singleWorkstationRejectsConcurrentStart"
+      ],
+      "note": "单工位唯一任务；其他船型同时请求不会重复扣料"
+    },
+    "SY04": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.atomicInsufficientResources"
+      ],
+      "note": "资源不足不产生部分扣除"
+    },
+    "SY05": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.metalChangeAndNuggetPriority",
+        "ShipyardGameTests.commonTagsAcceptForeignMaterials",
+        "ShipyardGameTests.blockPaymentCancelDoesNotRefundChangeTwice",
+        "ShipyardGameTests.changeOverflowDropsWithoutBlockingStart"
+      ],
+      "note": "混投、通用标签、找零、净退款与空间溢出"
+    },
+    "SY06": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.ammunitionSlotOrderAndCeiling",
+        "ShipyardGameTests.cancellationPreservesAmmoComponents"
+      ],
+      "note": "按槽位顺序消耗，末件取整，按原始弹药退款"
+    },
+    "SY07": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.reserveOneAndRefill",
+        "ShipyardGameTests.exactPermissionAndComponentRefill"
+      ],
+      "note": "最后一张预留与完整许可集合匹配"
+    },
+    "SY08": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.menuPickupRefillAndSwapProtection",
+        "ShipyardGameTests.shiftAndDoubleCollectionReserve",
+        "ShipyardGameTests.shiftBlueprintUsesSingleSlot"
+      ],
+      "note": "真实菜单普通点击、Shift、数字键、双击和丢弃限制"
+    },
+    "SY09": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.completionOnceAndEmptyCore"
+      ],
+      "note": "完工扣一张，空核心，禁止自动续建"
+    },
+    "SY10": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.pendingOutputPreventsPayment"
+      ],
+      "note": "服务端拒绝重复扣料；待取产物按钮由独立客户端验证"
+    },
+    "SY11": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.cancelAndStaleConfirmation",
+        "ShipyardGameTests.fuelRefundOverflowDestroyed",
+        "ShipyardGameTests.refundOverflowToCurrentOperator",
+        "ShipyardGameTests.changeOverflowDropsWithoutBlockingStart"
+      ],
+      "note": "任务标识和溢出已测；确认界面由独立客户端验证"
+    },
+    "SY12": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.saveReloadResumesFrozenTask",
+        "ShipyardGameTests.missingTargetPausesButCanRefund",
+        "ShipyardGameTests.abnormalOutputWaitsForSpace"
+      ],
+      "note": "当前格式NBT保存恢复与任务快照；不测试内部旧版本迁移"
+    },
+    "SY13": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.breakDropsStorageAfterCancellation",
+        "ShipyardGameTests.lastBlockItemPlacementRestoresCache",
+        "ShipyardGameTests.creativeBreakScattersContentsWithoutShipyard",
+        "ShipyardGameTests.creativeBreakScattersPendingCore"
+      ],
+      "note": "生存掉落缓存及重放；创造拆除物品散落，不掉船坞并清除燃油"
+    },
+    "SY14": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.directionalCapabilitiesAndSimulation",
+        "ShipyardGameTests.oldCapabilitiesStopAfterRemoval",
+        "ShipyardGameTests.sideExtractionPrioritizesOutput"
+      ],
+      "note": "单图纸与单产物分面能力、模拟和失效引用；第三方管道人工验证"
+    },
+    "SY15": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.containerMaximumAndWholeBucket",
+        "ShipyardGameTests.worldRightClickDirectionFromInitialFullness",
+        "ShipyardGameTests.guiContainerCanWithdrawWhenNotFull",
+        "ShipyardGameTests.portableBarrelKeepsOriginalPlacement"
+      ],
+      "note": "真实燃料桶与普通桶转移；其他容器仍保留人工范围"
+    },
+    "SY16": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.independentWindowsAndLastClosedState",
+        "ShipyardGameTests.singleWorkstationRejectsConcurrentStart"
+      ],
+      "note": "窗口独立浏览、最后关闭状态与唯一任务；真实双玩家和网络延迟人工验证"
+    },
+    "SY17": {
+      "coverage": "partial",
+      "tests": [],
+      "note": "独立客户端检查锁定功能标签、全船型查询、默认字体与截图"
+    },
+    "SY19": {
+      "coverage": "full",
+      "tests": [
+        "ShipyardGameTests.shipNationalitiesAndBilingualSearch",
+        "ShipyardGameTests.filtersIntersectAndRespectBlueprintScope"
+      ],
+      "note": "逐舰国籍、中英文部分匹配、大小写和宽度归一、多选交并集及图纸范围"
+    },
+    "SY20": {
+      "coverage": "partial",
+      "tests": ["ShipyardGameTests.filterStatePersistsIndependentlyOfTask"],
+      "note": "筛选独立保存及任务不变；客户端另验弹窗、状态图标、右键清除、键盘和取消布局，其他字体与缩放保留人工范围"
+    },
+    "SY18": {
+      "coverage": "partial",
+      "tests": [
+        "ShipyardGameTests.completionOnceAndEmptyCore"
+      ],
+      "note": "完成音效仅在单次完工播放；资源由客户端检查，听感仍需人工验证"
+    }
+  }
+}

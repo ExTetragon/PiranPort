@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:saratoga",
+  "fuel": 5000,
+  "ammunition": 48,
+  "steel": 44,
+  "aluminum": 44,
+  "seconds": 140
+}

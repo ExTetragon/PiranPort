@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SAS",
+    "BCB",
+    "SAS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "A": {
+      "tag": "c:ingots/aluminum"
+    },
+    "B": {
+      "item": "piranport:fuel_barrel"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "id": "piranport:shipyard",
+    "count": 1
+  }
+}

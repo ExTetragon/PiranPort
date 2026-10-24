@@ -21,10 +21,16 @@ public final class AcceptanceClientSmoke {
         finished = true;
         boolean jei = ModList.get().isLoaded("jei"), spark = ModList.get().isLoaded("spark");
         boolean blueprints = false;
+        boolean riggingCore = false;
+        boolean modTooltips = false;
         try { blueprints = BlueprintClientChecks.verify(minecraft); }
         catch (RuntimeException error) { PiranPort.LOGGER.error("Blueprint client resource checks failed", error); }
+        try { riggingCore = RiggingClientChecks.verify(minecraft); }
+        catch (RuntimeException error) { PiranPort.LOGGER.error("Rigging core client resource checks failed", error); }
+        try { modTooltips = ModTooltipClientChecks.verify(minecraft); }
+        catch (RuntimeException error) { PiranPort.LOGGER.error("Mod item tooltip checks failed", error); }
         System.out.println("PIRANPORT_CLIENT_HELPERS_LOADED=" + new com.google.gson.Gson().toJson(
-                java.util.Map.of("jei", jei, "spark", spark, "titleScreen", true, "blueprints", blueprints)));
+                java.util.Map.of("jei", jei, "spark", spark, "titleScreen", true, "blueprints", blueprints, "riggingCore", riggingCore, "modTooltips", modTooltips)));
         minecraft.stop();
     }
 }

@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:vittorio_veneto",
+  "fuel": 6000,
+  "ammunition": 96,
+  "steel": 64,
+  "aluminum": 16,
+  "seconds": 180
+}

@@ -1,6 +1,7 @@
 package com.lex0v0.piranport.block;
 
 import com.lex0v0.piranport.blockentity.FuelBarrelBlockEntity;
+import com.lex0v0.piranport.item.FuelBarrelItem;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -79,6 +80,8 @@ public class FuelBarrelBlock extends BaseEntityBlock {
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
+        // 携带桶仍走放置，避免物品流体能力吞掉原有连接放置操作。
+        if (stack.getItem() instanceof FuelBarrelItem) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (FluidUtil.getFluidHandler(stack).isPresent()) {
             if (level.isClientSide) return ItemInteractionResult.SUCCESS;
             return FluidUtil.interactWithFluidHandler(player, hand, barrel.getFluidHandler(hit.getDirection()))

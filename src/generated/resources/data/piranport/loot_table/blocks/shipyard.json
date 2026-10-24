@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:copy_components",
+      "include": [
+        "piranport:shipyard_storage"
+      ],
+      "source": "block_entity"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "piranport:shipyard"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "piranport:blocks/shipyard"
+}

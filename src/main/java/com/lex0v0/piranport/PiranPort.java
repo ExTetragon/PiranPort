@@ -9,6 +9,9 @@ import com.lex0v0.piranport.registry.ModFluids;
 import com.lex0v0.piranport.registry.ModItems;
 import com.lex0v0.piranport.registry.ModRecipeSerializers;
 import com.lex0v0.piranport.registry.ModItemPredicates;
+import com.lex0v0.piranport.registry.ModRecipeTypes;
+import com.lex0v0.piranport.registry.ModMenus;
+import com.lex0v0.piranport.registry.ModSounds;
 import com.mojang.logging.LogUtils;
 
 import net.neoforged.bus.api.IEventBus;
@@ -37,6 +40,9 @@ public class PiranPort {
         ModFeatures.register(modEventBus);
         ModItems.register(modEventBus);
         ModRecipeSerializers.register(modEventBus);
+        ModRecipeTypes.register(modEventBus);
+        ModMenus.register(modEventBus);
+        ModSounds.register(modEventBus);
         ModItemPredicates.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
 

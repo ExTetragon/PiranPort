@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:prinz_eugen",
+  "fuel": 3000,
+  "ammunition": 48,
+  "steel": 28,
+  "aluminum": 12,
+  "seconds": 105
+}

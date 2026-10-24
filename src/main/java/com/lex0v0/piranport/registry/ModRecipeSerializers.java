@@ -3,6 +3,7 @@ package com.lex0v0.piranport.registry;
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.recipe.BlueprintExpandRecipe;
 import com.lex0v0.piranport.recipe.BlueprintMergeRecipe;
+import com.lex0v0.piranport.recipe.ShipyardRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
@@ -17,6 +18,7 @@ public final class ModRecipeSerializers {
             SERIALIZERS.register("blueprint_merge", () -> new SimpleCraftingRecipeSerializer<>(BlueprintMergeRecipe::new));
     public static final DeferredHolder<RecipeSerializer<?>, SimpleCraftingRecipeSerializer<BlueprintExpandRecipe>> BLUEPRINT_EXPAND =
             SERIALIZERS.register("blueprint_expand", () -> new SimpleCraftingRecipeSerializer<>(BlueprintExpandRecipe::new));
+    public static final DeferredHolder<RecipeSerializer<?>, ShipyardRecipe.Serializer> SHIPYARD = SERIALIZERS.register("shipyard", ShipyardRecipe.Serializer::new);
 
     private ModRecipeSerializers() {}
     public static void register(IEventBus bus) { SERIALIZERS.register(bus); }

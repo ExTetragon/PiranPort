@@ -88,6 +88,14 @@ neoForge {
             systemProperty 'piranport.acceptance.clientSmoke', providers.gradleProperty('acceptanceClientSmoke').getOrElse('false')
         }
 
+        shipyardUiClient {
+            client()
+            gameDirectory = file('run/shipyard-ui-client')
+            programArguments.addAll '--width', '1280', '--height', '900'
+            systemProperty 'piranport.acceptance.shipyardUi', 'true'
+            systemProperty 'piranport.acceptance.shipyardUiReport', layout.buildDirectory.dir('reports/shipyard-ui').get().asFile.absolutePath
+        }
+
         data {
             data()
             programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()

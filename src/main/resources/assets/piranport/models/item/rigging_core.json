@@ -1,0 +1,68 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/heart_of_the_sea"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:ship/lexington_cv2": 1
+      },
+      "model": "piranport:item/rigging_core/lexington_cv2"
+    },
+    {
+      "predicate": {
+        "piranport:ship/saratoga": 1
+      },
+      "model": "piranport:item/rigging_core/saratoga"
+    },
+    {
+      "predicate": {
+        "piranport:ship/vittorio_veneto": 1
+      },
+      "model": "piranport:item/rigging_core/vittorio_veneto"
+    },
+    {
+      "predicate": {
+        "piranport:ship/hood": 1
+      },
+      "model": "piranport:item/rigging_core/hood"
+    },
+    {
+      "predicate": {
+        "piranport:ship/quincy": 1
+      },
+      "model": "piranport:item/rigging_core/quincy"
+    },
+    {
+      "predicate": {
+        "piranport:ship/prinz_eugen": 1
+      },
+      "model": "piranport:item/rigging_core/prinz_eugen"
+    },
+    {
+      "predicate": {
+        "piranport:ship/yat_sen": 1
+      },
+      "model": "piranport:item/rigging_core/yat_sen"
+    },
+    {
+      "predicate": {
+        "piranport:ship/glowworm": 1
+      },
+      "model": "piranport:item/rigging_core/glowworm"
+    },
+    {
+      "predicate": {
+        "piranport:ship/changchun": 1
+      },
+      "model": "piranport:item/rigging_core/changchun"
+    },
+    {
+      "predicate": {
+        "piranport:ship/u47": 1
+      },
+      "model": "piranport:item/rigging_core/u47"
+    }
+  ]
+}

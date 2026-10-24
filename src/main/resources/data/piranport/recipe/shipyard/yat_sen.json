@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:yat_sen",
+  "fuel": 1500,
+  "ammunition": 24,
+  "steel": 16,
+  "aluminum": 6,
+  "seconds": 60
+}

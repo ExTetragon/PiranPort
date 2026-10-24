@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:lexington_cv2",
+  "fuel": 5000,
+  "ammunition": 48,
+  "steel": 40,
+  "aluminum": 48,
+  "seconds": 150
+}

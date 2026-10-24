@@ -52,7 +52,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
         return handler.getFluidInTank(0);
     }
 
-    // 仅更新本格储量，保留旧版超额流体等待分摊或抽出。
+    // 仅更新本格储量，配置降容后的超额流体仍可抽出。
     public void setStoredFluid(FluidStack stack) {
         tank.setFluid(stack.copy());
         contentsChanged();
@@ -216,7 +216,6 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("Fluid", tank.getFluid().saveOptional(registries));
-        tag.putInt("StorageVersion", 2);
         tag.putLong("PlaceOrder", placeOrder);
         tag.putBoolean("AxialConnectionAllowed", axialConnectionAllowed);
         if (partnerPos != null) tag.putLong("Partner", partnerPos.asLong());
@@ -225,12 +224,11 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        // 完整读入旧版超额储量，保留内容等待抽出或安全分摊。
+        // 配置降容不截断已存流体。
         tank.setFluid(FluidStack.parseOptional(registries, tag.getCompound("Fluid")));
-        placeOrder = tag.contains("PlaceOrder") ? tag.getLong("PlaceOrder") : -1;
+        placeOrder = tag.getLong("PlaceOrder");
         partnerPos = tag.contains("Partner") ? BlockPos.of(tag.getLong("Partner")) : null;
-        // 旧存档未记录策略，按原有允许连接的行为读取。
-        axialConnectionAllowed = !tag.contains("AxialConnectionAllowed") || tag.getBoolean("AxialConnectionAllowed");
+        axialConnectionAllowed = tag.getBoolean("AxialConnectionAllowed");
     }
 
     @Override
@@ -268,7 +266,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
 
         @Override
         public int getTankCapacity(int index) {
-            // 旧版超额存量允许抽出，灌入仍受正常容量限制。
+            // 配置降容后的超额存量允许抽出，灌入仍受正常容量限制。
             int capacity = Config.FUEL_BARREL_CAPACITY.get();
             return Math.max(getPartner() == null ? capacity : 2 * capacity,
                     getFluidInTank(index).getAmount());

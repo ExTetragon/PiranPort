@@ -244,24 +244,6 @@ public final class MineralGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void legacySharedStorageMigratesLosslessly(GameTestHelper h) {
-        FuelBarrelBlockEntity lower = barrel(h, A, Axis.Y);
-        CompoundTag old = lower.saveWithFullMetadata(h.getLevel().registryAccess());
-        old.put("Fluid", oil(64000).save(h.getLevel().registryAccess()));
-        old.putInt("Capacity", 64000);
-        old.remove("StorageVersion");
-        lower.loadWithComponents(old, h.getLevel().registryAccess());
-        h.assertTrue(amount(lower) == 64000 && lower.getFluidHandler(null).fill(oil(1000), EXECUTE) == 0, "legacy overflow must not be truncated or refillable");
-        FuelBarrelBlockEntity upper = barrel(h, B, Axis.Y);
-        lower.refreshConnection();
-        h.assertTrue(amount(lower) == 64000 && amount(upper) == 0, "overfull legacy master stays independent until safe to pair");
-        lower.getFluidHandler(null).drain(32000, EXECUTE);
-        lower.refreshConnection();
-        h.assertTrue(localAmount(h, lower) == 16000 && localAmount(h, upper) == 16000, "legacy master redistributes without losing remaining oil");
-        h.succeed();
-    }
-
-    @GameTest(template = "empty")
     public static void storageLootAndItemTagsExist(GameTestHelper h) {
         for (Block block : List.of(ModBlocks.BAUXITE_BLOCK.get(), ModBlocks.ALUMINUM_BLOCK.get(), ModBlocks.STEEL_BLOCK.get())) {
             h.setBlock(A, block);

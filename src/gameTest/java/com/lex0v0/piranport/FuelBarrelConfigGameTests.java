@@ -208,27 +208,6 @@ public final class FuelBarrelConfigGameTests {
     }
 
     @GameTest(template = "empty")
-    public static void legacyPolicyDefaultsToAllowed(GameTestHelper h) {
-        boolean previous = Config.FUEL_BARREL_AXIAL_CONNECTION.get();
-        try {
-            Config.FUEL_BARREL_AXIAL_CONNECTION.set(false);
-            var lower = place(h, A);
-            var upper = place(h, A.above());
-            for (var barrel : new FuelBarrelBlockEntity[]{lower, upper}) {
-                var legacy = save(h, barrel);
-                legacy.remove("AxialConnectionAllowed");
-                barrel.loadWithComponents(legacy, h.getLevel().registryAccess());
-            }
-            lower.refreshConnection();
-            h.assertTrue(save(h, lower).getBoolean("AxialConnectionAllowed") && save(h, upper).contains("Partner"),
-                    "old NBT without a policy keeps pre-configuration connection behavior even while disabled");
-            h.succeed();
-        } finally {
-            Config.FUEL_BARREL_AXIAL_CONNECTION.set(previous);
-        }
-    }
-
-    @GameTest(template = "empty")
     public static void replacedItemUsesCurrentPolicyAndKeepsOverflow(GameTestHelper h) {
         boolean previous = Config.FUEL_BARREL_AXIAL_CONNECTION.get();
         try {
@@ -236,12 +215,12 @@ public final class FuelBarrelConfigGameTests {
             var lower = place(h, A);
             var carried = new ItemStack(ModItems.FUEL_BARREL_ITEM.get());
             carried.set(ModDataComponents.FLUID_CONTENT.get(), SimpleFluidContent.copyOf(oil(24000)));
-            var legacy = save(h, lower);
-            var staleNeighbor = legacy.copy();
+            var stored = save(h, lower);
+            var staleNeighbor = stored.copy();
             staleNeighbor.putLong("Partner", h.absolutePos(A.above()).asLong());
             lower.loadWithComponents(staleNeighbor, h.getLevel().registryAccess());
-            legacy.putLong("Partner", h.absolutePos(A).asLong());
-            carried.set(DataComponents.BLOCK_ENTITY_DATA, CustomData.of(legacy));
+            stored.putLong("Partner", h.absolutePos(A).asLong());
+            carried.set(DataComponents.BLOCK_ENTITY_DATA, CustomData.of(stored));
             Config.FUEL_BARREL_AXIAL_CONNECTION.set(false);
             var upper = placeItem(h, carried);
             lower.refreshConnection();

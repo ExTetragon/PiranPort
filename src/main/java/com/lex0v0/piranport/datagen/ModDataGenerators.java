@@ -6,6 +6,8 @@ import java.util.concurrent.CompletableFuture;
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.registry.ModBlocks;
 import com.lex0v0.piranport.registry.ModDataComponents;
+import com.lex0v0.piranport.registry.ModItemTags;
+import com.lex0v0.piranport.registry.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -19,6 +21,10 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.functions.CopyComponentsFunction;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -52,11 +58,16 @@ public final class ModDataGenerators {
             add(ModBlocks.FUEL_BARREL.get(), block -> createSingleItemTable(block).apply(
                     CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
                             .include(ModDataComponents.FLUID_CONTENT.get())));
+            // 船坞按容器完整掉落，避免爆炸衰减吞掉已保存的缓存。
+            add(ModBlocks.SHIPYARD.get(), block -> LootTable.lootTable().withPool(LootPool.lootPool()
+                    .setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(block))).apply(
+                    CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
+                            .include(ModDataComponents.SHIPYARD_STORAGE.get())));
         }
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return List.of(ModBlocks.BAUXITE_BLOCK.get(), ModBlocks.ALUMINUM_BLOCK.get(),
-                    ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get());
+                    ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get(), ModBlocks.SHIPYARD.get());
         }
     }
 
@@ -74,6 +85,11 @@ public final class ModDataGenerators {
         }
         @Override
         protected void addTags(HolderLookup.Provider provider) {
+            tag(ModItemTags.WEAPONS);
+            tag(ModItemTags.AIRCRAFT);
+            tag(ModItemTags.DEVICES);
+            tag(ModItemTags.AMMUNITION).add(ModItems.MAIN_GUN_AMMUNITION.getKey(), ModItems.TORPEDO.getKey(),
+                    ModItems.DEPTH_CHARGE.getKey(), ModItems.MISSILE.getKey());
             material("ores", "bauxite", "bauxite_ore");
             material("ores", "saltpeter", "saltpeter_block");
             material("storage_blocks", "raw_bauxite", "bauxite_block");

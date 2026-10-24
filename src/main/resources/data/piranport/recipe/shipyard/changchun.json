@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:changchun",
+  "fuel": 2000,
+  "ammunition": 48,
+  "steel": 20,
+  "aluminum": 16,
+  "seconds": 75
+}

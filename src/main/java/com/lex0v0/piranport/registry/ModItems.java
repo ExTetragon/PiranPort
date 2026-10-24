@@ -4,6 +4,8 @@ import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.item.FuelBarrelItem;
 import com.lex0v0.piranport.item.BlueprintItem;
 import com.lex0v0.piranport.item.blueprint.BlueprintFamily;
+import com.lex0v0.piranport.item.RiggingCoreItem;
+import com.lex0v0.piranport.item.AmmunitionItem;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -14,9 +16,17 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-// 集中注册食物、矿物材料、流体容器和蓝图物品。
+// 集中注册食物、矿物、流体容器、蓝图及舰装核心。
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PiranPort.MODID);
+    public static final DeferredItem<BlockItem> SHIPYARD = ITEMS.register("shipyard", () -> new BlockItem(ModBlocks.SHIPYARD.get(), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<AmmunitionItem> MAIN_GUN_AMMUNITION = ITEMS.register("main_gun_ammunition", () -> new AmmunitionItem(2, new Item.Properties()));
+    public static final DeferredItem<AmmunitionItem> TORPEDO = ITEMS.register("torpedo", () -> new AmmunitionItem(2, new Item.Properties()));
+    public static final DeferredItem<AmmunitionItem> DEPTH_CHARGE = ITEMS.register("depth_charge", () -> new AmmunitionItem(1, new Item.Properties()));
+    public static final DeferredItem<AmmunitionItem> MISSILE = ITEMS.register("missile", () -> new AmmunitionItem(4, new Item.Properties()));
+
+    public static final DeferredItem<RiggingCoreItem> RIGGING_CORE = ITEMS.register("rigging_core",
+            () -> new RiggingCoreItem(new Item.Properties().stacksTo(1).fireResistant()));
 
     public static final DeferredItem<BlueprintItem> SHIP_BLUEPRINT = ITEMS.register("ship_blueprint",
             () -> new BlueprintItem(BlueprintFamily.SHIP, new Item.Properties().stacksTo(64)));

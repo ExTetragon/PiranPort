@@ -1,0 +1,9 @@
+{
+  "type": "piranport:shipyard",
+  "ship": "piranport:quincy",
+  "fuel": 2500,
+  "ammunition": 40,
+  "steel": 24,
+  "aluminum": 8,
+  "seconds": 90
+}

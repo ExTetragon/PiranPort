@@ -1,0 +1,8 @@
+{
+  "shipyard_complete": {
+    "subtitle": "subtitles.piranport.shipyard_complete",
+    "sounds": [
+      "piranport:shipyard_complete"
+    ]
+  }
+}

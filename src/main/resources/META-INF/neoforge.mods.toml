@@ -4,7 +4,7 @@ license="GPL-3.0"
 
 [[mods]]
 modId="piranport"
-version="0.1.54"
+version="0.1.78"
 displayName="PiranPort"
 logoFile="piranport.png"
 authors="lex0v0"
