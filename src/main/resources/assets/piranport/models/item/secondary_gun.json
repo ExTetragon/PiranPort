@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/secondary_gun/us_twin_3in_secondary"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/us_twin_3in_secondary": 1.0
+      },
+      "model": "piranport:item/equipment/secondary_gun/us_twin_3in_secondary"
+    }
+  ]
+}

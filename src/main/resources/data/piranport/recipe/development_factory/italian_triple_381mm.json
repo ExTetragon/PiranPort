@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:italian_triple_381mm",
+  "kind": "model",
+  "count": 1,
+  "fuel": 1000,
+  "ammunition": 24,
+  "steel": 12,
+  "aluminum": 4,
+  "seconds": 25
+}

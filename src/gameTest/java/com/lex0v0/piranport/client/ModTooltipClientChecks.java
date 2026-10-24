@@ -50,6 +50,10 @@ final class ModTooltipClientChecks {
                     var core = RiggingCoreRules.create(ship.id());
                     if (!verifyStack(minecraft, core) || !verifyStack(minecraft, core, true)) return false;
                 }
+                for (var model : com.lex0v0.piranport.domain.equipment.EquipmentDefinitions.ALL) {
+                    var equipment = com.lex0v0.piranport.item.equipment.EquipmentRules.create(model.id());
+                    if (!verifyStack(minecraft, equipment) || !verifyStack(minecraft, equipment, true)) return false;
+                }
                 var renamed = new ItemStack(ModItems.SHIP_BLUEPRINT.get());
                 renamed.set(DataComponents.CUSTOM_NAME, Component.translatable("itemGroup.piranport.main"));
                 renamed.set(DataComponents.LORE, new ItemLore(List.of(Component.literal("Additional item description"))));
@@ -72,8 +76,13 @@ final class ModTooltipClientChecks {
             var descriptions = new ArrayList<Component>();
             stack.getItem().appendHoverText(stack, Item.TooltipContext.EMPTY, descriptions, flag);
             if (shift) {
-                RiggingClientEvents.applyTooltip(stack, original, true);
-                descriptions = new ArrayList<>(RiggingTooltips.details(stack));
+                if (stack.getItem() instanceof com.lex0v0.piranport.item.EquipmentItem) {
+                    EquipmentClientEvents.applyTooltip(stack, original, true);
+                    EquipmentClientEvents.applyTooltip(stack, descriptions, true);
+                } else {
+                    RiggingClientEvents.applyTooltip(stack, original, true);
+                    descriptions = new ArrayList<>(RiggingTooltips.details(stack));
+                }
             }
             for (boolean hasNativeCategory : List.of(false, true)) {
                 var creativeLines = new ArrayList<>(original);

@@ -23,8 +23,14 @@ public final class ModCapabilities {
                 (blockEntity, side) -> blockEntity.getFluidHandler(side));
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.SHIPYARD.get(), (entity, side) -> entity.fluid(side));
         event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModBlockEntities.SHIPYARD.get(), (entity, side) -> entity.items(side));
+        event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.DEVELOPMENT_FACTORY.get(), (entity, side) -> entity.fluid(side));
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModBlockEntities.DEVELOPMENT_FACTORY.get(), (entity, side) -> entity.items(side));
         event.registerItem(Capabilities.ItemHandler.ITEM, (stack, context) -> RiggingCoreRules.inventory(stack), ModItems.RIGGING_CORE.get());
         event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> RiggingCoreRules.fuel(stack), ModItems.RIGGING_CORE.get());
         event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> new FuelBarrelItemFluidHandler(stack), ModItems.FUEL_BARREL_ITEM.get());
+        for (var category : com.lex0v0.piranport.domain.equipment.EquipmentCategory.values()) {
+            if (category.group() == com.lex0v0.piranport.domain.equipment.EquipmentCategory.Group.AIRCRAFT)
+                event.registerItem(Capabilities.FluidHandler.ITEM, (stack, context) -> com.lex0v0.piranport.item.equipment.EquipmentRules.fuel(stack), ModItems.equipment(category));
+        }
     }
 }

@@ -25,10 +25,11 @@ public final class ModCreativeTabs {
                     .title(Component.translatable("itemGroup.piranport.main"))
                     .icon(() -> RiggingCoreRules.create(ShipDefinitions.ALL.getFirst().id()))
                     .displayItems((parameters, output) -> {
-                        ModItems.ITEMS.getEntries().stream().filter(item -> !(item.get() instanceof BlueprintItem) && !(item.get() instanceof RiggingCoreItem))
+                        ModItems.ITEMS.getEntries().stream().filter(item -> !(item.get() instanceof BlueprintItem) && !(item.get() instanceof RiggingCoreItem) && !(item.get() instanceof com.lex0v0.piranport.item.EquipmentItem))
                                 .forEach(item -> output.accept(item.get()));
                         for (var subclass : BlueprintSubclass.values()) output.accept(BlueprintRules.create(subclass));
                         for (var ship : ShipDefinitions.ALL) output.accept(RiggingCoreRules.create(ship.id()));
+                        for (var model : com.lex0v0.piranport.domain.equipment.EquipmentDefinitions.ALL) output.accept(com.lex0v0.piranport.item.equipment.EquipmentRules.create(model.id()));
                     })
                     .build());
 

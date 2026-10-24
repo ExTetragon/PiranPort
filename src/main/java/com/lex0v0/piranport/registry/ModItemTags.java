@@ -11,6 +11,7 @@ public final class ModItemTags {
     public static final TagKey<Item> WEAPONS = tag("weapons");
     public static final TagKey<Item> AIRCRAFT = tag("aircraft");
     public static final TagKey<Item> DEVICES = tag("devices");
+    public static final TagKey<Item> EQUIPMENT_CONSUMABLES = tag("equipment_consumables");
     public static final TagKey<Item> AMMUNITION = tag("ammunition");
     private ModItemTags() {}
     private static TagKey<Item> tag(String path) { return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(PiranPort.MODID, path)); }

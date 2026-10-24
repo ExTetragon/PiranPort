@@ -3,7 +3,7 @@ package com.lex0v0.piranport.menu;
 import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardBrowseState;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
-import com.lex0v0.piranport.blockentity.shipyard.ShipyardMaterials;
+import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.domain.ship.ShipDefinition;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 import com.lex0v0.piranport.item.BlueprintItem;
@@ -126,11 +126,8 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         super.clicked(index, button, type, player);
     }
 
-    @Override public boolean canTakeItemForPickAll(ItemStack stack, Slot slot) { return slot.isActive() && super.canTakeItemForPickAll(stack, slot); }
-    @Override public boolean canDragTo(Slot slot) { return slot.isActive() && super.canDragTo(slot); }
-
     @Override public ItemStack quickMoveStack(Player player, int index) {
-        if (index < 0 || index >= slots.size() || !slots.get(index).isActive()) return ItemStack.EMPTY;
+        if (index < 0 || index >= slots.size()) return ItemStack.EMPTY;
         Slot source = slots.get(index);
         ItemStack original = source.getItem().copy();
         if (original.isEmpty()) return ItemStack.EMPTY;
@@ -144,7 +141,7 @@ public final class ShipyardMenu extends AbstractContainerMenu {
             ItemStack remaining = original.copy();
             if (original.getItem() instanceof BlueprintItem) {
                 remaining = shipyard.menuInventory().insertItem(ShipyardBlockEntity.BLUEPRINT_SLOT, remaining, false);
-            } else if (ShipyardMaterials.accepts(original)) {
+            } else if (ManufacturingMaterials.accepts(original)) {
                 for (int i = ShipyardBlockEntity.CACHE_START; i < MACHINE_SLOTS && !remaining.isEmpty(); i++) remaining = shipyard.menuInventory().insertItem(i, remaining, false);
             } else {
                 if (index < MACHINE_SLOTS + 27) moveItemStackTo(remaining, MACHINE_SLOTS + 27, slots.size(), false);

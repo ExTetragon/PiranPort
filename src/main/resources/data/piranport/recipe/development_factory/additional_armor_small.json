@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:additional_armor_small",
+  "kind": "model",
+  "count": 1,
+  "fuel": 100,
+  "ammunition": 4,
+  "steel": 4,
+  "aluminum": 1,
+  "seconds": 5
+}

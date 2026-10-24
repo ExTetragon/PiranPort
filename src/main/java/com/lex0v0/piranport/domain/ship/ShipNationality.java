@@ -2,7 +2,7 @@ package com.lex0v0.piranport.domain.ship;
 
 import java.util.Arrays;
 
-// 沿用舰R的八国与其他分类，国籍由具体舰船身份决定。
+// 舰船国籍目录仅包含舰R九组，供身份和船坞筛选使用。
 public enum ShipNationality {
     CHINA("c"), UNITED_KINGDOM("e"), FRANCE("f"), GERMANY("g"), ITALY("i"),
     JAPAN("j"), SOVIET_UNION("s"), UNITED_STATES("u"), OTHER("other");

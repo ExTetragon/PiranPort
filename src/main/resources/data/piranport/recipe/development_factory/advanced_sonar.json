@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:advanced_sonar",
+  "kind": "model",
+  "count": 1,
+  "fuel": 300,
+  "ammunition": 4,
+  "steel": 2,
+  "aluminum": 4,
+  "seconds": 10
+}

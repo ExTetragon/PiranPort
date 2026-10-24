@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "piranport:block/development_factory",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "piranport:block/development_factory",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "piranport:block/development_factory",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "piranport:block/development_factory",
+      "y": 270
+    }
+  }
+}

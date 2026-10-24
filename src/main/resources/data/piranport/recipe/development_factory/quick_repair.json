@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:quick_repair",
+  "kind": "item",
+  "count": 8,
+  "fuel": 800,
+  "ammunition": 32,
+  "steel": 8,
+  "aluminum": 8,
+  "seconds": 5
+}

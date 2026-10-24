@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:phantom_fg1",
+  "kind": "model",
+  "count": 1,
+  "fuel": 1000,
+  "ammunition": 12,
+  "steel": 4,
+  "aluminum": 12,
+  "seconds": 25
+}

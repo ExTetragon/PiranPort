@@ -3,10 +3,9 @@ package com.lex0v0.piranport.blockentity.shipyard;
 import com.lex0v0.piranport.domain.ship.ShipDefinition;
 import com.lex0v0.piranport.domain.ship.ShipNationality;
 import com.lex0v0.piranport.domain.ship.ShipSize;
-import java.text.Normalizer;
+import com.lex0v0.piranport.text.SearchText;
 import java.util.Arrays;
 import java.util.Set;
-import java.util.Locale;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -26,17 +25,9 @@ public record ShipyardFilter(String text, Set<ShipSize> sizes, Set<ShipNationali
 
     public boolean active() { return !text.isEmpty() || !sizes.isEmpty() || !nationalities.isEmpty(); }
     public boolean matches(ShipDefinition ship) {
-        String query = normalize(text);
         return (sizes.isEmpty() || sizes.contains(ship.size()))
                 && (nationalities.isEmpty() || nationalities.contains(ship.nationality()))
-                && (query.isEmpty() || ship.searchNames().stream().anyMatch(name -> normalize(name).contains(query)));
-    }
-
-    private static String normalize(String value) {
-        String normalized = Normalizer.normalize(value, Normalizer.Form.NFKC).toLowerCase(Locale.ROOT);
-        StringBuilder result = new StringBuilder();
-        normalized.codePoints().filter(Character::isLetterOrDigit).forEach(result::appendCodePoint);
-        return result.toString();
+                && SearchText.matches(text, ship.searchNames());
     }
 
     public CompoundTag save() {

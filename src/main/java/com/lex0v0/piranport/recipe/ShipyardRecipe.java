@@ -22,7 +22,7 @@ import com.mojang.serialization.Codec;
 
 // 船坞按具体身份查询配方，开工后保存独立费用快照。
 public record ShipyardRecipe(ResourceLocation ship, int fuel, int ammunition, int steel, int aluminum, int seconds)
-        implements Recipe<SingleRecipeInput> {
+        implements Recipe<SingleRecipeInput>, ManufacturingCost {
     public static final MapCodec<ShipyardRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             ResourceLocation.CODEC.validate(id -> ShipDefinitions.byId(id) == null ? DataResult.error(() -> "Unknown ship: " + id) : DataResult.success(id))
                     .fieldOf("ship").forGetter(ShipyardRecipe::ship),

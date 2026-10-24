@@ -63,11 +63,14 @@ public final class ModDataGenerators {
                     .setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(block))).apply(
                     CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY)
                             .include(ModDataComponents.SHIPYARD_STORAGE.get())));
+            add(ModBlocks.DEVELOPMENT_FACTORY.get(), block -> LootTable.lootTable().withPool(LootPool.lootPool()
+                    .setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(block))).apply(
+                    CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY).include(ModDataComponents.DEVELOPMENT_FACTORY_STORAGE.get())));
         }
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return List.of(ModBlocks.BAUXITE_BLOCK.get(), ModBlocks.ALUMINUM_BLOCK.get(),
-                    ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get(), ModBlocks.SHIPYARD.get());
+                    ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get(), ModBlocks.SHIPYARD.get(), ModBlocks.DEVELOPMENT_FACTORY.get());
         }
     }
 
@@ -85,9 +88,11 @@ public final class ModDataGenerators {
         }
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(ModItemTags.WEAPONS);
-            tag(ModItemTags.AIRCRAFT);
-            tag(ModItemTags.DEVICES);
+            for (var category : com.lex0v0.piranport.domain.equipment.EquipmentCategory.values()) {
+                var target = switch (category.group()) { case WEAPON -> ModItemTags.WEAPONS; case DEVICE -> ModItemTags.DEVICES; case AIRCRAFT -> ModItemTags.AIRCRAFT; };
+                tag(target).add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getResourceKey(ModItems.equipment(category)).orElseThrow());
+            }
+            tag(ModItemTags.EQUIPMENT_CONSUMABLES).add(ModItems.QUICK_REPAIR.getKey(),ModItems.DAMAGE_CONTROL.getKey());
             tag(ModItemTags.AMMUNITION).add(ModItems.MAIN_GUN_AMMUNITION.getKey(), ModItems.TORPEDO.getKey(),
                     ModItems.DEPTH_CHARGE.getKey(), ModItems.MISSILE.getKey());
             material("ores", "bauxite", "bauxite_ore");

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/secondary_gun/us_twin_3in_secondary"
+  }
+}

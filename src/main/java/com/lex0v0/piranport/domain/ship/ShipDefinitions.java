@@ -26,7 +26,7 @@ public final class ShipDefinitions {
     private ShipDefinitions() {}
     private static ShipDefinition ship(String path, ShipType type, ShipNationality nationality, String chinese, String english,
                                        double health, double armor, double referenceSpeed) {
-        return new ShipDefinition(ResourceLocation.fromNamespaceAndPath(PiranPort.MODID, path), type, nationality, List.of(chinese, english),
+        return new ShipDefinition(ResourceLocation.fromNamespaceAndPath(PiranPort.MODID, path), type, nationality, java.util.stream.Stream.of(chinese, english).distinct().toList(),
                 new ShipStats(health, armor, referenceSpeed * 0.2 + 0.4));
     }
     public static ShipDefinition byId(ResourceLocation id) { return BY_ID.get(id); }

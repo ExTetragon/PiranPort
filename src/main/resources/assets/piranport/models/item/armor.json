@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/armor/additional_armor_small"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/additional_armor_small": 1.0
+      },
+      "model": "piranport:item/equipment/armor/additional_armor_small"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/additional_armor_medium": 1.0
+      },
+      "model": "piranport:item/equipment/armor/additional_armor_medium"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/additional_armor_large": 1.0
+      },
+      "model": "piranport:item/equipment/armor/additional_armor_large"
+    }
+  ]
+}

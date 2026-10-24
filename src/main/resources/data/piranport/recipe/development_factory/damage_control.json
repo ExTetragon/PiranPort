@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:damage_control",
+  "kind": "item",
+  "count": 1,
+  "fuel": 800,
+  "ammunition": 12,
+  "steel": 6,
+  "aluminum": 4,
+  "seconds": 15
+}

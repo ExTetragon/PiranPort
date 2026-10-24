@@ -1,6 +1,8 @@
 package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
+import com.lex0v0.piranport.item.EquipmentItem;
+import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import com.lex0v0.piranport.item.FuelBarrelItem;
 import com.lex0v0.piranport.item.BlueprintItem;
 import com.lex0v0.piranport.item.blueprint.BlueprintFamily;
@@ -19,6 +21,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // 集中注册食物、矿物、流体容器、蓝图及舰装核心。
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PiranPort.MODID);
+    public static final DeferredItem<BlockItem> DEVELOPMENT_FACTORY = ITEMS.register("development_factory", () -> new BlockItem(ModBlocks.DEVELOPMENT_FACTORY.get(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<BlockItem> SHIPYARD = ITEMS.register("shipyard", () -> new BlockItem(ModBlocks.SHIPYARD.get(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<AmmunitionItem> MAIN_GUN_AMMUNITION = ITEMS.register("main_gun_ammunition", () -> new AmmunitionItem(2, new Item.Properties()));
     public static final DeferredItem<AmmunitionItem> TORPEDO = ITEMS.register("torpedo", () -> new AmmunitionItem(2, new Item.Properties()));
@@ -261,6 +264,42 @@ public final class ModItems {
             ITEMS.register("fuel_oil_bucket",
                     () -> new BucketItem(ModFluids.FUEL_OIL.get(),
                             new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
+
+    public static final DeferredItem<EquipmentItem> MAIN_GUN = ITEMS.register("main_gun", () -> new EquipmentItem(EquipmentCategory.MAIN_GUN, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> TORPEDO_LAUNCHER = ITEMS.register("torpedo_launcher", () -> new EquipmentItem(EquipmentCategory.TORPEDO_LAUNCHER, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> DEPTH_CHARGE_PROJECTOR = ITEMS.register("depth_charge_projector", () -> new EquipmentItem(EquipmentCategory.DEPTH_CHARGE_PROJECTOR, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> MISSILE_LAUNCHER = ITEMS.register("missile_launcher", () -> new EquipmentItem(EquipmentCategory.MISSILE_LAUNCHER, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> FIGHTER = ITEMS.register("fighter", () -> new EquipmentItem(EquipmentCategory.FIGHTER, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> BOMBER = ITEMS.register("bomber", () -> new EquipmentItem(EquipmentCategory.BOMBER, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> TORPEDO_BOMBER = ITEMS.register("torpedo_bomber", () -> new EquipmentItem(EquipmentCategory.TORPEDO_BOMBER, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> RECONNAISSANCE_AIRCRAFT = ITEMS.register("reconnaissance_aircraft", () -> new EquipmentItem(EquipmentCategory.RECONNAISSANCE_AIRCRAFT, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> ARMOR = ITEMS.register("armor", () -> new EquipmentItem(EquipmentCategory.ARMOR, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> PROPULSION_SYSTEM = ITEMS.register("propulsion_system", () -> new EquipmentItem(EquipmentCategory.PROPULSION_SYSTEM, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> RADAR = ITEMS.register("radar", () -> new EquipmentItem(EquipmentCategory.RADAR, new Item.Properties()));
+    public static final DeferredItem<EquipmentItem> SONAR = ITEMS.register("sonar", () -> new EquipmentItem(EquipmentCategory.SONAR, new Item.Properties()));
+    public static final DeferredItem<Item> QUICK_REPAIR = ITEMS.register("quick_repair", () -> new Item(new Item.Properties().stacksTo(64)));
+    public static final DeferredItem<Item> DAMAGE_CONTROL = ITEMS.register("damage_control", () -> new Item(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<EquipmentItem> SECONDARY_GUN = ITEMS.register("secondary_gun", () -> new EquipmentItem(EquipmentCategory.SECONDARY_GUN, new Item.Properties()));
+
+    public static Item equipment(EquipmentCategory category) {
+        return switch (category) {
+            case MAIN_GUN -> MAIN_GUN.get();
+            case TORPEDO_LAUNCHER -> TORPEDO_LAUNCHER.get();
+            case DEPTH_CHARGE_PROJECTOR -> DEPTH_CHARGE_PROJECTOR.get();
+            case MISSILE_LAUNCHER -> MISSILE_LAUNCHER.get();
+            case FIGHTER -> FIGHTER.get();
+            case BOMBER -> BOMBER.get();
+            case TORPEDO_BOMBER -> TORPEDO_BOMBER.get();
+            case RECONNAISSANCE_AIRCRAFT -> RECONNAISSANCE_AIRCRAFT.get();
+            case ARMOR -> ARMOR.get();
+            case PROPULSION_SYSTEM -> PROPULSION_SYSTEM.get();
+            case RADAR -> RADAR.get();
+            case SONAR -> SONAR.get();
+            case QUICK_REPAIR -> QUICK_REPAIR.get();
+            case DAMAGE_CONTROL -> DAMAGE_CONTROL.get();
+            case SECONDARY_GUN -> SECONDARY_GUN.get();
+        };
+    }
 
     private ModItems() {
     }

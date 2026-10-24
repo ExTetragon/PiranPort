@@ -1,9 +1,14 @@
 package com.lex0v0.piranport.client;
 
+import static com.lex0v0.piranport.text.ManufacturingText.metal;
+import static com.lex0v0.piranport.text.ManufacturingText.time;
+
+import com.lex0v0.piranport.text.ClassificationText;
+
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardJob;
-import com.lex0v0.piranport.blockentity.shipyard.ShipyardMaterials;
+import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
 import com.lex0v0.piranport.client.shipyard.ShipyardFilterDialog;
 import com.lex0v0.piranport.domain.ship.ShipDefinition;
@@ -15,7 +20,6 @@ import com.lex0v0.piranport.network.ShipyardActionPayload;
 import com.lex0v0.piranport.recipe.ShipyardRecipe;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.UUID;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
@@ -165,9 +169,14 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         return RiggingCoreRules.definition(menu.shipyard.stack(ShipyardBlockEntity.OUTPUT_SLOT)).filter(value -> value.id().equals(ship.id())).isPresent() ? "pending" : "";
     }
 
-    private void drawModel(GuiGraphics g, int mouseX, int mouseY) {
+    private ShipDefinition preview() {
         ShipDefinition preview = selected();
         if (preview == null && menu.shipyard.stack(ShipyardBlockEntity.BLUEPRINT_SLOT).isEmpty()) preview = RiggingCoreRules.definition(menu.shipyard.stack(ShipyardBlockEntity.OUTPUT_SLOT)).orElse(null);
+        return preview;
+    }
+
+    private void drawModel(GuiGraphics g, int mouseX, int mouseY) {
+        ShipDefinition preview = preview();
         if (preview == null && minecraft.player != null) {
             InventoryScreen.renderEntityInInventoryFollowsMouse(g, leftPos + 10, topPos + 26, leftPos + 66, topPos + 108,
                     32, .0625f, mouseX, mouseY, minecraft.player);
@@ -177,7 +186,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             g.fill(x, y + 15, x + 6, y + 39, 0xff748892); g.fill(x + 25, y + 15, x + 31, y + 39, 0xff748892);
             g.fill(x + 8, y + 41, x + 15, y + 64, 0xff6e838f); g.fill(x + 17, y + 41, x + 24, y + 64, 0xff6e838f);
             center(g, name(preview, "", 60), 38, 116, WHITE);
-            Component type = Component.translatable(preview.size().translationKey()).append(" - ").append(Component.translatable(preview.type().translationKey()));
+            Component type = ClassificationText.ship(preview);
             center(g, Component.literal(shorten(type.getString(), 64)), 38, 128, MUTED);
         }
     }
@@ -196,7 +205,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             g.drawString(font, "?", x + 7, y + 7, available ? WHITE : MUTED, false);
             g.drawString(font, name(ship, stateFor(ship), 96), x + 19, y + 3, available ? WHITE : MUTED, false);
             var recipe = menu.shipyard.recipe(ship.id()); String time = recipe == null ? "--:--" : time(recipe.ticks());
-            Component type = Component.translatable(ship.size().translationKey()).append("·").append(Component.translatable(ship.type().translationKey()));
+            Component type = ClassificationText.ship(ship);
             g.drawString(font, shorten(type.getString(), 92 - font.width(time)), x + 19, y + 13, MUTED, false);
             g.drawString(font, time, x + 115 - font.width(time), y + 13, MUTED, false);
             if (stateFor(ship).equals("building")) g.fill(x, y, x + 1, y + 23, ORANGE);
@@ -212,7 +221,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         g.fill(leftPos + 216, topPos + 38, leftPos + 336, topPos + 39, 0xff4b6578);
         var recipe = recipe(); if (recipe == null) return;
         var cache = menu.shipyard.materials();
-        long[] available = {menu.shipyard.fuel().getAmount(), ShipyardMaterials.ammunition(cache), ShipyardMaterials.available(cache, "steel"), ShipyardMaterials.available(cache, "aluminum")};
+        long[] available = {menu.shipyard.fuel().getAmount(), ManufacturingMaterials.ammunition(cache), ManufacturingMaterials.available(cache, "steel"), ManufacturingMaterials.available(cache, "aluminum")};
         int[] required = {recipe.fuel(), recipe.ammunition(), recipe.steel() * 9, recipe.aluminum() * 9};
         String[] keys = {"fuel", "ammunition", "steel", "aluminum"};
         for (int row = 0; row < 4; row++) {
@@ -227,9 +236,6 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             g.drawString(font, counts, leftPos + 336 - font.width(counts), y, color, false);
         }
     }
-
-    private static String metal(long units) { return units % 9 == 0 ? Long.toString(units / 9) : String.format(Locale.ROOT, "%.2f", units / 9.0); }
-    public static String time(int ticks) { int seconds = Math.max(0, (int) ((ticks + 19L) / 20)); return String.format(Locale.ROOT, "%02d:%02d", seconds / 60, seconds % 60); }
 
     private void drawProgress(GuiGraphics g) {
         int x = leftPos + 236, y = topPos + 124;
@@ -266,7 +272,7 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
             var lines=filterDialog.tooltip(mx,my);
             if(!lines.isEmpty())g.renderComponentTooltip(font,lines,mouseX,mouseY);
         } else if (confirmation == null) {
-            if (hoveredSlot != null && hoveredSlot.index < 3 && job() != null) {
+            if (hoveredSlot != null && hoveredSlot.index == ShipyardBlockEntity.BLUEPRINT_SLOT && job() != null) {
                 var stack = hoveredSlot.getItem();
                 var lines = new ArrayList<>(Screen.getTooltipFromItem(minecraft, stack));
                 lines.add(tr("reserved")); lines.add(tr("refill"));
@@ -292,28 +298,26 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         else if (inside(x,y,212,122,18,18) && job() != null) { lines.add(tr("reserved")); lines.add(tr("refill")); }
         else if (inside(x,y,236,122,80,18) && job() != null) {
             var task = job(); var ship = ShipDefinitions.byId(task.recipe.ship());
-            if (ship != null) lines.add(Component.translatable(ship.translationKey()).append(tr("building")));
+            if (ship != null) { lines.add(Component.translatable(ship.translationKey()).append(tr("building"))); lines.add(ClassificationText.ship(ship)); }
             lines.add(tr("progress", time(task.elapsed()), time(task.recipe.ticks()), time(task.recipe.ticks()-task.elapsed())));
             lines.add(tr("spent")); lines.add(tr("refund_metals", task.recipe.steel(), task.recipe.aluminum()));
             lines.add(Component.literal(task.fuel.getAmount()+" mB"));
             task.ammunition.forEach(stack -> lines.add(stack.getHoverName().copy().append(" ×"+stack.getCount())));
         } else if (inside(x,y,212,108,128,12)) {
             var ship = job() == null ? RiggingCoreRules.definition(menu.shipyard.stack(ShipyardBlockEntity.OUTPUT_SLOT)).orElse(null) : ShipDefinitions.byId(job().recipe.ship());
-            if (ship != null) lines.add(Component.translatable(ship.translationKey()).append(tr(job() == null ? "pending" : "building")));
-        } else if (inside(x,y,8,112,60,26) && selected() != null) {
-            lines.add(Component.translatable(selected().translationKey())); lines.add(nationality(selected()));
+            if (ship != null) { lines.add(Component.translatable(ship.translationKey()).append(tr(job() == null ? "pending" : "building"))); lines.add(ClassificationText.ship(ship)); }
+        } else if (inside(x,y,8,24,60,114) && preview() != null) {
+            lines.add(Component.translatable(preview().translationKey())); lines.add(ClassificationText.ship(preview()));
         }
         else if (inside(x,y,77,38,119,96)) {
             int row = (y-topPos-38)/24 + menu.browse.scroll; var ships=menu.visibleShips();
-            if (row < ships.size()) { var ship=ships.get(row); MutableComponent line=Component.translatable(ship.translationKey());String state=stateFor(ship);if(!state.isEmpty())line.append(tr(state));lines.add(line);lines.add(nationality(ship)); }
+            if (row < ships.size()) { var ship=ships.get(row); MutableComponent line=Component.translatable(ship.translationKey());String state=stateFor(ship);if(!state.isEmpty())line.append(tr(state));lines.add(line);lines.add(ClassificationText.ship(ship)); }
         } else if (inside(x,y,212,50,128,12) && recipe() != null) {
-            var plan=ShipyardMaterials.plan(menu.shipyard.materials(),recipe());
+            var plan=ManufacturingMaterials.plan(menu.shipyard.materials(),recipe());
             if(plan!=null){int points=plan.ammunition().stream().mapToInt(stack->AmmunitionItem.points(stack)*stack.getCount()).sum();lines.add(tr("ammo_budget",recipe().ammunition(),points));plan.ammunition().forEach(stack->lines.add(stack.getHoverName().copy().append(" ×"+stack.getCount())));}
         }
         if (!lines.isEmpty()) g.renderComponentTooltip(font, lines, screenX, screenY);
     }
-
-    private Component nationality(ShipDefinition ship) { return tr("nationality", Component.translatable(ship.nationality().translationKey())); }
 
     private List<FormattedCharSequence> confirmationLines(int width) {
         List<Component> lines=new ArrayList<>(); var task=job();

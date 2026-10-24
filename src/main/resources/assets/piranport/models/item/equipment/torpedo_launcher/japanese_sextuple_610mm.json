@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/torpedo_launcher/japanese_sextuple_610mm"
+  }
+}

@@ -21,5 +21,20 @@ public class Config {
                     "Allow newly placed fuel barrels to connect along their axis. This setting is recorded on placement; changing it does not affect existing barrels.")
             .define("fuelBarrelAxialConnection", true);
 
+    public static final ModConfigSpec.BooleanValue RETAIN_BROKEN_EQUIPMENT = BUILDER
+            .comment("是否保留耐久归零的损坏装备；仅影响后续耗损结算，不追溯删除已有损坏件",
+                    "Keep equipment when its durability reaches zero. Only future wear is affected; existing broken items are not removed retroactively.")
+            .define("retainBrokenEquipment", true);
+
+    public static final ModConfigSpec.BooleanValue ALLOW_QUICK_REPAIR_FROM_PLAYER_INVENTORY = BUILDER
+            .comment("是否允许直接消耗玩家背包中的快修；设备栏优先，自动回复触发后续实现",
+                    "Allow quick repair consumption from the player inventory after equipment slots. Automatic healing is not implemented yet.")
+            .define("allowQuickRepairFromPlayerInventory", false);
+
+    public static final ModConfigSpec.BooleanValue ALLOW_DAMAGE_CONTROL_FROM_PLAYER_INVENTORY = BUILDER
+            .comment("是否允许直接消耗玩家背包中的损管；设备栏优先，抵消死亡触发后续实现",
+                    "Allow damage control consumption from the player inventory after equipment slots. Death prevention is not implemented yet.")
+            .define("allowDamageControlFromPlayerInventory", false);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 }

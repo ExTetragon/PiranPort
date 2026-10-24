@@ -5,6 +5,7 @@
     "piranport:bauxite_block",
     "piranport:aluminum_block",
     "piranport:steel_block",
-    "piranport:shipyard"
+    "piranport:shipyard",
+    "piranport:development_factory"
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/radar/advanced_radar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/advanced_radar": 1.0
+      },
+      "model": "piranport:item/equipment/radar/advanced_radar"
+    }
+  ]
+}

@@ -154,6 +154,20 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "secondary_gun": {
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "piranport:blueprint_permission": {
+                "permission": "piranport:equipment/secondary_gun"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "sonar": {
       "conditions": {
         "items": [
@@ -220,6 +234,7 @@
             "piranport:equipment/quick_repair",
             "piranport:equipment/radar",
             "piranport:equipment/reconnaissance_aircraft",
+            "piranport:equipment/secondary_gun",
             "piranport:equipment/sonar",
             "piranport:equipment/torpedo_bomber",
             "piranport:equipment/torpedo_launcher"
@@ -263,6 +278,9 @@
     ],
     [
       "damage_control"
+    ],
+    [
+      "secondary_gun"
     ],
     [
       "fighter"

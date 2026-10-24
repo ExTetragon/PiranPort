@@ -590,7 +590,7 @@
         "BlueprintLootGameTests.allCandidatesAndContentWeights",
         "BlueprintLootGameTests.onlyTreasureSourcesAreModified"
       ],
-      "note": "114 valid candidates, balanced family/subclass sampling; only two vanilla treasure sources modified."
+      "note": "178 valid candidates, balanced family/subclass sampling; only two vanilla treasure sources modified."
     },
     "BP14": {
       "coverage": "full",
@@ -803,7 +803,7 @@
       "tests": [
         "RiggingCoreGameTests.tooltipAndOccupancyArePure"
       ],
-      "note": "Bilingual names, colors, rename, exact combined classification spacing and Shift/F3+H behavior checked by RiggingClientChecks. ModTooltipClientChecks checks existing native category order after normal and Shift core details without adding or hiding category lines; real anvil and creative-screen interaction remain manual."
+      "note": "Bilingual names, colors, rename, label-free canonical ship name, size/type/nationality classification spacing and Shift/F3+H behavior checked by RiggingClientChecks. ModTooltipClientChecks checks existing native category order after normal and Shift core details without adding or hiding category lines; real anvil and creative-screen interaction remain manual."
     },
     "RC18": {
       "coverage": "partial",
@@ -1013,7 +1013,9 @@
     },
     "SY20": {
       "coverage": "partial",
-      "tests": ["ShipyardGameTests.filterStatePersistsIndependentlyOfTask"],
+      "tests": [
+        "ShipyardGameTests.filterStatePersistsIndependentlyOfTask"
+      ],
       "note": "筛选独立保存及任务不变；客户端另验弹窗、状态图标、右键清除、键盘和取消布局，其他字体与缩放保留人工范围"
     },
     "SY18": {
@@ -1021,7 +1023,259 @@
       "tests": [
         "ShipyardGameTests.completionOnceAndEmptyCore"
       ],
-      "note": "完成音效仅在单次完工播放；资源由客户端检查，听感仍需人工验证"
+      "note": "完成音效仅在单次完工播放；资源由客户端检查，听感仍需人工验证 ShipyardUiAcceptance collects actual blueprint/cache tooltip text and checks reservation hints only appear on the blueprint slot."
+    },
+    "EQ01": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.catalogueAndRegistrations"
+      ],
+      "note": "分类、注册与初始耐久"
+    },
+    "EQ02": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.subtypeProperties"
+      ],
+      "note": "细分与共用国籍"
+    },
+    "EQ03": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.identityPersistenceAndNetwork"
+      ],
+      "note": "身份与单件状态持久化和网络"
+    },
+    "EQ04": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.missingUnknownAndMismatchedIdentity"
+      ],
+      "note": "缺失、未知及跨类身份"
+    },
+    "EQ05": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.pureQueriesAndIndependentCopies"
+      ],
+      "note": "纯查询和副本隔离"
+    },
+    "EQ06": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.retainedBreakKeepsIdentityAndFuel"
+      ],
+      "note": "保留损坏件与飞机燃油"
+    },
+    "EQ07": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.nativeWearRetainsAtZero"
+      ],
+      "note": "原版耗损归零及重复耗损"
+    },
+    "EQ08": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.destroySettingAndNoRetroactiveRemoval"
+      ],
+      "note": "销毁开关仅影响后续耗损"
+    },
+    "EQ09": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.nativeCreativeDoesNotWear"
+      ],
+      "note": "原版创造耗损免疫"
+    },
+    "EQ10": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.aircraftFuelCapabilityAndSimulation"
+      ],
+      "note": "四类飞机能力、容量与模拟"
+    },
+    "EQ11": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.fuelComponentsAndAbnormalIdentityRecovery"
+      ],
+      "note": "流体组件、超额和异常身份恢复"
+    },
+    "EQ12": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.coreSlotsAcceptActualEquipment"
+      ],
+      "note": "生产标签与核心分类"
+    },
+    "EQ13": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.coreDuplicatesAndExplicitWriteback"
+      ],
+      "note": "重复装配、副本与显式写回"
+    },
+    "EQ14": {
+      "coverage": "partial",
+      "tests": [
+        "EquipmentGameTests.vanillaRepairBlockedRenamePreserved"
+      ],
+      "note": "铁砧混修拒绝与改名；工作台／砂轮实际界面仍需人工复核"
+    },
+    "EQ15": {
+      "coverage": "partial",
+      "tests": [
+        "EquipmentGameTests.creativeIncludesEveryModelOnce"
+      ],
+      "note": "21耐久型号及2普通消耗品的创造栏；客户端检查23图标和双语，实际创造界面仍需人工复核"
+    },
+    "EQ16": {
+      "coverage": "full",
+      "tests": [
+        "EquipmentGameTests.secondaryGunBlueprintPermission"
+      ],
+      "note": "副炮许可与设备全许可"
+    },
+    "DF01": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.consumablesHaveNoEquipmentState"
+      ],
+      "note": "普通消耗品、默认配置与分类"
+    },
+    "DF02": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.coreConsumableStackLimitsAndSimulation"
+      ],
+      "note": "核心堆叠上限和纯模拟"
+    },
+    "DF03": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.allTwentyThreeRecipesAndOutputKinds"
+      ],
+      "note": "23配方、产物类别与必要校验"
+    },
+    "DF04": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.blockRecipeRejectsFilledBarrel"
+      ],
+      "note": "空燃料桶有序合成和无副作用拒绝"
+    },
+    "DF05": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.emptyBlueprintScopeAndPureQuery"
+      ],
+      "note": "无图纸查询与准入"
+    },
+    "DF06": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.categoryAndCaseInsensitiveSearch"
+      ],
+      "note": "类别并集、大小写及全半角搜索"
+    },
+    "DF07": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.blueprintReservationAndRefill"
+      ],
+      "note": "图纸余量、相同许可补充和整槽交换"
+    },
+    "DF08": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.failedStartDoesNotSpendAnything"
+      ],
+      "note": "失败开工不扣料"
+    },
+    "DF09": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.simultaneousRequestsAndStaleCancel"
+      ],
+      "note": "重复请求及过期取消"
+    },
+    "DF10": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.completesEachExactOutputWithoutRepeat"
+      ],
+      "note": "全部23项精确产出、满耐久、空油与不续建"
+    },
+    "DF11": {
+      "coverage": "partial",
+      "tests": [
+        "DevelopmentFactoryGameTests.taskSnapshotPersistenceAndNoOfflineAdvance"
+      ],
+      "note": "快照保存与恢复；真实卸载／重启仍需人工复核"
+    },
+    "DF12": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.cancelledMetalsAndOriginalAmmoRefund"
+      ],
+      "note": "金属找零、原始弹药组件及燃油退款"
+    },
+    "DF13": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.fuelRefundOverflowAndNoPartialBatch"
+      ],
+      "note": "燃油退款溢出及整批取消"
+    },
+    "DF14": {
+      "coverage": "partial",
+      "tests": [
+        "DevelopmentFactoryGameTests.survivalDropsCancelledStorage"
+      ],
+      "note": "正常掉落含退款缓存；真实爆炸／重放仍需人工复核"
+    },
+    "DF15": {
+      "coverage": "partial",
+      "tests": [
+        "DevelopmentFactoryGameTests.creativeClearsFuelAndScattersItems"
+      ],
+      "note": "创造拆除清除缓存；实际破坏交互仍需人工复核"
+    },
+    "DF16": {
+      "coverage": "partial",
+      "tests": [
+        "DevelopmentFactoryGameTests.sidedCapabilitiesAndRemovedReferences"
+      ],
+      "note": "分面权限、移除后旧能力失效；第三方管道仍需人工复核"
+    },
+    "DF17": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.fuelSimulationAndContainerMaximum"
+      ],
+      "note": "燃油过滤、模拟、容器最大合法转移"
+    },
+    "DF18": {
+      "coverage": "partial",
+      "tests": [
+        "DevelopmentFactoryGameTests.browsingIndependentAndLastCloserSaved"
+      ],
+      "note": "窗口独立和最后关闭状态；真实多人仍需人工复核"
+    },
+    "DF19": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.menuRejectsRemoteMutation"
+      ],
+      "note": "远程菜单变更拒绝"
+    },
+    "DF20": {
+      "coverage": "full",
+      "tests": [
+        "DevelopmentFactoryGameTests.frozenBatchOutputSurvivesRecipeDifference"
+      ],
+      "note": "任务保存的产量时长不随当前配方重定价"
     }
   }
 }

@@ -151,7 +151,7 @@ public final class RiggingCoreGameTests {
             for (var region : RiggingRegion.values()) {
                 var handler = RiggingCoreRules.inventory(stack, region);
                 var item = switch (region) { case WEAPONS -> Items.IRON_SWORD; case EQUIPMENT -> Items.IRON_INGOT; case AMMUNITION -> Items.ARROW; case CARGO -> Items.DIAMOND; };
-                for (int slot = 0; slot < handler.getSlots(); slot++) handler.setStackInSlot(slot, new ItemStack(item, region.singleItem() ? 1 : 64));
+                for (int slot = 0; slot < handler.getSlots(); slot++) handler.setStackInSlot(slot, new ItemStack(item, region == RiggingRegion.WEAPONS || region == RiggingRegion.EQUIPMENT ? 1 : 64));
             }
             stack.set(DataComponents.CUSTOM_NAME, Component.literal("Saved core"));
             RiggingCoreRules.setProficiency(stack, 177);
@@ -387,8 +387,9 @@ public final class RiggingCoreGameTests {
         var details = RiggingTooltips.details(stack);
         h.assertTrue(details.size() == 11, "shift detail field count");
         var classification = (TranslatableContents)details.get(1).getContents();
-        h.assertTrue(classification.getKey().equals("tooltip.piranport.rigging.size") && classification.getArgs().length == 2,
-                "size and type share one detail line");
+        h.assertTrue(((TranslatableContents)details.getFirst().getContents()).getKey().equals("ship.piranport.u47"), "canonical ship name has no field label");
+        h.assertTrue(classification.getKey().equals("classification.piranport.ship") && classification.getArgs().length == 3,
+                "size, type and nationality share one detail line");
         h.assertTrue(((TranslatableContents)details.get(2).getContents()).getKey().endsWith("proficiency"), "proficiency follows ship classification");
         h.assertTrue(RiggingCoreRules.inventory(stack, RiggingRegion.CARGO).occupiedSlots() == 1, "nested items count as one slot");
         h.assertTrue(ItemStack.matches(stack, before) && stack.getItem().getName(stack).getStyle().getColor().getValue() == RiggingCoreItem.NAME_COLOR, "query purity and default name color");

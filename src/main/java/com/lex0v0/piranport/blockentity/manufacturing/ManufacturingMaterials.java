@@ -1,7 +1,7 @@
-package com.lex0v0.piranport.blockentity.shipyard;
+package com.lex0v0.piranport.blockentity.manufacturing;
 
 import com.lex0v0.piranport.item.AmmunitionItem;
-import com.lex0v0.piranport.recipe.ShipyardRecipe;
+import com.lex0v0.piranport.recipe.ManufacturingCost;
 import com.lex0v0.piranport.registry.ModItemTags;
 import com.lex0v0.piranport.registry.ModItems;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 // 在库存副本中规划扣料，找零与退款只按净费用结算。
-public final class ShipyardMaterials {
+public final class ManufacturingMaterials {
     public static final int SLOTS = 12;
-    private ShipyardMaterials() {}
+    private ManufacturingMaterials() {}
 
     public static int value(ItemStack stack, String material) {
         for (int i = 0; i < 3; i++) {
@@ -42,7 +42,7 @@ public final class ShipyardMaterials {
 
     public record Plan(List<ItemStack> remaining, List<ItemStack> ammunition, List<ItemStack> change) {}
 
-    public static Plan plan(List<ItemStack> source, ShipyardRecipe recipe) {
+    public static Plan plan(List<ItemStack> source, ManufacturingCost recipe) {
         List<ItemStack> remaining = source.stream().map(ItemStack::copy).collect(java.util.stream.Collectors.toCollection(ArrayList::new));
         List<ItemStack> ammunition = new ArrayList<>();
         List<ItemStack> change = new ArrayList<>();

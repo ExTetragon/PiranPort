@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:us_triple_mk16_8in",
+  "kind": "model",
+  "count": 1,
+  "fuel": 600,
+  "ammunition": 12,
+  "steel": 8,
+  "aluminum": 2,
+  "seconds": 15
+}

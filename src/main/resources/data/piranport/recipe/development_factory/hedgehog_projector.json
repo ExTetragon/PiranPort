@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:hedgehog_projector",
+  "kind": "model",
+  "count": 1,
+  "fuel": 300,
+  "ammunition": 8,
+  "steel": 4,
+  "aluminum": 1,
+  "seconds": 10
+}

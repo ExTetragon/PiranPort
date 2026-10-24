@@ -40,7 +40,7 @@ public final class BlueprintCollectionGameTests {
     public static void cumulativeCollectionAndFamilyIsolation(GameTestHelper h) {
         var player = h.makeMockServerPlayerInLevel();
         h.assertTrue(advancement(h,BlueprintFamily.SHIP).value().criteria().size() == 9
-                && advancement(h,BlueprintFamily.EQUIPMENT).value().criteria().size() == 14, "two independent permission goals");
+                && advancement(h,BlueprintFamily.EQUIPMENT).value().criteria().size() == 15, "two independent permission goals");
         acquire(player, BlueprintRules.create(BATTLESHIP, DESTROYER));
         var ship = progress(h,player,BlueprintFamily.SHIP);
         h.assertTrue(ship.getCriterion("battleship").isDone() && ship.getCriterion("destroyer").isDone() && !ship.isDone(), "composite blueprint satisfies contained criteria only");

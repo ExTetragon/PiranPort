@@ -26,6 +26,14 @@ public final class ModDataComponents {
                     .networkSynchronized(SimpleFluidContent.STREAM_CODEC)
                     .build());
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<com.lex0v0.piranport.item.equipment.EquipmentIdentity>> EQUIPMENT_IDENTITY =
+            DATA_COMPONENTS.register("equipment_identity", () -> DataComponentType.<com.lex0v0.piranport.item.equipment.EquipmentIdentity>builder()
+                    .persistent(com.lex0v0.piranport.item.equipment.EquipmentIdentity.CODEC)
+                    .networkSynchronized(com.lex0v0.piranport.item.equipment.EquipmentIdentity.STREAM_CODEC).build());
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> DEVELOPMENT_FACTORY_STORAGE =
+            DATA_COMPONENTS.register("development_factory_storage", () -> DataComponentType.<CustomData>builder().persistent(CustomData.CODEC).networkSynchronized(CustomData.STREAM_CODEC).build());
+
     private ModDataComponents() {
     }
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> SHIPYARD_STORAGE =

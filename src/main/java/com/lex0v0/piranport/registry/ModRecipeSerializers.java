@@ -20,6 +20,8 @@ public final class ModRecipeSerializers {
             SERIALIZERS.register("blueprint_expand", () -> new SimpleCraftingRecipeSerializer<>(BlueprintExpandRecipe::new));
     public static final DeferredHolder<RecipeSerializer<?>, ShipyardRecipe.Serializer> SHIPYARD = SERIALIZERS.register("shipyard", ShipyardRecipe.Serializer::new);
 
+    public static final DeferredHolder<RecipeSerializer<?>, com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe.Serializer> DEVELOPMENT_FACTORY = SERIALIZERS.register("development_factory", com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, com.lex0v0.piranport.recipe.EmptyFuelBarrelShapedRecipe.Serializer> EMPTY_FUEL_BARREL_SHAPED = SERIALIZERS.register("empty_fuel_barrel_shaped", com.lex0v0.piranport.recipe.EmptyFuelBarrelShapedRecipe.Serializer::new);
     private ModRecipeSerializers() {}
     public static void register(IEventBus bus) { SERIALIZERS.register(bus); }
 }

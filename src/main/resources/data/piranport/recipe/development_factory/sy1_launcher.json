@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:sy1_launcher",
+  "kind": "model",
+  "count": 1,
+  "fuel": 800,
+  "ammunition": 20,
+  "steel": 6,
+  "aluminum": 6,
+  "seconds": 20
+}

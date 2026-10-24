@@ -1,0 +1,29 @@
+{
+  "type": "piranport:empty_fuel_barrel_shaped",
+  "pattern": [
+    "SAS",
+    "BCP",
+    "SAS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "A": {
+      "tag": "c:ingots/aluminum"
+    },
+    "B": {
+      "item": "piranport:fuel_barrel"
+    },
+    "C": {
+      "item": "minecraft:crafting_table"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "id": "piranport:development_factory",
+    "count": 1
+  }
+}

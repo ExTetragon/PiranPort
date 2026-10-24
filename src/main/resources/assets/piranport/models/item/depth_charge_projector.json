@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/depth_charge_projector/hedgehog_projector"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/hedgehog_projector": 1.0
+      },
+      "model": "piranport:item/equipment/depth_charge_projector/hedgehog_projector"
+    }
+  ]
+}

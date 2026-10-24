@@ -29,6 +29,7 @@ public enum BlueprintType {
     SONAR(BlueprintSubclass.DEVICE, "sonar"),
     QUICK_REPAIR(BlueprintSubclass.DEVICE, "quick_repair"),
     DAMAGE_CONTROL(BlueprintSubclass.DEVICE, "damage_control"),
+    SECONDARY_GUN(BlueprintSubclass.DEVICE, "secondary_gun"),
     FIGHTER(BlueprintSubclass.AIRCRAFT, "fighter"),
     BOMBER(BlueprintSubclass.AIRCRAFT, "bomber"),
     TORPEDO_BOMBER(BlueprintSubclass.AIRCRAFT, "torpedo_bomber"),

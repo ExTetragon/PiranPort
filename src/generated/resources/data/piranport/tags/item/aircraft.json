@@ -1,3 +1,8 @@
 {
-  "values": []
+  "values": [
+    "piranport:fighter",
+    "piranport:bomber",
+    "piranport:torpedo_bomber",
+    "piranport:reconnaissance_aircraft"
+  ]
 }

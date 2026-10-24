@@ -13,6 +13,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class ModMenus {
     private static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, PiranPort.MODID);
     public static final DeferredHolder<MenuType<?>, MenuType<ShipyardMenu>> SHIPYARD = MENUS.register("shipyard", () -> IMenuTypeExtension.create(ShipyardMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<com.lex0v0.piranport.menu.DevelopmentFactoryMenu>> DEVELOPMENT_FACTORY = MENUS.register("development_factory", () -> IMenuTypeExtension.create(com.lex0v0.piranport.menu.DevelopmentFactoryMenu::new));
     private ModMenus() {}
     public static void register(IEventBus bus) { MENUS.register(bus); }
 }

@@ -27,7 +27,6 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.fluids.FluidUtil;
-import org.jetbrains.annotations.Nullable;
 
 // 船坞负责打开菜单、世界加取油及拆除前取消任务。
 public final class ShipyardBlock extends BaseEntityBlock {

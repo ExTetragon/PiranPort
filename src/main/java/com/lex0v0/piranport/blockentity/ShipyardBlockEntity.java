@@ -2,7 +2,7 @@ package com.lex0v0.piranport.blockentity;
 
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardBrowseState;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardJob;
-import com.lex0v0.piranport.blockentity.shipyard.ShipyardMaterials;
+import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 import com.lex0v0.piranport.item.blueprint.BlueprintRules;
 import com.lex0v0.piranport.item.blueprint.BlueprintType;
@@ -15,7 +15,6 @@ import com.lex0v0.piranport.registry.ModFluids;
 import com.lex0v0.piranport.registry.ModItems;
 import com.lex0v0.piranport.registry.ModRecipeTypes;
 import com.lex0v0.piranport.registry.ModSounds;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -52,7 +51,7 @@ import org.jetbrains.annotations.Nullable;
 public final class ShipyardBlockEntity extends BlockEntity implements MenuProvider {
     public static final int FUEL_CAPACITY = 32000;
     public static final int BLUEPRINT_SLOT = 0, OUTPUT_SLOT = 1, CACHE_START = 2;
-    public static final int TOTAL_SLOTS = CACHE_START + ShipyardMaterials.SLOTS;
+    public static final int TOTAL_SLOTS = CACHE_START + ManufacturingMaterials.SLOTS;
     private ShipyardJob job;
     private ShipyardBrowseState remembered = new ShipyardBrowseState();
     private final ItemStackHandler inventory = new ItemStackHandler(TOTAL_SLOTS) {
@@ -88,7 +87,7 @@ public final class ShipyardBlockEntity extends BlockEntity implements MenuProvid
 
     public boolean accepts(int slot, ItemStack stack) {
         if (slot < 0 || slot >= TOTAL_SLOTS || stack.isEmpty()) return false;
-        if (slot >= CACHE_START) return ShipyardMaterials.accepts(stack);
+        if (slot >= CACHE_START) return ManufacturingMaterials.accepts(stack);
         if (slot == OUTPUT_SLOT) return false;
         if (!stack.is(ModItems.SHIP_BLUEPRINT.get()) || !BlueprintRules.isValid(stack)) return false;
         return job == null || ItemStack.isSameItemSameComponents(stack, job.blueprint);
@@ -121,7 +120,7 @@ public final class ShipyardBlockEntity extends BlockEntity implements MenuProvid
 
     public boolean affordable(ShipyardRecipe recipe) {
         return recipe != null && (recipe.fuel() == 0 || tank.getFluid().is(ModFluids.FUEL_OIL.get()))
-                && tank.getFluidAmount() >= recipe.fuel() && ShipyardMaterials.plan(materials(), recipe) != null;
+                && tank.getFluidAmount() >= recipe.fuel() && ManufacturingMaterials.plan(materials(), recipe) != null;
     }
 
     public enum StartResult { STARTED, BUSY, OUTPUT_PENDING, INVALID_BLUEPRINT, MISSING_RESOURCES, NO_RECIPE }
@@ -133,14 +132,14 @@ public final class ShipyardBlockEntity extends BlockEntity implements MenuProvid
         if (ship == null || !permitted(ship)) return StartResult.INVALID_BLUEPRINT;
         ShipyardRecipe recipe = recipe(ship);
         if (recipe == null || !recipe.knownShip()) return StartResult.NO_RECIPE;
-        ShipyardMaterials.Plan plan = ShipyardMaterials.plan(materials(), recipe);
+        ManufacturingMaterials.Plan plan = ManufacturingMaterials.plan(materials(), recipe);
         if (plan == null || tank.getFluidAmount() < recipe.fuel()
                 || recipe.fuel() > 0 && !tank.getFluid().is(ModFluids.FUEL_OIL.get())) return StartResult.MISSING_RESOURCES;
         FluidStack paid = tank.drain(recipe.fuel(), IFluidHandler.FluidAction.SIMULATE);
         if (paid.getAmount() != recipe.fuel()) return StartResult.MISSING_RESOURCES;
         // 规划全部成功后再提交，找零空间不足不会回滚或阻止开工。
         job = new ShipyardJob(recipe, inventory.getStackInSlot(BLUEPRINT_SLOT), plan.ammunition(), paid);
-        for (int i = 0; i < ShipyardMaterials.SLOTS; i++) inventory.setStackInSlot(CACHE_START + i, plan.remaining().get(i));
+        for (int i = 0; i < ManufacturingMaterials.SLOTS; i++) inventory.setStackInSlot(CACHE_START + i, plan.remaining().get(i));
         tank.drain(recipe.fuel(), IFluidHandler.FluidAction.EXECUTE);
         for (ItemStack change : plan.change()) returnItem(change, actor);
         changed(); return StartResult.STARTED;
@@ -153,8 +152,8 @@ public final class ShipyardBlockEntity extends BlockEntity implements MenuProvid
     public boolean cancel(UUID expected, @Nullable Player actor) {
         if (!usable() || job == null || !job.id.equals(expected)) return false;
         ShipyardJob cancelled = job; job = null;
-        for (ItemStack stack : ShipyardMaterials.normalized("steel", cancelled.recipe.steel() * 9)) returnItem(stack, actor);
-        for (ItemStack stack : ShipyardMaterials.normalized("aluminum", cancelled.recipe.aluminum() * 9)) returnItem(stack, actor);
+        for (ItemStack stack : ManufacturingMaterials.normalized("steel", cancelled.recipe.steel() * 9)) returnItem(stack, actor);
+        for (ItemStack stack : ManufacturingMaterials.normalized("aluminum", cancelled.recipe.aluminum() * 9)) returnItem(stack, actor);
         for (ItemStack stack : cancelled.ammunition) returnItem(stack.copy(), actor);
         tank.fill(cancelled.fuel, IFluidHandler.FluidAction.EXECUTE);
         changed(); return true;

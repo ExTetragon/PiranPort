@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:us_twin_3in_secondary",
+  "kind": "model",
+  "count": 1,
+  "fuel": 400,
+  "ammunition": 8,
+  "steel": 6,
+  "aluminum": 2,
+  "seconds": 10
+}

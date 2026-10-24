@@ -1,3 +1,8 @@
 {
-  "values": []
+  "values": [
+    "piranport:main_gun",
+    "piranport:torpedo_launcher",
+    "piranport:missile_launcher",
+    "piranport:depth_charge_projector"
+  ]
 }

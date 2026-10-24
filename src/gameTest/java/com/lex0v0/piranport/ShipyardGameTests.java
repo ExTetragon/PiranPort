@@ -1,7 +1,7 @@
 package com.lex0v0.piranport;
 
 import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
-import com.lex0v0.piranport.blockentity.shipyard.ShipyardMaterials;
+import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardBrowseState;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
@@ -262,7 +262,7 @@ public final class ShipyardGameTests {
     public static void metalChangeAndNuggetPriority(GameTestHelper h) {
         var yard=yard(h);List<ItemStack> source=new ArrayList<>();
         source.add(new ItemStack(ModBlocks.STEEL_BLOCK.get()));source.add(new ItemStack(ModItems.STEEL_INGOT.get()));source.add(new ItemStack(ModItems.STEEL_NUGGET.get(),3));
-        var recipe=new ShipyardRecipe(id("glowworm"),0,0,2,0,1);var plan=ShipyardMaterials.plan(source,recipe);
+        var recipe=new ShipyardRecipe(id("glowworm"),0,0,2,0,1);var plan=ManufacturingMaterials.plan(source,recipe);
         h.assertTrue(plan!=null&&plan.remaining().stream().allMatch(ItemStack::isEmpty),"nuggets and ingots consumed before block");
         h.assertTrue(plan.change().stream().filter(s->s.is(ModItems.STEEL_INGOT.get())).mapToInt(ItemStack::getCount).sum()==8
                 &&plan.change().stream().filter(s->s.is(ModItems.STEEL_NUGGET.get())).mapToInt(ItemStack::getCount).sum()==3,"exact 75-nugget change");
@@ -273,10 +273,10 @@ public final class ShipyardGameTests {
     public static void ammunitionSlotOrderAndCeiling(GameTestHelper h) {
         var recipe=new ShipyardRecipe(id("glowworm"),0,40,0,0,1);
         var source=List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.MISSILE.get(),12),new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),64));
-        var plan=ShipyardMaterials.plan(source,recipe);
+        var plan=ManufacturingMaterials.plan(source,recipe);
         h.assertTrue(plan!=null&&plan.ammunition().get(0).getCount()==1&&plan.ammunition().get(1).getCount()==10
                 &&plan.remaining().get(2).getCount()==64,"41 points in slot order, no optimization");
-        var rounded=ShipyardMaterials.plan(List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.TORPEDO.get(),2)),new ShipyardRecipe(id("glowworm"),0,4,0,0,1));
+        var rounded=ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.TORPEDO.get(),2)),new ShipyardRecipe(id("glowworm"),0,4,0,0,1));
         h.assertTrue(rounded!=null&&rounded.ammunition().get(1).getCount()==2,"four points round the last two-point item upwards");h.succeed();
     }
 
@@ -504,7 +504,7 @@ public final class ShipyardGameTests {
         h.assertTrue(decoded.equals(large)&&decoded.ticks()==12000,"codec accepts costs above initial balance guidance");
         var json=encoded.getAsJsonObject();json.addProperty("ammunition",6);
         h.assertTrue(ShipyardRecipe.CODEC.codec().parse(com.mojang.serialization.JsonOps.INSTANCE,json).error().isPresent(),"cost must be a multiple of four");
-        h.assertTrue(ShipyardMaterials.plan(List.of(new ItemStack(ModItems.MISSILE.get(),64)),new ShipyardRecipe(id("glowworm"),0,Integer.MAX_VALUE-3,0,0,1))==null,"large costs do not overflow into free construction");h.succeed();
+        h.assertTrue(ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.MISSILE.get(),64)),new ShipyardRecipe(id("glowworm"),0,Integer.MAX_VALUE-3,0,0,1))==null,"large costs do not overflow into free construction");h.succeed();
     }
 
     @GameTest(template = "empty")

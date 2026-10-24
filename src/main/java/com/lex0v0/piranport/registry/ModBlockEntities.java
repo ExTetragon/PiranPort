@@ -22,6 +22,9 @@ public final class ModBlockEntities {
     public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ShipyardBlockEntity>> SHIPYARD =
             BLOCK_ENTITIES.register("shipyard", () -> BlockEntityType.Builder.of(ShipyardBlockEntity::new, ModBlocks.SHIPYARD.get()).build(null));
 
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<com.lex0v0.piranport.blockentity.DevelopmentFactoryBlockEntity>> DEVELOPMENT_FACTORY =
+            BLOCK_ENTITIES.register("development_factory", () -> BlockEntityType.Builder.of(com.lex0v0.piranport.blockentity.DevelopmentFactoryBlockEntity::new, ModBlocks.DEVELOPMENT_FACTORY.get()).build(null));
+
     private ModBlockEntities() {
     }
 

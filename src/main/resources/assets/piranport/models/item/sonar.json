@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/sonar/advanced_sonar"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/advanced_sonar": 1.0
+      },
+      "model": "piranport:item/equipment/sonar/advanced_sonar"
+    }
+  ]
+}

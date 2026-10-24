@@ -1,6 +1,7 @@
 package com.lex0v0.piranport.item.rigging;
 
 import net.minecraft.world.item.ItemStack;
+import com.lex0v0.piranport.registry.ModItemTags;
 import net.neoforged.neoforge.items.ComponentItemHandler;
 
 // 动态解析容量，超出当前容量的槽位禁止新增但允许取出。
@@ -18,7 +19,19 @@ public final class RiggingItemHandler extends ComponentItemHandler {
         return RiggingCoreRules.isCore(core) ? Math.max(RiggingCoreRules.capacity(core, region), getContents().getSlots()) : 0;
     }
     @Override
-    public int getSlotLimit(int slot) { validateSlotIndex(slot); return region.singleItem() ? 1 : super.getSlotLimit(slot); }
+    public int getSlotLimit(int slot) { validateSlotIndex(slot); return region == RiggingRegion.WEAPONS ? 1 : region == RiggingRegion.EQUIPMENT ? 64 : super.getSlotLimit(slot); }
+    private int limit(int slot, ItemStack stack) {
+        return Math.min(getSlotLimit(slot), region == RiggingRegion.EQUIPMENT && !stack.is(ModItemTags.EQUIPMENT_CONSUMABLES) ? 1 : stack.getMaxStackSize());
+    }
+    @Override public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+        validateSlotIndex(slot);
+        if(stack.isEmpty() || !isItemValid(slot,stack))return stack;
+        var contents=getContents();var existing=getStackFromContents(contents,slot);
+        if(!existing.isEmpty()&&!ItemStack.isSameItemSameComponents(existing,stack))return stack;
+        int count=Math.min(stack.getCount(),Math.max(0,limit(slot,stack)-existing.getCount()));
+        if(count>0&&!simulate)updateContents(contents,stack.copyWithCount(existing.getCount()+count),slot);
+        return stack.copyWithCount(stack.getCount()-count);
+    }
     @Override
     public boolean isItemValid(int slot, ItemStack stack) {
         validateSlotIndex(slot);
@@ -27,7 +40,7 @@ public final class RiggingItemHandler extends ComponentItemHandler {
     @Override
     public void setStackInSlot(int slot, ItemStack stack) {
         validateSlotIndex(slot);
-        if (!stack.isEmpty() && (!isItemValid(slot, stack) || stack.getCount() > Math.min(getSlotLimit(slot), stack.getMaxStackSize())))
+        if (!stack.isEmpty() && (!isItemValid(slot, stack) || stack.getCount() > limit(slot,stack)))
             throw new IllegalArgumentException("Invalid rigging stack or count");
         super.setStackInSlot(slot, stack);
     }

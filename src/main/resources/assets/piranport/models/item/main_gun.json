@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/main_gun/experimental_coilgun"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/experimental_coilgun": 1.0
+      },
+      "model": "piranport:item/equipment/main_gun/experimental_coilgun"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/british_twin_mkn5_6in": 1.0
+      },
+      "model": "piranport:item/equipment/main_gun/british_twin_mkn5_6in"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/us_triple_mk16_8in": 1.0
+      },
+      "model": "piranport:item/equipment/main_gun/us_triple_mk16_8in"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/us_triple_mk6_16in": 1.0
+      },
+      "model": "piranport:item/equipment/main_gun/us_triple_mk6_16in"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/italian_triple_381mm": 1.0
+      },
+      "model": "piranport:item/equipment/main_gun/italian_triple_381mm"
+    }
+  ]
+}

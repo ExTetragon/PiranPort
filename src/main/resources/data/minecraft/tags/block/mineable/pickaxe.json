@@ -6,6 +6,7 @@
     "piranport:aluminum_block",
     "piranport:fuel_barrel",
     "piranport:steel_block",
-    "piranport:shipyard"
+    "piranport:shipyard",
+    "piranport:development_factory"
   ]
 }

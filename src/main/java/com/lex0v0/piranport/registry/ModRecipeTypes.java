@@ -13,6 +13,7 @@ public final class ModRecipeTypes {
     private static final DeferredRegister<RecipeType<?>> TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, PiranPort.MODID);
     public static final DeferredHolder<RecipeType<?>, RecipeType<ShipyardRecipe>> SHIPYARD =
             TYPES.register("shipyard", () -> new RecipeType<>() { @Override public String toString() { return "piranport:shipyard"; } });
+    public static final DeferredHolder<RecipeType<?>, RecipeType<com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe>> DEVELOPMENT_FACTORY = TYPES.register("development_factory", () -> new RecipeType<>() {});
     private ModRecipeTypes() {}
     public static void register(IEventBus bus) { TYPES.register(bus); }
 }

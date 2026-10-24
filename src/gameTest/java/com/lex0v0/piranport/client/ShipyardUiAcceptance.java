@@ -95,7 +95,18 @@ public final class ShipyardUiAcceptance {
                 click(screen,"强化");click(screen,"改造");require(menu.browse.selected.equals(id("saratoga"))&&menu.slots.size()==50,"locked_tabs_do_not_change_single_workstation");
                 stage=4;delay=20;
             } else if(stage==4&&mc.screen instanceof ShipyardScreen screen){
-                capture(mc,"running");click(screen,"取消建造");stage=5;delay=3;
+                capture(mc,"running");
+                float z=scale(mc);int left=(int)((mc.getWindow().getGuiScaledWidth()/z-348)/2),top=Math.max(25,(int)((mc.getWindow().getGuiScaledHeight()/z-252)/2));
+                require(!screen.getMenu().shipyard.stack(ShipyardBlockEntity.CACHE_START).isEmpty(),"cache_tooltip_fixture_present");
+                UiTooltipCapture.request(screen,output,"shipyard-blueprint-tooltip.png",(int)((left+222)*z),(int)((top+131)*z));
+                UiTooltipCapture.request(screen,output,"shipyard-cache-tooltip.png",(int)((left+64)*z),(int)((top+174)*z));
+                stage=41;delay=3;
+            } else if(stage==41&&mc.screen instanceof ShipyardScreen screen){
+                String reserved=Component.translatable("gui.piranport.shipyard.reserved").getString();
+                require(UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-blueprint-tooltip.png",List.of()).contains(reserved),"reserved_hint_on_blueprint");
+                var material=UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-cache-tooltip.png",List.of());
+                require(!material.isEmpty()&&!material.contains(reserved),"material_has_no_reserved_hint");
+                click(screen,"取消建造");stage=5;delay=3;
             } else if(stage==5&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getFocused() instanceof Button b&&b.getMessage().getString().equals("返回"),"cancel_defaults_to_return");capture(mc,"cancel-confirmation");
                 require(button(screen,"确认取消").getWidth()<112,"cancel_buttons_fit_content");
@@ -122,7 +133,8 @@ public final class ShipyardUiAcceptance {
             } else if(stage==10&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getMenu().visibleShips().size()==10,"no_blueprint_all_sizes_query");select(screen,"u47");stage=11;delay=4;
             } else if(stage==11&&mc.screen instanceof ShipyardScreen screen){
-                require(id("u47").equals(screen.getMenu().browse.selected),"unlicensed_ship_can_be_previewed");require(!button(screen,"建造").active,"unlicensed_query_cannot_build");capture(mc,"no-blueprint-query");
+                require(id("u47").equals(screen.getMenu().browse.selected),"unlicensed_ship_can_be_previewed");require(!button(screen,"建造").active,"unlicensed_query_cannot_build");capture(mc,"no-blueprint-query");stage=111;delay=2;
+            } else if(stage==111&&mc.screen instanceof ShipyardScreen screen){
                 mc.getSingleplayerServer().execute(()->{
                     var yard=(ShipyardBlockEntity)mc.getSingleplayerServer().overworld().getBlockEntity(POS);
                     var blueprint=BlueprintRules.create(BlueprintType.AIRCRAFT_CARRIER,BlueprintType.BATTLESHIP,BlueprintType.BATTLECRUISER);blueprint.setCount(8);yard.insert(0,blueprint,false);
@@ -130,7 +142,9 @@ public final class ShipyardUiAcceptance {
                 });select(screen,"saratoga");stage=12;delay=20;
             } else if(stage==12&&longNameReady&&mc.screen instanceof ShipyardScreen screen&&screen.getMenu().shipyard.job()!=null
                     &&screen.getMenu().shipyard.job().recipe.ship().equals(id("vittorio_veneto"))){
-                require(screen.getMenu().browse.selected.equals(id("saratoga")),"cross_size_query_does_not_change_task");capture(mc,"long-name");click(screen,"取消建造");stage=13;delay=4;
+                require(screen.getMenu().browse.selected.equals(id("saratoga")),"cross_size_query_does_not_change_task");capture(mc,"long-name");stage=121;delay=2;
+            } else if(stage==121&&mc.screen instanceof ShipyardScreen screen){
+                click(screen,"取消建造");stage=13;delay=4;
             } else if(stage==13&&mc.screen instanceof ShipyardScreen screen){
                 click(screen,"确认取消");stage=14;delay=12;
             } else if(stage==14&&mc.screen instanceof ShipyardScreen screen&&screen.getMenu().shipyard.job()==null){
@@ -199,5 +213,13 @@ public final class ShipyardUiAcceptance {
     private static EditBox input(ShipyardScreen screen){return screen.children().stream().filter(child->child instanceof EditBox).map(child->(EditBox)child).findFirst().orElseThrow();}
     private static void focusInput(ShipyardScreen screen){var input=input(screen);float s=scale(Minecraft.getInstance());screen.mouseClicked((input.getX()+3)*s,(input.getY()+3)*s,0);}
     private static void type(ShipyardScreen screen,String value){value.chars().forEach(character->screen.charTyped((char)character,0));}
-    private static void capture(Minecraft mc,String name){Screenshot.grab(output.toFile(),"shipyard-"+name+".png",mc.getMainRenderTarget(),message->System.out.println("SHIPYARD_SCREENSHOT="+message.getString()));}
+    private static void capture(Minecraft mc,String name){
+        var graphics=new net.minecraft.client.gui.GuiGraphics(mc,mc.renderBuffers().bufferSource());
+        mc.screen.renderWithTooltip(graphics,-100,-100,0);graphics.flush();
+        Screenshot.grab(output.toFile(),"shipyard-"+name+".png",mc.getMainRenderTarget(),message->System.out.println("SHIPYARD_SCREENSHOT="+message.getString()));
+        if(name.equals("no-blueprint-query")||name.equals("long-name")){
+            float z=scale(mc);int left=(int)((mc.getWindow().getGuiScaledWidth()/z-348)/2),top=Math.max(25,(int)((mc.getWindow().getGuiScaledHeight()/z-252)/2));
+            UiTooltipCapture.request(mc.screen,output,"shipyard-"+name+"-classification.png",(int)((left+38)*z),(int)((top+128)*z));
+        }
+    }
 }

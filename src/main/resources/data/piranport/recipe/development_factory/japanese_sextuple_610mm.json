@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:japanese_sextuple_610mm",
+  "kind": "model",
+  "count": 1,
+  "fuel": 400,
+  "ammunition": 12,
+  "steel": 4,
+  "aluminum": 2,
+  "seconds": 10
+}

@@ -51,9 +51,10 @@ final class RiggingClientChecks {
                     var lines = stack.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.ADVANCED);
                     RiggingClientEvents.applyTooltip(stack, lines, true);
                     if (!lines.getFirst().getString().equals("Alias") || lines.getFirst().getStyle().getColor().getValue() != RiggingCoreItem.NAME_COLOR) return false;
-                    if (!lines.get(1).getString().contains(language.getOrDefault(ship.translationKey()))) return false;
-                    String expectedClassification = (code.equals("zh_cn") ? "船型：" : "Size: ")
-                            + language.getOrDefault(ship.size().translationKey()) + " - " + language.getOrDefault(ship.type().translationKey());
+                    if (!lines.get(1).getString().equals(language.getOrDefault(ship.translationKey()))) return false;
+                    String separator = code.equals("zh_cn") ? "·" : " · ";
+                    String expectedClassification = language.getOrDefault(ship.size().translationKey()) + separator
+                            + language.getOrDefault(ship.type().translationKey()) + separator + language.getOrDefault(ship.nationality().translationKey());
                     if (!lines.get(2).getString().equals(expectedClassification)) return false;
                     if (!lines.get(3).getString().equals(code.equals("zh_cn") ? "熟练度：200 / 200" : "Proficiency: 200 / 200")) return false;
                     if (lines.stream().anyMatch(line -> line.getString().equals(code.equals("zh_cn") ? "舰装核心" : "Rigging Core"))) return false;

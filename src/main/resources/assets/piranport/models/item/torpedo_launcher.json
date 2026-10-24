@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/torpedo_launcher/japanese_sextuple_610mm"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "piranport:equipment/japanese_sextuple_610mm": 1.0
+      },
+      "model": "piranport:item/equipment/torpedo_launcher/japanese_sextuple_610mm"
+    },
+    {
+      "predicate": {
+        "piranport:equipment/g7e_t10_submarine": 1.0
+      },
+      "model": "piranport:item/equipment/torpedo_launcher/g7e_t10_submarine"
+    }
+  ]
+}

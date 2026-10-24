@@ -3,6 +3,7 @@ package com.lex0v0.piranport.registry;
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.block.FuelBarrelBlock;
 import com.lex0v0.piranport.block.ShipyardBlock;
+import com.lex0v0.piranport.block.DevelopmentFactoryBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -18,6 +19,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // 注册实体与流体方块，对应物品交由 ModItems 注册。
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PiranPort.MODID);
+    public static final DeferredBlock<DevelopmentFactoryBlock> DEVELOPMENT_FACTORY = BLOCKS.register("development_factory", () -> new DevelopmentFactoryBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops()
+                    .sound(SoundType.METAL).strength(4.0F,8.0F).pushReaction(PushReaction.BLOCK)));
     public static final DeferredBlock<ShipyardBlock> SHIPYARD = BLOCKS.register("shipyard", () -> new ShipyardBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops()
                     .sound(SoundType.METAL).strength(4.0F, 8.0F).pushReaction(PushReaction.BLOCK)));

@@ -1,3 +1,11 @@
 {
-  "values": []
+  "values": [
+    "piranport:armor",
+    "piranport:propulsion_system",
+    "piranport:radar",
+    "piranport:sonar",
+    "piranport:quick_repair",
+    "piranport:damage_control",
+    "piranport:secondary_gun"
+  ]
 }

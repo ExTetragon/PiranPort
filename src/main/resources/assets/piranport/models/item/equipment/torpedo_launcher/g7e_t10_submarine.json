@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "piranport:item/equipment/torpedo_launcher/g7e_t10_submarine"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:tu91",
+  "kind": "model",
+  "count": 1,
+  "fuel": 800,
+  "ammunition": 16,
+  "steel": 4,
+  "aluminum": 10,
+  "seconds": 20
+}

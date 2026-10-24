@@ -6,7 +6,7 @@
 
 **PiranPort** — a comprehensive **Warship Girls R**-themed mod for **Minecraft 1.21.1 (NeoForge)**: play as a shipgirl, gather resources, cook food, and craft riggings and weapons in survival, fight Abyssal enemies across the Overworld, campaign maps, and the Abyssal World, and explore an independent story. Its content is organized into three systems: combat, logistics, and story.
 
-> **Status: early development.** Includes 60 food/related items and 14 mineral-resource items. Fuel barrels, fluids, recipes and world generation are implemented; 17 dedicated-server GameTests passed during the 2026-10-22 repair. Test sources are currently absent; see the development log. Textures are placeholders. Client visuals and third-party integrations still require manual acceptance.
+> **Status: early development, version 0.1.95.** 98 registered items include food, resources, blueprints, ammunition, rigging cores, the shipyard, and 15 equipment categories with 21 durable models and 2 plain consumables. Equipment has durability, aircraft fuel storage, creative variants and 32×32 icons; the development factory provides 23 recipes, blueprint reservation, refunds, persistent storage, automation and category/text filters. Repair, automatic consumable effects and combat remain unimplemented. Dedicated-server regression contains 176 GameTests. See the [equipment plan](docs/2.2-装备-初步开发方案.md) for scope and validation.
 
 ## Planned scope
 
@@ -96,11 +96,11 @@ src/generated/resources/                      data generation output
 | Package | `com.lex0v0.piranport` |
 | Organization | lex0v0 |
 | Maven Group | `com.lex0v0.piranport` |
-| Artifact | `piranport-0.1.41.jar` |
+| Artifact | `piranport-0.1.95.jar` |
 
 ## Version policy
 
-- Current version: `0.1.41`, based on 24 implemented features and 17 bug fixes; see the [development log](docs/开发日志.md) for the itemized baseline.
+- Current version: `0.1.95`, based on 71 implemented features and 24 bug fixes; see the [development log](docs/开发日志.md) for the itemized baseline.
 - Increment only the last version segment for each completed feature or independent bug fix. Documentation changes do not count. Change the first or middle segment only when explicitly requested by the user.
 
 - Development and testing use NeoForge `21.1.259`.

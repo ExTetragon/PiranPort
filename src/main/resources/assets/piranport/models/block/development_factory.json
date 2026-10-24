@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "minecraft:block/blast_furnace_front",
+    "side": "piranport:block/shipyard",
+    "top": "minecraft:block/smithing_table_top"
+  }
+}

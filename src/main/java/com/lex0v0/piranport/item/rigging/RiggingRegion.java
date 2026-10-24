@@ -25,6 +25,5 @@ public enum RiggingRegion {
             case CARGO -> size.cargo();
         };
     }
-    public boolean singleItem() { return this == WEAPONS || this == EQUIPMENT; }
     public String translationKey() { return "tooltip.piranport.rigging." + name().toLowerCase(java.util.Locale.ROOT); }
 }

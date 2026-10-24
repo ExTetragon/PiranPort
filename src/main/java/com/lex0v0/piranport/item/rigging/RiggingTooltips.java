@@ -1,6 +1,7 @@
 package com.lex0v0.piranport.item.rigging;
 
 import com.lex0v0.piranport.registry.ModDataComponents;
+import com.lex0v0.piranport.text.ClassificationText;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
@@ -28,8 +29,8 @@ public final class RiggingTooltips {
             return lines;
         }
         var ship = definition.orElseThrow();
-        lines.add(line("ship", Component.translatable(ship.translationKey())));
-        lines.add(line("size", Component.translatable(ship.size().translationKey()), Component.translatable(ship.type().translationKey())));
+        lines.add(Component.translatable(ship.translationKey()).withStyle(ChatFormatting.GRAY));
+        lines.add(ClassificationText.ship(ship).withStyle(ChatFormatting.GRAY));
         lines.add(line("proficiency", RiggingCoreRules.getProficiency(core), RiggingProficiency.MAX));
         var stats = RiggingStatsCalculator.calculate(core).orElseThrow();
         lines.add(line("durability", number(stats.durability())));

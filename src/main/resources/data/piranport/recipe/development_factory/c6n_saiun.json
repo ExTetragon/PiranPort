@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:c6n_saiun",
+  "kind": "model",
+  "count": 1,
+  "fuel": 400,
+  "ammunition": 4,
+  "steel": 2,
+  "aluminum": 6,
+  "seconds": 10
+}

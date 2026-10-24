@@ -961,6 +961,22 @@
                                           }
                                         ],
                                         "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
                                       }
                                     ],
                                     "rolls": 1
@@ -1229,6 +1245,108 @@
                                           }
                                         ],
                                         "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
                                       }
                                     ],
                                     "rolls": 1
@@ -1602,6 +1720,276 @@
                                           }
                                         ],
                                         "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
                                       }
                                     ],
                                     "rolls": 1
@@ -1900,6 +2288,386 @@
                                           }
                                         ],
                                         "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
                                       }
                                     ],
                                     "rolls": 1
@@ -2033,6 +2801,306 @@
                                           }
                                         ],
                                         "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
                                       }
                                     ],
                                     "rolls": 1
@@ -2059,6 +3127,167 @@
                                                   "piranport:equipment/propulsion_system",
                                                   "piranport:equipment/quick_repair",
                                                   "piranport:equipment/radar",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      },
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
+                                                  "piranport:equipment/sonar"
+                                                ]
+                                              }
+                                            },
+                                            "function": "minecraft:set_components"
+                                          }
+                                        ],
+                                        "name": "piranport:equipment_blueprint"
+                                      }
+                                    ],
+                                    "rolls": 1
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "minecraft:loot_table",
+                              "value": {
+                                "type": "minecraft:chest",
+                                "pools": [
+                                  {
+                                    "entries": [
+                                      {
+                                        "type": "minecraft:item",
+                                        "functions": [
+                                          {
+                                            "components": {
+                                              "piranport:blueprint_content": {
+                                                "permissions": [
+                                                  "piranport:equipment/armor",
+                                                  "piranport:equipment/damage_control",
+                                                  "piranport:equipment/propulsion_system",
+                                                  "piranport:equipment/quick_repair",
+                                                  "piranport:equipment/radar",
+                                                  "piranport:equipment/secondary_gun",
                                                   "piranport:equipment/sonar"
                                                 ]
                                               }

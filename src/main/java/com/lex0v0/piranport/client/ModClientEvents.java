@@ -58,7 +58,7 @@ public final class ModClientEvents {
 
     private ModClientEvents() {
     }
-    @SubscribeEvent public static void registerScreens(RegisterMenuScreensEvent event) { event.register(ModMenus.SHIPYARD.get(), ShipyardScreen::new); }
+    @SubscribeEvent public static void registerScreens(RegisterMenuScreensEvent event) { event.register(ModMenus.SHIPYARD.get(), ShipyardScreen::new); event.register(ModMenus.DEVELOPMENT_FACTORY.get(), DevelopmentFactoryScreen::new); }
 
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {
@@ -67,6 +67,11 @@ public final class ModClientEvents {
                 ItemProperties.register(ModItems.RIGGING_CORE.get(),
                         ResourceLocation.fromNamespaceAndPath(PiranPort.MODID, "ship/" + ship.id().getPath()),
                         (stack, level, entity, seed) -> RiggingCoreRules.definition(stack).filter(value -> value.id().equals(ship.id())).isPresent() ? 1.0F : 0.0F);
+            }
+            for (var model : com.lex0v0.piranport.domain.equipment.EquipmentDefinitions.ALL) {
+                ItemProperties.register(ModItems.equipment(model.category()), model.id().withPath("equipment/" + model.id().getPath()),
+                        (stack, level, entity, seed) -> com.lex0v0.piranport.item.equipment.EquipmentRules.definition(stack)
+                                .filter(value -> value.id().equals(model.id())).isPresent() ? 1.0F : 0.0F);
             }
             ItemBlockRenderTypes.setRenderLayer(ModFluids.CRUDE_OIL.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_CRUDE_OIL.get(), RenderType.translucent());

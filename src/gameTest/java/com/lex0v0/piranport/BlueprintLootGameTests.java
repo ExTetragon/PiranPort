@@ -102,7 +102,7 @@ public final class BlueprintLootGameTests {
         var resource = h.getLevel().getServer().getResourceManager().getResource(ResourceLocation.parse("piranport:loot_table/blueprints/content.json")).orElseThrow();
         List<BlueprintContent> candidates = new ArrayList<>();
         try (var reader = new InputStreamReader(resource.open(), StandardCharsets.UTF_8)) { collectCandidates(JsonParser.parseReader(reader), candidates); }
-        h.assertTrue(candidates.size() == 114 && new HashSet<>(candidates).size() == 114, "114 unique nonempty candidates");
+        h.assertTrue(candidates.size() == 178 && new HashSet<>(candidates).size() == 178, "178 unique nonempty candidates");
         int ship = 0;
         for (var candidate : candidates) {
             var first = BlueprintType.byId(candidate.permissions().getFirst());

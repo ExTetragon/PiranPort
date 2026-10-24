@@ -1,0 +1,11 @@
+{
+  "type": "piranport:development_factory",
+  "target": "piranport:g7e_t10_submarine",
+  "kind": "model",
+  "count": 1,
+  "fuel": 500,
+  "ammunition": 12,
+  "steel": 3,
+  "aluminum": 4,
+  "seconds": 15
+}
