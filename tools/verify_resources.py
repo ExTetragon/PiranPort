@@ -217,7 +217,8 @@ for path, recipe in shipyard_recipes.items():
             and 0 <= recipe.get('aluminum', -1) <= 2147483647 // 9
             and 0 < recipe.get('seconds', -1) <= 2147483647 // 20, f'{path}: invalid shipyard recipe values')
 require('assets/piranport/sounds/shipyard_complete.ogg' in resources, 'shipyard: missing completion sound')
-require('assets/piranport/textures/gui/shipyard.png' in resources, 'shipyard: missing GUI background')
+require('assets/piranport/textures/gui/manufacturing_background.png' in resources, 'manufacturing: missing shared GUI background')
+require('assets/piranport/textures/gui/manufacturing_background.png.mcmeta' in resources, 'manufacturing: missing background sampling metadata')
 for code in ['zh_cn', 'en_us']:
     translations = jsons.get(f'assets/piranport/lang/{code}.json', {})
     require(all(f'ship.piranport.{ship}' in translations for ship in ships), f'{code}: missing ship names')

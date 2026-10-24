@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-25",
+  "mode": "built-in image_gen; referenced_image_paths edit",
+  "purpose": "在稍深色对比版本上降低蓝色饱和度；仅供配色预览，未修改实现代码、正式定稿或风格规范。",
+  "target": "蓝色界面饱和度相对降低约20–25%，保持明暗、渐变、花纹与内容；数值为提示目标，图像为视觉近似。",
+  "files": [
+    {
+      "reference": "船坞-GUI-蓝色渐变-稍深色对比.png",
+      "output": "船坞-GUI-蓝色渐变-低饱和度对比.png"
+    },
+    {
+      "reference": "开发工厂-GUI-蓝色渐变-稍深色对比.png",
+      "output": "开发工厂-GUI-蓝色渐变-低饱和度对比.png"
+    }
+  ],
+  "prompt": "Use case: style-transfer. Asset type: existing Minecraft manufacturing GUI color-comparison preview. Input image is the EDIT TARGET. Make only a subtle color grading adjustment: reduce the saturation of the blue UI surfaces by about 20–25 percent relative to the current image, including the broad background panel, header, icon tabs, angular blue patterns, buttons, slot surrounds, and dividers. Aim for a quieter steel/graphite blue with a clear blue identity. Also gently soften the vivid cyan-blue header and active borders so they fit this reduced saturation, while staying distinct and readable. Preserve the current dark value range and contrast: do not lighten or further darken the overall interface. Preserve every gradient, subtle diagonal texture, metallic shading, angular motif, and sharp pixel-style detail. Preserve exactly the current composition, dimensions, frame, all panel/slot positions and sizes, every text glyph and number, object icons, inventory contents and player/model silhouette. Keep white text legible, amber fuel and orange task status functional, warning red distinct, and progress cyan identifiable. Keep external scenery unchanged. No re-layout, retyping, new labels, new objects, extra effects, or grayscale conversion. Return the single complete edited preview."
+}

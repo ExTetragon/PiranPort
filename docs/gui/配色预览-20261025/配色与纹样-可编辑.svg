@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="460" viewBox="0 0 1080 460">
+  <title>舰R蓝色渐变：配色与纹样可编辑源</title>
+  <desc>此文件提供可编辑的色板、渐变与纹样，不是两张AI预览的完整矢量重建。未接入游戏代码。</desc>
+  <defs>
+    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#205B82"/><stop offset=".48" stop-color="#174566"/><stop offset="1" stop-color="#102D49"/></linearGradient>
+    <linearGradient id="title" x2="0" y2="1"><stop stop-color="#279FE4"/><stop offset="1" stop-color="#0964AC"/></linearGradient>
+    <linearGradient id="inset" x2="0" y2="1"><stop stop-color="#13364F"/><stop offset="1" stop-color="#0B253D"/></linearGradient>
+    <linearGradient id="button" x2="0" y2="1"><stop stop-color="#547D96"/><stop offset="1" stop-color="#355B75"/></linearGradient>
+    <linearGradient id="fuel" x2="0" y2="1"><stop stop-color="#F0C65D"/><stop offset="1" stop-color="#AA7A25"/></linearGradient>
+    <pattern id="brush" width="10" height="20" patternUnits="userSpaceOnUse"><path d="M-5 20L5 0M5 20L15 0" stroke="#59A6D7" stroke-opacity=".065" stroke-width=".7"/></pattern>
+    <g id="slashes"><path d="M0 40L20 0H36L16 40ZM30 40L50 0H66L46 40ZM60 40L80 0H96L76 40Z" fill="#279FE4"/></g>
+  </defs>
+  <rect width="1080" height="460" fill="#101C2B"/>
+  <g font-family="sans-serif" fill="#EDF6FF">
+    <text x="28" y="35" font-size="20">舰R蓝色渐变 · 待讨论色板</text>
+    <text x="28" y="59" fill="#B8D3E5" font-size="13">可编辑渐变与纹样样本；完整GUI布局、文字与数值沿用已有实现</text>
+    <g transform="translate(28 84)">
+      <rect width="620" height="340" fill="url(#panel)" stroke="#4E9CCB"/>
+      <rect width="620" height="340" fill="url(#brush)"/>
+      <path d="M0 0H620V53H0Z" fill="url(#title)"/>
+      <path d="M0 1H620" stroke="#7AD3FF"/>
+      <use href="#slashes" x="508" y="8" opacity=".85"/>
+      <use href="#slashes" x="8" y="273" opacity=".28"/>
+      <use href="#slashes" x="504" y="273" opacity=".18"/>
+      <text x="18" y="33" font-size="19">标题带 / 选中标签</text>
+      <rect x="18" y="73" width="176" height="181" fill="url(#inset)" stroke="#3E7A9E"/>
+      <text x="32" y="101" font-size="15">深蓝凹面</text>
+      <g fill="none" stroke="#2D5D7C" opacity=".7"><path d="M32 120H180M32 145H180M32 170H180M32 195H180M32 220H180M55 115V240M80 115V240M105 115V240M130 115V240M155 115V240"/></g>
+      <rect x="212" y="73" width="386" height="52" fill="url(#button)" stroke="#6BA2C1"/>
+      <text x="228" y="105" font-size="17">浅钢蓝凸起条目</text>
+      <rect x="212" y="137" width="386" height="52" fill="url(#inset)" stroke="#18B9F4" stroke-width="2"/>
+      <text x="228" y="169" font-size="17">选中边框与可用状态分别表达</text>
+      <rect x="212" y="203" width="20" height="51" fill="url(#fuel)"/>
+      <path d="M213 204H231" stroke="#FFE3A0" stroke-width="2"/>
+      <text x="244" y="232" font-size="15">燃油保留琥珀金，形成冷暖对比</text>
+      <path d="M18 270H598" stroke="#428CB9"/>
+      <text x="146" y="308" fill="#B8D3E5" font-size="13">花纹集中在页角与留白，避开正文和物品槽</text>
+    </g>
+    <g transform="translate(675 84)" font-size="14">
+      <rect width="42" height="42" fill="#205B82"/><text x="56" y="17">主面板亮部</text><text x="56" y="37" fill="#B8D3E5">#205B82</text>
+      <g transform="translate(0 58)"><rect width="42" height="42" fill="#102D49"/><text x="56" y="17">主面板暗部</text><text x="56" y="37" fill="#B8D3E5">#102D49</text></g>
+      <g transform="translate(0 116)"><rect width="42" height="42" fill="#0B253D"/><text x="56" y="17">凹面</text><text x="56" y="37" fill="#B8D3E5">#0B253D</text></g>
+      <g transform="translate(0 174)"><rect width="42" height="42" fill="#279FE4"/><text x="56" y="17">标题 / 重点蓝</text><text x="56" y="37" fill="#B8D3E5">#279FE4</text></g>
+      <g transform="translate(0 232)"><rect width="42" height="42" fill="#547D96"/><text x="56" y="17">凸起按钮亮部</text><text x="56" y="37" fill="#B8D3E5">#547D96</text></g>
+      <text y="321" fill="#B8D3E5">装饰倾角：63.435°（竖2横1）</text>
+    </g>
+  </g>
+</svg>

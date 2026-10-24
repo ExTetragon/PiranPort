@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.client.developmentfactory;
 
+import com.lex0v0.piranport.client.gui.ManufacturingGuiStyle;
+
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryFilter;
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import java.util.*;
@@ -42,7 +44,7 @@ public final class FactoryFilterDialog {
     public List<Component> tooltip(double mx,double my){for(var e:labels.entrySet())if(e.getKey().isMouseOver(mx,my))return List.of(e.getValue());return List.of();}
     private Button button(int left,int top,int width,int height,Component text,Runnable action,BooleanSupplier checked){var button=new FilterButton(x+left,y+top,width,height,text,action,checked);widgets.add(button);return button;}
     public void render(GuiGraphics g,int mx,int my,float tick){
-        g.fillGradient(x,y,x+300,y+230,0xff30485c,0xff1b2d3e);outline(g,x,y,300,230,0xff6f94af);
+        ManufacturingGuiStyle.modal(g, x, y, 300, 230);
         g.drawString(font,tr("search"),x+(300-font.width(tr("search")))/2,y+10,WHITE,false);
         g.fill(x+12,y+24,x+272,y+40,0xff142b3d);outline(g,x+12,y+24,260,16,input.isFocused()?0xff67b4e7:0xff58788f);
         g.drawString(font,tr(all?"scope_all":"scope_permitted"),x+12,y+47,MUTED,false);
@@ -54,6 +56,12 @@ public final class FactoryFilterDialog {
     private final class FilterButton extends Button {
         private final BooleanSupplier checked;
         private FilterButton(int x,int y,int w,int h,Component text,Runnable pressed,BooleanSupplier checked){super(x,y,w,h,text,b->pressed.run(),DEFAULT_NARRATION);this.checked=checked;}
-        @Override protected void renderWidget(GuiGraphics g,int mx,int my,float tick){boolean on=checked.getAsBoolean();int x=getX(),y=getY(),w=getWidth(),h=getHeight();g.fillGradient(x,y,x+w,y+h,on?0xff3c94ca:0xff5d788e,on?0xff246b9c:0xff344e65);outline(g,x,y,w,h,isHoveredOrFocused()||on?0xff83bde5:0xff58788f);String text=getMessage().getString();if(font.width(text)>w-6)text=font.plainSubstrByWidth(text,w-6-font.width("…"))+"…";g.drawString(font,text,x+(w-font.width(text))/2,y+(h-8)/2,WHITE,false);}
+        @Override protected void renderWidget(GuiGraphics g,int mx,int my,float tick){
+            boolean on=checked.getAsBoolean();int x=getX(),y=getY(),w=getWidth(),h=getHeight();
+            ManufacturingGuiStyle.button(g,x,y,w,h,true,isHoveredOrFocused()||on);
+            if(on){g.fillGradient(x+1,y+2,x+w-1,y+h-1,0xff28658a,0xff174465);outline(g,x,y,w,h,ManufacturingGuiStyle.SELECTED);}
+            String text=getMessage().getString();if(font.width(text)>w-6)text=font.plainSubstrByWidth(text,w-6-font.width("…"))+"…";
+            g.drawString(font,text,x+(w-font.width(text))/2,y+(h-8)/2,WHITE,false);
+        }
     }
 }

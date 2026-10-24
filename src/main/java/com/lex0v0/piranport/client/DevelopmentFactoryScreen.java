@@ -4,13 +4,13 @@ import static com.lex0v0.piranport.text.ManufacturingText.metal;
 import static com.lex0v0.piranport.text.ManufacturingText.time;
 
 import com.lex0v0.piranport.text.ClassificationText;
+import com.lex0v0.piranport.client.gui.ManufacturingGuiStyle;
 
 import com.lex0v0.piranport.blockentity.DevelopmentFactoryBlockEntity;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryJob;
 import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryFilter;
 import com.lex0v0.piranport.client.developmentfactory.FactoryFilterDialog;
-import com.lex0v0.piranport.client.developmentfactory.FactoryGuiBackground;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryEntry;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryCatalog;
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinitions;
@@ -38,7 +38,7 @@ import net.minecraft.util.FormattedCharSequence;
 
 // 沿用舰R定稿布局，默认字体随整体GUI等比适配小窗口。
 public final class DevelopmentFactoryScreen extends AbstractContainerScreen<DevelopmentFactoryMenu> {
-    private static final int WHITE = 0xffe3eaf2, MUTED = 0xff9db1c1, ORANGE = 0xffedb05d, GREEN = 0xff8acb98;
+    private static final int WHITE = ManufacturingGuiStyle.TEXT, MUTED = ManufacturingGuiStyle.MUTED, ORANGE = 0xffedb05d, GREEN = 0xff8acb98;
     private final List<FactoryButton> tabs = new ArrayList<>();
     private FactoryButton filter, search, build, confirm, back;
     private FactoryFilterDialog filterDialog;
@@ -136,14 +136,13 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
     @Override protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {}
 
     @Override protected void renderBg(GuiGraphics g, float partialTick, int mouseX, int mouseY) {
-        FactoryGuiBackground.draw(g,leftPos,topPos,font.width(title));
+        ManufacturingGuiStyle.background(g, leftPos, topPos, imageWidth, font.width(title), 48);
         g.drawString(font,title,leftPos+8,topPos+7,WHITE,false);
         g.drawString(font,playerInventoryTitle,leftPos+168,topPos+152,WHITE,false);
         center(g,tr("fuel"),54,224,MUTED);center(g,tr("cache"),108,224,MUTED);
         center(g,Component.literal(menu.factory.fuel().getAmount()+" / 16000 mB"),86,236,WHITE);
         int fuelHeight=Math.clamp((int)(menu.factory.fuel().getAmount()*50L/16000),0,50);
-        if(fuelHeight>0)g.fillGradient(leftPos+49,topPos+216-fuelHeight,leftPos+59,topPos+216,0xffc3a450,0xff8e6d2e);
-        for(int y=168;y<214;y+=7)g.fill(leftPos+56,topPos+y,leftPos+59,topPos+y+1,0xffa7b9c6);
+        ManufacturingGuiStyle.fuel(g, leftPos + 49, topPos + 166, fuelHeight);
         drawModel(g);
         drawList(g);
         drawRequirements(g);
@@ -200,9 +199,7 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
             var entry = entries.get(start + row); int x = leftPos + 113, y = topPos + 38 + row * 24;
             boolean available = menu.factory.permitted(entry.id()) && menu.factory.affordable(menu.factory.recipe(entry.id()));
             boolean selected = entry.id().equals(menu.browse.selected);
-            g.fillGradient(x, y, x + 119, y + 23, available ? 0xff6b7c88 : 0xff2b3d4b, available ? 0xff526672 : 0xff1b2d3b);
-            if (available) { g.fill(x, y, x + 119, y + 1, 0xff9cabb5); g.fill(x, y, x + 1, y + 23, 0xff8ca0ad); }
-            if (selected) outline(g, x, y, 119, 23, 0xff399fee);
+            ManufacturingGuiStyle.listRow(g, x, y, available, selected);
             g.renderItem(entry.create(1),x+2,y+3);
             g.drawString(font, name(entry, stateFor(entry), 96), x + 19, y + 3, available ? WHITE : MUTED, false);
             var recipe = menu.factory.recipe(entry.id()); String time = recipe == null ? "--:--" : time(recipe.ticks());
@@ -242,11 +239,11 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
         int x = leftPos + 272, y = topPos + 124;
         int fill = job() == null ? 0 : (int) (68L * job().elapsed() / job().recipe.ticks());
         g.fill(x, y + 4, x + 69, y + 9, 0xff1b425d);
-        if (fill > 0) g.fillGradient(x, y + 4, x + fill, y + 9, 0xff5db6ed, 0xff2787c2);
-        g.fill(x, y + 3, x + 69, y + 4, 0xff568cae); g.fill(x, y + 9, x + 69, y + 10, 0xff568cae);
+        if (fill > 0) g.fillGradient(x, y + 4, x + fill, y + 9, 0xff4bd2ef, 0xff158fbd);
+        g.fill(x, y + 3, x + 69, y + 4, ManufacturingGuiStyle.SELECTED); g.fill(x, y + 9, x + 69, y + 10, ManufacturingGuiStyle.SELECTED);
         for (int row = 0; row < 15; row++) {
             int right = 78 - Math.abs(row - 7);
-            g.fill(x + 68, y + row - 1, x + right, y + row, 0xff568cae);
+            g.fill(x + 68, y + row - 1, x + right, y + row, ManufacturingGuiStyle.SELECTED);
             if (right > 70) g.fill(x + 69, y + row - 1, x + right - 1, y + row, 0xff1b425d);
         }
         FactoryEntry task = job() != null ? FactoryCatalog.byId(job().recipe.target()) : FactoryCatalog.definition(menu.factory.stack(DevelopmentFactoryBlockEntity.OUTPUT_SLOT)).orElse(null);
@@ -358,7 +355,7 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
     private void drawConfirmation(GuiGraphics g, int mx, int my, float tick) {
         g.fill(0,0,width,height,0xb0000000);
         int h=confirmationHeight(),x=leftPos+(imageWidth-confirmationWidth)/2,y=confirmationButtonY+28-h;
-        g.fillGradient(x,y,x+confirmationWidth,y+h,0xff30485c,0xff1b2d3e);outline(g,x,y,confirmationWidth,h,0xff6f94af);
+        ManufacturingGuiStyle.modal(g, x, y, confirmationWidth, h);
         int at=y+10;
         for(var line:font.split(tr("confirm"),confirmationWidth-24)){g.drawString(font,line,x+(confirmationWidth-font.width(line))/2,at,WHITE,false);at+=11;}
         at+=8;
@@ -436,15 +433,7 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
         @Override protected void renderWidget(GuiGraphics g,int mouseX,int mouseY,float tick){
             int x=getX(),y=getY(),w=getWidth(),h=getHeight();
             if(kind>=0&&kind<2){
-                boolean selected=kind==0;int top=selected?0xff4bafea:0xff4d687d,bottom=selected?0xff268fd6:0xff2a4053;
-                for(int row=0;row<h;row++){
-                    int notch=Math.max(0,4-row/2);g.fill(x+notch,y+row,x+w,y+row+1,0xff5d7c92);
-                    int r=(int)(((top>>16)&255)*(1-row/(float)h)+((bottom>>16)&255)*row/h);
-                    int green=(int)(((top>>8)&255)*(1-row/(float)h)+((bottom>>8)&255)*row/h);
-                    int blue=(int)((top&255)*(1-row/(float)h)+(bottom&255)*row/h);
-                    if(row>0&&row<h-1)g.fill(x+notch+1,y+row,x+w-1,y+row+1,0xff000000|(r<<16)|(green<<8)|blue);
-                }
-                if(selected)g.fill(x+1,y+h-2,x+w-1,y+h+2,0xff2a95db);
+                ManufacturingGuiStyle.tab(g, x, y, w, h, kind == 0);
                 if(kind==0){
                     g.fill(x+7,y+17,x+20,y+20,0xffccdfeb);g.fill(x+10,y+14,x+17,y+17,0xffb1cadc);
                     g.fill(x+6,y+11,x+21,y+14,0xffccdfeb);g.fill(x+5,y+10,x+12,y+12,WHITE);
@@ -461,8 +450,7 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
                 if(isHoveredOrFocused()&&active)outline(g,x+1,y+1,w-2,h-2,0xff86b9dc);
                 return;
             }
-            boolean raised=active;g.fillGradient(x,y,x+w,y+h,raised?0xff67869c:0xff3c5265,raised?0xff3d5b73:0xff293e51);
-            outline(g,x,y,w,h,isHoveredOrFocused()&&active?0xff83bde5:0xff58788f);
+            ManufacturingGuiStyle.button(g, x, y, w, h, active, isHoveredOrFocused());
             if(kind==3){g.fill(x+4,y+3,x+10,y+9,0xff8da9bd);g.fill(x+5,y+4,x+9,y+8,0xff19364c);if(menu.browse.all)g.fill(x+6,y+5,x+9,y+8,0xff65b5ec);g.drawString(font,getMessage(),x+15,y+2,WHITE,false);}
             else if(kind==4){
                 boolean filtered=menu.browse.filter.active();int color=filtered?0xff83d3ff:WHITE;
@@ -471,7 +459,7 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
                 if(filtered){g.fill(x+1,y+7,x+6,y+8,color);g.fill(x+2,y+8,x+5,y+9,color);g.fill(x+3,y+9,x+4,y+11,color);}
             }
             else {g.drawString(font,getMessage(),x+(w-font.width(getMessage()))/2,y+(h-8)/2,active?WHITE:MUTED,false);
-                for(int base=0;base<2;base++)for(int row=0;row<8;row++)g.fill(x+w-13+base*5-row/2,y+4+row,x+w-10+base*5-row/2,y+5+row,0x7058778c);}
+                for(int base=0;base<2;base++)for(int row=0;row<8;row++)g.fill(x+w-13+base*5-row/2,y+4+row,x+w-10+base*5-row/2,y+5+row,0x704884ad);}
         }
     }
 }

@@ -1,0 +1,86 @@
+{
+  "status": "待讨论的配色预览；不是新的GUI定稿",
+  "date": "2026-10-25",
+  "generator": "内置 image_gen（imagegen skill），不是CLI/API脚本",
+  "scope": "仅设计预览，不修改游戏代码、正式贴图、版本号、开发日志或现有GUI风格规范",
+  "palette": {
+    "mainPanel": [
+      "#205B82",
+      "#174566",
+      "#102D49"
+    ],
+    "inset": [
+      "#13364F",
+      "#0B253D"
+    ],
+    "titleAndActiveTab": [
+      "#279FE4",
+      "#0964AC"
+    ],
+    "raisedButton": [
+      "#547D96",
+      "#355B75"
+    ],
+    "selectedOutline": "#18B9F4",
+    "primaryText": "#EDF6FF",
+    "secondaryText": "#B8D3E5",
+    "fuel": [
+      "#F0C65D",
+      "#AA7A25"
+    ],
+    "warning": [
+      "#D9787D",
+      "#613240"
+    ],
+    "decoration": "63.435°（竖2横1）；页角斜切碎片、低对比拉丝暗纹与宽幅蓝色渐变"
+  },
+  "layout": "保留现有船坞348×252及工厂384×252的功能分区；船坞3标签、工厂2标签、材料4×3、玩家9×3+9",
+  "notes": "生成图用于讨论饱和度、渐变和花纹；文字、数值及像素坐标以既有实现为准，正式落地时沿用Minecraft默认字体。",
+  "references": [
+    {
+      "name": "现有船坞GUI",
+      "path": "build/project-hygiene/shipyard-ui/screenshots/shipyard-running.png",
+      "role": "布局及内容"
+    },
+    {
+      "name": "现有工厂GUI",
+      "path": "docs/gui/开发工厂/开发工厂-GUI-开发中.png",
+      "role": "布局及内容"
+    },
+    {
+      "name": "舰R common_blue_bg",
+      "path": "build/shipyard-gui-style-v15/references/common_blue_bg--4072100137922211050.png",
+      "role": "既有拆包导出的蓝底与斜向碎片参考"
+    },
+    {
+      "name": "舰R common_blue_top2",
+      "path": "build/shipyard-gui-style-v15/references/common_blue_top2--2215019049948554579.png",
+      "role": "既有拆包导出的蓝色标题带参考"
+    },
+    {
+      "name": "舰R selected equipment button",
+      "path": "build/shipyard-gui-style-v14/common_equip_type_btn_selected2--8402219073362899981.png",
+      "role": "蓝色选中态和斜切按钮参考"
+    },
+    {
+      "name": "提供的拆包目录",
+      "path": "D:/Games/Warship Girls R/APK/v5.5.1/拆包合并，包含高清/assets/data/ui",
+      "role": "原始资料；未修改"
+    }
+  ],
+  "images": [
+    {
+      "file": "船坞-GUI-蓝色渐变-预览.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-08c952f2-64fd-4afa-8c0f-48067cc43aca.png"
+    },
+    {
+      "file": "开发工厂-GUI-蓝色渐变-预览.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-9e31bff0-76d2-4fc5-80df-bc550840b677.png"
+    }
+  ],
+  "prompts": {
+    "shipyardInitial": "Use case: style-transfer / ui-mockup.\nAsset type: a precise color and surface-design preview for the existing PiranPort Minecraft Shipyard GUI.\nInput image 1 is the EDIT TARGET, the existing full shipyard screenshot. Input images 2, 3 and 4 are STYLE REFERENCES extracted from Warship Girls R: common_blue_bg, common_blue_top2, and the selected equipment button.\nMake one revised shipyard screenshot, matching the 1280x900 framing and every panel, slot, label and icon location of input 1. This is a recolor and subtle decorative-surface redesign, NOT a new layout. Keep the pixelated Minecraft default Chinese font, player inventory geometry and placeholder humanoid. All text must remain crisp, faithfully preserved and readable, without changing values or adding labels. Remove the floating black hover tooltip near the middle-right so that the underlying list and progress remain visible. Keep all other controls and information.\nVisual direction: a noticeably more saturated deep marine-blue and cobalt-blue Warship Girls R interface, following the reference blue background and its angled tile fragments. Main metal panel gradient #205B82 at upper-left through #174566 to #102D49 at lower-right, with a restrained broad diagonal blue sheen. Deep recessed content surfaces #0B253D to #13364F; cool steel-blue 1-pixel edges. The interface should read clearly as BLUE rather than desaturated gray, while staying darker than the bright blue selected tab.\nTitle band and selected tab: medium vivid blue #279FE4 to #0964AC, continuously joined, with a restrained light top edge; inactive tabs stay deeper muted blue with existing locks. Available ship buttons are slightly lighter raised steel blue #547D96 to #355B75, locked entries remain dark blue. Selected entry uses a thin bright azure border, retaining its separate availability state.\nAdd visible but restrained Warship Girls R angular fragment/chevron motifs near the upper-right title area and along the left/bottom open panel margins, derived from reference 2. Use the existing consistent 2-vertical-to-1-horizontal slope (about 63.435 degrees). Add low-contrast fine diagonal brushed-metal lines and subtle depth gradients to broad blue surfaces. Motifs should be visible at normal preview scale yet never cross or compete with text, item slots, inventory grids or resource numbers. Keep decorative motifs sparse and organized, not a repeating loud wallpaper.\nRetain warm muted amber-gold fuel with brighter thin liquid highlight and darker lower gradient; progress arrow remains cyan-blue with readable fill; missing aluminum row remains muted red; building status remains amber. White/blue-gray text contrast must be strong.\nInvariants: shipyard body remains 348x252 logical units; three icon-only tabs; left tall model preview; central four-row ship list and fixed full-width show-all/search strip; right resource box, cancel-build button, task-name above arrow, blueprint to the left of arrow and output to its right; lower fuel tank plus 4x3 material cache, separator and 9x3 player inventory plus 9 hotbar. Do not add, remove, move or resize these elements. Preserve the actual screenshot's content and the original slightly raised button / recessed slot treatment.\nKeep it a flat, practical game interface with pixel-crisp geometry and restrained metal gradients. No photoreal scratches, rivets, neon glow, ornate frames, flags, extra ships, large logos or modern web typography. Outside the GUI use a simple dark charcoal-blue backdrop. Output only the finished single GUI preview, no captions, no palette legend, no before/after split.",
+    "shipyardCorrection": "Use case: precise-object-edit / UI text correction.\nImage 1 is the edit target: the new saturated-blue Shipyard GUI design. Image 2 is the old screenshot for CONTENT verification only, not its gray colors.\nKeep ALL of image 1's successful blue palette, saturation, gradients, angular motifs, metallic surface, tab integration, borders, positions, inventory, model placeholder and framing exactly as they are. Change only the erroneously altered list time strings and the task text in the upper-right. Do not redesign anything.\nIn the central four-row list, the time at the far right of the SECOND LINE must be exactly, top to bottom: \"03:00\", \"02:15\", \"02:15\", \"02:15\". All four strings use the same Minecraft pixel font, size and right-alignment.\nImmediately ABOVE the progress arrow on the right, remove the incorrectly added text \"萨拉托加 大型·航母·U国\". Replace it with the actual current task title \"列克星敦…[建造中]\" on ONE centered line. Use the existing pale text for the ship name, and warm amber for \"[建造中]\". It is the task title, so it must NOT show a ship classification line here. Preserve the independent left model preview \"萨拉托加\" and its classification \"大型·航母·U国\" without any changes.\nThe blueprint slot to the LEFT of the arrow was EMPTY in image 2. Remove the newly invented blueprint glyph from this slot; keep the square empty, with its existing deep-blue slot background.\nDo not restore the floating black tooltip from image 2. Add no text, no labels, no icons. This is still a palette-only preview of the existing GUI, and the corrections above merely restore its original data and behavior. Preserve the saturated deep navy/cobalt design of image 1.",
+    "developmentFactory": "Use case: style-transfer / ui-mockup.\nAsset type: a precise color/surface preview of PiranPort's existing Minecraft Development Factory GUI.\nImage 1 is the EDIT TARGET, the current factory screenshot. Image 2 is the new BLUE SHIPYARD design, the PRIMARY STYLE REFERENCE; copy its EXACT palette, saturation, metallic gradients, thin highlights and angular decorations, but never copy its layout, third tab, humanoid or content. Images 3 and 4 are authentic Warship Girls R style references, common_blue_bg and common_blue_top2.\nGenerate ONE finished factory screenshot. Keep the same aspect ratio and all proportions as image 1. This is a recolor and restrained surface-decoration revision ONLY, preserving the existing factory layout and content.\nPalette must visibly match image 2: vivid medium-blue title band and selected tab, saturated deep marine/cobalt-blue main panel #205B82 to #102D49 with a broad diagonal sheen; deep-blue recessed list/requirements/slots #0B253D to #13364F; cool thin steel-blue edges. Available list buttons remain visibly lighter raised steel blue, selected item has a thin azure outline. Locked/inactive controls are darker muted blue. Fine diagonal brushed lines and sparse Warship Girls R angled tile fragments in title corners and OPEN panel margins, same 2-up-to-1-across 63.435-degree slope. Keep imagery sparse, organized and below text/grid contrast. Do not add large emblems, bolts, neon light, technical circuits or photoreal scratches.\nTitle must remain \"开发工厂\". Keep TWO icon-only tabs above the upper-left, first selected with amber activity dot, second gray-blue locked. Left preview remains a WIDE 96x48 logical rectangle showing the same aircraft item icon. Preserve its name and separate existing data lines: \"“鬼怪”FG.1战斗机\", \"战斗机\", \"耐久：1561\", \"油箱：2000 mB\".\nKeep the central four-row list and fixed show-all strip with search icon. Preserve the pictured item names and classification lines exactly; the first four entries are the experimental small gun, British twin Mk.N5 medium-light gun, Mk.16 medium-heavy gun, and American triple Mk.6 large gun. Right-aligned times are EXACTLY \"00:20\", \"00:10\", \"00:15\", \"00:25\", one per row.\nKeep the resource panel at upper-right with fuel, ammunition, steel, aluminum and all the same numbers. The button remains \"取消开发\". The task label above the arrow remains the American triple Mk.6 gun with amber \"[开发中]\", independent of the fighter being previewed on the left. Keep the blueprint stack left of the cyan progress arrow, output slot right of it.\nBelow the horizontal divider preserve the amber fuel tank, fuel label and amount; preserve exactly 12 material-cache slots arranged 4 columns by 3 rows; preserve the vertical divider and player inventory with 9 columns by 3 rows plus 9-slot hotbar. Match all pixel positions, spacing, widths, heights and alignments to image 1; factory body remains 384x252 logical units. Do NOT make the factory use the shipyard's narrow portrait preview or three tabs.\nWhite and blue-gray typography stays the default Minecraft pixel font, crisp and high contrast. Preserve existing item icons and material counts. Warm amber fuel with a thin bright liquid meniscus and downward dark gradient, bright readable cyan-blue arrow fill, amber task state, red missing-resource treatment if present. No floating tooltips.\nUse a simple dark charcoal-blue outer backdrop, as in image 2. Output only this single factory preview, no captions, no color swatches, no side-by-side layout, no before/after comparison."
+  }
+}

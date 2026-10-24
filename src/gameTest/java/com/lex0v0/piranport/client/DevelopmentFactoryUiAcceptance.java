@@ -116,6 +116,7 @@ public final class DevelopmentFactoryUiAcceptance {
     private static void type(DevelopmentFactoryScreen s,String text){text.chars().forEach(c->s.charTyped((char)c,0));}
     private static void select(DevelopmentFactoryScreen s,String name){var m=s.getMenu();int index=0;while(index<m.visibleEntries().size()&&!m.visibleEntries().get(index).id().equals(id(name)))index++;if(index==m.visibleEntries().size())throw new IllegalStateException(name);m.browse.scroll=Math.max(0,index-3);var mc=Minecraft.getInstance();float z=scale(mc);int left=(int)((mc.getWindow().getGuiScaledWidth()/z-384)/2),top=Math.max(25,(int)((mc.getWindow().getGuiScaledHeight()/z-252)/2));s.mouseClicked((left+130)*z,(top+38+(index-m.browse.scroll)*24+8)*z,0);}
     private static void capture(Minecraft mc,String name){
+        com.mojang.blaze3d.systems.RenderSystem.clear(org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT,Minecraft.ON_OSX);
         var graphics=new net.minecraft.client.gui.GuiGraphics(mc,mc.renderBuffers().bufferSource());
         mc.screen.renderWithTooltip(graphics,-100,-100,0);graphics.flush();
         Screenshot.grab(output.toFile(),"factory-"+name+".png",mc.getMainRenderTarget(),msg->System.out.println("FACTORY_SCREENSHOT="+msg.getString()));

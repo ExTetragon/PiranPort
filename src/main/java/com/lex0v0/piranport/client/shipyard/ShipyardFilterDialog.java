@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.client.shipyard;
 
+import com.lex0v0.piranport.client.gui.ManufacturingGuiStyle;
+
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
 import com.lex0v0.piranport.domain.ship.ShipNationality;
 import com.lex0v0.piranport.domain.ship.ShipSize;
@@ -72,8 +74,7 @@ public final class ShipyardFilterDialog {
     }
 
     public void render(GuiGraphics g, int mx, int my, float tick) {
-        g.fillGradient(x, y, x + 228, y + 206, 0xff30485c, 0xff1b2d3e);
-        outline(g, x, y, 228, 206, 0xff6f94af);
+        ManufacturingGuiStyle.modal(g, x, y, 228, 206);
         center(g, tr("search"), y + 10, WHITE);
         g.fill(x + 12, y + 24, x + 196, y + 40, 0xff142b3d);
         outline(g, x + 12, y + 24, 184, 16, input.isFocused() ? 0xff67b4e7 : 0xff58788f);
@@ -106,8 +107,8 @@ public final class ShipyardFilterDialog {
         }
         @Override protected void renderWidget(GuiGraphics g, int mx, int my, float tick) {
             int x=getX(), y=getY(), w=getWidth(), h=getHeight(); boolean selected=checked.getAsBoolean();
-            g.fillGradient(x,y,x+w,y+h,selected?0xff3c94ca:0xff5d788e,selected?0xff246b9c:0xff344e65);
-            outline(g,x,y,w,h,isHoveredOrFocused()||selected?0xff83bde5:0xff58788f);
+            ManufacturingGuiStyle.button(g, x, y, w, h, true, isHoveredOrFocused() || selected);
+            if (selected) { g.fillGradient(x+1,y+2,x+w-1,y+h-1,0xff28658a,0xff174465); outline(g,x,y,w,h,ManufacturingGuiStyle.SELECTED); }
             g.drawString(font,getMessage(),x+(w-font.width(getMessage()))/2,y+(h-8)/2,WHITE,false);
         }
     }

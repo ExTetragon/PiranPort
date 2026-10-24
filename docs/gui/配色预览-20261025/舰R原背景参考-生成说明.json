@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-25",
+  "status": "配色与花纹讨论预览，尚未作为正式GUI定稿。",
+  "mode": "内置 image_gen，编辑本地预览并引用实际导出的原作背景。",
+  "scope": "仅预览与素材研究，不修改游戏实现、正式GUI资源、既有定稿和风格规范。",
+  "visualFindings": {
+    "main": "common_bg_2：深海军蓝暗角、偏钢蓝的中央亮部、大尺度半透明交叠菱形、稀疏交叉细线、细微网点。",
+    "surround": "img_cover：深墨蓝底、两端淡蓝渐变、低对比暗青技术线、菱形与方框、短刻度、零星斜线。",
+    "other": "common_bg 为另一张带工程图和大三角的通用底图；build_bg_1/2 是工位条的金属/木质场景，并非全屏背景。"
+  },
+  "application": "在已降低饱和度的预览上，主面板改用宽菱形和软渐变，减弱粗斜纹；外围使用暗青线条。保留现有功能布局。外围填充属于视觉预览，不代表已决定在MC中遮盖世界。",
+  "paletteSamples": {
+    "method": "原始贴图归一化坐标处16×16像素RGB均值，非整体调色目标。",
+    "main": [
+      {
+        "position": [
+          0.5,
+          0.05
+        ],
+        "color": "#10192E"
+      },
+      {
+        "position": [
+          0.5,
+          0.5
+        ],
+        "color": "#224566"
+      },
+      {
+        "position": [
+          0.5,
+          0.9
+        ],
+        "color": "#0E3153"
+      },
+      {
+        "position": [
+          0.03,
+          0.5
+        ],
+        "color": "#15273F"
+      },
+      {
+        "position": [
+          0.97,
+          0.5
+        ],
+        "color": "#11283F"
+      }
+    ],
+    "surround": [
+      {
+        "position": [
+          0.5,
+          0.5
+        ],
+        "color": "#0F1728"
+      },
+      {
+        "position": [
+          0.03,
+          0.5
+        ],
+        "color": "#0F1F38"
+      },
+      {
+        "position": [
+          0.97,
+          0.5
+        ],
+        "color": "#0F213A"
+      }
+    ]
+  },
+  "references": [
+    {
+      "name": "common_bg_2",
+      "file": "拆包背景参考/common_bg_2-菱形主背景.png",
+      "width": 1280,
+      "height": 960,
+      "source": "assets/data/ui/common_bg.unity3d",
+      "texturePathId": "7932894076363459365",
+      "confidence": "与用户截图中央图案及已有建造页截图视觉吻合；未运行原游戏验证页面调用链。"
+    },
+    {
+      "name": "img_cover",
+      "file": "拆包背景参考/img_cover-宽屏外围填充.png",
+      "width": 2048,
+      "height": 946,
+      "source": "assets/bin/Data/f4f01f7b9049f0342ad7960a9e2b9025",
+      "texturePathId": "1",
+      "confidence": "与用户截图左右边缘的技术线纹、菱形、方框视觉吻合。"
+    },
+    {
+      "name": "common_bg",
+      "file": "拆包背景参考/common_bg-蓝图主背景.png",
+      "width": 1280,
+      "height": 960,
+      "source": "assets/data/ui/common_bg.unity3d",
+      "texturePathId": "-4137055747830997841"
+    },
+    {
+      "name": "build_bg_1",
+      "file": "拆包背景参考/build_bg_1-金属工位.png",
+      "width": 818,
+      "height": 126,
+      "source": "assets/data/ui/dock.unity3d",
+      "texturePathId": "-1101858836714581887"
+    },
+    {
+      "name": "build_bg_2",
+      "file": "拆包背景参考/build_bg_2-木质工位.png",
+      "width": 818,
+      "height": 126,
+      "source": "assets/data/ui/dock.unity3d",
+      "texturePathId": "869159511009633496"
+    }
+  ],
+  "research": {
+    "uiBundles": 75,
+    "uiTextures": 5879,
+    "builtinFiles": 195,
+    "builtinTextures": 157,
+    "workingDirectory": "build/wgr-background-research",
+    "sourceRoot": "D:/Games/Warship Girls R/APK/v5.5.1/拆包合并，包含高清",
+    "method": "只读加载Unity包内嵌主体并解码ASTC；导出到项目研究目录。没有修改原素材。common_bg包位于源文件偏移94，与此前缓存主体完全一致。"
+  },
+  "images": [
+    {
+      "file": "船坞-GUI-舰R原背景参考.png",
+      "target": "船坞-GUI-蓝色渐变-低饱和度对比.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-96966657-5093-4f6b-9bd9-6f105787f0c9.png"
+    },
+    {
+      "file": "开发工厂-GUI-舰R原背景参考.png",
+      "target": "开发工厂-GUI-蓝色渐变-低饱和度对比.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-4e6aa550-bed8-47a1-a60c-1ee4c642d471.png"
+    }
+  ],
+  "prompt": "Use case: style-transfer. Create an updated COLOR AND BACKGROUND-TEXTURE PREVIEW of the supplied Minecraft GUI. IMAGE 1 is the sole layout/content EDIT TARGET. IMAGE 2 is the extracted Warship Girls R common_bg_2 original, the PRIMARY color and main-background motif reference. IMAGE 3 is the extracted img_cover original, the PRIMARY subtle peripheral technical-line motif reference. IMAGE 4 is a screenshot showing how those two original backgrounds work together; use it only for color/motif distribution, never import its UI/content.\nChange the target's palette and background decoration to closely reference these originals. Main GUI base: muted deep navy, soft slightly teal/slate-blue central glow, darker top/edges, broad overlapping translucent diamonds with thin widely spaced diagonal crossing guide lines and barely visible fine grain. Match IMAGE 2's quiet dark #10192E edge to #224566 central blue, not vivid cobalt. Remove the target's repeated coarse blue diagonal slash clusters from body corners and its blanket brushed diagonal hatch; replace with the quieter large diamond structure. At peripheral free margins add only sparse dark teal hairline segments, outlined little diamonds/squares, short technical ticks inspired by IMAGE 3, around #113340 on #0F1627; no busy bright circuit-board texture. The outside surround should be dark navy with these subdued technical lines instead of large floating fragments, with any existing game scenery very faint. Do not enlarge the GUI or alter the outer margins. Keep a restrained blue title and active icon tab, muted blue-gray raised buttons, dark recessed slots. Keep existing small title/button slanted motifs and tab silhouettes, but make them quieter and harmonious; preserve control angles. Cyan active/selection/progress and amber fuel/task indicators stay readable and limited to functional highlights. Preserve all functional content EXACTLY from IMAGE 1: every text glyph and number, model/item icons, status dots, tabs, slot grids, tank, inventory and all panel/button sizes and positions. No UI additions, no deletions, no relayout, no retyping. Keep all text contrast and current canvas proportions. This is a faithful visual style revision only. Output a single complete preview without captions."
+}

@@ -62,6 +62,7 @@ public final class ShipyardUiAcceptance {
         if(!Boolean.getBoolean("piranport.acceptance.shipyardUi")||stage==100)return;
         Minecraft mc=Minecraft.getInstance();
         try {
+            GLFW.glfwSetCursorPos(mc.getWindow().getWindow(),2,2);
             if(++ticks>4800)throw new IllegalStateException("Shipyard UI test timed out at stage "+stage);
             if(delay>0){delay--;return;}
             if(stage==0&&mc.screen instanceof TitleScreen&&mc.getOverlay()==null){
@@ -214,6 +215,8 @@ public final class ShipyardUiAcceptance {
     private static void focusInput(ShipyardScreen screen){var input=input(screen);float s=scale(Minecraft.getInstance());screen.mouseClicked((input.getX()+3)*s,(input.getY()+3)*s,0);}
     private static void type(ShipyardScreen screen,String value){value.chars().forEach(character->screen.charTyped((char)character,0));}
     private static void capture(Minecraft mc,String name){
+        // 手动重绘前清除上一帧悬浮的深度，避免遮挡正常界面截图。
+        com.mojang.blaze3d.systems.RenderSystem.clear(org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT,Minecraft.ON_OSX);
         var graphics=new net.minecraft.client.gui.GuiGraphics(mc,mc.renderBuffers().bufferSource());
         mc.screen.renderWithTooltip(graphics,-100,-100,0);graphics.flush();
         Screenshot.grab(output.toFile(),"shipyard-"+name+".png",mc.getMainRenderTarget(),message->System.out.println("SHIPYARD_SCREENSHOT="+message.getString()));

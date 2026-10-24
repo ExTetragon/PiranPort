@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-25",
+  "status": "已确认的GUI视觉基线",
+  "generator": "内置 image_gen 编辑定稿并合成高分辨率边框底纹；动态控件仍由共用代码绘制。",
+  "standard": {
+    "title": "开发工厂-边框底纹协调版的蓝色斜切标题带",
+    "frame": "船坞-边框底纹协调版的内沿花纹",
+    "outside": "普通游戏世界；无自定义花纹",
+    "backdrop": "common_bg_2 的低对比大菱形与深蓝渐变",
+    "outline": {
+      "logicalWidth": 1,
+      "color": "#397FA6",
+      "titleInset": 1
+    }
+  },
+  "images": [
+    {
+      "file": "船坞-GUI-定稿.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-40fc7e72-583f-4343-bba2-9e7be27b5190.png"
+    },
+    {
+      "file": "开发工厂-GUI-定稿.png",
+      "source": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-84808c22-32fe-4491-b6f5-08e5d2716bff.png"
+    }
+  ],
+  "sourceTexture": {
+    "bundle": "D:/Games/Warship Girls R/APK/v5.5.1/拆包合并，包含高清/assets/data/ui/common_bg.unity3d",
+    "referenceName": "common_bg_2",
+    "pathId": "7932894076363459365",
+    "referenceSize": [
+      1280,
+      960
+    ],
+    "resource": "src/main/resources/assets/piranport/textures/gui/manufacturing_background.png",
+    "sampling": "blur=true, clamp=true；裁去外周3逻辑像素，九宫格取样，四角45×45原比例。",
+    "notes": "纹样与底纹已合成，文字、槽位、按钮、进度与物品图标仍由游戏独立绘制。 取样排除生成描边，外缘结构线由共用代码绘制。",
+    "generator": "参考定稿将边框纹样与净底纹合成约4倍精度PNG；不再用整数GUI图元绘制花纹。",
+    "generatedSource": "F:/codex/.codex/generated_images/01a16a68-5d2b-7221-9d66-7382ce977881/exec-354851b4-da22-4fb5-9d78-7eda9327cc3c.png",
+    "pixelSize": [
+      1547,
+      1016
+    ],
+    "logicalReference": [
+      384,
+      252
+    ],
+    "sideBands": 48,
+    "sourceTrim": 3,
+    "renderedCornerSize": 45
+  },
+  "sourceSvg": "制造界面-风格源.svg",
+  "prompts": [
+    "Edit IMAGE 1 (shipyard GUI) with ONE narrowly localized change. IMAGE 2 (development factory GUI) supplies the title-band appearance reference ONLY. Change the small pale-blue background ribbon immediately behind the upper-left title 船坞 to match the corresponding 开发工厂 title ribbon in IMAGE 2: the same blue gradient/highlight, same stepped 63.435-degree slant-ending, same narrow dark slanted transition adjacent to the ribbon, and seamless connection to the active icon tab. Fit this appearance to the existing shipyard title position and header height. Preserve the 船坞 text exactly, every other pixel region, the current shipyard corner ornaments and tiny diamonds along the inner right edge, all background diamonds, colors, every UI control/content, canvas and normal Minecraft world outside. Do not restyle the border or layout. Return only the complete edited shipyard image.",
+    "Edit IMAGE 1 (development factory GUI) by unifying ONLY its narrow INNER PERIMETER ORNAMENTS to the shipyard in IMAGE 2. IMAGE 2 supplies the border ornament standard: copy its short thin technical line/small square detail in the top-right header corner, its bottom-left paired diagonal slash and thin bottom line/ticks, its bottom-right paired slashes/angular lines, and its three tiny outlined diamonds arranged vertically just inside the lower-right edge. Use the same pattern shapes, line weight, scale, colors, ordering and distance from edges as IMAGE 2, adapting anchors to the factory's wider existing window without stretching the motifs. Remove factory-only competing border ornaments, including the two tiny squares near the left divider. Keep all decorations entirely INSIDE the GUI, preserve the normal Minecraft world outside. Preserve factory's title ribbon EXACTLY as in IMAGE 1, existing body diamond/gradient backdrop, layout, dimensions, every word/number/icon/slot/status/button and all functional content. This is a localized perimeter decoration edit, not a redesign. Return only the complete edited factory image."
+  ],
+  "backdropPrompt": "Use case: style-transfer. Produce ONLY a clean 4:3 raster GUI BACKDROP TEXTURE, with no interface controls. Image 1 is the edit target, original common_bg_2. Image 2 is the approved GUI mockup: use only the smooth navy/slate background behind its controls as a finish reference; do not copy ANY controls, borders, icons or text. Preserve Image 1's broad soft blue central illumination, muted deep navy edges, large translucent overlapping diamonds, and a few very widely spaced fine crossing diagonal lines. Remove the dense mesh, fine dots, moire, checkerboard grain and brushed hatch from Image 1 almost completely so the texture remains smooth and quiet when downsampled to 348x252 logical pixels. Keep large diamonds subtly visible rather than turning everything into a featureless flat field. Dark outer values around #0D2034 to #10192E, soft central slate-blue #1D405B to #224566, with no black corners, no neon blue, no highly saturated cyan, no strong light bloom. Quiet sophisticated Warship Girls R navy interface texture. Flat front-facing full-bleed 4:3 background, no perspective, no 3D, no frame, no ornament, no lettering, no objects. This bitmap will be placed beneath separately rendered GUI controls.",
+  "sourceSvgRole": "仅可编辑布局示意，不作为装饰花纹生成源。",
+  "frameTextureRecord": "边框高精度贴图-生成说明.json"
+}
