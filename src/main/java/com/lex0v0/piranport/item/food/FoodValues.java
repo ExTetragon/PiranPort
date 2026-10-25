@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.registry;
+package com.lex0v0.piranport.item.food;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Items;

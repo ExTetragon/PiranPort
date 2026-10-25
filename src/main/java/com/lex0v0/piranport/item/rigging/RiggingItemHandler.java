@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item.rigging;
 
+import com.lex0v0.piranport.logging.ModLog;
 import net.minecraft.world.item.ItemStack;
 import com.lex0v0.piranport.registry.ModItemTags;
 import net.neoforged.neoforge.items.ComponentItemHandler;
@@ -29,7 +30,9 @@ public final class RiggingItemHandler extends ComponentItemHandler {
         var contents=getContents();var existing=getStackFromContents(contents,slot);
         if(!existing.isEmpty()&&!ItemStack.isSameItemSameComponents(existing,stack))return stack;
         int count=Math.min(stack.getCount(),Math.max(0,limit(slot,stack)-existing.getCount()));
-        if(count>0&&!simulate)updateContents(contents,stack.copyWithCount(existing.getCount()+count),slot);
+        if(count>0&&!simulate) {
+            updateContents(contents,stack.copyWithCount(existing.getCount()+count),slot);
+        }
         return stack.copyWithCount(stack.getCount()-count);
     }
     @Override
@@ -48,6 +51,12 @@ public final class RiggingItemHandler extends ComponentItemHandler {
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
         validateSlotIndex(slot);
         return amount <= 0 ? ItemStack.EMPTY : super.extractItem(slot, amount, simulate);
+    }
+    @Override protected void onContentsChanged(int slot, ItemStack before, ItemStack after) {
+        if (!ItemStack.matches(before, after))
+            ModLog.debug(ModLog.Event.CORE_SLOT, "core", core.get(com.lex0v0.piranport.registry.ModDataComponents.RIGGING_IDENTITY),
+                    "region", region, "slot", slot, "fromItem", net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(before.getItem()),
+                    "fromCount", before.getCount(), "toItem", net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(after.getItem()), "toCount", after.getCount());
     }
     public int occupiedSlots() {
         return (int)getContents().nonEmptyStream().count();

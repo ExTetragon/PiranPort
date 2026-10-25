@@ -1,6 +1,6 @@
 package com.lex0v0.piranport.recipe;
 
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryCatalog;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryCatalog;
 import com.lex0v0.piranport.registry.ModItems;
 import com.lex0v0.piranport.registry.ModRecipeSerializers;
 import com.lex0v0.piranport.registry.ModRecipeTypes;

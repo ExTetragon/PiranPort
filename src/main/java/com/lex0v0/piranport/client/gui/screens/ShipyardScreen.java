@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.client;
+package com.lex0v0.piranport.client.gui.screens;
 
 import static com.lex0v0.piranport.text.ManufacturingText.metal;
 import static com.lex0v0.piranport.text.ManufacturingText.time;
@@ -10,13 +10,12 @@ import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardJob;
 import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
-import com.lex0v0.piranport.client.shipyard.ShipyardFilterDialog;
 import com.lex0v0.piranport.domain.ship.ShipDefinition;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 import com.lex0v0.piranport.item.AmmunitionItem;
 import com.lex0v0.piranport.item.rigging.RiggingCoreRules;
 import com.lex0v0.piranport.menu.ShipyardMenu;
-import com.lex0v0.piranport.network.ShipyardActionPayload;
+import com.lex0v0.piranport.network.payload.ShipyardActionPayload;
 import com.lex0v0.piranport.recipe.ShipyardRecipe;
 import java.util.ArrayList;
 import java.util.List;

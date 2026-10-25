@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.blockentity.developmentfactory;
 
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryEntry;
+
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import com.lex0v0.piranport.text.SearchText;
 import java.util.Set;

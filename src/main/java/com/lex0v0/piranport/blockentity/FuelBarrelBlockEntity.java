@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.blockentity;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.Config;
 import com.lex0v0.piranport.block.FuelBarrelBlock;
 import com.lex0v0.piranport.registry.ModBlockEntities;
@@ -136,6 +137,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
             rebalance(master, master == this ? other : this);
             connectionChanged();
             other.connectionChanged();
+            ModLog.machine(ModLog.Event.CONNECT, this, "partner", other.worldPosition.toShortString(), "master", master.worldPosition.toShortString());
             return;
         }
     }
@@ -176,6 +178,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     // 仅断开配对，避免战利品生成后再次转移流体。
     public void disconnect() {
         FuelBarrelBlockEntity other = partnerPos == null ? null : loadedBarrel(partnerPos);
+        if (partnerPos != null) ModLog.machine(ModLog.Event.DISCONNECT, this, "partner", partnerPos.toShortString());
         partnerPos = null;
         if (other != null && worldPosition.equals(other.partnerPos)) {
             other.partnerPos = null;
@@ -290,6 +293,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
             // 原生 FluidTank 向超额桶灌入会截断存量，必须先跳过已满的本格。
             int filled = fillLocal(master, resource, accepted, perBlock);
             if (second != null && accepted > filled) filled += fillLocal(second, resource, accepted - filled, perBlock);
+            if (filled > 0) ModLog.aggregate(ModLog.Event.BARREL_FILL, filled, true);
             return filled;
         }
 
@@ -318,6 +322,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
                 int drained = second == null ? 0 : second.tank.drain(amount, action).getAmount();
                 master.tank.drain(amount - drained, action);
                 scheduleConnectionRefresh();
+                ModLog.aggregate(ModLog.Event.BARREL_DRAIN, amount, true);
             }
             return result;
         }

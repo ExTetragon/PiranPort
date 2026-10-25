@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.client;
 
+import com.lex0v0.piranport.client.event.EquipmentClientEvents;
+
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinitions;
 import com.lex0v0.piranport.item.EquipmentItem;
 import com.lex0v0.piranport.item.equipment.EquipmentIdentity;

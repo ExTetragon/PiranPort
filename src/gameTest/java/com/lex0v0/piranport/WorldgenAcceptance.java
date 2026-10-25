@@ -1,5 +1,6 @@
 package com.lex0v0.piranport;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.registry.ModBlocks;
 import com.google.gson.GsonBuilder;
 import net.minecraft.core.BlockPos;
@@ -46,7 +47,7 @@ public final class WorldgenAcceptance {
             report.put("basicDimensionChecksPassed", valid);
             report.put("completed", true);
         } catch (Throwable error) {
-            error.printStackTrace();
+            ModLog.failure(ModLog.Failure.WORLDGEN, error);
             report.put("completed", false);
             report.put("error", error.toString());
         } finally {
@@ -56,8 +57,8 @@ public final class WorldgenAcceptance {
                 var path = java.nio.file.Path.of(System.getProperty("piranport.acceptance.worldgenReport"));
                 java.nio.file.Files.createDirectories(path.getParent());
                 java.nio.file.Files.writeString(path, new GsonBuilder().setPrettyPrinting().create().toJson(report));
-                System.out.println("PIRANPORT_NATURAL_WORLDGEN_REPORT=" + path);
-            } catch (Exception error) { error.printStackTrace(); }
+                ModLog.evidence(ModLog.Evidence.NATURAL_REPORT, path);
+            } catch (Exception error) { ModLog.failure(ModLog.Failure.REPORT, error); }
             server.halt(false);
         }
     }
@@ -104,7 +105,7 @@ public final class WorldgenAcceptance {
         if (bauxite > 0) { result.put("bauxiteMinY", minBauxiteY); result.put("bauxiteMaxY", maxBauxiteY); }
         if (saltpeter > 0) { result.put("saltpeterMinY", minSaltY); result.put("saltpeterMaxY", maxSaltY); }
         result.put("generationAndScanSeconds", (System.nanoTime() - started) / 1_000_000_000.0);
-        System.out.println("PIRANPORT_NATURAL_REGION=" + new com.google.gson.Gson().toJson(result));
+        ModLog.evidence(ModLog.Evidence.NATURAL_REGION, new com.google.gson.Gson().toJson(result));
         return result;
     }
 }

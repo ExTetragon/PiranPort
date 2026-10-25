@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.Config;
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import com.lex0v0.piranport.domain.ship.ShipStats;
@@ -37,7 +38,12 @@ public final class EquipmentItem extends Item implements RiggingEquipment, Equip
     @Override public void setDamage(ItemStack stack, int damage) {
         // 原版耗损继续结算时不得把刚保留的损坏件回退一格；维修将使用独立接口。
         if (stack.getMaxDamage() > 0 && stack.getDamageValue() >= stack.getMaxDamage() && damage < stack.getMaxDamage()) return;
+        int before = EquipmentRules.remainingDurability(stack);
         super.setDamage(stack, damage);
+        int after = EquipmentRules.remainingDurability(stack);
+        if (before != after && EquipmentRules.definition(stack).isPresent())
+            ModLog.debug(ModLog.Event.WEAR, "model", EquipmentRules.definition(stack).orElseThrow().id(),
+                    "from", before, "to", after, "destroyed", after == 0 && !Config.RETAIN_BROKEN_EQUIPMENT.get());
     }
     @Override public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, @Nullable T entity, Consumer<Item> onBroken) {
         if (entity != null && entity.hasInfiniteMaterials()) return 0;

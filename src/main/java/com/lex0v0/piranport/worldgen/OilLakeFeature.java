@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.worldgen;
 
+import com.lex0v0.piranport.logging.ModLog;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import com.lex0v0.piranport.PiranPort;
@@ -26,6 +27,12 @@ public class OilLakeFeature extends Feature<OilLakeConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<OilLakeConfiguration> context) {
+        boolean placed = placeFeature(context);
+        ModLog.aggregate(ModLog.Event.OIL_LAKE, 0, placed);
+        return placed;
+    }
+
+    private boolean placeFeature(FeaturePlaceContext<OilLakeConfiguration> context) {
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
         OilLakeConfiguration config = context.config();

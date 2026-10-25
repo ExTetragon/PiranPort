@@ -4,7 +4,7 @@
   "piranport.configuration.section.piranport.common.toml": "PiranPort Configs",
   "piranport.configuration.section.piranport.common.toml.title": "PiranPort Configs",
   "piranport.configuration.debugLogging": "Debug Logging",
-  "piranport.configuration.debugLogging.tooltip": "Whether to output additional debug logs.",
+  "piranport.configuration.debugLogging.tooltip": "Enable extra PiranPort debug logs for actual state changes. Frequent operations are summarized about every 5 seconds. Other mods' logging levels are unchanged.",
   "piranport.configuration.fuelBarrelCapacity": "Fuel Barrel Capacity (mB)",
   "piranport.configuration.fuelBarrelCapacity.tooltip": "Capacity of one fuel barrel in mB. Lowering the capacity preserves any existing excess fluid; a connected pair has twice this capacity.",
   "piranport.configuration.fuelBarrelAxialConnection": "Fuel Barrel Axial Connections",

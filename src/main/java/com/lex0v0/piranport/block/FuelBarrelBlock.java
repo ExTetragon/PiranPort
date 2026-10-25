@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.block;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.blockentity.FuelBarrelBlockEntity;
 import com.lex0v0.piranport.item.FuelBarrelItem;
 import com.mojang.serialization.MapCodec;
@@ -77,6 +78,7 @@ public class FuelBarrelBlock extends BaseEntityBlock {
                 };
                 level.setBlock(pos, state.setValue(AXIS, next), Block.UPDATE_ALL);
                 barrel.refreshConnection();
+                ModLog.machine(ModLog.Event.AXIS, barrel, "from", state.getValue(AXIS), "to", next);
             }
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
@@ -84,8 +86,10 @@ public class FuelBarrelBlock extends BaseEntityBlock {
         if (stack.getItem() instanceof FuelBarrelItem) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         if (FluidUtil.getFluidHandler(stack).isPresent()) {
             if (level.isClientSide) return ItemInteractionResult.SUCCESS;
-            return FluidUtil.interactWithFluidHandler(player, hand, barrel.getFluidHandler(hit.getDirection()))
-                    ? ItemInteractionResult.CONSUME : ItemInteractionResult.FAIL;
+            int before = barrel.getFluidHandler(hit.getDirection()).getFluidInTank(0).getAmount();
+            boolean success = FluidUtil.interactWithFluidHandler(player, hand, barrel.getFluidHandler(hit.getDirection()));
+            if (success) ModLog.machine(ModLog.Event.TRANSFER, barrel, "delta", barrel.getFluidHandler(hit.getDirection()).getFluidInTank(0).getAmount() - before);
+            return success ? ItemInteractionResult.CONSUME : ItemInteractionResult.FAIL;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }

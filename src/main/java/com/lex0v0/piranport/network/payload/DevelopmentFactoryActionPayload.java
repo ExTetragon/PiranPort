@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.network;
+package com.lex0v0.piranport.network.payload;
 
 import com.lex0v0.piranport.PiranPort;
 import net.minecraft.nbt.CompoundTag;

@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.worldgen;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
@@ -17,6 +18,12 @@ public class SaltpeterPatchFeature extends Feature<SaltpeterPatchConfiguration> 
 
     @Override
     public boolean place(FeaturePlaceContext<SaltpeterPatchConfiguration> context) {
+        boolean placed = placeFeature(context);
+        ModLog.aggregate(ModLog.Event.SALTPETER, 0, placed);
+        return placed;
+    }
+
+    private boolean placeFeature(FeaturePlaceContext<SaltpeterPatchConfiguration> context) {
         WorldGenLevel level = context.level();
         RandomSource random = context.random();
         BlockPos origin = context.origin();

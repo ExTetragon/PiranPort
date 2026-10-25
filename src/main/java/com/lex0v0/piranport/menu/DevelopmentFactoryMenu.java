@@ -1,13 +1,14 @@
 package com.lex0v0.piranport.menu;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.blockentity.DevelopmentFactoryBlockEntity;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryBrowseState;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryFilter;
 import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryEntry;
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryCatalog;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryEntry;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryCatalog;
 import com.lex0v0.piranport.item.BlueprintItem;
-import com.lex0v0.piranport.network.DevelopmentFactorySyncPayload;
+import com.lex0v0.piranport.network.payload.DevelopmentFactorySyncPayload;
 import com.lex0v0.piranport.registry.ModMenus;
 import java.util.List;
 import net.minecraft.nbt.CompoundTag;
@@ -84,12 +85,17 @@ public final class DevelopmentFactoryMenu extends AbstractContainerMenu {
         else if (action == 1) {
             ResourceLocation target = ResourceLocation.tryParse(data.getString("Target"));
             var result = factory.start(target, viewer);
+            ModLog.machine(ModLog.Event.ACTION, factory, "action", "start", "target", target, "result", result);
             if (result != DevelopmentFactoryBlockEntity.StartResult.STARTED)
                 viewer.displayClientMessage(Component.translatable("gui.piranport.development_factory.result." + result.name().toLowerCase(java.util.Locale.ROOT)), true);
-        } else if (action == 2 && data.hasUUID("Job")) factory.cancel(data.getUUID("Job"), viewer);
+        } else if (action == 2 && data.hasUUID("Job")) {
+            boolean cancelled = factory.cancel(data.getUUID("Job"), viewer);
+            ModLog.machine(ModLog.Event.ACTION, factory, "action", "cancel", "job", data.getUUID("Job"), "accepted", cancelled);
+        }
         else if (action == 3) {
             var result = factory.transferContainer(getCarried(), data.getBoolean("Inject"), viewer);
             if (result.isSuccess()) setCarried(result.getResult());
+            ModLog.machine(ModLog.Event.ACTION, factory, "action", "fluid_container", "accepted", result.isSuccess());
         }
         sentRevision = Long.MIN_VALUE;
         broadcastChanges();

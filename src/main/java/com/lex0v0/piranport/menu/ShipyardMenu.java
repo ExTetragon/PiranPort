@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.menu;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardBrowseState;
 import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
@@ -7,7 +8,7 @@ import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.domain.ship.ShipDefinition;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 import com.lex0v0.piranport.item.BlueprintItem;
-import com.lex0v0.piranport.network.ShipyardSyncPayload;
+import com.lex0v0.piranport.network.payload.ShipyardSyncPayload;
 import com.lex0v0.piranport.registry.ModMenus;
 import java.util.List;
 import java.util.Comparator;
@@ -87,12 +88,17 @@ public final class ShipyardMenu extends AbstractContainerMenu {
         else if (action == 1) {
             ResourceLocation target = ResourceLocation.tryParse(data.getString("Ship"));
             var result = shipyard.start(target, viewer);
+            ModLog.machine(ModLog.Event.ACTION, shipyard, "action", "start", "target", target, "result", result);
             if (result != ShipyardBlockEntity.StartResult.STARTED)
                 viewer.displayClientMessage(Component.translatable("gui.piranport.shipyard.result." + result.name().toLowerCase(java.util.Locale.ROOT)), true);
-        } else if (action == 2 && data.hasUUID("Job")) shipyard.cancel(data.getUUID("Job"), viewer);
+        } else if (action == 2 && data.hasUUID("Job")) {
+            boolean cancelled = shipyard.cancel(data.getUUID("Job"), viewer);
+            ModLog.machine(ModLog.Event.ACTION, shipyard, "action", "cancel", "job", data.getUUID("Job"), "accepted", cancelled);
+        }
         else if (action == 3) {
             var result = shipyard.transferContainer(getCarried(), data.getBoolean("Inject"), viewer);
             if (result.isSuccess()) setCarried(result.getResult());
+            ModLog.machine(ModLog.Event.ACTION, shipyard, "action", "fluid_container", "accepted", result.isSuccess());
         }
         sentRevision = Long.MIN_VALUE;
         broadcastChanges();

@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item.equipment;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import com.lex0v0.piranport.item.EquipmentItem;
 import com.lex0v0.piranport.registry.ModDataComponents;
@@ -25,6 +26,13 @@ public final class AircraftFluidHandler extends FluidHandlerItemStack {
     }
     @Override public int fill(FluidStack fluid, FluidAction action) {
         capacity = getTankCapacity(0);
-        return getFluid().getAmount() >= capacity ? 0 : super.fill(fluid, action);
+        int filled = getFluid().getAmount() >= capacity ? 0 : super.fill(fluid, action);
+        if (action.execute() && filled > 0) ModLog.aggregate(ModLog.Event.AIRCRAFT_FILL, filled, true);
+        return filled;
+    }
+    @Override public FluidStack drain(int amount, FluidAction action) {
+        FluidStack drained = super.drain(amount, action);
+        if (action.execute() && !drained.isEmpty()) ModLog.aggregate(ModLog.Event.AIRCRAFT_DRAIN, drained.getAmount(), true);
+        return drained;
     }
 }

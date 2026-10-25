@@ -23,7 +23,7 @@
 |---|---|
 | 名称 / Mod ID | 皮兰港 PiranPort / `piranport` |
 | 包 / Maven Group | `com.lex0v0.piranport` |
-| 当前版本 / jar | `0.1.98` / `piranport-0.1.98.jar` |
+| 当前版本 / jar | `0.1.100` / `piranport-0.1.100.jar` |
 | Minecraft / Java | `1.21.1` / JDK 21 |
 | NeoForge | 开发及实际验证固定为 `21.1.259` |
 | Gradle / 插件 | Wrapper `9.2.1` / ModDevGradle `2.0.148` |
@@ -54,15 +54,17 @@
 
 | 路径 | 职责 |
 |---|---|
-| `src/main/java/com/lex0v0/piranport/PiranPort.java` | 通用模组入口，挂接注册器、注册 COMMON 配置与服务端启动日志 |
-| `PiranPortClient.java` | 客户端配置界面入口；客户端类不得从专用服务器通用路径加载 |
-| `Config.java` | 公共配置：调试日志、燃料桶容量／轴向连接、装备损坏保留；四项名称与说明支持中英文，TOML 注释为中英双语 |
-| `registry/` | 物品/食物值、方块、流体、方块实体、组件、Feature、创造栏、配方序列化器和物品子判定注册 |
+| `src/main/java/com/lex0v0/piranport/PiranPort.java` | 通用模组入口，挂接注册器、注册 COMMON 配置与独立日志监听 |
+| `client/PiranPortClient.java` | 客户端配置界面入口；客户端类不得从专用服务器通用路径加载 |
+| `Config.java` | 六项公共配置：调试日志、燃料桶容量／轴向连接、装备损坏保留及两个背包消耗开关；名称与说明支持中英文，TOML 注释为中英双语 |
+| `logging/ModLog.java` | 集中管理 Java 控制台文案、分级、配置事件及约5秒汇总；主类不持有日志器，验收标记保持原格式 |
+| `registry/` | 物品、方块、流体、方块实体、组件、Feature、创造栏、配方序列化器和物品子判定注册 |
+| `item/food/FoodValues.java` | 食物基础营养、饱和系数及食用容器定义，不负责注册 |
 | `block/FuelBarrelBlock.java` | 放置轴向、桶交互、斧切轴、连接计划刻、破坏与比较器 |
 | `blockentity/ShipyardBlockEntity.java`、`blockentity/shipyard/` | 船坞事务、缓存、任务快照与浏览保存 |
-| `blockentity/DevelopmentFactoryBlockEntity.java`、`blockentity/developmentfactory/` | 工厂事务、统一产物目录、任务快照与浏览筛选 |
+| `blockentity/DevelopmentFactoryBlockEntity.java`、`blockentity/developmentfactory/` | 工厂事务、任务快照与浏览筛选 |
 | `blockentity/manufacturing/ManufacturingMaterials.java` | 船坞与工厂共用的钢铝、弹药扣料和找零规划 |
-| `menu/`、`network/`、`client/ShipyardScreen.java`、`client/DevelopmentFactoryScreen.java` | 服务端菜单与同步、客户端制造界面 |
+| `menu/`、`network/`、`client/gui/screens/ShipyardScreen.java`、`client/gui/screens/DevelopmentFactoryScreen.java` | 服务端菜单与同步、客户端制造界面 |
 | `blockentity/FuelBarrelBlockEntity.java` | 本格储罐、伙伴关系、共享能力、NBT、组件及守恒结算 |
 | `item/FuelBarrelItem.java` | 燃料桶 BlockItem 类型；不在放置消耗后额外恢复内容 |
 | `item/blueprint/`、`item/BlueprintItem.java` | 稳定许可目录、不可变组件、纯查询/合并和动态显示 |
@@ -72,32 +74,39 @@
 | `item/EquipmentItem.java`、`item/equipment/` | 型号身份、创建、耐久、飞机燃油与纯查询接口 |
 | `item/rigging/`、`item/RiggingCoreItem.java` | 核心身份/熟练度、存储、恢复读取、装配属性汇总与掉落保护 |
 | `advancement/predicate/` | 将图纸许可等领域规则接入进度物品判定 |
-| `recipe/` | 图纸无序合并和固定布局的有序扩展，扣料交给原版合成路径 |
+| `recipe/` | 图纸合成、空桶制造约束、船坞与工厂配方及共用费用接口 |
+| `recipe/developmentfactory/` | 开发产物目录与条目；组合耐久型号和普通消耗品，负责对应产物创建 |
+| `network/`、`network/payload/` | 网络注册入口与动作／同步载荷分开；通用路径不依赖客户端类 |
 | `event/` | 流体能力注册、油桶燃料时间事件、图纸收集的登录补判 |
-| `client/ModClientEvents.java`、`RiggingClientEvents.java`、`ModTooltipEvents.java` | 流体外观、核心身份模型与客户端标题/Shift 说明、原版归属行顺序调整 |
+| `client/event/` | 流体外观、核心身份模型与客户端标题/Shift 说明、原版归属行顺序调整 |
 | `worldgen/` | 硝土簇、油湖 Feature 及配置 Codec |
-| `datagen/ModDataGenerators.java` | 掉落表与通用物品标签的数据生成器 |
+| `datagen/ModDataGenerators.java` | 挂接数据生成 provider，不内嵌资源生成规则 |
+| `datagen/loot/ModBlockLoot.java`、`datagen/tags/ModItemTagsProvider.java` | 方块掉落与矿物／装备／弹药物品标签生成 |
 | `datagen/BlueprintData.java` | 生成图纸配方、纸标签、178种奖励候选、追加器配置和两个进度 |
 | `src/main/resources/` | 手写配方、模型、语言、世界生成、其余掉落/标签等 |
 | `src/generated/resources/` | runData 生成并版本控制的掉落/标签；构建包含此目录 |
-| `src/gameTest/` | 176项GameTest、24×12×24 空场景模板、独立自然采样及图纸/核心客户端模型与双语检查；测试装备夹具及资源不得进入发行包 |
+| `src/gameTest/` | 181项GameTest、24×12×24 空场景模板、独立自然采样及图纸/核心客户端模型与双语检查；测试装备夹具及资源不得进入发行包 |
 | `tools/run_acceptance.py` | 统一执行静态检查、构建、GameTest、可选自然采样/客户端启动，校验数量与发行包并生成报告 |
-| `tools/acceptance_coverage.json` | 152项覆盖映射，102项完整、50项部分；不把部分覆盖记作通过 |
+| `tools/acceptance_coverage.json` | 177项覆盖映射，122项完整、55项部分；不把部分覆盖记作通过 |
 | `tools/setup_acceptance_helpers.py` | 安装锁定的 JEI、spark 及依赖到独立客户端，校验 SHA-512；不作为发行依赖 |
 | `tools/verify_resources.py` | 仅依赖 Python 标准库的静态资源检查 |
 | `tools/generate_food_placeholders.py` | 仅生成缺失的 16×16 食物 PNG，不覆盖已有图 |
-| `docs/` | 原设计、实现文档、测试清单、开发日志及五份工作簿 |
+| `docs/` | 原设计、实现文档、测试清单、开发日志及参数工作簿 |
 | `run/`、`build/`、`.gradle/` | 本地运行/构建/缓存目录，不纳入发行资源或 Git |
 
 入口保持注册与生命周期挂接职责；桶逻辑留在 block/blockentity，生成算法留在 worldgen。当前规模无须提前拆为多个 Gradle 工程。
 
 图纸许可模型与规则集中在 `item/blueprint`，进度判定适配器放在 `advancement/predicate`；物品类、配方、事件、数据生成和注册器各自保持职责目录，不再设置顶层 `blueprint` 包。
 
-船坞专用任务与浏览状态归入`blockentity/shipyard`，工厂专用任务与浏览目录归入`blockentity/developmentfactory`，共用材料规划归`blockentity/manufacturing`；不设置顶层功能包。方块、菜单、配方、网络和客户端界面继续归各自职责目录。
+船坞专用任务与浏览状态归入`blockentity/shipyard`，工厂专用任务与浏览状态归入`blockentity/developmentfactory`，共用材料规划归`blockentity/manufacturing`；不设置顶层功能包。方块、菜单、配方、网络和客户端界面继续归各自职责目录。开发产物目录与创建适配归`recipe/developmentfactory`，不归方块实体，也不将依赖物品注册的创建逻辑移入`domain`。
+
+客户端入口归`client/PiranPortClient`；两制造页面与筛选弹窗集中在`client/gui/screens`，共享绘制保留`client/gui/ManufacturingGuiStyle`，客户端事件归`client/event`。网络注册入口保留`network`，四种动作／同步载荷归`network/payload`；不为少量 lambda 处理器新建空的 handler 层。食物属性归`item/food`。数据生成入口只挂接 provider，掉落与标签 provider 分别归`datagen/loot`和`datagen/tags`；蓝图成组生成逻辑保留`datagen/BlueprintData`。
 
 跨系统共用的领域模型集中在 `domain/<领域>/`，当前为 `domain/ship` 与 `domain/equipment`，舰船国籍归`domain/ship/ShipNationality`。领域模型不依赖具体物品、方块、界面或事件实现；基础属性、装备修正和汇总结果共用 `domain.ship.ShipStats`，核心装配计算仍归 `item/rigging`。单个系统专用的组件、处理器和规则继续留在所属系统。
 
-舰船国籍由`domain/ship/ShipNationality`定义，采用舰R的C/E/F/G/I/J/S/U/其他九组。装备不保留国籍字段或筛选；具体身份从目录读取，长春归 C 国，不在核心或配方重复保存。船坞筛选规则归 `blockentity/shipyard/ShipyardFilter`，客户端弹窗归 `client/shipyard`；筛选只影响浏览，继续受“显示全部”范围约束，右键搜索图标清除条件但保留该勾选状态。取消确认按内容居中收紧。
+舰船国籍由`domain/ship/ShipNationality`定义，采用舰R的C/E/F/G/I/J/S/U/其他九组。装备不保留国籍字段或筛选；具体身份从目录读取，长春归 C 国，不在核心或配方重复保存。船坞筛选规则归 `blockentity/shipyard/ShipyardFilter`，客户端弹窗归 `client/gui/screens`；筛选只影响浏览，继续受“显示全部”范围约束，右键搜索图标清除条件但保留该勾选状态。取消确认按内容居中收紧。
+
+Java 控制台输出统一使用 `logging/ModLog`，不在主类或业务类创建日志器、直接打印或分散日志文案。`debugLogging` 默认 false，仅控制本模组 DEBUG；INFO／WARN／ERROR 保留，实际操作与状态变化才输出，模拟／查询／逐 tick 不输出，流体与世界生成约5秒汇总。Gradle 默认 INFO，`-PverboseGameLogging=true` 才启用框架明细。规则及记录点见[日志说明](docs/日志-实现说明.md)和[输出清单](docs/日志-输出清单.xlsx)。
 
 代码注释采用简短的中文单行注释（Java/Gradle 使用 `//`，Python 使用 `#`），概括类或模块职责、主要处理阶段和关键约束。现有冗长多行注释压缩为单行，避免逐句复述代码；保留必要的兼容性、守恒和副作用说明，复杂设计放入实现文档。后续新增与修改代码继续采用此格式。
 
@@ -288,12 +297,19 @@ GameTest 世界为 `run/gametest`；自然采样为 `run/acceptance-worldgen-<�
 
 **制造GUI外缘框线验证（2026-10-25，0.1.98）：** 构建、291个JSON静态检查及两个独立新世界GUI专项通过，船坞34项、工厂24项。真实1280×900截图逐像素核对四边为1逻辑像素、#397FA6，标题底带直达框线内侧；141个非客户端类与0.1.97一致。证据为`build/gui-frame-lines-20261025/validation.json`和`frame-pixels.json`；实际截图归统一风格目录。未运行专用GameTest服务器、数据生成或自然采样，没有读取玩家存档。
 
+**自动验收客户端启动验证（2026-10-25，0.1.100）：** Windows／JDK21.0.5／NeoForge21.1.259。无options文件的船坞、主菜单实例及显式开启首次引导的工厂均通过原版回调进入检查，再次启动主菜单实例不重复完成引导，旁白模式均保持0。两个全新GUI世界通过船坞34项、工厂24项检查，生成42张渲染阶段截图；资源静态检查291个JSON及4项报告防误判测试通过。156个生产类与0.1.98逐字节一致，新增启动与截图夹具未进入发行包；仅编译176项GameTest，未运行专用GameTest服务器或读取玩家存档。报告为`build/client-startup-20261025/validation.json`。
+
+**统一日志验证（2026-10-25 16:20，0.1.100）：** JDK21.0.5／NeoForge21.1.259，构建、291个JSON、181项required GameTest及发行包检查通过；新增5项日志回归。独立客户端通过主菜单资源检查，配置文件监听实测关闭／开启／关闭均生效。177项覆盖映射中122项完整、55项部分；Java直接控制台输出仅位于`logging/ModLog`。证据见`build/logging-20261025/validation.json`，未读取玩家存档或运行自然采样／数据生成，原有人工范围保持。
+
+**目录重构验证（2026-10-25 16:32，0.1.100）：** 迁移16个类、拆出2个provider；112个生产源码包路径及验收引用已核对，其余原有类体和两份provider规则保持一致。构建、数据生成、291个JSON、181项required GameTest、发行包及两设施新世界GUI检查通过（船坞34项、工厂24项）；29个生成资源和发行包非class资源逐文件哈希与重构前一致，无旧路径class或转发别名。证据见`build/package-layout-20261025/validation.json`；未读取玩家存档，功能及版本计数不变。
+
 按变更范围验证：
 
 - 资源/标签/配方：静态脚本；涉及 provider 时运行数据生成并核对输出。
 - Java 行为：构建；有可用用例时运行相关游戏回归。桶逻辑重点覆盖空保存、放置、兼容性、缓存、模拟、拆除守恒及当前格式保存恢复，油湖重点覆盖预检原子性和密封。
 - 文档：检查链接、命令与实现一致；对策划书使用原始哈希确认未改动，不为更新日志重写 PDF。
 - 声称测试通过时注明日期、环境、范围；只运行编译不得宣称行为通过，未运行的人工项保持待验收。
+- 自动启动检查和GUI验收共用`src/gameTest/.../client/AcceptanceClientStartup`，首次旁白引导通过原版`onClose`完成，不强制替换主菜单或改写旁白模式。仅在显式自动检查开关启用时调用，普通客户端保留原版引导；截图请求由`UiTooltipCapture`在`ScreenEvent.Render.Pre`使用模拟坐标完成，完成前保留当前界面，不在tick阶段重绘或每tick定位真实鼠标。新增自动客户端入口沿用此约定，测试夹具不得进入发行包。
 
 ## 8. 已知未完成项与后续方向
 
@@ -310,8 +326,8 @@ GameTest 世界为 `run/gametest`；自然采样为 `run/acceptance-worldgen-<�
 
 ## 9. 版本号递增规则
 
-- 当前版本为 `0.1.98`，累计72项功能实现 + 26项bug修复。2026-10-22 的 41 项历史基线保留于[开发日志：功能/修复累计与版本基线](docs/开发日志.md#version-baseline-20261022)；[验收与测试工具](docs/开发日志.md#acceptance-automation-20261022)新增 3 项工具，末段为 42–44；[蓝图模块](docs/开发日志.md#blueprints-20261023)新增四项，末段为 45–48；[合并单张产出](docs/开发日志.md#blueprint-single-merge-20261023)规则调整为 F32 / 末段 49；[燃料桶配置](docs/开发日志.md#fuel-barrel-config-20261023)新增容量配置与默认降容 F33 / 末段 50、放置连接策略配置 F34 / 末段 51；[配置本地化](docs/开发日志.md#config-localization-20261023)修复配置名称与说明的本地化缺失，计 B18 / 末段 52；[蓝图许可调整](docs/开发日志.md#blueprint-types-20261023)移除船型计 F35 / 末段 53、导弹武器名称调整计 F36 / 末段 54。[舰装核心](docs/开发日志.md#rigging-core-20261024)新增 F37–F43，末段为 55–61；[核心悬浮显示](docs/开发日志.md#rigging-tooltips-20261024)新增 F44–F45，末段为 62–63；[通用物品归属行](docs/开发日志.md#mod-tooltip-footer-20261024)计 F46 / 末段 64；[原版归属行规则修正](docs/开发日志.md#native-tooltip-order-20261024)计 B19 / 末段 65；[船坞](docs/开发日志.md#shipyard-20261024)新增 F47–F52，末段为 66–71；[单工位调整](docs/开发日志.md#shipyard-single-station-20261024)新增 F53–F54 和 B20–B21，末段为 72–75；[船坞筛选](docs/开发日志.md#shipyard-filter-20261024)新增 F55–F57，末段为 76–78。[装备物品层](docs/开发日志.md#equipment-20261024)新增F58–F62，末段79–83；[移除装备国籍](docs/开发日志.md#equipment-no-nationality-20261024)新增F63，末段84；[开发工厂](docs/开发日志.md#development-factory-20261024)新增F64–F69，末段85–90；[工厂GUI样式对齐](docs/开发日志.md#factory-gui-style-20261024)计B22，末段91；[统一分类说明](docs/开发日志.md#classification-text-20261024)新增F70–F71，末段92–93；[旧规则残留修正](docs/开发日志.md#project-hygiene-20261024)计B23–B24，末段94–95；[统一GUI风格](docs/开发日志.md#manufacturing-gui-style-20261025)新增F72，末段96；[边框精度修正](docs/开发日志.md#gui-frame-precision-20261025)计B25，末段97；[外缘框线修正](docs/开发日志.md#gui-frame-lines-20261025)计B26，末段98。回归用例和验证执行不另计项。
-- **每完成一项实际功能实现或独立 bug 修复，立即将末段版本号加 1。** 一次任务完成 N 项则加 N，不按会话、提交、修改文件数量或代码行数递增。下一项完成后应为 `0.1.99`。
+- 当前版本为 `0.1.100`，累计73项功能实现 + 27项bug修复。2026-10-22 的 41 项历史基线保留于[开发日志：功能/修复累计与版本基线](docs/开发日志.md#version-baseline-20261022)；[验收与测试工具](docs/开发日志.md#acceptance-automation-20261022)新增 3 项工具，末段为 42–44；[蓝图模块](docs/开发日志.md#blueprints-20261023)新增四项，末段为 45–48；[合并单张产出](docs/开发日志.md#blueprint-single-merge-20261023)规则调整为 F32 / 末段 49；[燃料桶配置](docs/开发日志.md#fuel-barrel-config-20261023)新增容量配置与默认降容 F33 / 末段 50、放置连接策略配置 F34 / 末段 51；[配置本地化](docs/开发日志.md#config-localization-20261023)修复配置名称与说明的本地化缺失，计 B18 / 末段 52；[蓝图许可调整](docs/开发日志.md#blueprint-types-20261023)移除船型计 F35 / 末段 53、导弹武器名称调整计 F36 / 末段 54。[舰装核心](docs/开发日志.md#rigging-core-20261024)新增 F37–F43，末段为 55–61；[核心悬浮显示](docs/开发日志.md#rigging-tooltips-20261024)新增 F44–F45，末段为 62–63；[通用物品归属行](docs/开发日志.md#mod-tooltip-footer-20261024)计 F46 / 末段 64；[原版归属行规则修正](docs/开发日志.md#native-tooltip-order-20261024)计 B19 / 末段 65；[船坞](docs/开发日志.md#shipyard-20261024)新增 F47–F52，末段为 66–71；[单工位调整](docs/开发日志.md#shipyard-single-station-20261024)新增 F53–F54 和 B20–B21，末段为 72–75；[船坞筛选](docs/开发日志.md#shipyard-filter-20261024)新增 F55–F57，末段为 76–78。[装备物品层](docs/开发日志.md#equipment-20261024)新增F58–F62，末段79–83；[移除装备国籍](docs/开发日志.md#equipment-no-nationality-20261024)新增F63，末段84；[开发工厂](docs/开发日志.md#development-factory-20261024)新增F64–F69，末段85–90；[工厂GUI样式对齐](docs/开发日志.md#factory-gui-style-20261024)计B22，末段91；[统一分类说明](docs/开发日志.md#classification-text-20261024)新增F70–F71，末段92–93；[旧规则残留修正](docs/开发日志.md#project-hygiene-20261024)计B23–B24，末段94–95；[统一GUI风格](docs/开发日志.md#manufacturing-gui-style-20261025)新增F72，末段96；[边框精度修正](docs/开发日志.md#gui-frame-precision-20261025)计B25，末段97；[外缘框线修正](docs/开发日志.md#gui-frame-lines-20261025)计B26，末段98；[自动验收启动修复](docs/开发日志.md#client-startup-20261025)计1项修复，末段99；[统一日志](docs/开发日志.md#logging-20261025)新增1项功能，末段100。回归用例和验证执行不另计项。
+- **每完成一项实际功能实现或独立 bug 修复，立即将末段版本号加 1。** 一次任务完成 N 项则加 N，不按会话、提交、修改文件数量或代码行数递增。下一项完成后应为 `0.1.101`。
 - **首位和中段版本号不自动更新；只有用户明确要求时才修改。** 末段达到 9、99 等值时继续自然增加，不向前进位。
 - 文档、策划书、xlsx 说明、注释、纯格式调整、测试执行、仅新增回归用例、版本同步本身不单独计项；未完成或仅计划的功能不计。可运行开发工具的实际新能力属于功能实现。
 - 按可独立描述和验证的交付项计数：同一缺陷涉及多处代码/资源只计一次；同批同类内容不按物品、配方、贴图或注册 ID 数量拆分。既有功能与后来独立修复可分别记历史交付，不能将同一次修复换名重复计项。
@@ -325,6 +341,7 @@ GameTest 世界为 `run/gametest`；自然采样为 `run/acceptance-worldgen-<�
 - 每条历史记录以 `### YYYY-MM-DD HH:mm｜条目概括` 开头，使用北京时间（UTC+08:00）、24 小时制，精确到分钟；按时间和同一分钟内的轮次倒序排列。新记录直接插入开头状态摘要之后，仅按需更新摘要和当前条目，不重新编号或修改后续全文。
 - 时间从实际完成记录、验证日志或关联提交核实。合并记录采用该轮可核实的完成时间；没有独立时间证据的旧内容可并入同轮记录，不补造分钟。
 - 历史条目的时间、版本和交付计数保持原义；引用使用固定锚点，移动或合并条目时保留锚点，不依赖章节编号。
+- **简洁记录**：以“装备物品、耐久与飞机储油”条目为样式，通常用一段概括功能、缺陷及重要规则差异，再用一句说明阶段功能／修复数量、版本范围并链接详细文档；复杂阶段可分两段。不逐项列出交付编号、编号对照表或中间版本流水，只保留必要的汇总计数。以后新增、合并及整理日志均沿用此格式。
 - 使用直接、客观的事实陈述，概括交付内容、项目缺陷及重要实施校正。功能不展开实现细节、参数、代码路径或逐条操作过程，具体内容引用实现方案、修复说明和表格。省略指令来源、对话过程和执行者叙述，不使用“用户要求”“按要求”“根据反馈”“应请求”“本次任务”等引导语。
 - 记录项目实际功能实现、项目自身 bug 修复和重要实施校正；同一阶段的连续条目可合并精简，保留交付计数、最终行为及重要规则差异。
 - 不记录开发环境故障及维护，包括本地只读/权限/占用导致的构建失败、存档文件属性、IDE/命令执行器/WebSocket 异常、网络或认证服务问题。这些不属于项目 bug。

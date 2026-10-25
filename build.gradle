@@ -102,8 +102,13 @@ neoForge {
         }
 
         configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
+            // 框架详细日志显式启用，模组调试信息由公共配置独立控制。
+            if (providers.gradleProperty('verboseGameLogging').map { it.toBoolean() }.getOrElse(false)) {
+                systemProperty 'forge.logging.markers', 'REGISTRIES'
+                logLevel = org.slf4j.event.Level.DEBUG
+            } else {
+                logLevel = org.slf4j.event.Level.INFO
+            }
         }
     }
 

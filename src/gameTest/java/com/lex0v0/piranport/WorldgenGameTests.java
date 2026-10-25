@@ -1,5 +1,6 @@
 package com.lex0v0.piranport;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.registry.*;
 import com.lex0v0.piranport.worldgen.*;
 import com.mojang.serialization.JsonOps;
@@ -54,7 +55,7 @@ public final class WorldgenGameTests {
                         "minRadius", config.minRadius(), "maxRadius", config.maxRadius()));
             }
         }
-        System.out.println("PIRANPORT_WORLDGEN_SHAPES=" + new com.google.gson.Gson().toJson(results));
+        ModLog.evidence(ModLog.Evidence.WORLDGEN_SHAPES, new com.google.gson.Gson().toJson(results));
         h.succeed();
     }
 
@@ -78,7 +79,7 @@ public final class WorldgenGameTests {
             maximum = Math.max(maximum, count);
         }
         h.assertTrue(successes > 0, "valid cave must produce at least one successful sample");
-        System.out.println("PIRANPORT_SALTPETER_SAMPLES=" + new com.google.gson.Gson().toJson(java.util.Map.of("seeds", 64, "successes", successes, "maxBlocks", maximum)));
+        ModLog.evidence(ModLog.Evidence.SALTPETER_SAMPLES, new com.google.gson.Gson().toJson(java.util.Map.of("seeds", 64, "successes", successes, "maxBlocks", maximum)));
         h.succeed();
     }
 

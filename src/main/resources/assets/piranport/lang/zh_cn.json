@@ -4,7 +4,7 @@
   "piranport.configuration.section.piranport.common.toml": "皮兰港 配置",
   "piranport.configuration.section.piranport.common.toml.title": "皮兰港 配置",
   "piranport.configuration.debugLogging": "调试日志",
-  "piranport.configuration.debugLogging.tooltip": "是否输出额外的调试日志",
+  "piranport.configuration.debugLogging.tooltip": "是否输出本模组的额外调试日志；记录实际状态变化，高频操作约每5秒汇总，不影响其他模组日志级别",
   "piranport.configuration.fuelBarrelCapacity": "燃料桶容量（mB）",
   "piranport.configuration.fuelBarrelCapacity.tooltip": "单个燃料桶的容量（mB）；降容保留已有超额流体，双桶容量为此值的两倍",
   "piranport.configuration.fuelBarrelAxialConnection": "燃料桶轴向连接",

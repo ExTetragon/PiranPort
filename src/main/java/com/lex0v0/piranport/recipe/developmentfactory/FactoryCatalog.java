@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.blockentity.developmentfactory;
+package com.lex0v0.piranport.recipe.developmentfactory;
 
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinitions;

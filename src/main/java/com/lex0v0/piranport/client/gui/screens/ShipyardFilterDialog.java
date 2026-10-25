@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.client.shipyard;
+package com.lex0v0.piranport.client.gui.screens;
 
 import com.lex0v0.piranport.client.gui.ManufacturingGuiStyle;
 

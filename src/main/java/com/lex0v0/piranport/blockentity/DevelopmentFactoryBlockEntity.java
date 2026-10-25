@@ -1,9 +1,10 @@
 package com.lex0v0.piranport.blockentity;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryBrowseState;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryJob;
 import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryCatalog;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryCatalog;
 import com.lex0v0.piranport.item.blueprint.BlueprintRules;
 import com.lex0v0.piranport.item.blueprint.BlueprintType;
 
@@ -68,6 +69,8 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
     private final IItemHandler bottom = new FaceInventory(new int[]{OUTPUT_SLOT}, false);
     private final IItemHandlerModifiable menuInventory = new MenuInventory();
     private long revision;
+    private boolean invalidStoredJob;
+    private String loggedJobState;
 
     public DevelopmentFactoryBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.DEVELOPMENT_FACTORY.get(), pos, state); }
     private boolean usable() { return level != null && !level.isClientSide && !isRemoved() && level.getBlockEntity(worldPosition) == this; }
@@ -139,9 +142,13 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
         if (paid.getAmount() != recipe.fuel()) return StartResult.MISSING_RESOURCES;
         // 规划全部成功后再提交，找零空间不足不会回滚或阻止开工。
         job = new FactoryJob(recipe, inventory.getStackInSlot(BLUEPRINT_SLOT), plan.ammunition(), paid);
+        loggedJobState = null;
         for (int i = 0; i < ManufacturingMaterials.SLOTS; i++) inventory.setStackInSlot(CACHE_START + i, plan.remaining().get(i));
         tank.drain(recipe.fuel(), IFluidHandler.FluidAction.EXECUTE);
         for (ItemStack change : plan.change()) returnItem(change, actor);
+        ModLog.machine(ModLog.Event.JOB_START, this, "job", job.id, "target", recipe.target(),
+                "fuel", recipe.fuel(), "ammunition", recipe.ammunition(), "steel", recipe.steel(),
+                "aluminum", recipe.aluminum(), "seconds", recipe.seconds());
         changed(); return StartResult.STARTED;
     }
 
@@ -152,10 +159,15 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
     public boolean cancel(UUID expected, @Nullable Player actor) {
         if (!usable() || job == null || !job.id.equals(expected)) return false;
         FactoryJob cancelled = job; job = null;
+        loggedJobState = null;
         for (ItemStack stack : ManufacturingMaterials.normalized("steel", cancelled.recipe.steel() * 9)) returnItem(stack, actor);
         for (ItemStack stack : ManufacturingMaterials.normalized("aluminum", cancelled.recipe.aluminum() * 9)) returnItem(stack, actor);
         for (ItemStack stack : cancelled.ammunition) returnItem(stack.copy(), actor);
-        tank.fill(cancelled.fuel, IFluidHandler.FluidAction.EXECUTE);
+        int returnedFuel = tank.fill(cancelled.fuel, IFluidHandler.FluidAction.EXECUTE);
+        ModLog.machine(ModLog.Event.JOB_CANCEL, this, "job", cancelled.id, "target", cancelled.recipe.target(),
+                "elapsed", cancelled.elapsed(), "steel", cancelled.recipe.steel(), "aluminum", cancelled.recipe.aluminum(),
+                "ammunitionItems", cancelled.ammunition.stream().mapToInt(ItemStack::getCount).sum(),
+                "returnedFuel", returnedFuel, "discardedFuel", cancelled.fuel.getAmount() - returnedFuel);
         changed(); return true;
     }
 
@@ -183,7 +195,10 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
                 remainder = inventory.insertItem(slot, remainder, false);
             }
         }
+        int outsideCache = remainder.getCount();
         if (actor != null && !remainder.isEmpty()) actor.getInventory().add(remainder);
+        ModLog.machine(ModLog.Event.REFUND, this, "item", net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(source.getItem()),
+                "cache", source.getCount() - outsideCache, "inventory", outsideCache - remainder.getCount(), "dropped", remainder.getCount());
         if (!remainder.isEmpty() && level != null) {
             if (actor != null) actor.drop(remainder, false); else Block.popResource(level, worldPosition, remainder);
         }
@@ -192,14 +207,21 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
     public static void tick(Level level, BlockPos pos, BlockState state, DevelopmentFactoryBlockEntity factory) {
         if (level.isClientSide || !factory.usable()) return;
         FactoryJob job = factory.job;
-        if (job == null || !job.recipe.knownTarget() || !factory.permitted(job.recipe.target())
-                || !ItemStack.isSameItemSameComponents(factory.inventory.getStackInSlot(BLUEPRINT_SLOT), job.blueprint)) return;
+        if (job == null) { factory.loggedJobState = null; return; }
+        String status = !job.recipe.knownTarget() ? "unknown_target" : !factory.permitted(job.recipe.target())
+                || !ItemStack.isSameItemSameComponents(factory.inventory.getStackInSlot(BLUEPRINT_SLOT), job.blueprint)
+                ? "blueprint_mismatch" : job.finished() && !factory.inventory.getStackInSlot(OUTPUT_SLOT).isEmpty() ? "output_pending" : "running";
+        if (ModLog.debugEnabled() && !status.equals(factory.loggedJobState))
+            ModLog.machine(ModLog.Event.JOB_STATE, factory, "job", job.id, "target", job.recipe.target(), "state", status, "elapsed", job.elapsed());
+        factory.loggedJobState = ModLog.debugEnabled() ? status : null;
+        if (status.equals("unknown_target") || status.equals("blueprint_mismatch")) return;
         job.tick(); factory.changed();
         if (job.finished() && factory.inventory.getStackInSlot(OUTPUT_SLOT).isEmpty()) {
             ItemStack output = job.recipe.result();
             if (output.isEmpty()) return;
             factory.inventory.extractItem(BLUEPRINT_SLOT, 1, false);
             factory.inventory.setStackInSlot(OUTPUT_SLOT, output);
+            ModLog.machine(ModLog.Event.JOB_FINISH, factory, "job", job.id, "target", job.recipe.target(), "count", output.getCount());
             factory.job = null; factory.changed();
             level.playSound(null, pos, ModSounds.SHIPYARD_COMPLETE.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
         }
@@ -207,8 +229,10 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
 
     public FluidActionResult transferContainer(ItemStack source, boolean inject, Player actor) {
         if (!usable() || source.isEmpty()) return FluidActionResult.FAILURE;
+        int before = tank.getFluidAmount();
         FluidActionResult result = inject ? FluidUtil.tryEmptyContainer(source, fluidHandler, Integer.MAX_VALUE, actor, true)
                 : FluidUtil.tryFillContainer(source, fluidHandler, Integer.MAX_VALUE, actor, true);
+        if (result.isSuccess()) ModLog.machine(ModLog.Event.TRANSFER, this, "inject", inject, "amount", Math.abs(tank.getFluidAmount() - before));
         if (!result.isSuccess() || source.getCount() == 1) return result;
         ItemStack remaining = source.copy(); remaining.shrink(1);
         ItemStack converted = result.getResult().copy();
@@ -241,7 +265,16 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
         tank.setFluid(FluidStack.parseOptional(registries, tag.getCompound("Fuel")));
         remembered = FactoryBrowseState.load(tag.getCompound("Browse"));
         job = tag.contains("Construction") ? FactoryJob.load(tag.getCompound("Construction"), registries) : null;
+        loggedJobState = null;
+        invalidStoredJob = tag.contains("Construction") && (job == null || !job.recipe.knownTarget());
         revision++;
+    }
+
+    @Override public void onLoad() {
+        super.onLoad();
+        if (invalidStoredJob) ModLog.invalidRestore(this, "Construction");
+        else if (job != null) ModLog.machine(ModLog.Event.JOB_RESTORE, this, "job", job.id, "target", job.recipe.target(), "elapsed", job.elapsed());
+        invalidStoredJob = false;
     }
 
     @Override protected void collectImplicitComponents(DataComponentMap.Builder components) {
@@ -299,8 +332,14 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
         @Override public FluidStack getFluidInTank(int index) { return usable() && index == 0 ? fuel() : FluidStack.EMPTY; }
         @Override public int getTankCapacity(int index) { return FUEL_CAPACITY; }
         @Override public boolean isFluidValid(int index, FluidStack stack) { return index == 0 && stack.is(ModFluids.FUEL_OIL.get()); }
-        @Override public int fill(FluidStack stack, FluidAction action) { return usable() ? tank.fill(stack, action) : 0; }
-        @Override public FluidStack drain(FluidStack stack, FluidAction action) { return usable() ? tank.drain(stack, action) : FluidStack.EMPTY; }
-        @Override public FluidStack drain(int amount, FluidAction action) { return usable() ? tank.drain(amount, action) : FluidStack.EMPTY; }
+        @Override public int fill(FluidStack stack, FluidAction action) { int amount = usable() ? tank.fill(stack, action) : 0;
+            if (action.execute() && amount > 0) ModLog.aggregate(ModLog.Event.MACHINE_FILL, amount, true);
+            return amount; }
+        @Override public FluidStack drain(FluidStack stack, FluidAction action) { FluidStack drained = usable() ? tank.drain(stack, action) : FluidStack.EMPTY;
+            if (action.execute() && !drained.isEmpty()) ModLog.aggregate(ModLog.Event.MACHINE_DRAIN, drained.getAmount(), true);
+            return drained; }
+        @Override public FluidStack drain(int amount, FluidAction action) { FluidStack drained = usable() ? tank.drain(amount, action) : FluidStack.EMPTY;
+            if (action.execute() && !drained.isEmpty()) ModLog.aggregate(ModLog.Event.MACHINE_DRAIN, drained.getAmount(), true);
+            return drained; }
     }
 }

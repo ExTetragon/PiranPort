@@ -1,5 +1,8 @@
 package com.lex0v0.piranport.client;
 
+import com.lex0v0.piranport.client.gui.screens.ShipyardScreen;
+
+import com.lex0v0.piranport.logging.ModLog;
 import com.google.gson.GsonBuilder;
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.blockentity.ShipyardBlockEntity;
@@ -16,7 +19,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.Screenshot;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.TitleScreen;
@@ -62,10 +64,10 @@ public final class ShipyardUiAcceptance {
         if(!Boolean.getBoolean("piranport.acceptance.shipyardUi")||stage==100)return;
         Minecraft mc=Minecraft.getInstance();
         try {
-            GLFW.glfwSetCursorPos(mc.getWindow().getWindow(),2,2);
             if(++ticks>4800)throw new IllegalStateException("Shipyard UI test timed out at stage "+stage);
+            if(UiTooltipCapture.pending())return;
             if(delay>0){delay--;return;}
-            if(stage==0&&mc.screen instanceof TitleScreen&&mc.getOverlay()==null){
+            if(stage==0&&AcceptanceClientStartup.titleScreenReady(mc)){
                 output=Path.of(System.getProperty("piranport.acceptance.shipyardUiReport"));Files.createDirectories(output);
                 Language.inject(ClientLanguage.loadFrom(mc.getResourceManager(),List.of("en_us","zh_cn"),false));
                 String world="shipyard-ui-"+System.currentTimeMillis();
@@ -111,11 +113,15 @@ public final class ShipyardUiAcceptance {
             } else if(stage==5&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getFocused() instanceof Button b&&b.getMessage().getString().equals("返回"),"cancel_defaults_to_return");capture(mc,"cancel-confirmation");
                 require(button(screen,"确认取消").getWidth()<112,"cancel_buttons_fit_content");
+                stage=51;
+            } else if(stage==51&&mc.screen instanceof ShipyardScreen screen){
                 screen.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);click(screen,"取消建造");cancelButtonY=button(screen,"确认取消").getY();
                 mc.getSingleplayerServer().execute(()->{var yard=(ShipyardBlockEntity)mc.getSingleplayerServer().overworld().getBlockEntity(POS);yard.fluid(null).fill(new FluidStack(ModFluids.FUEL_OIL.get(),5000),FluidAction.EXECUTE);});
                 stage=6;delay=12;
             } else if(stage==6&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getMenu().shipyard.destroyedFuelOnCancel()==5000&&button(screen,"确认取消").getY()==cancelButtonY,"fuel_warning_does_not_move_confirm_button");capture(mc,"cancel-fuel-overflow");
+                stage=61;
+            } else if(stage==61&&mc.screen instanceof ShipyardScreen screen){
                 click(screen,"确认取消");stage=7;delay=12;
             } else if(stage==7&&mc.screen instanceof ShipyardScreen screen&&screen.getMenu().shipyard.job()==null){
                 require(screen.getMenu().shipyard.fuel().getAmount()==32000&&screen.getMenu().shipyard.stack(0).getCount()==8,"confirmed_cancel_roundtrip_preserves_blueprints");
@@ -126,10 +132,14 @@ public final class ShipyardUiAcceptance {
                 });click(screen,"显示全部");stage=8;delay=20;
             } else if(stage==8&&mc.screen instanceof ShipyardScreen screen&&!screen.getMenu().shipyard.stack(1).isEmpty()){
                 require(button(screen,"建造").active,"pending_output_build_button_clickable");click(screen,"建造");capture(mc,"output-pending");
+                stage=81;
+            } else if(stage==81&&mc.screen instanceof ShipyardScreen screen){
                 mc.getSingleplayerServer().execute(()->{var yard=(ShipyardBlockEntity)mc.getSingleplayerServer().overworld().getBlockEntity(POS);yard.items(net.minecraft.core.Direction.DOWN).extractItem(0,1,false);});
                 stage=9;delay=20;
             } else if(stage==9&&mc.screen instanceof ShipyardScreen screen&&screen.getMenu().shipyard.stack(1).isEmpty()){
                 require(screen.getMenu().visibleShips().isEmpty(),"no_blueprint_default_list_empty");require(button(screen,"显示全部").active,"no_blueprint_filter_available");capture(mc,"no-blueprint");
+                stage=91;
+            } else if(stage==91&&mc.screen instanceof ShipyardScreen screen){
                 click(screen,"显示全部");stage=10;delay=4;
             } else if(stage==10&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getMenu().visibleShips().size()==10,"no_blueprint_all_sizes_query");select(screen,"u47");stage=11;delay=4;
@@ -163,12 +173,16 @@ public final class ShipyardUiAcceptance {
                 require(screen.getMenu().visibleShips().size()==10&&screen.getMenu().browse.selected.equals(id("saratoga")),"draft_does_not_change_applied_browse");
                 stage=17;delay=4;
             } else if(stage==17&&mc.screen instanceof ShipyardScreen screen){
-                capture(mc,"filter-dialog");click(screen,"应用");stage=18;delay=4;
+                capture(mc,"filter-dialog");stage=171;
+            } else if(stage==171&&mc.screen instanceof ShipyardScreen screen){
+                click(screen,"应用");stage=18;delay=4;
             } else if(stage==18&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getFocused()==button(screen,"搜索与筛选"),"apply_returns_focus_to_search_entry");
                 var menu=screen.getMenu();require(menu.browse.filter.active()&&menu.visibleShips().size()==1&&menu.visibleShips().getFirst().id().equals(id("u47")),"text_size_nation_filter_applies");
                 require(menu.browse.selected==null&&menu.shipyard.job().recipe.ship().equals(id("saratoga")),"hidden_preview_clears_but_task_keeps_running");capture(mc,"filter-active");
-                click(screen,"显示全部");require(menu.visibleShips().isEmpty()&&menu.browse.filter.active(),"search_respects_show_all_scope");
+                stage=181;
+            } else if(stage==181&&mc.screen instanceof ShipyardScreen screen){
+                click(screen,"显示全部");require(screen.getMenu().visibleShips().isEmpty()&&screen.getMenu().browse.filter.active(),"search_respects_show_all_scope");
                 click(screen,"搜索与筛选");stage=19;delay=3;
             } else if(stage==19&&mc.screen instanceof ShipyardScreen screen){
                 click(screen,"重置");screen.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);
@@ -180,21 +194,24 @@ public final class ShipyardUiAcceptance {
                 rightClear(screen);require(screen.getMenu().browse.all&&screen.getMenu().visibleShips().size()==10,"right_clear_preserves_all_scope");
                 stage=20;delay=4;
             } else if(stage==20&&mc.screen instanceof ShipyardScreen screen){
-                capture(mc,"filter-cleared");
+                capture(mc,"filter-cleared");stage=201;
+            } else if(stage==201&&mc.screen instanceof ShipyardScreen screen){
                 Language.inject(ClientLanguage.loadFrom(mc.getResourceManager(),List.of("en_us"),false));click(screen,Component.translatable("gui.piranport.shipyard.search").getString());
                 require(screen.children().stream().filter(child->child instanceof Button b&&b.visible&&b.active).map(child->(Button)child)
                         .allMatch(b->mc.font.width(b.getMessage())<=b.getWidth()-4),"english_filter_labels_fit_buttons");
                 focusInput(screen);type(screen,"HoOd");stage=21;delay=4;
             } else if(stage==21&&mc.screen instanceof ShipyardScreen screen){
-                capture(mc,"filter-english");screen.keyPressed(GLFW.GLFW_KEY_ENTER,0,0);
+                capture(mc,"filter-english");stage=211;
+            } else if(stage==211&&mc.screen instanceof ShipyardScreen screen){
+                screen.keyPressed(GLFW.GLFW_KEY_ENTER,0,0);
                 require(screen.getMenu().visibleShips().size()==1&&screen.getMenu().visibleShips().getFirst().id().equals(id("hood")),"enter_applies_english_case_insensitive_search");
                 rightClear(screen);Language.inject(ClientLanguage.loadFrom(mc.getResourceManager(),List.of("en_us","zh_cn"),false));
                 CHECKS.put("success",true);Files.writeString(output.resolve("summary.json"),new GsonBuilder().setPrettyPrinting().create().toJson(CHECKS));
-                System.out.println("PIRANPORT_SHIPYARD_UI="+new GsonBuilder().create().toJson(CHECKS));stage=100;mc.stop();
+                ModLog.evidence(ModLog.Evidence.SHIPYARD_UI, new GsonBuilder().create().toJson(CHECKS));stage=100;mc.stop();
             }
         } catch(Throwable error){
-            error.printStackTrace();CHECKS.put("success",false);CHECKS.put("error",error.toString());
-            try {if(output!=null)Files.writeString(output.resolve("summary.json"),new GsonBuilder().setPrettyPrinting().create().toJson(CHECKS));}catch(Exception ignored){}
+            ModLog.failure(ModLog.Failure.SHIPYARD_UI, error);CHECKS.put("success",false);CHECKS.put("error",error.toString());
+            try {if(output!=null)Files.writeString(output.resolve("summary.json"),new GsonBuilder().setPrettyPrinting().create().toJson(CHECKS));}catch(Exception reportError){ModLog.failure(ModLog.Failure.REPORT, reportError);}
             stage=100;mc.stop();
         }
     }
@@ -215,11 +232,7 @@ public final class ShipyardUiAcceptance {
     private static void focusInput(ShipyardScreen screen){var input=input(screen);float s=scale(Minecraft.getInstance());screen.mouseClicked((input.getX()+3)*s,(input.getY()+3)*s,0);}
     private static void type(ShipyardScreen screen,String value){value.chars().forEach(character->screen.charTyped((char)character,0));}
     private static void capture(Minecraft mc,String name){
-        // 手动重绘前清除上一帧悬浮的深度，避免遮挡正常界面截图。
-        com.mojang.blaze3d.systems.RenderSystem.clear(org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT,Minecraft.ON_OSX);
-        var graphics=new net.minecraft.client.gui.GuiGraphics(mc,mc.renderBuffers().bufferSource());
-        mc.screen.renderWithTooltip(graphics,-100,-100,0);graphics.flush();
-        Screenshot.grab(output.toFile(),"shipyard-"+name+".png",mc.getMainRenderTarget(),message->System.out.println("SHIPYARD_SCREENSHOT="+message.getString()));
+        UiTooltipCapture.requestScreen(mc.screen,output,"shipyard-"+name+".png");
         if(name.equals("no-blueprint-query")||name.equals("long-name")){
             float z=scale(mc);int left=(int)((mc.getWindow().getGuiScaledWidth()/z-348)/2),top=Math.max(25,(int)((mc.getWindow().getGuiScaledHeight()/z-252)/2));
             UiTooltipCapture.request(mc.screen,output,"shipyard-"+name+"-classification.png",(int)((left+38)*z),(int)((top+128)*z));

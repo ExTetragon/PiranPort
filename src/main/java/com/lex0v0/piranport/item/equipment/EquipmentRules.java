@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item.equipment;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.Config;
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinition;
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinitions;
@@ -43,8 +44,12 @@ public final class EquipmentRules {
     public static AircraftFluidHandler fuel(ItemStack stack) { return new AircraftFluidHandler(stack); }
     public static void damage(ItemStack stack, int amount) {
         if (amount <= 0 || definition(stack).isEmpty() || !stack.isDamageableItem()) return;
+        var model = definition(stack).orElseThrow().id();
+        int before = remainingDurability(stack);
         int damage = (int)Math.min(stack.getMaxDamage(), (long)stack.getDamageValue() + amount);
         if (damage >= stack.getMaxDamage() && !Config.RETAIN_BROKEN_EQUIPMENT.get()) stack.shrink(1);
         else stack.set(DataComponents.DAMAGE, damage);
+        if (before != remainingDurability(stack) || stack.isEmpty())
+            ModLog.debug(ModLog.Event.WEAR, "model", model, "from", before, "to", stack.isEmpty() ? 0 : remainingDurability(stack), "destroyed", stack.isEmpty());
     }
 }

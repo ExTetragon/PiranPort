@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.client;
+package com.lex0v0.piranport.client.event;
 
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.item.EquipmentItem;

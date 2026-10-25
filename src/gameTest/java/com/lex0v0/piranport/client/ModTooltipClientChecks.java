@@ -1,5 +1,9 @@
 package com.lex0v0.piranport.client;
 
+import com.lex0v0.piranport.client.event.EquipmentClientEvents;
+import com.lex0v0.piranport.client.event.RiggingClientEvents;
+
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.item.rigging.RiggingCoreRules;
 import com.lex0v0.piranport.item.rigging.RiggingTooltips;
 import com.lex0v0.piranport.item.blueprint.BlueprintRules;
@@ -60,7 +64,7 @@ final class ModTooltipClientChecks {
                 if (!verifyStack(minecraft, renamed) || !verifyOtherComponents(renamed)) return false;
                 if (!verifyForeignItem()) return false;
             }
-            System.out.println("PIRANPORT_TOOLTIP_ITEMS_CHECKED=" + ModItems.ITEMS.getEntries().size());
+            ModLog.evidence(ModLog.Evidence.TOOLTIP_ITEMS, ModItems.ITEMS.getEntries().size());
             return true;
         } finally { Language.inject(previous); }
     }

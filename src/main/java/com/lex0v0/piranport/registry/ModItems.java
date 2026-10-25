@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.registry;
 
+import com.lex0v0.piranport.item.food.FoodValues;
+
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.item.EquipmentItem;
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;

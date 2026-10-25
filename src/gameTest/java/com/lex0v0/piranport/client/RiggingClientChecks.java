@@ -1,5 +1,7 @@
 package com.lex0v0.piranport.client;
 
+import com.lex0v0.piranport.client.event.RiggingClientEvents;
+
 import com.lex0v0.piranport.item.RiggingCoreItem;
 import com.lex0v0.piranport.item.rigging.RiggingCoreRules;
 import com.lex0v0.piranport.registry.ModItems;

@@ -1,8 +1,8 @@
 package com.lex0v0.piranport.client;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.PiranPort;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.TitleScreen;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
@@ -17,7 +17,7 @@ public final class AcceptanceClientSmoke {
     public static void tick(ClientTickEvent.Post event) {
         if (finished || !Boolean.getBoolean("piranport.acceptance.clientSmoke")) return;
         var minecraft = Minecraft.getInstance();
-        if (!(minecraft.screen instanceof TitleScreen) || minecraft.getOverlay() != null) return;
+        if (!AcceptanceClientStartup.titleScreenReady(minecraft)) return;
         finished = true;
         boolean jei = ModList.get().isLoaded("jei"), spark = ModList.get().isLoaded("spark");
         boolean blueprints = false;
@@ -25,14 +25,14 @@ public final class AcceptanceClientSmoke {
         boolean modTooltips = false;
         boolean equipment = false;
         try { blueprints = BlueprintClientChecks.verify(minecraft); }
-        catch (RuntimeException error) { PiranPort.LOGGER.error("Blueprint client resource checks failed", error); }
+        catch (RuntimeException error) { ModLog.failure(ModLog.Failure.BLUEPRINT_RESOURCES, error); }
         try { riggingCore = RiggingClientChecks.verify(minecraft); }
-        catch (RuntimeException error) { PiranPort.LOGGER.error("Rigging core client resource checks failed", error); }
+        catch (RuntimeException error) { ModLog.failure(ModLog.Failure.CORE_RESOURCES, error); }
         try { modTooltips = ModTooltipClientChecks.verify(minecraft); }
-        catch (RuntimeException error) { PiranPort.LOGGER.error("Mod item tooltip checks failed", error); }
+        catch (RuntimeException error) { ModLog.failure(ModLog.Failure.TOOLTIPS, error); }
         try { equipment = EquipmentClientChecks.verify(minecraft); }
-        catch (RuntimeException error) { PiranPort.LOGGER.error("Equipment client resource checks failed", error); }
-        System.out.println("PIRANPORT_CLIENT_HELPERS_LOADED=" + new com.google.gson.Gson().toJson(
+        catch (RuntimeException error) { ModLog.failure(ModLog.Failure.EQUIPMENT_RESOURCES, error); }
+        ModLog.evidence(ModLog.Evidence.HELPERS, new com.google.gson.Gson().toJson(
                 java.util.Map.of("jei", jei, "spark", spark, "titleScreen", true, "blueprints", blueprints, "riggingCore", riggingCore, "modTooltips", modTooltips, "equipment", equipment)));
         minecraft.stop();
     }

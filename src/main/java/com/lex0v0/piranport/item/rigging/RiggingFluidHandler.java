@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item.rigging;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.registry.ModDataComponents;
 import com.lex0v0.piranport.registry.ModFluids;
 import net.minecraft.world.item.ItemStack;
@@ -20,6 +21,13 @@ public final class RiggingFluidHandler extends FluidHandlerItemStack {
     @Override public int fill(FluidStack fluid, FluidAction action) {
         capacity = getTankCapacity(0);
         if (getFluid().getAmount() >= capacity) return 0;
-        return super.fill(fluid, action);
+        int filled = super.fill(fluid, action);
+        if (action.execute() && filled > 0) ModLog.aggregate(ModLog.Event.CORE_FILL, filled, true);
+        return filled;
+    }
+    @Override public FluidStack drain(int amount, FluidAction action) {
+        FluidStack drained = super.drain(amount, action);
+        if (action.execute() && !drained.isEmpty()) ModLog.aggregate(ModLog.Event.CORE_DRAIN, drained.getAmount(), true);
+        return drained;
     }
 }

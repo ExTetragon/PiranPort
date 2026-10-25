@@ -1,5 +1,6 @@
 package com.lex0v0.piranport.item.rigging;
 
+import com.lex0v0.piranport.logging.ModLog;
 import com.lex0v0.piranport.item.RiggingCoreItem;
 import com.lex0v0.piranport.registry.ModDataComponents;
 import com.lex0v0.piranport.registry.ModItems;
@@ -46,7 +47,11 @@ public final class RiggingCoreRules {
     public static void setProficiency(ItemStack stack, int value) {
         if (!isCore(stack)) throw new IllegalArgumentException("Not a rigging core");
         var proficiency = new RiggingProficiency(value);
-        if (getProficiency(stack) != value) stack.set(ModDataComponents.RIGGING_PROFICIENCY, proficiency);
+        int before = getProficiency(stack);
+        if (before != value) {
+            stack.set(ModDataComponents.RIGGING_PROFICIENCY, proficiency);
+            ModLog.debug(ModLog.Event.PROFICIENCY, "core", stack.get(ModDataComponents.RIGGING_IDENTITY), "from", before, "to", value);
+        }
     }
     public static int addProficiency(ItemStack stack, int amount) {
         if (amount < 0) throw new IllegalArgumentException("Negative proficiency gain");

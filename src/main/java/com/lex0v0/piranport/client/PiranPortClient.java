@@ -1,4 +1,6 @@
-package com.lex0v0.piranport;
+package com.lex0v0.piranport.client;
+
+import com.lex0v0.piranport.PiranPort;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.ModContainer;

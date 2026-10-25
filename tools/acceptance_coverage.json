@@ -1276,6 +1276,41 @@
         "DevelopmentFactoryGameTests.frozenBatchOutputSurvivesRecipeDifference"
       ],
       "note": "任务保存的产量时长不随当前配方重定价"
+    },
+    "LG01": {
+      "coverage": "full",
+      "tests": [
+        "LoggingGameTests.debugGateDoesNotChangeRootOrHideWarnings"
+      ],
+      "note": "调试开关、根日志级别不变与 WARN 保留"
+    },
+    "LG02": {
+      "coverage": "full",
+      "tests": [
+        "LoggingGameTests.simulationIsSilentAndTransfersAreAggregated"
+      ],
+      "note": "查询／模拟无输出，流体重载不重复计数，核心实际写入输出"
+    },
+    "LG03": {
+      "coverage": "full",
+      "tests": [
+        "LoggingGameTests.invalidStoredJobWarnsOnlyOnServerLoad"
+      ],
+      "note": "状态解码不输出，服务端异常任务恢复一次警告，空闲不警告"
+    },
+    "LG04": {
+      "coverage": "full",
+      "tests": [
+        "LoggingGameTests.jobTransitionsDoNotLogEachTick"
+      ],
+      "note": "开工与状态变化记录，逐 tick 不刷屏，取消退款守恒"
+    },
+    "LG05": {
+      "coverage": "full",
+      "tests": [
+        "LoggingGameTests.durabilityLogsOnlyCommittedWear"
+      ],
+      "note": "原版准备钩子不输出；实际耗损、销毁与保留归零件各记录一次"
     }
   }
 }

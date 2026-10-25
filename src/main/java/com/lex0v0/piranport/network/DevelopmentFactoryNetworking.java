@@ -1,5 +1,8 @@
 package com.lex0v0.piranport.network;
 
+import com.lex0v0.piranport.network.payload.DevelopmentFactoryActionPayload;
+import com.lex0v0.piranport.network.payload.DevelopmentFactorySyncPayload;
+
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.menu.DevelopmentFactoryMenu;
 import net.neoforged.bus.api.SubscribeEvent;

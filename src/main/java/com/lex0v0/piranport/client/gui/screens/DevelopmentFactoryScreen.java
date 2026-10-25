@@ -1,4 +1,4 @@
-package com.lex0v0.piranport.client;
+package com.lex0v0.piranport.client.gui.screens;
 
 import static com.lex0v0.piranport.text.ManufacturingText.metal;
 import static com.lex0v0.piranport.text.ManufacturingText.time;
@@ -10,14 +10,13 @@ import com.lex0v0.piranport.blockentity.DevelopmentFactoryBlockEntity;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryJob;
 import com.lex0v0.piranport.blockentity.manufacturing.ManufacturingMaterials;
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryFilter;
-import com.lex0v0.piranport.client.developmentfactory.FactoryFilterDialog;
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryEntry;
-import com.lex0v0.piranport.blockentity.developmentfactory.FactoryCatalog;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryEntry;
+import com.lex0v0.piranport.recipe.developmentfactory.FactoryCatalog;
 import com.lex0v0.piranport.domain.equipment.EquipmentDefinitions;
 import com.lex0v0.piranport.item.AmmunitionItem;
 
 import com.lex0v0.piranport.menu.DevelopmentFactoryMenu;
-import com.lex0v0.piranport.network.DevelopmentFactoryActionPayload;
+import com.lex0v0.piranport.network.payload.DevelopmentFactoryActionPayload;
 import com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe;
 import java.util.ArrayList;
 import java.util.List;

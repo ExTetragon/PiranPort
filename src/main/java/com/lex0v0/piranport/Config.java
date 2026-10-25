@@ -7,8 +7,8 @@ public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
     public static final ModConfigSpec.BooleanValue DEBUG_LOGGING = BUILDER
-            .comment("是否输出额外的调试日志",
-                    "Whether to output additional debug logs.")
+            .comment("是否输出本模组的额外调试日志；记录实际状态变化，高频操作每5秒汇总，不影响其他模组日志级别",
+                    "Enable additional PiranPort debug logs for actual state changes, with frequent operations summarized every 5 seconds. Other mods' logging levels are unchanged.")
             .define("debugLogging", false);
 
     public static final ModConfigSpec.IntValue FUEL_BARREL_CAPACITY = BUILDER

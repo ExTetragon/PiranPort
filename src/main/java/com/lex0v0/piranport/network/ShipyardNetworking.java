@@ -1,5 +1,8 @@
 package com.lex0v0.piranport.network;
 
+import com.lex0v0.piranport.network.payload.ShipyardActionPayload;
+import com.lex0v0.piranport.network.payload.ShipyardSyncPayload;
+
 import com.lex0v0.piranport.PiranPort;
 import com.lex0v0.piranport.menu.ShipyardMenu;
 import net.neoforged.bus.api.SubscribeEvent;
