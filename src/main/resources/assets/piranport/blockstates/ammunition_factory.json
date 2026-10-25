@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "piranport:block/ammunition_factory",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "piranport:block/ammunition_factory",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "piranport:block/ammunition_factory",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "piranport:block/ammunition_factory",
+      "y": 270
+    }
+  }
+}

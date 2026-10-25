@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:depth_charge",
+  "count": 4,
+  "copper": 0,
+  "steel": 4,
+  "aluminum": 0,
+  "gunpowder": 1,
+  "seconds": 2
+}

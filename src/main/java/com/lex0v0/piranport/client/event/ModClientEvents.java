@@ -61,7 +61,7 @@ public final class ModClientEvents {
 
     private ModClientEvents() {
     }
-    @SubscribeEvent public static void registerScreens(RegisterMenuScreensEvent event) { event.register(ModMenus.SHIPYARD.get(), ShipyardScreen::new); event.register(ModMenus.DEVELOPMENT_FACTORY.get(), DevelopmentFactoryScreen::new); }
+    @SubscribeEvent public static void registerScreens(RegisterMenuScreensEvent event) { event.register(ModMenus.SHIPYARD.get(), ShipyardScreen::new); event.register(ModMenus.DEVELOPMENT_FACTORY.get(), DevelopmentFactoryScreen::new); event.register(ModMenus.AMMUNITION_FACTORY.get(), com.lex0v0.piranport.client.gui.screens.AmmunitionFactoryScreen::new); }
 
     @SubscribeEvent
     public static void setup(FMLClientSetupEvent event) {

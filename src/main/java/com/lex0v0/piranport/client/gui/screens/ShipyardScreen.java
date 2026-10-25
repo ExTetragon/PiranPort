@@ -51,6 +51,13 @@ public final class ShipyardScreen extends AbstractContainerScreen<ShipyardMenu> 
         super(menu, inventory, title); imageWidth = 348; imageHeight = 252;
     }
 
+    @Override protected List<Component> getTooltipFromContainerItem(net.minecraft.world.item.ItemStack stack) {
+        var lines = super.getTooltipFromContainerItem(stack);
+        return hoveredSlot != null && hoveredSlot.index >= ShipyardBlockEntity.CACHE_START
+                && hoveredSlot.index < ShipyardBlockEntity.TOTAL_SLOTS
+                ? com.lex0v0.piranport.text.ManufacturingText.ammunitionTooltip(lines, stack) : lines;
+    }
+
     private static Component tr(String key, Object... args) { return Component.translatable("gui.piranport.shipyard." + key, args); }
     private void action(int kind, CompoundTag data) { PacketDistributor.sendToServer(new ShipyardActionPayload(menu.containerId, kind, data)); }
     private void browseChanged() { menu.normalizeBrowse(); action(0, menu.browse.save()); }

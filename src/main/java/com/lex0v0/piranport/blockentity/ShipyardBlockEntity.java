@@ -175,7 +175,7 @@ public final class ShipyardBlockEntity extends BlockEntity implements MenuProvid
         if (job != null) cancel(job.id, actor);
     }
 
-    // 创造拆除按容器散落全部物品，不生成船坞物品或保留燃油。
+    // 创造拆除及无法采集的生存拆除按容器散落全部物品，不生成船坞物品或保留燃油。
     public void destroyCreative() {
         if (!usable()) return;
         cancelCurrent(null);

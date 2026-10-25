@@ -65,17 +65,27 @@ public final class DevelopmentFactoryUiAcceptance {
                     var level=server.overworld();for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)level.setBlock(new BlockPos(x,0,z),Blocks.STONE.defaultBlockState(),3);
                     level.setBlock(POS,ModBlocks.DEVELOPMENT_FACTORY.get().defaultBlockState(),3);var f=(DevelopmentFactoryBlockEntity)level.getBlockEntity(POS);
                     var b=BlueprintRules.create(BlueprintType.MAIN_GUN,BlueprintType.QUICK_REPAIR,BlueprintType.FIGHTER);b.setCount(4);f.insert(0,b,false);
-                    f.insert(2,new ItemStack(ModItems.STEEL_INGOT.get(),64),false);f.insert(3,new ItemStack(ModItems.ALUMINUM_INGOT.get(),64),false);f.insert(4,new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),64),false);f.fluid(null).fill(new FluidStack(ModFluids.FUEL_OIL.get(),16000),FluidAction.EXECUTE);
+                    f.insert(2,new ItemStack(ModItems.STEEL_INGOT.get(),64),false);f.insert(3,new ItemStack(ModItems.ALUMINUM_INGOT.get(),64),false);f.insert(4,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),64),false);f.fluid(null).fill(new FluidStack(ModFluids.FUEL_OIL.get(),16000),FluidAction.EXECUTE);
                     f.start(id("us_triple_mk6_16in"),null);for(int i=0;i<100;i++)DevelopmentFactoryBlockEntity.tick(level,POS,f.getBlockState(),f);
                     var browse=new FactoryBrowseState();browse.all=true;browse.selected=id("phantom_fg1");f.remember(browse);
-                    server.getPlayerList().getPlayer(uuid).teleportTo(.5,1.1,3.5);seeded=true;
+                    server.getPlayerList().getPlayer(uuid).getInventory().setItem(9,new ItemStack(ModItems.ARMOR_PIERCING_SHELL.get(),64));server.getPlayerList().getPlayer(uuid).teleportTo(.5,1.1,3.5);seeded=true;
                 });stage=2;
             }else if(stage==2&&seeded&&mc.level.getBlockEntity(POS) instanceof DevelopmentFactoryBlockEntity){
                 var uuid=mc.player.getUUID();var server=mc.getSingleplayerServer();server.execute(()->{var f=(DevelopmentFactoryBlockEntity)server.overworld().getBlockEntity(POS);server.getPlayerList().getPlayer(uuid).openMenu(f,b->{b.writeBlockPos(POS);b.writeNbt(f.remembered().save());});});stage=3;delay=8;
             }else if(stage==3&&mc.screen instanceof DevelopmentFactoryScreen s){
                 require(s.getMenu().factory.job()!=null,"task_sync");require(s.getMenu().browse.selected.equals(id("phantom_fg1")),"browse_independent_of_task");require(!button(s,tr("tab_repair")).active,"repair_locked");require(s.getMenu().slots.get(0).x==249&&s.getMenu().slots.get(1).x==359,"slots_follow_factory_layout");stage=30;delay=10;
-            }else if(stage==30&&mc.screen instanceof DevelopmentFactoryScreen s){capture(mc,"running");stage=31;
-            }else if(stage==31&&mc.screen instanceof DevelopmentFactoryScreen s){click(s,tr("cancel"));stage=4;delay=4;
+            }else if(stage==30&&mc.screen instanceof DevelopmentFactoryScreen s){
+                capture(mc,"running");float z=scale(mc);
+                UiTooltipCapture.request(s,output,"factory-ammunition-cache.png",(int)((s.getGuiLeft()+117)*z),(int)((s.getGuiTop()+174)*z));
+                UiTooltipCapture.request(s,output,"factory-ammunition-player.png",(int)((s.getGuiLeft()+177)*z),(int)((s.getGuiTop()+174)*z));stage=31;
+            }else if(stage==31&&mc.screen instanceof DevelopmentFactoryScreen s){
+                var ammunition=s.getMenu().factory.stack(DevelopmentFactoryBlockEntity.CACHE_START+2);
+                var pointLine=Component.translatable("tooltip.piranport.manufacturing.ammunition_points",2).getString();
+                var totalLine=Component.translatable("tooltip.piranport.manufacturing.ammunition_total",ammunition.getCount()*2L).getString();
+                require(UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("factory-ammunition-cache.png",List.of()).containsAll(List.of(pointLine,totalLine)),"ammunition_points_only_in_cache");
+                var playerTooltip=UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("factory-ammunition-player.png",List.of());
+                require(!playerTooltip.isEmpty()&&playerTooltip.stream().noneMatch(t->t.contains("制造材料量")||t.contains("当前堆叠")),"player_ammunition_has_no_custom_tooltip");
+                click(s,tr("cancel"));stage=4;delay=4;
             }else if(stage==4&&mc.screen instanceof DevelopmentFactoryScreen s){
                 require(s.getFocused()==button(s,tr("return")),"cancel_defaults_to_return");capture(mc,"cancel");stage=41;
             }else if(stage==41&&mc.screen instanceof DevelopmentFactoryScreen s){click(s,tr("confirm_cancel"));stage=5;delay=12;

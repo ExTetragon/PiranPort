@@ -1,0 +1,2714 @@
+{
+  "date": "2026-10-26",
+  "status": "布局预览归档，非游戏截图；正式费用见弹药生产线实现方案",
+  "logicalSize": [
+    348,
+    252
+  ],
+  "scale": 4,
+  "background": "src\\main\\resources\\assets\\piranport\\textures\\gui\\manufacturing_background.png",
+  "backgroundSha256": "c213b48991c8b6cf4bee9c127f71a5d8eb682f40a1d9e01d6862e7e02615104b",
+  "sampling": {
+    "trim": 3,
+    "corner": 45,
+    "outlineWidth": 1,
+    "outlineColor": "#397FA6"
+  },
+  "font": "Minecraft 1.21.1 default bitmap providers and cached unifont.zip, glyph paths embedded in SVG",
+  "quantity": {
+    "unit": "枚",
+    "shellAndDepthChargeYield": 4,
+    "torpedoAndMissileYield": 1,
+    "correction": "向上取整到完整一次的产量，再限制到材料可支持的完整次数",
+    "progressSpacing": "比例统一为a / b，单位紧跟数字：16 / 40枚 · 第5 / 10次"
+  },
+  "rightColumn": {
+    "centerX": 296,
+    "top": 40,
+    "bottom": 148,
+    "hint": "块锭粒可自动转换",
+    "hintY": 26,
+    "hintColor": "#a4bacb",
+    "inputBounds": [
+      260.0,
+      44.0,
+      72,
+      36
+    ],
+    "progressBounds": [
+      286,
+      84.0,
+      20,
+      20
+    ],
+    "outputBounds": [
+      260.0,
+      108.0,
+      72,
+      36
+    ],
+    "equalVerticalGap": 4.0
+  },
+  "demand": {
+    "follows": "当前浏览弹种及数量输入／滑条",
+    "changesWithJobProgress": false,
+    "zeroUnits": "省略",
+    "zeroCostRows": "隐藏",
+    "alignment": "图标名称居左，数量居右",
+    "toggle": "两档滑动开关，左上标题随模式切换"
+  },
+  "previews": [
+    {
+      "state": "idle",
+      "language": "zh",
+      "demandMode": "single",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-待机.svg",
+      "png": "弹药生产线-待机.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "单次需求",
+          "display": "单次需求",
+          "x": 134,
+          "y": 28,
+          "width": 36.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "铝材",
+          "display": "铝材",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 72,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "开始生产",
+          "display": "开始生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "高爆弹 [待机]",
+          "display": "高爆弹 [待机]",
+          "x": 157.5,
+          "y": 126,
+          "width": 57.0
+        },
+        {
+          "text": "计划40枚 · 共10次",
+          "display": "计划40枚 · 共10次",
+          "x": 146.5,
+          "y": 140,
+          "width": 79.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "language": "zh",
+      "demandMode": "single",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-生产中.svg",
+      "png": "弹药生产线-生产中.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "单次需求",
+          "display": "单次需求",
+          "x": 134,
+          "y": 28,
+          "width": 36.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "铝材",
+          "display": "铝材",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 72,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "中断生产",
+          "display": "中断生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "高爆弹 [生产中]",
+          "display": "高爆弹 [生产中]",
+          "x": 153.0,
+          "y": 126,
+          "width": 66.0
+        },
+        {
+          "text": "16 / 40枚 · 第5 / 10次",
+          "display": "16 / 40枚 · 第5 / 10次",
+          "x": 132.5,
+          "y": 140,
+          "width": 107.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "language": "zh",
+      "demandMode": "total",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-总需求.svg",
+      "png": "弹药生产线-总需求.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "总需求",
+          "display": "总需求",
+          "x": 134,
+          "y": 28,
+          "width": 27.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "铝材",
+          "display": "铝材",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 72,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "中断生产",
+          "display": "中断生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "高爆弹 [生产中]",
+          "display": "高爆弹 [生产中]",
+          "x": 153.0,
+          "y": 126,
+          "width": 66.0
+        },
+        {
+          "text": "16 / 40枚 · 第5 / 10次",
+          "display": "16 / 40枚 · 第5 / 10次",
+          "x": 132.5,
+          "y": 140,
+          "width": 107.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "stopping",
+      "language": "zh",
+      "demandMode": "single",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-本次完成后停止.svg",
+      "png": "弹药生产线-本次完成后停止.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "单次需求",
+          "display": "单次需求",
+          "x": 134,
+          "y": 28,
+          "width": 36.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "铝材",
+          "display": "铝材",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 72,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "等待本次完成",
+          "display": "等待本次完成",
+          "x": 159.0,
+          "y": 108.0,
+          "width": 54.0
+        },
+        {
+          "text": "本次完成后停止",
+          "display": "本次完成后停止",
+          "x": 154.5,
+          "y": 126,
+          "width": 63.0
+        },
+        {
+          "text": "已完成16枚 · 结束20枚",
+          "display": "已完成16枚 · 结束20枚",
+          "x": 137.5,
+          "y": 140,
+          "width": 97.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "blocked",
+      "language": "zh",
+      "demandMode": "single",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-产物空间不足.svg",
+      "png": "弹药生产线-产物空间不足.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "单次需求",
+          "display": "单次需求",
+          "x": 134,
+          "y": 28,
+          "width": 36.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "铝材",
+          "display": "铝材",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 72,
+          "width": 18.0
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "中断生产",
+          "display": "中断生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "等待产物空间",
+          "display": "等待产物空间",
+          "x": 159.0,
+          "y": 126,
+          "width": 54.0
+        },
+        {
+          "text": "16 / 40枚 · 待第5次",
+          "display": "16 / 40枚 · 待第5次",
+          "x": 141.0,
+          "y": 140,
+          "width": 90.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 284.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 283.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 302.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 301.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 320.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 319.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 136.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 135.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 284.0,
+          "y": 136.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 283.0,
+          "y": 135.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 302.0,
+          "y": 136.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 301.0,
+          "y": 135.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 320.0,
+          "y": 136.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 319.0,
+          "y": 135.0,
+          "width": 12
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "language": "en",
+      "demandMode": "single",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-英文生产中.svg",
+      "png": "弹药生产线-英文生产中.png",
+      "text": [
+        {
+          "text": "Ammunition Line",
+          "display": "Ammunition Line",
+          "x": 8,
+          "y": 6,
+          "width": 74
+        },
+        {
+          "text": "Category",
+          "display": "Category",
+          "x": 8,
+          "y": 26,
+          "width": 46
+        },
+        {
+          "text": "SH",
+          "display": "SH",
+          "x": 15.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "DC",
+          "display": "DC",
+          "x": 43.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "TP",
+          "display": "TP",
+          "x": 71.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "MS",
+          "display": "MS",
+          "x": 99.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "High-Explosive Shell",
+          "display": "High-Explosive …",
+          "x": 28,
+          "y": 74,
+          "width": 85
+        },
+        {
+          "text": "Armor-Piercing Shell",
+          "display": "Armor-Piercing…",
+          "x": 28,
+          "y": 92,
+          "width": 84
+        },
+        {
+          "text": "Anti-Aircraft Shell",
+          "display": "Anti-Aircraft S…",
+          "x": 28,
+          "y": 110,
+          "width": 83
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "rds",
+          "display": "rds",
+          "x": 43,
+          "y": 132,
+          "width": 18
+        },
+        {
+          "text": "Per cycle",
+          "display": "Per cycle",
+          "x": 134,
+          "y": 28,
+          "width": 49
+        },
+        {
+          "text": "Copper",
+          "display": "Copper",
+          "x": 146,
+          "y": 42,
+          "width": 36
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "Steel",
+          "display": "Steel",
+          "x": 146,
+          "y": 52,
+          "width": 25
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "Aluminum",
+          "display": "Aluminum",
+          "x": 146,
+          "y": 62,
+          "width": 41
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "Gunpowder",
+          "display": "Gunpowder",
+          "x": 146,
+          "y": 72,
+          "width": 54
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "4 / cycle · Time —",
+          "display": "4 / cycle · Time —",
+          "x": 141.0,
+          "y": 90,
+          "width": 90
+        },
+        {
+          "text": "Stop after cycle",
+          "display": "Stop after cycle",
+          "x": 144.0,
+          "y": 108.0,
+          "width": 84
+        },
+        {
+          "text": "HE Shell [Running]",
+          "display": "HE Shell [Running]",
+          "x": 141.0,
+          "y": 126,
+          "width": 90
+        },
+        {
+          "text": "16 / 40 · Cycle 5 / 10",
+          "display": "16 / 40 · Cycle 5 / 10",
+          "x": 130.5,
+          "y": 140,
+          "width": 111
+        },
+        {
+          "text": "Auto-convert",
+          "display": "Auto-convert",
+          "x": 262.0,
+          "y": 26,
+          "width": 68
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "Inventory",
+          "display": "Inventory",
+          "x": 93,
+          "y": 157,
+          "width": 50
+        }
+      ]
+    },
+    {
+      "state": "running",
+      "language": "en",
+      "demandMode": "total",
+      "illustrativeCostsOnly": false,
+      "svg": "弹药生产线-英文总需求.svg",
+      "png": "弹药生产线-英文总需求.png",
+      "text": [
+        {
+          "text": "Ammunition Line",
+          "display": "Ammunition Line",
+          "x": 8,
+          "y": 6,
+          "width": 74
+        },
+        {
+          "text": "Category",
+          "display": "Category",
+          "x": 8,
+          "y": 26,
+          "width": 46
+        },
+        {
+          "text": "SH",
+          "display": "SH",
+          "x": 15.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "DC",
+          "display": "DC",
+          "x": 43.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "TP",
+          "display": "TP",
+          "x": 71.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "MS",
+          "display": "MS",
+          "x": 99.0,
+          "y": 53,
+          "width": 12
+        },
+        {
+          "text": "High-Explosive Shell",
+          "display": "High-Explosive …",
+          "x": 28,
+          "y": 74,
+          "width": 85
+        },
+        {
+          "text": "Armor-Piercing Shell",
+          "display": "Armor-Piercing…",
+          "x": 28,
+          "y": 92,
+          "width": 84
+        },
+        {
+          "text": "Anti-Aircraft Shell",
+          "display": "Anti-Aircraft S…",
+          "x": 28,
+          "y": 110,
+          "width": 83
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "rds",
+          "display": "rds",
+          "x": 43,
+          "y": 132,
+          "width": 18
+        },
+        {
+          "text": "Total",
+          "display": "Total",
+          "x": 134,
+          "y": 28,
+          "width": 25
+        },
+        {
+          "text": "Copper",
+          "display": "Copper",
+          "x": 146,
+          "y": 42,
+          "width": 36
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 42,
+          "width": 9
+        },
+        {
+          "text": "Steel",
+          "display": "Steel",
+          "x": 146,
+          "y": 52,
+          "width": 25
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 52,
+          "width": 9
+        },
+        {
+          "text": "Aluminum",
+          "display": "Aluminum",
+          "x": 146,
+          "y": 62,
+          "width": 41
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 62,
+          "width": 9
+        },
+        {
+          "text": "Gunpowder",
+          "display": "Gunpowder",
+          "x": 146,
+          "y": 72,
+          "width": 54
+        },
+        {
+          "text": "—",
+          "display": "—",
+          "x": 229,
+          "y": 72,
+          "width": 9
+        },
+        {
+          "text": "4 / cycle · Time —",
+          "display": "4 / cycle · Time —",
+          "x": 141.0,
+          "y": 90,
+          "width": 90
+        },
+        {
+          "text": "Stop after cycle",
+          "display": "Stop after cycle",
+          "x": 144.0,
+          "y": 108.0,
+          "width": 84
+        },
+        {
+          "text": "HE Shell [Running]",
+          "display": "HE Shell [Running]",
+          "x": 141.0,
+          "y": 126,
+          "width": 90
+        },
+        {
+          "text": "16 / 40 · Cycle 5 / 10",
+          "display": "16 / 40 · Cycle 5 / 10",
+          "x": 130.5,
+          "y": 140,
+          "width": 111
+        },
+        {
+          "text": "Auto-convert",
+          "display": "Auto-convert",
+          "x": 262.0,
+          "y": 26,
+          "width": 68
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "Inventory",
+          "display": "Inventory",
+          "x": 93,
+          "y": 157,
+          "width": 50
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "language": "zh",
+      "demandMode": "single",
+      "illustrativeCostsOnly": true,
+      "svg": "弹药生产线-单位省略示意.svg",
+      "png": "弹药生产线-单位省略示意.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "单次需求",
+          "display": "单次需求",
+          "x": 134,
+          "y": 28,
+          "width": 36.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "4粒",
+          "display": "4粒",
+          "x": 223.0,
+          "y": 42,
+          "width": 15.0
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "4锭",
+          "display": "4锭",
+          "x": 223.0,
+          "y": 52,
+          "width": 15.0
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "2个",
+          "display": "2个",
+          "x": 223.0,
+          "y": 62,
+          "width": 15.0
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "开始生产",
+          "display": "开始生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "高爆弹 [待机]",
+          "display": "高爆弹 [待机]",
+          "x": 157.5,
+          "y": 126,
+          "width": 57.0
+        },
+        {
+          "text": "计划40枚 · 共10次",
+          "display": "计划40枚 · 共10次",
+          "x": 146.5,
+          "y": 140,
+          "width": 79.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    },
+    {
+      "state": "idle",
+      "language": "zh",
+      "demandMode": "total",
+      "illustrativeCostsOnly": true,
+      "svg": "弹药生产线-总需求换算示意.svg",
+      "png": "弹药生产线-总需求换算示意.png",
+      "text": [
+        {
+          "text": "弹药生产线",
+          "display": "弹药生产线",
+          "x": 8,
+          "y": 6,
+          "width": 45.0
+        },
+        {
+          "text": "弹药类型",
+          "display": "弹药类型",
+          "x": 8,
+          "y": 26,
+          "width": 36.0
+        },
+        {
+          "text": "炮弹",
+          "display": "炮弹",
+          "x": 12.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "深弹",
+          "display": "深弹",
+          "x": 40.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "鱼雷",
+          "display": "鱼雷",
+          "x": 68.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "导弹",
+          "display": "导弹",
+          "x": 96.0,
+          "y": 53,
+          "width": 18.0
+        },
+        {
+          "text": "高爆弹",
+          "display": "高爆弹",
+          "x": 28,
+          "y": 74,
+          "width": 27.0
+        },
+        {
+          "text": "穿甲弹",
+          "display": "穿甲弹",
+          "x": 28,
+          "y": 92,
+          "width": 27.0
+        },
+        {
+          "text": "防空弹",
+          "display": "防空弹",
+          "x": 28,
+          "y": 110,
+          "width": 27.0
+        },
+        {
+          "text": "40",
+          "display": "40",
+          "x": 18.0,
+          "y": 132,
+          "width": 12
+        },
+        {
+          "text": "枚",
+          "display": "枚",
+          "x": 43,
+          "y": 132,
+          "width": 9.0
+        },
+        {
+          "text": "总需求",
+          "display": "总需求",
+          "x": 134,
+          "y": 28,
+          "width": 27.0
+        },
+        {
+          "text": "铜材",
+          "display": "铜材",
+          "x": 146,
+          "y": 42,
+          "width": 18.0
+        },
+        {
+          "text": "4锭4粒",
+          "display": "4锭4粒",
+          "x": 208.0,
+          "y": 42,
+          "width": 30.0
+        },
+        {
+          "text": "钢材",
+          "display": "钢材",
+          "x": 146,
+          "y": 52,
+          "width": 18.0
+        },
+        {
+          "text": "40锭",
+          "display": "40锭",
+          "x": 217.0,
+          "y": 52,
+          "width": 21.0
+        },
+        {
+          "text": "火药",
+          "display": "火药",
+          "x": 146,
+          "y": 62,
+          "width": 18.0
+        },
+        {
+          "text": "20个",
+          "display": "20个",
+          "x": 217.0,
+          "y": 62,
+          "width": 21.0
+        },
+        {
+          "text": "单次4枚 · 用时 —",
+          "display": "单次4枚 · 用时 —",
+          "x": 149.0,
+          "y": 90,
+          "width": 74.0
+        },
+        {
+          "text": "开始生产",
+          "display": "开始生产",
+          "x": 168.0,
+          "y": 108.0,
+          "width": 36.0
+        },
+        {
+          "text": "高爆弹 [待机]",
+          "display": "高爆弹 [待机]",
+          "x": 157.5,
+          "y": 126,
+          "width": 57.0
+        },
+        {
+          "text": "计划40枚 · 共10次",
+          "display": "计划40枚 · 共10次",
+          "x": 146.5,
+          "y": 140,
+          "width": 79.0
+        },
+        {
+          "text": "块锭粒可自动转换",
+          "display": "块锭粒可自动转换",
+          "x": 260.0,
+          "y": 26,
+          "width": 72.0
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 266.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "64",
+          "display": "64",
+          "x": 265.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 284.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "32",
+          "display": "32",
+          "x": 283.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 302.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 301.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 320.0,
+          "y": 54.0,
+          "width": 12
+        },
+        {
+          "text": "48",
+          "display": "48",
+          "x": 319.0,
+          "y": 53.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 266.0,
+          "y": 118.0,
+          "width": 12
+        },
+        {
+          "text": "16",
+          "display": "16",
+          "x": 265.0,
+          "y": 117.0,
+          "width": 12
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 290.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "8",
+          "display": "8",
+          "x": 289.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 308.0,
+          "y": 118.0,
+          "width": 6
+        },
+        {
+          "text": "3",
+          "display": "3",
+          "x": 307.0,
+          "y": 117.0,
+          "width": 6
+        },
+        {
+          "text": "物品栏",
+          "display": "物品栏",
+          "x": 93,
+          "y": 157,
+          "width": 27.0
+        }
+      ]
+    }
+  ]
+}

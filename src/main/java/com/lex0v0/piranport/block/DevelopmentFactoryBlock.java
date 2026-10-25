@@ -65,7 +65,8 @@ public final class DevelopmentFactoryBlock extends BaseEntityBlock {
 
     @Override public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof DevelopmentFactoryBlockEntity factory) {
-            if (player.isCreative()) factory.destroyCreative();
+            // 无法采集时战利品表不执行，缓存须按创造拆除散落，避免整机内容丢失。
+            if (player.isCreative() || !state.canHarvestBlock(level, pos, player)) factory.destroyCreative();
             else factory.cancelCurrent(player);
         }
         return super.playerWillDestroy(level, pos, state, player);

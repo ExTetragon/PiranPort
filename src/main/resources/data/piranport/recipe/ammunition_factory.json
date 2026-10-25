@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SCS",
+    "APA",
+    "SWS"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "C": {
+      "tag": "c:ingots/copper"
+    },
+    "A": {
+      "tag": "c:ingots/aluminum"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    },
+    "W": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "id": "piranport:ammunition_factory",
+    "count": 1
+  }
+}

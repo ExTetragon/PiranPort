@@ -80,7 +80,7 @@ public final class ShipyardGameTests {
         h.assertTrue(yard.insert(0, blueprint, false).isEmpty(), "blueprint inserted");
         add(h, yard, new ItemStack(ModItems.STEEL_INGOT.get(), recipe.steel()));
         add(h, yard, new ItemStack(ModItems.ALUMINUM_INGOT.get(), recipe.aluminum()));
-        add(h, yard, new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(), recipe.ammunition() / 2));
+        add(h, yard, new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(), recipe.ammunition() / 2));
         h.assertTrue(yard.fluid(null).fill(oil(recipe.fuel()), FluidAction.EXECUTE) == recipe.fuel(), "fuel inserted");
     }
     private static void add(GameTestHelper h, ShipyardBlockEntity yard, ItemStack input) {
@@ -114,11 +114,11 @@ public final class ShipyardGameTests {
             h.assertTrue(recipe != null && recipe.ammunition() == costs[i] && recipe.ammunition() % 4 == 0
                     && recipe.ticks() == recipe.seconds() * 20, "halved per-ship ammunition cost");
         }
-        h.assertTrue(AmmunitionItem.points(new ItemStack(ModItems.DEPTH_CHARGE.get())) == 1
-                && AmmunitionItem.points(new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get())) == 2
-                && AmmunitionItem.points(new ItemStack(ModItems.TORPEDO.get())) == 2
-                && AmmunitionItem.points(new ItemStack(ModItems.MISSILE.get())) == 4, "1/2/2/4 points");
-        h.assertTrue(new ItemStack(ModItems.TORPEDO.get()).is(ModItemTags.AMMUNITION), "ammunition tag generated"); h.succeed();
+        for (var type : com.lex0v0.piranport.domain.ammunition.AmmunitionType.values()) {
+            var stack = new ItemStack(ModItems.ammunition(type));
+            h.assertTrue(AmmunitionItem.points(stack) == type.materialPoints() && stack.is(ModItemTags.AMMUNITION), "all finalized types use live ammunition tag");
+        }
+        h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -272,11 +272,11 @@ public final class ShipyardGameTests {
     @GameTest(template = "empty")
     public static void ammunitionSlotOrderAndCeiling(GameTestHelper h) {
         var recipe=new ShipyardRecipe(id("glowworm"),0,40,0,0,1);
-        var source=List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.MISSILE.get(),12),new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),64));
+        var source=List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.GUIDED_TORPEDO.get(),12),new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),64));
         var plan=ManufacturingMaterials.plan(source,recipe);
         h.assertTrue(plan!=null&&plan.ammunition().get(0).getCount()==1&&plan.ammunition().get(1).getCount()==10
                 &&plan.remaining().get(2).getCount()==64,"41 points in slot order, no optimization");
-        var rounded=ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.TORPEDO.get(),2)),new ShipyardRecipe(id("glowworm"),0,4,0,0,1));
+        var rounded=ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.DEPTH_CHARGE.get()),new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),2)),new ShipyardRecipe(id("glowworm"),0,4,0,0,1));
         h.assertTrue(rounded!=null&&rounded.ammunition().get(1).getCount()==2,"four points round the last two-point item upwards");h.succeed();
     }
 
@@ -301,17 +301,17 @@ public final class ShipyardGameTests {
     public static void cancelAndStaleConfirmation(GameTestHelper h) {
         var yard=yard(h);supply(h,yard,"glowworm",2);start(h,yard,"glowworm");UUID old=yard.job().id;advance(yard,450);
         h.assertTrue(yard.cancel(old,null)&&yard.stack(0).getCount()==2&&yard.fuel().getAmount()==1000,"cancel refunds fuel and keeps blueprints");
-        h.assertTrue(count(yard,ModItems.STEEL_INGOT.get())==8&&count(yard,ModItems.ALUMINUM_INGOT.get())==4&&count(yard,ModItems.MAIN_GUN_AMMUNITION.get())==8,"refund actual net costs");
+        h.assertTrue(count(yard,ModItems.STEEL_INGOT.get())==8&&count(yard,ModItems.ALUMINUM_INGOT.get())==4&&count(yard,ModItems.HIGH_EXPLOSIVE_SHELL.get())==8,"refund actual net costs");
         start(h,yard,"glowworm");var current=yard.job().id;h.assertTrue(!yard.cancel(old,null)&&yard.job().id.equals(current),"stale confirmation cannot cancel new task");h.succeed();
     }
 
     @GameTest(template = "empty")
     public static void cancellationPreservesAmmoComponents(GameTestHelper h) {
         var yard=yard(h);supply(h,yard,"glowworm",1);
-        for(int slot=2;slot<14;slot++)if(yard.stack(slot).is(ModItems.MAIN_GUN_AMMUNITION.get()))yard.extract(slot,64,false);
-        var missile=new ItemStack(ModItems.MISSILE.get(),4);missile.set(DataComponents.CUSTOM_NAME,Component.literal("Batch A"));add(h,yard,missile);
-        start(h,yard,"glowworm");var job=yard.job();h.assertTrue(job.ammunition.getFirst().getCount()==4,"four missiles actually paid");yard.cancel(job.id,null);
-        h.assertTrue(yard.materials().stream().anyMatch(s->ItemStack.matches(s,missile)),"exact original ammo metadata refunded");h.succeed();
+        for(int slot=2;slot<14;slot++)if(yard.stack(slot).is(ModItems.HIGH_EXPLOSIVE_SHELL.get()))yard.extract(slot,64,false);
+        var ammunition=new ItemStack(ModItems.GUIDED_TORPEDO.get(),4);ammunition.set(DataComponents.CUSTOM_NAME,Component.literal("Batch A"));add(h,yard,ammunition);
+        start(h,yard,"glowworm");var job=yard.job();h.assertTrue(job.ammunition.getFirst().getCount()==4,"four guided torpedoes actually paid");yard.cancel(job.id,null);
+        h.assertTrue(yard.materials().stream().anyMatch(s->ItemStack.matches(s,ammunition)),"exact original ammo metadata refunded");h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -324,11 +324,11 @@ public final class ShipyardGameTests {
     @GameTest(template = "empty")
     public static void refundOverflowToCurrentOperator(GameTestHelper h) {
         var yard=yard(h);supply(h,yard,"glowworm",1);start(h,yard,"glowworm");
-        for(int i=2;i<14;i++)yard.insert(i,new ItemStack(ModItems.TORPEDO.get(),64),false);
+        for(int i=2;i<14;i++)yard.insert(i,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),64),false);
         var current=player(h);yard.cancel(yard.job().id,current);
         h.assertTrue(current.getInventory().countItem(ModItems.STEEL_INGOT.get())==8
                 &&current.getInventory().countItem(ModItems.ALUMINUM_INGOT.get())==4
-                &&current.getInventory().countItem(ModItems.MAIN_GUN_AMMUNITION.get())==8,"refund goes to cancelling player");h.succeed();
+                &&current.getInventory().countItem(ModItems.HIGH_EXPLOSIVE_SHELL.get())==8,"refund goes to cancelling player");h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -448,7 +448,7 @@ public final class ShipyardGameTests {
         tags.put(TagKey.create(Registries.ITEM,ResourceLocation.fromNamespaceAndPath("c","ingots/aluminum")),List.of(Items.COPPER_INGOT.builtInRegistryHolder(),ModItems.ALUMINUM_INGOT.get().builtInRegistryHolder()));
         try {
             BuiltInRegistries.ITEM.bindTags(tags);var yard=yard(h);yard.insert(0,blueprint(BlueprintType.DESTROYER),false);
-            add(h,yard,new ItemStack(Items.IRON_INGOT,8));add(h,yard,new ItemStack(Items.COPPER_INGOT,4));add(h,yard,new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),8));yard.fluid(null).fill(oil(1000),FluidAction.EXECUTE);
+            add(h,yard,new ItemStack(Items.IRON_INGOT,8));add(h,yard,new ItemStack(Items.COPPER_INGOT,4));add(h,yard,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),8));yard.fluid(null).fill(oil(1000),FluidAction.EXECUTE);
             start(h,yard,"glowworm");yard.cancel(yard.job().id,null);
             h.assertTrue(count(yard,ModItems.STEEL_INGOT.get())==8&&count(yard,ModItems.ALUMINUM_INGOT.get())==4&&count(yard,Items.IRON_INGOT)==0,"common tags accepted, refunds normalized");
         } finally { BuiltInRegistries.ITEM.bindTags(original); }
@@ -458,7 +458,7 @@ public final class ShipyardGameTests {
     @GameTest(template = "empty")
     public static void blockPaymentCancelDoesNotRefundChangeTwice(GameTestHelper h) {
         var yard=yard(h);yard.insert(0,blueprint(BlueprintType.DESTROYER),false);
-        add(h,yard,new ItemStack(ModBlocks.STEEL_BLOCK.get()));add(h,yard,new ItemStack(ModBlocks.ALUMINUM_BLOCK.get()));add(h,yard,new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),8));yard.fluid(null).fill(oil(1000),FluidAction.EXECUTE);
+        add(h,yard,new ItemStack(ModBlocks.STEEL_BLOCK.get()));add(h,yard,new ItemStack(ModBlocks.ALUMINUM_BLOCK.get()));add(h,yard,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),8));yard.fluid(null).fill(oil(1000),FluidAction.EXECUTE);
         start(h,yard,"glowworm");h.assertTrue(count(yard,ModItems.STEEL_INGOT.get())==1&&count(yard,ModItems.ALUMINUM_INGOT.get())==5,"change before completion");
         yard.cancel(yard.job().id,null);h.assertTrue(count(yard,ModItems.STEEL_INGOT.get())==9&&count(yard,ModItems.ALUMINUM_INGOT.get())==9,"refund only net cost");h.succeed();
     }
@@ -466,7 +466,7 @@ public final class ShipyardGameTests {
     @GameTest(template = "empty")
     public static void changeOverflowDropsWithoutBlockingStart(GameTestHelper h) {
         var yard=yard(h);yard.insert(0,blueprint(BlueprintType.DESTROYER),false);yard.insert(2,new ItemStack(ModBlocks.STEEL_BLOCK.get(),64),false);yard.insert(3,new ItemStack(ModBlocks.ALUMINUM_BLOCK.get(),64),false);
-        for(int slot=4;slot<14;slot++)yard.insert(slot,new ItemStack(ModItems.TORPEDO.get(),64),false);
+        for(int slot=4;slot<14;slot++)yard.insert(slot,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),64),false);
         yard.fluid(null).fill(oil(1000),FluidAction.EXECUTE);var player=player(h);
         for(int i=0;i<36;i++)player.getInventory().setItem(i,new ItemStack(Items.COBBLESTONE,64));
         h.assertTrue(yard.start(id("glowworm"),player)==ShipyardBlockEntity.StartResult.STARTED,"change space never blocks start");
@@ -504,7 +504,7 @@ public final class ShipyardGameTests {
         h.assertTrue(decoded.equals(large)&&decoded.ticks()==12000,"codec accepts costs above initial balance guidance");
         var json=encoded.getAsJsonObject();json.addProperty("ammunition",6);
         h.assertTrue(ShipyardRecipe.CODEC.codec().parse(com.mojang.serialization.JsonOps.INSTANCE,json).error().isPresent(),"cost must be a multiple of four");
-        h.assertTrue(ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.MISSILE.get(),64)),new ShipyardRecipe(id("glowworm"),0,Integer.MAX_VALUE-3,0,0,1))==null,"large costs do not overflow into free construction");h.succeed();
+        h.assertTrue(ManufacturingMaterials.plan(List.of(new ItemStack(ModItems.GUIDED_TORPEDO.get(),64)),new ShipyardRecipe(id("glowworm"),0,Integer.MAX_VALUE-3,0,0,1))==null,"large costs do not overflow into free construction");h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -516,9 +516,35 @@ public final class ShipyardGameTests {
         h.assertTrue(drops.stream().noneMatch(e->e.getItem().is(ModBlocks.SHIPYARD.get().asItem())||e.getItem().is(ModItems.FUEL_OIL_BUCKET.get())),"no shipyard or oil item");
         h.assertTrue(drops.stream().filter(e->e.getItem().is(ModItems.STEEL_INGOT.get())).mapToInt(e->e.getItem().getCount()).sum()==8
                 &&drops.stream().filter(e->e.getItem().is(ModItems.ALUMINUM_INGOT.get())).mapToInt(e->e.getItem().getCount()).sum()==4
-                &&drops.stream().filter(e->e.getItem().is(ModItems.MAIN_GUN_AMMUNITION.get())).mapToInt(e->e.getItem().getCount()).sum()==8
+                &&drops.stream().filter(e->e.getItem().is(ModItems.HIGH_EXPLOSIVE_SHELL.get())).mapToInt(e->e.getItem().getCount()).sum()==8
                 &&drops.stream().filter(e->e.getItem().is(ModItems.SHIP_BLUEPRINT.get())).mapToInt(e->e.getItem().getCount()).sum()==2,"contents and actual payment scattered exactly once");
         h.assertTrue(yard.job()==null&&yard.fuel().isEmpty()&&!yard.hasCachedContents()&&player.getInventory().isEmpty(),"no retained cache, fuel or refund to creative inventory");h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void survivalBreakWithoutToolScattersContents(GameTestHelper h) {
+        var yard=yard(h);supply(h,yard,"glowworm",2);start(h,yard,"glowworm");advance(yard,100);
+        var player=player(h);var pos=yard.getBlockPos();var state=yard.getBlockState();
+        h.assertTrue(!state.canHarvestBlock(h.getLevel(),pos,player),"empty hand cannot harvest shipyard");
+        state.getBlock().playerWillDestroy(h.getLevel(),pos,state,player);h.getLevel().removeBlock(pos,false);
+        var drops=h.getLevel().getEntitiesOfClass(ItemEntity.class,new AABB(pos).inflate(4));
+        h.assertTrue(drops.stream().noneMatch(e->e.getItem().is(ModBlocks.SHIPYARD.get().asItem())),"no shipyard item without correct tool");
+        h.assertTrue(drops.stream().filter(e->e.getItem().is(ModItems.STEEL_INGOT.get())).mapToInt(e->e.getItem().getCount()).sum()==8
+                &&drops.stream().filter(e->e.getItem().is(ModItems.ALUMINUM_INGOT.get())).mapToInt(e->e.getItem().getCount()).sum()==4
+                &&drops.stream().filter(e->e.getItem().is(ModItems.HIGH_EXPLOSIVE_SHELL.get())).mapToInt(e->e.getItem().getCount()).sum()==8
+                &&drops.stream().filter(e->e.getItem().is(ModItems.SHIP_BLUEPRINT.get())).mapToInt(e->e.getItem().getCount()).sum()==2,"refund and cache scattered exactly once");
+        h.assertTrue(yard.job()==null&&yard.fuel().isEmpty()&&!yard.hasCachedContents(),"no retained cache or fuel");h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void survivalBreakWithToolKeepsStorage(GameTestHelper h) {
+        var yard=yard(h);supply(h,yard,"glowworm",2);start(h,yard,"glowworm");advance(yard,100);
+        var player=player(h);player.setItemInHand(InteractionHand.MAIN_HAND,new ItemStack(Items.STONE_PICKAXE));
+        var pos=yard.getBlockPos();var state=yard.getBlockState();
+        h.assertTrue(state.canHarvestBlock(h.getLevel(),pos,player),"stone pickaxe harvests shipyard");
+        state.getBlock().playerWillDestroy(h.getLevel(),pos,state,player);
+        h.assertTrue(yard.job()==null&&yard.hasCachedContents()&&yard.fuel().getAmount()==1000
+                &&h.getLevel().getEntitiesOfClass(ItemEntity.class,new AABB(pos).inflate(4)).isEmpty(),"harvestable break keeps storage for loot");h.succeed();
     }
 
     @GameTest(template = "empty")

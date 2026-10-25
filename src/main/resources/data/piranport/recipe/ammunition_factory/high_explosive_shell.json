@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:high_explosive_shell",
+  "count": 4,
+  "copper": 4,
+  "steel": 4,
+  "aluminum": 0,
+  "gunpowder": 3,
+  "seconds": 2
+}

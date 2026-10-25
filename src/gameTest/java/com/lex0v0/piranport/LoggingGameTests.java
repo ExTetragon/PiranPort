@@ -126,7 +126,7 @@ public final class LoggingGameTests {
         yard.insert(0, blueprint, false);
         yard.insert(2, new ItemStack(ModItems.STEEL_INGOT.get(), recipe.steel()), false);
         yard.insert(3, new ItemStack(ModItems.ALUMINUM_INGOT.get(), recipe.aluminum()), false);
-        yard.insert(4, new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(), recipe.ammunition()/2), false);
+        yard.insert(4, new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(), recipe.ammunition()/2), false);
         yard.fluid(null).fill(oil(recipe.fuel()), FluidAction.EXECUTE);
         try (var capture = new Capture()) {
             ModLog.configureDebug(false); ModLog.configureDebug(true);

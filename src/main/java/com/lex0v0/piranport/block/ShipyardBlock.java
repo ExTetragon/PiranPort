@@ -65,7 +65,8 @@ public final class ShipyardBlock extends BaseEntityBlock {
 
     @Override public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof ShipyardBlockEntity shipyard) {
-            if (player.isCreative()) shipyard.destroyCreative();
+            // 无法采集时战利品表不执行，缓存须按创造拆除散落，避免整机内容丢失。
+            if (player.isCreative() || !state.canHarvestBlock(level, pos, player)) shipyard.destroyCreative();
             else shipyard.cancelCurrent(player);
         }
         return super.playerWillDestroy(level, pos, state, player);

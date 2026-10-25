@@ -36,6 +36,8 @@ public final class ModDataComponents {
 
     private ModDataComponents() {
     }
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> AMMUNITION_FACTORY_STORAGE =
+            DATA_COMPONENTS.register("ammunition_factory_storage", () -> DataComponentType.<CustomData>builder().persistent(CustomData.CODEC).networkSynchronized(CustomData.STREAM_CODEC).build());
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<CustomData>> SHIPYARD_STORAGE =
             DATA_COMPONENTS.register("shipyard_storage", () -> DataComponentType.<CustomData>builder()
                     .persistent(CustomData.CODEC).networkSynchronized(CustomData.STREAM_CODEC).build());

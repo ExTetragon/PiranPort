@@ -24,6 +24,7 @@ public final class AcceptanceClientSmoke {
         boolean riggingCore = false;
         boolean modTooltips = false;
         boolean equipment = false;
+        boolean ammunition = false;
         try { blueprints = BlueprintClientChecks.verify(minecraft); }
         catch (RuntimeException error) { ModLog.failure(ModLog.Failure.BLUEPRINT_RESOURCES, error); }
         try { riggingCore = RiggingClientChecks.verify(minecraft); }
@@ -32,8 +33,10 @@ public final class AcceptanceClientSmoke {
         catch (RuntimeException error) { ModLog.failure(ModLog.Failure.TOOLTIPS, error); }
         try { equipment = EquipmentClientChecks.verify(minecraft); }
         catch (RuntimeException error) { ModLog.failure(ModLog.Failure.EQUIPMENT_RESOURCES, error); }
+        try { ammunition = AmmunitionClientChecks.verify(minecraft); }
+        catch (RuntimeException error) { ModLog.failure(ModLog.Failure.TOOLTIPS, error); }
         ModLog.evidence(ModLog.Evidence.HELPERS, new com.google.gson.Gson().toJson(
-                java.util.Map.of("jei", jei, "spark", spark, "titleScreen", true, "blueprints", blueprints, "riggingCore", riggingCore, "modTooltips", modTooltips, "equipment", equipment)));
+                java.util.Map.of("jei", jei, "spark", spark, "titleScreen", true, "blueprints", blueprints, "riggingCore", riggingCore, "modTooltips", modTooltips, "equipment", equipment, "ammunition", ammunition)));
         minecraft.stop();
     }
 }

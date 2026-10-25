@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "piranport:item/missile"
+    "layer0": "piranport:item/straight_running_torpedo"
   }
 }

@@ -23,5 +23,6 @@ public final class ModRecipeSerializers {
     public static final DeferredHolder<RecipeSerializer<?>, com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe.Serializer> DEVELOPMENT_FACTORY = SERIALIZERS.register("development_factory", com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe.Serializer::new);
     public static final DeferredHolder<RecipeSerializer<?>, com.lex0v0.piranport.recipe.EmptyFuelBarrelShapedRecipe.Serializer> EMPTY_FUEL_BARREL_SHAPED = SERIALIZERS.register("empty_fuel_barrel_shaped", com.lex0v0.piranport.recipe.EmptyFuelBarrelShapedRecipe.Serializer::new);
     private ModRecipeSerializers() {}
+    public static final DeferredHolder<RecipeSerializer<?>, com.lex0v0.piranport.recipe.AmmunitionFactoryRecipe.Serializer> AMMUNITION_FACTORY = SERIALIZERS.register("ammunition_factory", com.lex0v0.piranport.recipe.AmmunitionFactoryRecipe.Serializer::new);
     public static void register(IEventBus bus) { SERIALIZERS.register(bus); }
 }

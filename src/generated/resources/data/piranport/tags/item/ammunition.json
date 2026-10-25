@@ -1,8 +1,8 @@
 {
   "values": [
-    "piranport:main_gun_ammunition",
-    "piranport:torpedo",
-    "piranport:depth_charge",
-    "piranport:missile"
+    "#piranport:ammunition/shells",
+    "#piranport:ammunition/depth_charges",
+    "#piranport:ammunition/torpedoes",
+    "#piranport:ammunition/missiles"
   ]
 }

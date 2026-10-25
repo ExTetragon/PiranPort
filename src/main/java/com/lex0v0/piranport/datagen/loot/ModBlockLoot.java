@@ -21,6 +21,9 @@ public final class ModBlockLoot extends BlockLootSubProvider {
     }
     @Override
     protected void generate() {
+        add(ModBlocks.AMMUNITION_FACTORY.get(), block -> LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(block))).apply(
+                CopyComponentsFunction.copyComponents(CopyComponentsFunction.Source.BLOCK_ENTITY).include(ModDataComponents.AMMUNITION_FACTORY_STORAGE.get())));
         dropSelf(ModBlocks.BAUXITE_BLOCK.get());
         dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
         dropSelf(ModBlocks.STEEL_BLOCK.get());
@@ -39,6 +42,6 @@ public final class ModBlockLoot extends BlockLootSubProvider {
     @Override
     protected Iterable<Block> getKnownBlocks() {
         return List.of(ModBlocks.BAUXITE_BLOCK.get(), ModBlocks.ALUMINUM_BLOCK.get(),
-                ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get(), ModBlocks.SHIPYARD.get(), ModBlocks.DEVELOPMENT_FACTORY.get());
+                ModBlocks.STEEL_BLOCK.get(), ModBlocks.FUEL_BARREL.get(), ModBlocks.SHIPYARD.get(), ModBlocks.DEVELOPMENT_FACTORY.get(), ModBlocks.AMMUNITION_FACTORY.get());
     }
 }

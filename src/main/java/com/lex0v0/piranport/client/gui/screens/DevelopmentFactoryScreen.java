@@ -51,6 +51,13 @@ public final class DevelopmentFactoryScreen extends AbstractContainerScreen<Deve
         super(menu, inventory, title); imageWidth = 384; imageHeight = 252;
     }
 
+    @Override protected List<Component> getTooltipFromContainerItem(net.minecraft.world.item.ItemStack stack) {
+        var lines = super.getTooltipFromContainerItem(stack);
+        return hoveredSlot != null && hoveredSlot.index >= DevelopmentFactoryBlockEntity.CACHE_START
+                && hoveredSlot.index < DevelopmentFactoryBlockEntity.TOTAL_SLOTS
+                ? com.lex0v0.piranport.text.ManufacturingText.ammunitionTooltip(lines, stack) : lines;
+    }
+
     private static Component tr(String key, Object... args) { return Component.translatable("gui.piranport.development_factory." + key, args); }
     private void action(int kind, CompoundTag data) { PacketDistributor.sendToServer(new DevelopmentFactoryActionPayload(menu.containerId, kind, data)); }
     private void browseChanged() { menu.normalizeBrowse(); action(0, menu.browse.save()); }

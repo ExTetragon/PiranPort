@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:guided_torpedo",
+  "count": 1,
+  "copper": 3,
+  "steel": 4,
+  "aluminum": 2,
+  "gunpowder": 2,
+  "seconds": 3
+}

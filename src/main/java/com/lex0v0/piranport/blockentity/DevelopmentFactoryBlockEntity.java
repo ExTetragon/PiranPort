@@ -175,7 +175,7 @@ public final class DevelopmentFactoryBlockEntity extends BlockEntity implements 
         if (job != null) cancel(job.id, actor);
     }
 
-    // 创造拆除散落全部物品，不生成工厂物品或保留燃油。
+    // 创造拆除及无法采集的生存拆除散落全部物品，不生成工厂物品或保留燃油。
     public void destroyCreative() {
         if (!usable()) return;
         cancelCurrent(null);

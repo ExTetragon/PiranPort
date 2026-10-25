@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "piranport:item/main_gun_ammunition"
+    "layer0": "piranport:item/anti_aircraft_shell"
   }
 }

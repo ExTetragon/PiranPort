@@ -15,5 +15,6 @@ public final class ModRecipeTypes {
             TYPES.register("shipyard", () -> new RecipeType<>() { @Override public String toString() { return "piranport:shipyard"; } });
     public static final DeferredHolder<RecipeType<?>, RecipeType<com.lex0v0.piranport.recipe.DevelopmentFactoryRecipe>> DEVELOPMENT_FACTORY = TYPES.register("development_factory", () -> new RecipeType<>() {});
     private ModRecipeTypes() {}
+    public static final DeferredHolder<RecipeType<?>, RecipeType<com.lex0v0.piranport.recipe.AmmunitionFactoryRecipe>> AMMUNITION_FACTORY = TYPES.register("ammunition_factory", () -> new RecipeType<>() {});
     public static void register(IEventBus bus) { TYPES.register(bus); }
 }

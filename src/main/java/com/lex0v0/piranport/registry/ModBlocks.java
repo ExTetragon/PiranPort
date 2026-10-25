@@ -19,6 +19,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // 注册实体与流体方块，对应物品交由 ModItems 注册。
 public final class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(PiranPort.MODID);
+    public static final DeferredBlock<com.lex0v0.piranport.block.AmmunitionFactoryBlock> AMMUNITION_FACTORY = BLOCKS.register("ammunition_factory", () -> new com.lex0v0.piranport.block.AmmunitionFactoryBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().sound(SoundType.METAL).strength(4.0F,8.0F).pushReaction(PushReaction.BLOCK)));
     public static final DeferredBlock<DevelopmentFactoryBlock> DEVELOPMENT_FACTORY = BLOCKS.register("development_factory", () -> new DevelopmentFactoryBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops()
                     .sound(SoundType.METAL).strength(4.0F,8.0F).pushReaction(PushReaction.BLOCK)));

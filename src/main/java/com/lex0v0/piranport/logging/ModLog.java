@@ -32,6 +32,7 @@ public final class ModLog {
     private ModLog() {}
 
     public enum Event {
+        AMMUNITION_BATCH("弹药批次产出汇总"),
         JOB_START("制造开工"), JOB_FINISH("制造完成"), JOB_CANCEL("取消制造"),
         JOB_STATE("制造状态改变"), JOB_RESTORE("恢复制造任务"), REFUND("返还物品"),
         ACTION("制造操作结果"), CONNECT("燃料桶连接"), DISCONNECT("燃料桶断连"),
@@ -51,7 +52,7 @@ public final class ModLog {
     // 验收标记保留原始行格式，测试类和夹具仍不进入发行包。
     public enum Evidence {
         HELPERS("PIRANPORT_CLIENT_HELPERS_LOADED="), TOOLTIP_ITEMS("PIRANPORT_TOOLTIP_ITEMS_CHECKED="),
-        FACTORY_UI("PIRANPORT_FACTORY_UI="), SHIPYARD_UI("PIRANPORT_SHIPYARD_UI="),
+        FACTORY_UI("PIRANPORT_FACTORY_UI="), SHIPYARD_UI("PIRANPORT_SHIPYARD_UI="), AMMUNITION_UI("PIRANPORT_AMMUNITION_UI="),
         TOOLTIP_SCREENSHOT("TOOLTIP_SCREENSHOT="), UI_SCREENSHOT("UI_SCREENSHOT="),
         NATURAL_REPORT("PIRANPORT_NATURAL_WORLDGEN_REPORT="), NATURAL_REGION("PIRANPORT_NATURAL_REGION="),
         WORLDGEN_SHAPES("PIRANPORT_WORLDGEN_SHAPES="), SALTPETER_SAMPLES("PIRANPORT_SALTPETER_SAMPLES=");
@@ -62,7 +63,7 @@ public final class ModLog {
     public enum Failure {
         BLUEPRINT_RESOURCES("图纸客户端资源检查失败"), CORE_RESOURCES("核心客户端资源检查失败"),
         TOOLTIPS("物品悬浮检查失败"), EQUIPMENT_RESOURCES("装备客户端资源检查失败"),
-        SHIPYARD_UI("船坞界面验收失败"), FACTORY_UI("工厂界面验收失败"),
+        SHIPYARD_UI("船坞界面验收失败"), FACTORY_UI("工厂界面验收失败"), AMMUNITION_UI("弹药生产线界面验收失败"),
         WORLDGEN("自然生成验收失败"), REPORT("验收报告写入失败");
         private final String text;
         Failure(String text) { this.text = text; }
@@ -115,9 +116,15 @@ public final class ModLog {
 
     private static void recipes(MinecraftServer server) {
         reloadPending = false;
-        LOGGER.info("配方与标签已加载: shipyardRecipes={}, developmentFactoryRecipes={}",
+        LOGGER.info("配方与标签已加载: shipyardRecipes={}, developmentFactoryRecipes={}, ammunitionFactoryRecipes={}",
                 server.getRecipeManager().getAllRecipesFor(ModRecipeTypes.SHIPYARD.get()).size(),
-                server.getRecipeManager().getAllRecipesFor(ModRecipeTypes.DEVELOPMENT_FACTORY.get()).size());
+                server.getRecipeManager().getAllRecipesFor(ModRecipeTypes.DEVELOPMENT_FACTORY.get()).size(),
+                server.getRecipeManager().getAllRecipesFor(ModRecipeTypes.AMMUNITION_FACTORY.get()).size());
+        var ammunition=server.getRecipeManager().getAllRecipesFor(ModRecipeTypes.AMMUNITION_FACTORY.get());
+        for(var type:com.lex0v0.piranport.domain.ammunition.AmmunitionType.values()){
+            var matching=ammunition.stream().filter(h->h.value().target().equals(type.id())).toList();
+            if(matching.size()>1)LOGGER.warn("弹药生产配方目标重复，已拒绝开工: target={}, recipes={}",type.id(),matching.stream().map(h->h.id().toString()).toList());
+        }
     }
 
     private static void serverTick(ServerTickEvent.Post event) {

@@ -44,7 +44,7 @@ for name, data in jsons.items():
             target = 'assets/piranport/models/' + parent.split(':', 1)[1] + '.json'
             require(target in jsons, f'{name}: missing parent {target}')
 
-for block in ['bauxite_ore', 'bauxite_block', 'aluminum_block', 'saltpeter_block', 'steel_block', 'fuel_barrel']:
+for block in ['bauxite_ore', 'bauxite_block', 'aluminum_block', 'saltpeter_block', 'steel_block', 'fuel_barrel', 'shipyard', 'development_factory', 'ammunition_factory']:
     require(f'data/piranport/loot_table/blocks/{block}.json' in jsons, f'missing block loot: {block}')
 for parent, children in {'ores': ['bauxite', 'saltpeter'], 'storage_blocks': ['raw_bauxite', 'aluminum', 'steel']}.items():
     for registry in ['block', 'item']:
@@ -204,9 +204,51 @@ for path, recipe in factory_recipes.items():
             and 0 <= recipe.get('fuel',-1) <= 16000 and 0 <= recipe.get('ammunition',-1) <= 2147483647 and recipe.get('ammunition',-1) % 4 == 0
             and 0 <= recipe.get('steel',-1) <= 2147483647//9 and 0 <= recipe.get('aluminum',-1) <= 2147483647//9
             and 0 < recipe.get('seconds',0) <= 2147483647//20, f'{path}: invalid factory recipe')
-ammunition_points = {'main_gun_ammunition': 2, 'torpedo': 2, 'depth_charge': 1, 'missile': 4}
+ammunition_points = {'high_explosive_shell': 2, 'armor_piercing_shell': 3, 'anti_aircraft_shell': 3,
+                     'depth_charge': 1, 'straight_running_torpedo': 3, 'guided_torpedo': 4,
+                     'anti_ship_missile': 8, 'anti_aircraft_missile': 6}
+ammunition_groups = {'shells': ['high_explosive_shell', 'armor_piercing_shell', 'anti_aircraft_shell'],
+                     'depth_charges': ['depth_charge'], 'torpedoes': ['straight_running_torpedo', 'guided_torpedo'],
+                     'missiles': ['anti_ship_missile', 'anti_aircraft_missile']}
 require(set(jsons.get('data/piranport/tags/item/ammunition.json', {}).get('values', []))
-        == {f'piranport:{item}' for item in ammunition_points}, 'shipyard: incorrect ammunition tag')
+        == {f'#piranport:ammunition/{group}' for group in ammunition_groups}, 'ammunition: parent category references')
+for group, members in ammunition_groups.items():
+    require(set(jsons.get(f'data/piranport/tags/item/ammunition/{group}.json', {}).get('values', []))
+            == {f'piranport:{item}' for item in members}, f'ammunition: incorrect {group} members')
+icons = []
+for item in ammunition_points:
+    model = jsons.get(f'assets/piranport/models/item/{item}.json', {})
+    require(model.get('parent') == 'minecraft:item/generated' and model.get('textures', {}).get('layer0') == f'piranport:item/{item}', f'ammunition: {item} model')
+    icon = resources.get(f'assets/piranport/textures/item/{item}.png')
+    require(icon is not None, f'ammunition: {item} icon')
+    if icon is not None:
+        data = icon.read_bytes()
+        require(data[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', data[16:24]) in [(16,16),(32,32)] and data[25] == 6, f'ammunition: {item} RGBA icon')
+        icons.append(data)
+require(len(set(icons)) == 8, 'ammunition: eight distinguishable icons')
+for language in ['zh_cn', 'en_us']:
+    translations = jsons[f'assets/piranport/lang/{language}.json']
+    require(all(f'item.piranport.{item}' in translations for item in ammunition_points), f'{language}: ammunition names')
+    require(all(f'ammunition_category.piranport.{group}' in translations for group in ammunition_groups), f'{language}: ammunition categories')
+    require(all(f'tooltip.piranport.manufacturing.ammunition_{key}' in translations for key in ['points','total']), f'{language}: manufacturing-only ammunition tooltip')
+# 生产线首批参数与独立铜材资源，不扩展既有制造设施的输入语义。
+production_values = [(4,4,4,0,3,2),(4,4,8,0,2,3),(4,4,4,4,3,3),(4,0,4,0,1,2),
+                     (1,2,4,0,2,2),(1,3,4,2,2,3),(1,6,9,6,3,5),(1,4,5,6,3,4)]
+production_recipes = {path: value for path, value in jsons.items() if path.startswith('data/piranport/recipe/ammunition_factory/')}
+require(len(production_recipes) == 8, 'ammunition factory: expected eight production recipes')
+for item, expected in zip(ammunition_points, production_values):
+    recipe = jsons.get(f'data/piranport/recipe/ammunition_factory/{item}.json', {})
+    require(recipe.get('type') == 'piranport:ammunition_factory' and recipe.get('target') == f'piranport:{item}', f'ammunition factory: {item} target/type')
+    require(tuple(recipe.get(key) for key in ['count','copper','steel','aluminum','gunpowder','seconds']) == expected, f'ammunition factory: {item} confirmed costs/output/time')
+require('piranport:copper_nugget' in jsons.get('data/c/tags/item/nuggets/copper.json', {}).get('values', []), 'copper nugget: missing leaf tag')
+require('#c:nuggets/copper' in jsons.get('data/c/tags/item/nuggets.json', {}).get('values', []), 'copper nugget: missing parent tag')
+for name in ['ammunition_factory','copper_nugget_from_ingot','copper_ingot_from_nuggets']:
+    require(f'data/piranport/recipe/{name}.json' in jsons, f'ammunition factory: missing crafting recipe {name}')
+for code in ['zh_cn','en_us']:
+    lang = jsons[f'assets/piranport/lang/{code}.json']
+    require('block.piranport.ammunition_factory' in lang and 'item.piranport.copper_nugget' in lang, f'{code}: machine/copper names')
+    for key in ['single','total','start','interrupt','stopping_button','auto_convert','counts','planned','state.materials','state.output','state.pending']:
+        require(f'gui.piranport.ammunition_factory.{key}' in lang, f'{code}: ammunition factory GUI {key}')
 shipyard_recipes = {path: value for path, value in jsons.items() if path.startswith('data/piranport/recipe/shipyard/')}
 require(len(shipyard_recipes) == 10, 'shipyard: expected ten construction recipes')
 require({value.get('ship') for value in shipyard_recipes.values()} == {f'piranport:{ship}' for ship in ships}, 'shipyard: recipe identities mismatch')

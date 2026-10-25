@@ -79,13 +79,13 @@ public final class ShipyardUiAcceptance {
                     var level=server.overworld();for(int x=-4;x<=4;x++)for(int z=-4;z<=4;z++)level.setBlock(new BlockPos(x,0,z),Blocks.STONE.defaultBlockState(),3);
                     level.setBlock(POS,ModBlocks.SHIPYARD.get().defaultBlockState(),3);var yard=(ShipyardBlockEntity)level.getBlockEntity(POS);
                     var blueprint=BlueprintRules.create(BlueprintType.AIRCRAFT_CARRIER,BlueprintType.BATTLESHIP,BlueprintType.BATTLECRUISER,BlueprintType.DESTROYER);blueprint.setCount(8);yard.insert(0,blueprint,false);
-                    add(yard,new ItemStack(ModItems.STEEL_INGOT.get(),64));add(yard,new ItemStack(ModItems.ALUMINUM_INGOT.get(),64));add(yard,new ItemStack(ModItems.MAIN_GUN_AMMUNITION.get(),64));
+                    add(yard,new ItemStack(ModItems.STEEL_INGOT.get(),64));add(yard,new ItemStack(ModItems.ALUMINUM_INGOT.get(),64));add(yard,new ItemStack(ModItems.HIGH_EXPLOSIVE_SHELL.get(),64));
                     yard.fluid(null).fill(new FluidStack(ModFluids.FUEL_OIL.get(),32000),FluidAction.EXECUTE);
                     yard.start(id("lexington_cv2"),null);
                     for(int i=0;i<1800;i++)ShipyardBlockEntity.tick(level,POS,yard.getBlockState(),yard);
                     add(yard,new ItemStack(ModItems.STEEL_INGOT.get(),32));
                     var browse=new ShipyardBrowseState();browse.all=true;browse.selected=id("saratoga");yard.remember(browse);
-                    var player=server.getPlayerList().getPlayer(uuid);player.teleportTo(.5,1.1,3.5);seeded=true;
+                    var player=server.getPlayerList().getPlayer(uuid);player.getInventory().setItem(9,new ItemStack(ModItems.ARMOR_PIERCING_SHELL.get(),64));player.teleportTo(.5,1.1,3.5);seeded=true;
                 });stage=2;
             } else if(stage==2&&seeded&&mc.level!=null&&mc.level.getBlockEntity(POS) instanceof ShipyardBlockEntity){
                 var uuid=mc.player.getUUID();var server=mc.getSingleplayerServer();server.execute(()->{
@@ -103,12 +103,20 @@ public final class ShipyardUiAcceptance {
                 require(!screen.getMenu().shipyard.stack(ShipyardBlockEntity.CACHE_START).isEmpty(),"cache_tooltip_fixture_present");
                 UiTooltipCapture.request(screen,output,"shipyard-blueprint-tooltip.png",(int)((left+222)*z),(int)((top+131)*z));
                 UiTooltipCapture.request(screen,output,"shipyard-cache-tooltip.png",(int)((left+64)*z),(int)((top+174)*z));
+                UiTooltipCapture.request(screen,output,"shipyard-ammunition-cache.png",(int)((left+99)*z),(int)((top+174)*z));
+                UiTooltipCapture.request(screen,output,"shipyard-ammunition-player.png",(int)((left+159)*z),(int)((top+174)*z));
                 stage=41;delay=3;
             } else if(stage==41&&mc.screen instanceof ShipyardScreen screen){
                 String reserved=Component.translatable("gui.piranport.shipyard.reserved").getString();
                 require(UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-blueprint-tooltip.png",List.of()).contains(reserved),"reserved_hint_on_blueprint");
                 var material=UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-cache-tooltip.png",List.of());
                 require(!material.isEmpty()&&!material.contains(reserved),"material_has_no_reserved_hint");
+                var ammunition=screen.getMenu().shipyard.stack(ShipyardBlockEntity.CACHE_START+2);
+                var pointLine=Component.translatable("tooltip.piranport.manufacturing.ammunition_points",2).getString();
+                var totalLine=Component.translatable("tooltip.piranport.manufacturing.ammunition_total",ammunition.getCount()*2L).getString();
+                require(UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-ammunition-cache.png",List.of()).containsAll(List.of(pointLine,totalLine)),"ammunition_points_only_in_cache");
+                var playerTooltip=UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-ammunition-player.png",List.of());
+                require(!playerTooltip.isEmpty()&&playerTooltip.stream().noneMatch(t->t.contains("制造材料量")||t.contains("当前堆叠")),"player_ammunition_has_no_custom_tooltip");
                 click(screen,"取消建造");stage=5;delay=3;
             } else if(stage==5&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getFocused() instanceof Button b&&b.getMessage().getString().equals("返回"),"cancel_defaults_to_return");capture(mc,"cancel-confirmation");

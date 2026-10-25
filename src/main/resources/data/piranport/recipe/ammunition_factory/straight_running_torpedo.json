@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:straight_running_torpedo",
+  "count": 1,
+  "copper": 2,
+  "steel": 4,
+  "aluminum": 0,
+  "gunpowder": 2,
+  "seconds": 2
+}

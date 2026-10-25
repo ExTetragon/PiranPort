@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "piranport:item/torpedo"
+    "layer0": "piranport:item/anti_ship_missile"
   }
 }

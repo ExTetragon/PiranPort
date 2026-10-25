@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:armor_piercing_shell",
+  "count": 4,
+  "copper": 4,
+  "steel": 8,
+  "aluminum": 0,
+  "gunpowder": 2,
+  "seconds": 3
+}

@@ -10,6 +10,7 @@ import com.lex0v0.piranport.item.BlueprintItem;
 import com.lex0v0.piranport.item.blueprint.BlueprintFamily;
 import com.lex0v0.piranport.item.RiggingCoreItem;
 import com.lex0v0.piranport.item.AmmunitionItem;
+import com.lex0v0.piranport.domain.ammunition.AmmunitionType;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -23,12 +24,35 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // 集中注册食物、矿物、流体容器、蓝图及舰装核心。
 public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(PiranPort.MODID);
+    public static final DeferredItem<BlockItem> AMMUNITION_FACTORY = ITEMS.register("ammunition_factory", () -> new BlockItem(ModBlocks.AMMUNITION_FACTORY.get(), new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item(new Item.Properties()));
     public static final DeferredItem<BlockItem> DEVELOPMENT_FACTORY = ITEMS.register("development_factory", () -> new BlockItem(ModBlocks.DEVELOPMENT_FACTORY.get(), new Item.Properties().stacksTo(1)));
     public static final DeferredItem<BlockItem> SHIPYARD = ITEMS.register("shipyard", () -> new BlockItem(ModBlocks.SHIPYARD.get(), new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<AmmunitionItem> MAIN_GUN_AMMUNITION = ITEMS.register("main_gun_ammunition", () -> new AmmunitionItem(2, new Item.Properties()));
-    public static final DeferredItem<AmmunitionItem> TORPEDO = ITEMS.register("torpedo", () -> new AmmunitionItem(2, new Item.Properties()));
-    public static final DeferredItem<AmmunitionItem> DEPTH_CHARGE = ITEMS.register("depth_charge", () -> new AmmunitionItem(1, new Item.Properties()));
-    public static final DeferredItem<AmmunitionItem> MISSILE = ITEMS.register("missile", () -> new AmmunitionItem(4, new Item.Properties()));
+    public static final DeferredItem<AmmunitionItem> HIGH_EXPLOSIVE_SHELL = registerAmmunition(AmmunitionType.HIGH_EXPLOSIVE_SHELL);
+    public static final DeferredItem<AmmunitionItem> ARMOR_PIERCING_SHELL = registerAmmunition(AmmunitionType.ARMOR_PIERCING_SHELL);
+    public static final DeferredItem<AmmunitionItem> ANTI_AIRCRAFT_SHELL = registerAmmunition(AmmunitionType.ANTI_AIRCRAFT_SHELL);
+    public static final DeferredItem<AmmunitionItem> DEPTH_CHARGE = registerAmmunition(AmmunitionType.DEPTH_CHARGE);
+    public static final DeferredItem<AmmunitionItem> STRAIGHT_RUNNING_TORPEDO = registerAmmunition(AmmunitionType.STRAIGHT_RUNNING_TORPEDO);
+    public static final DeferredItem<AmmunitionItem> GUIDED_TORPEDO = registerAmmunition(AmmunitionType.GUIDED_TORPEDO);
+    public static final DeferredItem<AmmunitionItem> ANTI_SHIP_MISSILE = registerAmmunition(AmmunitionType.ANTI_SHIP_MISSILE);
+    public static final DeferredItem<AmmunitionItem> ANTI_AIRCRAFT_MISSILE = registerAmmunition(AmmunitionType.ANTI_AIRCRAFT_MISSILE);
+
+    private static DeferredItem<AmmunitionItem> registerAmmunition(AmmunitionType type) {
+        return ITEMS.register(type.id().getPath(), () -> new AmmunitionItem(type, new Item.Properties()));
+    }
+
+    public static AmmunitionItem ammunition(AmmunitionType type) {
+        return switch (type) {
+            case HIGH_EXPLOSIVE_SHELL -> HIGH_EXPLOSIVE_SHELL.get();
+            case ARMOR_PIERCING_SHELL -> ARMOR_PIERCING_SHELL.get();
+            case ANTI_AIRCRAFT_SHELL -> ANTI_AIRCRAFT_SHELL.get();
+            case DEPTH_CHARGE -> DEPTH_CHARGE.get();
+            case STRAIGHT_RUNNING_TORPEDO -> STRAIGHT_RUNNING_TORPEDO.get();
+            case GUIDED_TORPEDO -> GUIDED_TORPEDO.get();
+            case ANTI_SHIP_MISSILE -> ANTI_SHIP_MISSILE.get();
+            case ANTI_AIRCRAFT_MISSILE -> ANTI_AIRCRAFT_MISSILE.get();
+        };
+    }
 
     public static final DeferredItem<RiggingCoreItem> RIGGING_CORE = ITEMS.register("rigging_core",
             () -> new RiggingCoreItem(new Item.Properties().stacksTo(1).fireResistant()));

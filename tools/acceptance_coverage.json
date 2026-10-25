@@ -967,7 +967,9 @@
         "ShipyardGameTests.breakDropsStorageAfterCancellation",
         "ShipyardGameTests.lastBlockItemPlacementRestoresCache",
         "ShipyardGameTests.creativeBreakScattersContentsWithoutShipyard",
-        "ShipyardGameTests.creativeBreakScattersPendingCore"
+        "ShipyardGameTests.creativeBreakScattersPendingCore",
+        "ShipyardGameTests.survivalBreakWithoutToolScattersContents",
+        "ShipyardGameTests.survivalBreakWithToolKeepsStorage"
       ],
       "note": "生存掉落缓存及重放；创造拆除物品散落，不掉船坞并清除燃油"
     },
@@ -1238,7 +1240,9 @@
     "DF15": {
       "coverage": "partial",
       "tests": [
-        "DevelopmentFactoryGameTests.creativeClearsFuelAndScattersItems"
+        "DevelopmentFactoryGameTests.creativeClearsFuelAndScattersItems",
+        "DevelopmentFactoryGameTests.survivalBreakWithoutToolScattersContents",
+        "DevelopmentFactoryGameTests.survivalBreakWithToolKeepsStorage"
       ],
       "note": "创造拆除清除缓存；实际破坏交互仍需人工复核"
     },
@@ -1311,6 +1315,221 @@
         "LoggingGameTests.durabilityLogsOnlyCommittedWear"
       ],
       "note": "原版准备钩子不输出；实际耗损、销毁与保留归零件各记录一次"
+    },
+    "AM01": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionGameTests.identitiesTagsAndDefaultState"
+      ],
+      "note": "Eight registered types, fixed points, category tags, plain state and no custom item tooltip."
+    },
+    "AM02": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionGameTests.coreAdmissionSimulationAndRoundtrip"
+      ],
+      "note": "Ammunition admission, simulation, defensive copies and current-format core roundtrip."
+    },
+    "AM03": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionGameTests.mixedPointCeilingAndSlotOrder"
+      ],
+      "note": "Per-type ceiling and cache-order consumption without optimization."
+    },
+    "AM04": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionGameTests.allTypesShipyardConsumptionAndRefund"
+      ],
+      "note": "All types start shipyard transactions and refund exact original stacks."
+    },
+    "AM05": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionGameTests.allTypesFactoryConsumptionAndRefund"
+      ],
+      "note": "All types start factory transactions and refund exact original stacks."
+    },
+    "AL01": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.machineCraftingAndRecipeBounds",
+        "AmmunitionFactoryGameTests.packetRecipeAndInvalidJobValidation"
+      ],
+      "note": "专服注册与客户端资源检查；真实第三方环境仍需人工。"
+    },
+    "AL02": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.copperConversionsAndTags"
+      ],
+      "note": "标签及工作台配方匹配、产量已测；真实原版合成器消耗仍需人工。"
+    },
+    "AL03": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.eightConfirmedRecipesAndActualOutputs"
+      ],
+      "note": "八项逐一核对费用、产量、时间与实际入库。"
+    },
+    "AL04": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.onlyFourMaterialsAndNoCopperInOtherFactories"
+      ],
+      "note": "四原料及各规格准入；旧制造设施仍拒绝铜。"
+    },
+    "AL05": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.fragmentsBeforeIngotsAndBlocks",
+        "AmmunitionFactoryGameTests.partialIngotHasExactChange"
+      ],
+      "note": "粒优先及精确找零已测；同规格多格和第三方混投仍需人工扩展。"
+    },
+    "AL06": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.partialIngotHasExactChange",
+        "AmmunitionFactoryGameTests.changeOverflowUsesAdjacentInventory",
+        "AmmunitionFactoryGameTests.rejectedNeighborDropsChangeWithoutPause"
+      ],
+      "note": "缓存找零、邻接箱子与拒收后掉落已测；第三方部分接收需人工。"
+    },
+    "AL07": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.quantityRoundingLimitsAndZeroCosts"
+      ],
+      "note": "整数边界与4件修正已测；客户端实际输入修正另有GUI报告。"
+    },
+    "AL08": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.quantityRoundingLimitsAndZeroCosts",
+        "AmmunitionFactoryGameTests.onlyCurrentCyclePaidAndFiniteRepeat"
+      ],
+      "note": "材料上限与零费用；实际GUI验证消耗不改需求草稿。"
+    },
+    "AL09": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.onlyCurrentCyclePaidAndFiniteRepeat",
+        "AmmunitionFactoryGameTests.failedStartAndSimulationHaveNoSideEffects"
+      ],
+      "note": "逐次投入、失败及查询模拟无副作用。"
+    },
+    "AL10": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.onlyCurrentCyclePaidAndFiniteRepeat",
+        "AmmunitionFactoryGameTests.nextCycleWaitsForOutputAndTakingDoesNotUndoCount"
+      ],
+      "note": "整批与历史入库计数。"
+    },
+    "AL11": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.residualMixedOutputsAndWholeBatchSpace",
+        "AmmunitionFactoryGameTests.outputComponentsPreventMerging"
+      ],
+      "note": "同种、异种及不同组件空间。"
+    },
+    "AL12": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.nextCycleWaitsForMaterialsThenResumes",
+        "AmmunitionFactoryGameTests.nextCycleWaitsForOutputAndTakingDoesNotUndoCount"
+      ],
+      "note": "固定计划缺料、满库等待和恢复。"
+    },
+    "AL13": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.gracefulInterruptCompletesOnlyCurrentCycle",
+        "AmmunitionFactoryGameTests.waitingPlanInterruptsImmediately",
+        "AmmunitionFactoryGameTests.completedBatchWaitsForSpaceAndInterruptFinish"
+      ],
+      "note": "加工、待下一次与已完成待入库三种中断。"
+    },
+    "AL14": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.gracefulInterruptCompletesOnlyCurrentCycle",
+        "AmmunitionFactoryGameTests.independentWindowsLastCloserAndRemoteRejection"
+      ],
+      "note": "唯一工位及过期任务、远程验证；真实多人争用和高延迟仍需人工。"
+    },
+    "AL15": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.facePermissionsStrictPriorityAndStaleReferences"
+      ],
+      "note": "五面权限、产物严格优先与旧引用；第三方管道需人工。"
+    },
+    "AL16": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.rawAndProductMenuRulesAndAnomalousInventory",
+        "AmmunitionFactoryGameTests.failedStartAndSimulationHaveNoSideEffects"
+      ],
+      "note": "恢复异常物品可抽取与模拟已测；实际标签重载需人工。"
+    },
+    "AL17": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.storedRecipeSnapshotIndependentOfCurrentRecipe"
+      ],
+      "note": "冻结快照往返；真实数据包重载、删除及重复路线需人工。"
+    },
+    "AL18": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.saveLoadPreservesPaidBatchAndInterrupt"
+      ],
+      "note": "当前格式序列化恢复，不增加离线时间；完整进程重启与卸载需人工。"
+    },
+    "AL19": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.matchingToolDropAndLastPlacementOnlyRestoreCaches"
+      ],
+      "note": "正确工具缓存组件与最后一件放置恢复。"
+    },
+    "AL20": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.wrongToolAndRepeatedRemovalDoNotRefundOrDuplicate",
+        "AmmunitionFactoryGameTests.lootQueriesArePureAndCreativeScattersOnce"
+      ],
+      "note": "错误工具、创造、多回调及战利品查询；真实TNT需人工。"
+    },
+    "AL21": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.independentWindowsLastCloserAndRemoteRejection"
+      ],
+      "note": "独立窗口、最后关闭与无UUID持久化；GUI重开实际验证。"
+    },
+    "AL22": {
+      "coverage": "full",
+      "tests": [
+        "AmmunitionFactoryGameTests.packetRecipeAndInvalidJobValidation"
+      ],
+      "note": "零单位格式；实际双语GUI验证需求、类别、模式与总量。"
+    },
+    "AL23": {
+      "coverage": "partial",
+      "tests": [],
+      "note": "独立GUI专项检查默认字体、固定窗口及九张截图；其他字体与缩放需人工。"
+    },
+    "AL24": {
+      "coverage": "partial",
+      "tests": [
+        "AmmunitionFactoryGameTests.onlyCurrentCyclePaidAndFiniteRepeat"
+      ],
+      "note": "发行包、集中日志及旧设施GUI回归；完成音实际听感需人工。"
     }
   }
 }

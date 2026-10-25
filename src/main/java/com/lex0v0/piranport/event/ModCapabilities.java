@@ -19,6 +19,7 @@ public final class ModCapabilities {
 
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.ItemHandler.BLOCK, ModBlockEntities.AMMUNITION_FACTORY.get(), (entity, side) -> entity.items(side));
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.FUEL_BARREL.get(),
                 (blockEntity, side) -> blockEntity.getFluidHandler(side));
         event.registerBlockEntity(Capabilities.FluidHandler.BLOCK, ModBlockEntities.SHIPYARD.get(), (entity, side) -> entity.fluid(side));

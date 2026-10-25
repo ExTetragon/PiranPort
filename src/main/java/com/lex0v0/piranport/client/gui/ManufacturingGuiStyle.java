@@ -43,6 +43,10 @@ public final class ManufacturingGuiStyle {
         for (int col = 0; col < 9; col++) slot(g, x + 150 + lower + col * 18, y + 222);
     }
 
+    public static void shell(GuiGraphics g, int x, int y, int width, int textWidth) {
+        backdrop(g,x,y,width); title(g,x,y,width,textWidth); outline(g,x,y,width,PANEL_HEIGHT,OUTER_EDGE);
+    }
+
     private static void title(GuiGraphics g, int x, int y, int width, int textWidth) {
         int end = Math.clamp(textWidth + 24, 60, width - 60);
         for (int row = 0; row < 18; row++) {
@@ -71,7 +75,7 @@ public final class ManufacturingGuiStyle {
         }
     }
 
-    private static void frame(GuiGraphics g, int x, int y, int w, int h) {
+    public static void frame(GuiGraphics g, int x, int y, int w, int h) {
         g.fillGradient(x, y, x + w, y + h, 0xff0e2a3e, 0xff0b2032);
         outline(g, x, y, w, h, 0xff345f7a);
         g.fill(x + 1, y + 1, x + w - 1, y + 2, 0xff081b2b);
@@ -79,7 +83,7 @@ public final class ManufacturingGuiStyle {
         g.fill(x + 1, y + h - 1, x + w, y + h, 0xff0a1d2d);
     }
 
-    private static void slot(GuiGraphics g, int x, int y) {
+    public static void slot(GuiGraphics g, int x, int y) {
         g.fillGradient(x + 1, y + 1, x + 17, y + 17, 0xff193c54, 0xff123148);
         g.fill(x, y, x + 18, y + 1, 0xff081c2c);
         g.fill(x, y + 1, x + 1, y + 18, 0xff0b2234);

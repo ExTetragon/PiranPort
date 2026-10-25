@@ -27,6 +27,8 @@ public final class ModBlockEntities {
 
     private ModBlockEntities() {
     }
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<com.lex0v0.piranport.blockentity.AmmunitionFactoryBlockEntity>> AMMUNITION_FACTORY =
+            BLOCK_ENTITIES.register("ammunition_factory", () -> BlockEntityType.Builder.of(com.lex0v0.piranport.blockentity.AmmunitionFactoryBlockEntity::new, ModBlocks.AMMUNITION_FACTORY.get()).build(null));
 
     public static void register(IEventBus modEventBus) {
         BLOCK_ENTITIES.register(modEventBus);

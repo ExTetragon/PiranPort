@@ -6,6 +6,7 @@
     "piranport:aluminum_block",
     "piranport:steel_block",
     "piranport:shipyard",
-    "piranport:development_factory"
+    "piranport:development_factory",
+    "piranport:ammunition_factory"
   ]
 }

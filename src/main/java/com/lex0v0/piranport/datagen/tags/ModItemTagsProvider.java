@@ -29,13 +29,16 @@ public final class ModItemTagsProvider extends TagsProvider<Item> {
     }
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        tag(common("nuggets/copper")).add(ModItems.COPPER_NUGGET.getKey());
         for (var category : com.lex0v0.piranport.domain.equipment.EquipmentCategory.values()) {
             var target = switch (category.group()) { case WEAPON -> ModItemTags.WEAPONS; case DEVICE -> ModItemTags.DEVICES; case AIRCRAFT -> ModItemTags.AIRCRAFT; };
             tag(target).add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getResourceKey(ModItems.equipment(category)).orElseThrow());
         }
         tag(ModItemTags.EQUIPMENT_CONSUMABLES).add(ModItems.QUICK_REPAIR.getKey(),ModItems.DAMAGE_CONTROL.getKey());
-        tag(ModItemTags.AMMUNITION).add(ModItems.MAIN_GUN_AMMUNITION.getKey(), ModItems.TORPEDO.getKey(),
-                ModItems.DEPTH_CHARGE.getKey(), ModItems.MISSILE.getKey());
+        for (var category : com.lex0v0.piranport.domain.ammunition.AmmunitionCategory.values())
+            tag(ModItemTags.AMMUNITION).addTag(ModItemTags.ammunition(category));
+        for (var type : com.lex0v0.piranport.domain.ammunition.AmmunitionType.values())
+            tag(ModItemTags.ammunition(type.category())).add(ResourceKey.create(Registries.ITEM, type.id()));
         material("ores", "bauxite", "bauxite_ore");
         material("ores", "saltpeter", "saltpeter_block");
         material("storage_blocks", "raw_bauxite", "bauxite_block");

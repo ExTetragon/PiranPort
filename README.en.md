@@ -6,7 +6,11 @@
 
 **PiranPort** — a comprehensive **Warship Girls R**-themed mod for **Minecraft 1.21.1 (NeoForge)**: play as a shipgirl, gather resources, cook food, and craft riggings and weapons in survival, fight Abyssal enemies across the Overworld, campaign maps, and the Abyssal World, and explore an independent story. Its content is organized into three systems: combat, logistics, and story.
 
-> **Status: early development, version 0.1.95.** 98 registered items include food, resources, blueprints, ammunition, rigging cores, the shipyard, and 15 equipment categories with 21 durable models and 2 plain consumables. Equipment has durability, aircraft fuel storage, creative variants and 32×32 icons; the development factory provides 23 recipes, blueprint reservation, refunds, persistent storage, automation and category/text filters. Repair, automatic consumable effects and combat remain unimplemented. Dedicated-server regression contains 176 GameTests. See the [equipment plan](docs/2.2-装备-初步开发方案.md) for scope and validation.
+> **Status: early development, version 0.1.105.** 104 registered items include food, resources, blueprints, eight ammunition types, rigging cores, the shipyard, and 15 equipment categories with 21 durable models and 2 plain consumables. Equipment has durability, aircraft fuel storage, creative variants and 32×32 icons; the development factory provides 23 recipes, blueprint reservation, refunds, persistent storage, automation and category/text filters. Repair, automatic consumable effects and combat remain unimplemented.
+
+The [ammunition production line](docs/3.2.4-弹药生产线-实现方案.md) now provides eight recipes, finite production plans, per-cycle charging, pause/resume, graceful interruption, sided item access and copper nugget conversions. Its GUI shows single-cycle or total requirements and preserves the last closed browsing state on the machine.
+
+---
 
 ## Planned scope
 
@@ -35,6 +39,8 @@ PiranPort is organized into three systems: combat, logistics, and story.
 - **Abyssal Will World**: main island and boss, outer islands
 - **Advancements**
 
+---
+
 ## Development roadmap
 
 | Version | Content |
@@ -48,48 +54,11 @@ PiranPort is organized into three systems: combat, logistics, and story.
 | 0.7.x | Story: campaign map and advancements |
 | 0.8.x | Story: Abyssal Will World |
 
-## Requirements
-
-| Component | Version |
-|---|---|
-| Minecraft | 1.21.1 |
-| NeoForge | 21.1.259 |
-| ModDevGradle | 2.0.148 |
-| Gradle | 9.2.1 (Wrapper) |
-| JDK | 21 |
-| Parchment | 1.21.1 / 2024.11.17 |
-
-## Building
-
-`JAVA_HOME` must point to JDK 21. If the system variable still points to an older version, override it for the current terminal only:
-
-```bash
-export JAVA_HOME="C:/Program Files/Java/jdk-21"
-```
-
-```bash
-./gradlew build          # build
-./gradlew runClient      # launch a dev client
-./gradlew runServer      # launch a dev server
-./gradlew runData        # generate storage-block loot and mineral item tags
-./gradlew runGameTestServer # requires restored test sources; see the development log
-```
-
-Open this folder as a Gradle project in IntelliJ IDEA to get code completion for Minecraft and NeoForge classes. Also set **Gradle JVM** to JDK 21 under `Settings > Build, Execution, Deployment > Build Tools > Gradle`.
-
-## Project structure
-
-```
-src/main/java/com/lex0v0/piranport/           main class, client entry, config
-src/main/java/com/lex0v0/piranport/registry/  item, block, and creative tab registration
-src/main/resources/META-INF/                  neoforge.mods.toml
-src/main/resources/assets/piranport/          language files and other resources
-src/generated/resources/                      data generation output
-```
+---
 
 ## Mod metadata
 
-| | |
+| Item | Value |
 |---|---|
 | Display name | PiranPort |
 | Mod ID | `piranport` |
@@ -98,22 +67,8 @@ src/generated/resources/                      data generation output
 | Maven Group | `com.lex0v0.piranport` |
 | Artifact | `piranport-0.1.95.jar` |
 
-## Version policy
-
-- Current version: `0.1.95`, based on 71 implemented features and 24 bug fixes; see the [development log](docs/开发日志.md) for the itemized baseline.
-- Increment only the last version segment for each completed feature or independent bug fix. Documentation changes do not count. Change the first or middle segment only when explicitly requested by the user.
-
-- Development and testing use NeoForge `21.1.259`.
-- The dependency lower bound in `neoforge.mods.toml` is `[21.1.0,)`, permitting other 21.1.x versions; only 21.1.259 has been validated.
+---
 
 ## License
 
-GPL-3.0 — see [LICENSE](LICENSE).
-
-## Implementation and validation
-
-See [implementation](docs/3.1-矿物资源-实现方案.md), [acceptance checklist](docs/3.1-矿物资源-测试清单.md), [repair details](docs/3.1-矿物资源-修复说明.md), and the [resource workbook](docs/后勤-矿物.xlsx).
-Generated resources and the Gradle Wrapper are versioned. GameTests use run/gametest and are excluded from the release jar.
-Run python tools/verify_resources.py to check JSON and texture references. Use python tools/generate_food_placeholders.py to recreate missing food placeholders.
-
-The [food workbook](docs/舰R食物.xlsx) records implemented basics and pending special effects. The [original design PDF](docs/策划书.pdf) is preserved unchanged. Development history and implementation corrections are recorded in the [development log](docs/开发日志.md); [AGENTS.md](AGENTS.md) describes the current project structure, constraints, and validation status.
+GPL-3.0

@@ -1,0 +1,10 @@
+{
+  "type": "piranport:ammunition_factory",
+  "target": "piranport:anti_aircraft_missile",
+  "count": 1,
+  "copper": 4,
+  "steel": 5,
+  "aluminum": 6,
+  "gunpowder": 3,
+  "seconds": 4
+}
