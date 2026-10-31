@@ -1,0 +1,605 @@
+{
+  "server": "blockbench",
+  "requestPath": "F:\\codex\\tools\\mc-art\\blockbench-geometry1-request.json",
+  "startedAt": "2026-10-29T17:09:08.372Z",
+  "results": [
+    {
+      "index": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_steel.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#889aa3"
+        }
+      },
+      "elapsedMs": 20,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-01-image-001.png",
+            "byteLength": 120
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "steel_base",
+              "from": [
+                1,
+                0,
+                1
+              ],
+              "to": [
+                15,
+                2,
+                15
+              ]
+            },
+            {
+              "name": "top_cap",
+              "from": [
+                2,
+                15,
+                3
+              ],
+              "to": [
+                14,
+                16,
+                14
+              ]
+            },
+            {
+              "name": "work_bed",
+              "from": [
+                4,
+                3,
+                3
+              ],
+              "to": [
+                12,
+                5,
+                11
+              ]
+            },
+            {
+              "name": "loading_tray",
+              "from": [
+                4,
+                2,
+                0
+              ],
+              "to": [
+                12,
+                3,
+                7
+              ]
+            },
+            {
+              "name": "pressure_gauge",
+              "from": [
+                10,
+                12,
+                1.5
+              ],
+              "to": [
+                13,
+                14,
+                2
+              ]
+            }
+          ],
+          "texture": "press_steel.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 20,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube steel_base with ID 91a8c718-8b4c-d5d5-1375-d99085df9ce1\",\"Added cube top_cap with ID 1832c325-4e18-ff5b-37e5-8dc054eec7f3\",\"Added cube work_bed with ID c970a734-10db-0564-520d-53ac89b1f0ef\",\"Added cube loading_tray with ID 6eccc7bf-d30f-13c4-03b7-997af71d4660\",\"Added cube pressure_gauge with ID ac862549-707b-8e1c-f334-d427cfd34dc2\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_copper.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#c78348"
+        }
+      },
+      "elapsedMs": 10,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-03-image-002.png",
+            "byteLength": 121
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "ram_shaft",
+              "from": [
+                7,
+                8,
+                6
+              ],
+              "to": [
+                9,
+                11,
+                9
+              ]
+            },
+            {
+              "name": "press_head",
+              "from": [
+                5,
+                7,
+                4
+              ],
+              "to": [
+                11,
+                8,
+                11
+              ]
+            },
+            {
+              "name": "side_oil_canister",
+              "from": [
+                0,
+                4,
+                9
+              ],
+              "to": [
+                1,
+                9,
+                13
+              ]
+            }
+          ],
+          "texture": "press_copper.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 15,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube ram_shaft with ID a7974c2a-3821-4fe5-74d6-dc3456d9b6ab\",\"Added cube press_head with ID 8007254c-8147-ff77-aa4f-c74b6f9b0910\",\"Added cube side_oil_canister with ID ff7db1b6-93e0-80c1-ca8b-1f28499f8cd1\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_dark.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#15232c"
+        }
+      },
+      "elapsedMs": 19,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-05-image-003.png",
+            "byteLength": 121
+          }
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "vent_upper",
+              "from": [
+                15,
+                7,
+                7
+              ],
+              "to": [
+                15.5,
+                8,
+                13
+              ]
+            },
+            {
+              "name": "vent_middle",
+              "from": [
+                15,
+                5,
+                7
+              ],
+              "to": [
+                15.5,
+                6,
+                13
+              ]
+            },
+            {
+              "name": "vent_lower",
+              "from": [
+                15,
+                3,
+                7
+              ],
+              "to": [
+                15.5,
+                4,
+                13
+              ]
+            },
+            {
+              "name": "rear_service_panel",
+              "from": [
+                4,
+                4,
+                15
+              ],
+              "to": [
+                12,
+                11,
+                16
+              ]
+            }
+          ],
+          "texture": "press_dark.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 14,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube vent_upper with ID d66b93b5-5ff4-4058-cab0-d7832a507df3\",\"Added cube vent_middle with ID aa62bec4-b072-a381-a054-962946ea8474\",\"Added cube vent_lower with ID 93601205-e897-e9d5-87b0-5c78087ce5bf\",\"Added cube rear_service_panel with ID c945b3d7-a9c6-5a10-74cd-c36e2fee6ef6\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_warning.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#d6ad4b"
+        }
+      },
+      "elapsedMs": 16,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-07-image-004.png",
+            "byteLength": 121
+          }
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "loading_warning_lip",
+              "from": [
+                4,
+                3,
+                0
+              ],
+              "to": [
+                12,
+                4,
+                1
+              ]
+            }
+          ],
+          "texture": "press_warning.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 12,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube loading_warning_lip with ID 965e56c0-89bf-3f5f-7475-cf9fd7fe0b5a\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_green.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#65c89c"
+        }
+      },
+      "elapsedMs": 16,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-09-image-005.png",
+            "byteLength": 121
+          }
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "status_light",
+              "from": [
+                13,
+                8,
+                1.5
+              ],
+              "to": [
+                14,
+                9,
+                2
+              ]
+            }
+          ],
+          "texture": "press_green.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 10,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube status_light with ID a4a63194-1b66-00c0-1a17-84197250c1d1\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "method": "tools/call",
+      "params": {
+        "name": "create_texture",
+        "arguments": {
+          "name": "press_badge.png",
+          "width": 16,
+          "height": 16,
+          "fill_color": "#cddad8"
+        }
+      },
+      "elapsedMs": 7,
+      "result": {
+        "content": [
+          {
+            "type": "image",
+            "mimeType": "image/png",
+            "filePath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-11-image-006.png",
+            "byteLength": 120
+          }
+        ]
+      }
+    },
+    {
+      "index": 12,
+      "method": "tools/call",
+      "params": {
+        "name": "place_cube",
+        "arguments": {
+          "elements": [
+            {
+              "name": "front_identification_plate",
+              "from": [
+                2,
+                12,
+                1.5
+              ],
+              "to": [
+                6,
+                14,
+                2
+              ]
+            }
+          ],
+          "texture": "press_badge.png",
+          "faces": true
+        }
+      },
+      "elapsedMs": 15,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[\"Added cube front_identification_plate with ID 1766b0c0-5354-02e2-00c0-31444826bc07\"]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 13,
+      "method": "tools/call",
+      "params": {
+        "name": "set_display_transform",
+        "arguments": {
+          "slot": "gui",
+          "rotation": [
+            30,
+            225,
+            0
+          ],
+          "scale": [
+            0.625,
+            0.625,
+            0.625
+          ]
+        }
+      },
+      "elapsedMs": 4,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"slot\": \"gui\",\n  \"reset\": false,\n  \"defaults\": \"identity\",\n  \"transform\": {\n    \"translation\": [\n      0,\n      0,\n      0\n    ],\n    \"rotation\": [\n      30,\n      -135,\n      0\n    ],\n    \"scale\": [\n      0.625,\n      0.625,\n      0.625\n    ],\n    \"mirror\": [\n      false,\n      false,\n      false\n    ],\n    \"rotation_pivot\": [\n      0,\n      0,\n      0\n    ],\n    \"scale_pivot\": [\n      0,\n      0,\n      0\n    ]\n  },\n  \"warnings\": []\n}"
+          }
+        ]
+      }
+    },
+    {
+      "index": 14,
+      "method": "tools/call",
+      "params": {
+        "name": "get_project_info",
+        "arguments": {}
+      },
+      "elapsedMs": 6,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"project\": {\n    \"name\": \"PiranPort Art Smoke - Ammunition Press\",\n    \"uuid\": \"170d9c6f-6bdb-f5d4-cf74-34c6fc4329d4\",\n    \"save_path\": \"\"\n  },\n  \"format\": {\n    \"id\": \"java_block\",\n    \"name\": \"Java 版方块/物品\"\n  },\n  \"resolution\": {\n    \"texture_width\": 16,\n    \"texture_height\": 16\n  },\n  \"counts\": {\n    \"cubes\": 15,\n    \"meshes\": 0,\n    \"groups\": 0,\n    \"textures\": 6,\n    \"outliner_elements\": 15\n  },\n  \"root_groups\": []\n}"
+          },
+          {
+            "name": "PiranPort Art Smoke - Ammunition Press.bbmodel",
+            "title": "PiranPort Art Smoke - Ammunition Press project file",
+            "uri": "blockbench://project/170d9c6f-6bdb-f5d4-cf74-34c6fc4329d4.bbmodel",
+            "description": "Live Blockbench project file, including unsaved edits and embedded textures. Readable while this project is active; select it again if unavailable.",
+            "mimeType": "application/json",
+            "type": "resource_link"
+          }
+        ],
+        "structuredContent": {
+          "project": {
+            "name": "PiranPort Art Smoke - Ammunition Press",
+            "uuid": "170d9c6f-6bdb-f5d4-cf74-34c6fc4329d4",
+            "save_path": ""
+          },
+          "format": {
+            "id": "java_block",
+            "name": "Java 版方块/物品"
+          },
+          "resolution": {
+            "texture_width": 16,
+            "texture_height": 16
+          },
+          "counts": {
+            "cubes": 15,
+            "meshes": 0,
+            "groups": 0,
+            "textures": 6,
+            "outliner_elements": 15
+          },
+          "root_groups": []
+        }
+      }
+    },
+    {
+      "index": 15,
+      "method": "tools/call",
+      "params": {
+        "name": "list_textures",
+        "arguments": {}
+      },
+      "elapsedMs": 16,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[{\"name\":\"press_steel.png\",\"uuid\":\"164d9a1d-8950-6f3b-602c-8b317d2567d1\",\"id\":\"0\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]},{\"name\":\"press_copper.png\",\"uuid\":\"fa6bddac-e9a8-8abd-d198-1932666d5b0f\",\"id\":\"1\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]},{\"name\":\"press_dark.png\",\"uuid\":\"aac23239-bdb8-07cd-9078-365d14f85730\",\"id\":\"2\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]},{\"name\":\"press_warning.png\",\"uuid\":\"219c5e74-e5c5-2832-8fe2-b77d317e4d62\",\"id\":\"3\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]},{\"name\":\"press_green.png\",\"uuid\":\"5b4473cc-c850-b61f-a12a-a722ba59a579\",\"id\":\"4\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]},{\"name\":\"press_badge.png\",\"uuid\":\"c393c81a-7886-7384-37fb-0fc363e44412\",\"id\":\"5\",\"group\":\"\",\"uv_size\":[16,16],\"bitmap_size\":[16,16],\"frame_size\":[16,16]}]"
+          }
+        ]
+      }
+    },
+    {
+      "index": 16,
+      "method": "tools/call",
+      "params": {
+        "name": "list_export_formats",
+        "arguments": {
+          "only_current_format": true
+        }
+      },
+      "elapsedMs": 15,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"current_format_codec\": \"java_block\",\n  \"count\": 1,\n  \"codecs\": [\n    {\n      \"id\": \"java_block\",\n      \"name\": \"Java Block/Item Model\",\n      \"extension\": \"json\",\n      \"has_compile\": true,\n      \"has_export\": true,\n      \"supports_partial_export\": true,\n      \"belongs_to_current_format\": true,\n      \"available\": true\n    }\n  ]\n}"
+          }
+        ]
+      }
+    }
+  ],
+  "images": [
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-01-image-001.png",
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-03-image-002.png",
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-05-image-003.png",
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-07-image-004.png",
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-09-image-005.png",
+    "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\blockbench-geometry-stage1-images\\op-11-image-006.png"
+  ],
+  "ok": true,
+  "serverVersion": {
+    "name": "Blockbench MCP",
+    "version": "1.10.1"
+  },
+  "finishedAt": "2026-10-29T17:09:08.626Z"
+}

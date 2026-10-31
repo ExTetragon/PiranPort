@@ -387,7 +387,7 @@ public final class RiggingCoreGameTests {
         var details = RiggingTooltips.details(stack);
         h.assertTrue(details.size() == 11, "shift detail field count");
         var classification = (TranslatableContents)details.get(1).getContents();
-        h.assertTrue(((TranslatableContents)details.getFirst().getContents()).getKey().equals("ship.piranport.u47"), "canonical ship name has no field label");
+        h.assertTrue(((TranslatableContents)details.getFirst().getContents()).getKey().equals("ship_class_line.piranport.u47"), "class description is resolved from ship id without stored data");
         h.assertTrue(classification.getKey().equals("classification.piranport.ship") && classification.getArgs().length == 3,
                 "size, type and nationality share one detail line");
         h.assertTrue(((TranslatableContents)details.get(2).getContents()).getKey().endsWith("proficiency"), "proficiency follows ship classification");

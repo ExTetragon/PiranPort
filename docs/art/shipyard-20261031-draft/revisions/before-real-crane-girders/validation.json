@@ -1,0 +1,291 @@
+{
+  "completedAt": "2026-10-31T23:30+08:00",
+  "revision": 8,
+  "hullScaleFromDraft01": [
+    1.2,
+    1.12,
+    1.15
+  ],
+  "gantryColorReference": "Warship Girls R core_10441, adjusted for scene harmony",
+  "patternReference": "GregTechCEu/GregTech-Modern style only; patterns follow actual dock construction",
+  "colorDirection": "Neutral concrete and steel unchanged; saturated blue and gold cranes and red hull; localized highlights",
+  "surfacePatternRoles": {
+    "outside": "Cast panel joints and wall footing",
+    "coping": "Concrete lip, rubbed steel runner and anchors",
+    "inside": "Steel lining and drainage channels beside the tracks",
+    "bottom": "Longitudinal support beams, cradle crossmembers and a small access cover",
+    "ship": "Steel hull seams, localized red-hull highlights, longitudinal deck boards"
+  },
+  "preservedPatternTiles": [
+    5
+  ],
+  "preservedLatticeBodyTiles": [
+    11,
+    18
+  ],
+  "narrowFaceUV": "Thin painted sides sample midtone rows; lattice sides sample row 3; undersides avoid the top highlight row; texel density unchanged",
+  "capEdgeUV": {
+    "density": 4,
+    "edgeWidthInModelUnits": 0.25,
+    "regions": {
+      "gantry_crossbeam": [
+        32,
+        48,
+        56,
+        10,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "gantry_post": [
+        88,
+        48,
+        8,
+        8,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "gantry_edge": [
+        88,
+        56,
+        2,
+        1,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "jib_mast_cap": [
+        96,
+        48,
+        8,
+        8,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "jib_mast": [
+        104,
+        48,
+        6,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "jib_arm": [
+        96,
+        56,
+        21,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ]
+    },
+    "style": "Thin perimeter rims and restrained recess panels",
+    "recessColors": {
+      "blue": "#2679b3",
+      "yellow": "#b47e21"
+    },
+    "deepSideColors": {
+      "blue": "#214b74",
+      "yellow": "#8e631c",
+      "mastWarning": "#30363a"
+    }
+  },
+  "beamFaces": {
+    "density": 4,
+    "regions": {
+      "blue_top": [
+        0,
+        64,
+        56,
+        10,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "blue_side": [
+        0,
+        74,
+        56,
+        6,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "blue_bottom": [
+        0,
+        80,
+        56,
+        10,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "blue_end": [
+        56,
+        64,
+        10,
+        6,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "yellow_top": [
+        66,
+        64,
+        21,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_side": [
+        66,
+        70,
+        21,
+        4,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_bottom": [
+        66,
+        74,
+        21,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_end": [
+        87,
+        64,
+        6,
+        4,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_cap_top": [
+        94,
+        64,
+        8,
+        8,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_cap_side": [
+        94,
+        72,
+        8,
+        5,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "yellow_cap_bottom": [
+        94,
+        77,
+        8,
+        8,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ]
+    },
+    "faceUV": {
+      "gantry_crossbeam": {
+        "up": "blue_top",
+        "north": "blue_side",
+        "south": "blue_side",
+        "east": "blue_end",
+        "west": "blue_end",
+        "down": "blue_bottom"
+      },
+      "jib_arm": {
+        "up": "yellow_top",
+        "north": "yellow_side",
+        "south": "yellow_side",
+        "east": "yellow_end",
+        "west": "yellow_end",
+        "down": "yellow_bottom"
+      },
+      "jib_mast_cap": {
+        "up": "yellow_cap_top",
+        "north": "yellow_cap_side",
+        "south": "yellow_cap_side",
+        "east": "yellow_cap_side",
+        "west": "yellow_cap_side",
+        "down": "yellow_cap_bottom"
+      }
+    },
+    "blueRecessCenters": [
+      9,
+      28,
+      47
+    ],
+    "yellowRecessCount": 1,
+    "blueMotifSpacingInModelUnits": 4.75,
+    "style": "Coordinated top/front/back recesses, inset end plates, bottom guide rails; wide plain painted areas"
+  },
+  "gregtechReferenceCommit": "ec40d99d6a6e24d130bf4ddae0d7243281afad45",
+  "draft": false,
+  "productionIntegrated": true,
+  "runtimeVersion": "0.1.125",
+  "artEditsIncrementVersion": false,
+  "runtimeValidation": "runtime-validation.json",
+  "scope": "Native art exports and Blockbench previews; runtime checks recorded separately",
+  "referenceCount": 5,
+  "referenceCache": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores",
+  "nativeModel": "sources/shipyard_draft.bbmodel",
+  "elementCount": 56,
+  "groupCount": 6,
+  "bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      16,
+      15.5,
+      16
+    ]
+  },
+  "atlasDimensions": [
+    128,
+    128
+  ],
+  "texturePixelPerModelUnit": 1,
+  "mastStripePixelPerModelUnit": 2,
+  "capEdgePixelPerModelUnit": 4,
+  "beamFacePixelPerModelUnit": 4,
+  "atlasEmbeddedMatches": true,
+  "nativeGeometryAndUVMatchSpec": true,
+  "hullDoesNotIntersectCranes": true,
+  "allSixViewsUnclipped": true,
+  "nativeProjectSHA256": "8a54e35c6c822774cbde60717f92721cca067e97d15021d61cd4fbfad0a6f8c2",
+  "preview": "previews/shipyard-preview-v8-all-face-beams.png",
+  "gameLaunched": false
+}

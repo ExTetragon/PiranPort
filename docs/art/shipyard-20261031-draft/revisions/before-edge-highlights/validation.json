@@ -1,0 +1,64 @@
+{
+  "completedAt": "2026-10-31T23:04+08:00",
+  "revision": 4,
+  "hullScaleFromDraft01": [
+    1.2,
+    1.12,
+    1.15
+  ],
+  "gantryColorReference": "Warship Girls R core_10441, adjusted for scene harmony",
+  "patternReference": "GregTechCEu/GregTech-Modern style only; patterns follow actual dock construction",
+  "colorDirection": "Neutral concrete and steel unchanged; saturated blue and gold cranes and red hull; localized highlights",
+  "surfacePatternRoles": {
+    "outside": "Cast panel joints and wall footing",
+    "coping": "Concrete lip, rubbed steel runner and anchors",
+    "inside": "Steel lining and drainage channels beside the tracks",
+    "bottom": "Longitudinal support beams, cradle crossmembers and a small access cover",
+    "ship": "Steel hull seams, localized red-hull highlights, longitudinal deck boards"
+  },
+  "preservedPatternTiles": [
+    5
+  ],
+  "preservedLatticeBodyTiles": [
+    11,
+    18
+  ],
+  "narrowFaceUV": "Thin painted sides sample midtone rows; lattice sides sample row 3; undersides avoid the top highlight row; texel density unchanged",
+  "gregtechReferenceCommit": "ec40d99d6a6e24d130bf4ddae0d7243281afad45",
+  "draft": false,
+  "productionIntegrated": true,
+  "runtimeVersion": "0.1.125",
+  "artEditsIncrementVersion": false,
+  "runtimeValidation": "runtime-validation.json",
+  "scope": "Native art exports and Blockbench previews; runtime checks recorded separately",
+  "referenceCount": 5,
+  "referenceCache": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores",
+  "nativeModel": "sources/shipyard_draft.bbmodel",
+  "elementCount": 56,
+  "groupCount": 6,
+  "bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      16,
+      15.5,
+      16
+    ]
+  },
+  "atlasDimensions": [
+    128,
+    64
+  ],
+  "texturePixelPerModelUnit": 1,
+  "mastStripePixelPerModelUnit": 2,
+  "atlasEmbeddedMatches": true,
+  "nativeGeometryAndUVMatchSpec": true,
+  "hullDoesNotIntersectCranes": true,
+  "allFiveViewsUnclipped": true,
+  "nativeProjectSHA256": "933b989eec202610873545c391eb03288d8ce5ac11b5802129200ce442500ef4",
+  "preview": "previews/shipyard-preview-v4-saturation.png",
+  "gameLaunched": false
+}

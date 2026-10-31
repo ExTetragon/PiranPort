@@ -264,6 +264,7 @@ require('assets/piranport/textures/gui/manufacturing_background.png.mcmeta' in r
 for code in ['zh_cn', 'en_us']:
     translations = jsons.get(f'assets/piranport/lang/{code}.json', {})
     require(all(f'ship.piranport.{ship}' in translations for ship in ships), f'{code}: missing ship names')
+    require(all(f'ship_class_line.piranport.{ship}' in translations for ship in ships), f'{code}: missing independent ship class descriptions')
     require(sum(k.startswith('ship_type.piranport.') for k in translations) == 9, f'{code}: missing shared ship types')
     require(sum(k.startswith('ship_size.piranport.') for k in translations) == 3, f'{code}: missing shared ship sizes')
     require(all(f'tooltip.piranport.rigging.{field}' in translations for field in [
@@ -273,6 +274,30 @@ for code in ['zh_cn', 'en_us']:
             f'{code}: incorrect combined ship classification or spacing')
     require(translations.get('classification.piranport.equipment') == ('%s·%s' if code == 'zh_cn' else '%s · %s'),
             f'{code}: incorrect combined equipment classification or spacing')
+
+# 燃料桶必须覆盖三轴单桶和配对两端，竖直侧面的图标不得随桶轴旋转。
+barrel_variants = jsons['assets/piranport/blockstates/fuel_barrel.json'].get('variants', {})
+require(len(barrel_variants) == 9, 'fuel barrel: expected nine spatial variants')
+for axis in 'xyz':
+    ends = {'x': ['west', 'east'], 'y': ['down', 'up'], 'z': ['north', 'south']}[axis]
+    for part in ['single', 'lower', 'upper']:
+        variant = barrel_variants.get(f'axis={axis},part={part}', {})
+        model = jsons.get('assets/piranport/models/' + variant.get('model', ':').split(':')[-1] + '.json', {})
+        require(model.get('render_type') == 'minecraft:cutout', f'fuel barrel {axis}/{part}: window cutout')
+        elements = model.get('elements', [])
+        require(bool(elements) and elements[0].get('from') == [0, 0, 0] and elements[0].get('to') == [16, 16, 16],
+                f'fuel barrel {axis}/{part}: complete cube')
+        if elements:
+            faces = elements[0]['faces']
+            if part != 'single':
+                require(ends[1 if part == 'lower' else 0] not in faces, f'fuel barrel {axis}/{part}: internal endcap')
+                axis_index = 'xyz'.index(axis)
+                require(len(elements) >= 2 and elements[1].get('to' if part == 'lower' else 'from', [None] * 3)[axis_index]
+                        == (16 if part == 'lower' else 0), f'fuel barrel {axis}/{part}: lining must reach shared boundary')
+            for face, data in faces.items():
+                require(all(0 <= v <= 16 for v in data['uv']), f'fuel barrel {axis}/{part}: UV bounds')
+                if face not in ['up', 'down']:
+                    require(data.get('rotation', 0) == 0, f'fuel barrel {axis}/{part}: side symbol must point up')
 
 if errors:
     print('\n'.join('ERROR: ' + error for error in errors))

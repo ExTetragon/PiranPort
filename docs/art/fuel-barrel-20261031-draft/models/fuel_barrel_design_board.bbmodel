@@ -1,0 +1,2024 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "fuel_barrel_design_board",
+  "parent": "",
+  "java_block_version": "1.9.0",
+  "ambientocclusion": true,
+  "front_gui_light": false,
+  "visible_box": [
+    1,
+    1,
+    0
+  ],
+  "variable_placeholders": "",
+  "multi_file_ruleset": "",
+  "variable_placeholder_buttons": [],
+  "unhandled_root_fields": {},
+  "ai_used": true,
+  "ai_agents": "piranport-mc-art-task",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "single_empty_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "bf303818-1a9c-4611-a9e7-acaa4fefaf49"
+    },
+    {
+      "name": "single_empty_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "to": [
+        15.7,
+        15.7,
+        15.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "0755e5c2-8a15-41cd-a3ee-20b4bd0948c6"
+    },
+    {
+      "name": "single_fuel_half_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        24,
+        0,
+        0
+      ],
+      "to": [
+        40,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        32,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "b4ddd992-f4be-4932-871d-4ed39b2e2b93"
+    },
+    {
+      "name": "single_fuel_half_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        24.3,
+        0.3,
+        0.3
+      ],
+      "to": [
+        39.7,
+        15.7,
+        15.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        32,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "3469b47e-d57e-488e-9055-168a8ab17401"
+    },
+    {
+      "name": "single_fuel_half_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        24.15,
+        0.15,
+        0.15
+      ],
+      "to": [
+        39.85,
+        8.0,
+        15.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        32,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        }
+      },
+      "type": "cube",
+      "uuid": "4dd8a8eb-9fcd-48be-b625-2b67ded503ef"
+    },
+    {
+      "name": "single_fuel_full_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        48,
+        0,
+        0
+      ],
+      "to": [
+        64,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        56,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "e853d132-d649-4c4f-a006-eb6b9e5fae4a"
+    },
+    {
+      "name": "single_fuel_full_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        48.3,
+        0.3,
+        0.3
+      ],
+      "to": [
+        63.7,
+        15.7,
+        15.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        56,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "7b998f66-a9f3-4aee-bf51-1bc6885a64a3"
+    },
+    {
+      "name": "single_fuel_full_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        48.15,
+        0.15,
+        0.15
+      ],
+      "to": [
+        63.85,
+        15.85,
+        15.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        56,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        }
+      },
+      "type": "cube",
+      "uuid": "ef80f900-ec8b-43c0-816b-b26d018fb8b1"
+    },
+    {
+      "name": "single_crude_half_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        72,
+        0,
+        0
+      ],
+      "to": [
+        88,
+        16,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        80,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "ecec0f5d-ccad-450b-825a-7c9136fe0c86"
+    },
+    {
+      "name": "single_crude_half_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        72.3,
+        0.3,
+        0.3
+      ],
+      "to": [
+        87.7,
+        15.7,
+        15.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        80,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "2e25aa67-d46c-49fd-b5f4-811b896ba69f"
+    },
+    {
+      "name": "single_crude_half_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        72.15,
+        0.15,
+        0.15
+      ],
+      "to": [
+        87.85,
+        8.0,
+        15.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        80,
+        8.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        }
+      },
+      "type": "cube",
+      "uuid": "3dbb9ed6-2526-4ec0-9ff7-c9a857e7abbc"
+    },
+    {
+      "name": "pair_fuel_half_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        32
+      ],
+      "to": [
+        16,
+        32,
+        48
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "93c9a362-f719-46d1-88cd-1beb63de1ead"
+    },
+    {
+      "name": "pair_fuel_half_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0.3,
+        0.3,
+        32.3
+      ],
+      "to": [
+        15.7,
+        31.7,
+        47.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "218ab2cf-96db-40c0-b54d-e344c4fe611a"
+    },
+    {
+      "name": "pair_fuel_half_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0.15,
+        0.15,
+        32.15
+      ],
+      "to": [
+        15.85,
+        16.0,
+        47.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4
+        }
+      },
+      "type": "cube",
+      "uuid": "ef9f214c-e3c8-44d5-9e98-d1e832457523"
+    },
+    {
+      "name": "pair_crude_three_quarters_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        28,
+        0,
+        32
+      ],
+      "to": [
+        44,
+        32,
+        48
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        36,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "ce08ff58-6bab-4ac5-9347-6bd65908c4bc"
+    },
+    {
+      "name": "pair_crude_three_quarters_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        28.3,
+        0.3,
+        32.3
+      ],
+      "to": [
+        43.7,
+        31.7,
+        47.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        36,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "a0182edb-e633-4b2d-b839-0a58a44a74db"
+    },
+    {
+      "name": "pair_crude_three_quarters_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        28.15,
+        0.15,
+        32.15
+      ],
+      "to": [
+        43.85,
+        23.924999999999997,
+        47.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        36,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        }
+      },
+      "type": "cube",
+      "uuid": "1982085d-496c-45ad-ac19-c8506b909883"
+    },
+    {
+      "name": "pair_horizontal_fuel_half_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        56,
+        0,
+        32
+      ],
+      "to": [
+        88,
+        16,
+        48
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        64,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1,
+          "rotation": 90
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2,
+          "rotation": 90
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1,
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2,
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1,
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1,
+          "rotation": 90
+        }
+      },
+      "type": "cube",
+      "uuid": "ea4b7743-c1fe-4633-aef8-41ea60c02116"
+    },
+    {
+      "name": "pair_horizontal_fuel_half_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        56.3,
+        0.3000000000000007,
+        32.3
+      ],
+      "to": [
+        87.7,
+        15.7,
+        47.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        64,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 90
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 90
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3,
+          "rotation": 90
+        }
+      },
+      "type": "cube",
+      "uuid": "5ae5bab5-6937-46e7-8011-2f1def9e08c9"
+    },
+    {
+      "name": "pair_horizontal_fuel_half_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        56.15,
+        0.15000000000000036,
+        32.15
+      ],
+      "to": [
+        72.0,
+        15.85,
+        47.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        64,
+        16.0,
+        40
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 90
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 90
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 270
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 90
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 4,
+          "rotation": 90
+        }
+      },
+      "type": "cube",
+      "uuid": "c7555ccc-8ad3-4078-85f5-7cced5f6b7e6"
+    }
+  ],
+  "groups": [],
+  "outliner": [
+    "bf303818-1a9c-4611-a9e7-acaa4fefaf49",
+    "0755e5c2-8a15-41cd-a3ee-20b4bd0948c6",
+    "b4ddd992-f4be-4932-871d-4ed39b2e2b93",
+    "3469b47e-d57e-488e-9055-168a8ab17401",
+    "4dd8a8eb-9fcd-48be-b625-2b67ded503ef",
+    "e853d132-d649-4c4f-a006-eb6b9e5fae4a",
+    "7b998f66-a9f3-4aee-bf51-1bc6885a64a3",
+    "ef80f900-ec8b-43c0-816b-b26d018fb8b1",
+    "ecec0f5d-ccad-450b-825a-7c9136fe0c86",
+    "2e25aa67-d46c-49fd-b5f4-811b896ba69f",
+    "3dbb9ed6-2526-4ec0-9ff7-c9a857e7abbc",
+    "93c9a362-f719-46d1-88cd-1beb63de1ead",
+    "218ab2cf-96db-40c0-b54d-e344c4fe611a",
+    "ef9f214c-e3c8-44d5-9e98-d1e832457523",
+    "ce08ff58-6bab-4ac5-9347-6bd65908c4bc",
+    "a0182edb-e633-4b2d-b839-0a58a44a74db",
+    "1982085d-496c-45ad-ac19-c8506b909883",
+    "ea4b7743-c1fe-4633-aef8-41ea60c02116",
+    "5ae5bab5-6937-46e7-8011-2f1def9e08c9",
+    "c7555ccc-8ad3-4078-85f5-7cced5f6b7e6"
+  ],
+  "textures": [
+    {
+      "name": "fuel_barrel_side_single",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\fuel_barrel_side_single.png",
+      "folder": "",
+      "namespace": "",
+      "id": "0",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "00970f10-16e2-4be4-a406-664572c2a752",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAY9JREFUWIVjDIhO+M8wgIAFxlDXUKarxTdv3IU44PGjawwMDAwMTGzvGczNdbEqfvz0KVUtf/bkHcPjR88h9iJLSInpUdUibMDc0BOFz4LMWbt2G4OlrQxVLHpyD3vSenJvGwMTGw4HUMtyGAgO9sIQW7t2GwqfBUMFlcGE/h5GGLugsAQjWJgwdFAZlPf0deCTp7oD7K2sGOytrIhWT/UoOHjsGAq/s6SoAp96mkcBIQAPgbSkWJyK9LUNSDZ4xowtOOXSkmIZqqu6UB3AwMDAYKFnyfDh83sUxQK8ghhi+MDpy8dJcijVo8BU15LBVNcSzqd7LkAHQycRUguQmgao7gBY/C9lOEqU+gGPggF3AEoUnLhEWvxhA5+/EF9moDhg1rzFdGuSzZq3GM4e8CgYfg4YdO0BujsAHWBrB9LNAegtYIIOkBLTY3j26hJVLJdRYsQqbm7oybB+81I4HyUREuNiSgFGv0BWTouBgYGBQVUJ0jl99xpTEzebEtUcoK4Bof/9gnZOYRKw3iq9AQA6kmmAgJDCTgAAAABJRU5ErkJggg=="
+    },
+    {
+      "name": "fuel_barrel_side_pair",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\fuel_barrel_side_pair.png",
+      "folder": "",
+      "namespace": "",
+      "id": "1",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 64,
+      "uv_width": 32,
+      "uv_height": 64,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "b160183a-19a9-438f-9b98-8eb2f29ef18c",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAABACAYAAAB7jnWuAAAAAXNSR0IArs4c6QAAAbhJREFUaIFjDIhO+M8wgIAFxlDXUKarxTdv3IU44PGjawwMDAwMTGzvGczNdbEqfvz0KVUtf/bkHcPjR88h9iJLSInpUdUibMDc0BOFz4LMWbt2G4OlrQxVLHpyD3vSenJvGwMTGw4HUMtyGAgO9sIQW7t2GwqfBUMFlcGE/h5GGLugsAQjWJgwdFAZlPf0deCTp7oD7K2sGOytrIhWT/UoOHjsGAq/s6SoAp96mkcBITDqgFEHDD8HDLpygBAYflEw5BwATwNpSbE4FelrG5Bs8IwZW3DKpSXFMlRXdaE6gIGBgcFCz5Lhw+f3KIoFeAUxxIgDuB2ADAZPFFALnL58fGAdYKprycDAwMCwlOEoUeoHPApGHTD8WsXoYNA3SkfLgQGPglEHjDpgwB0wWg6gOODEJdJcTw0Ad8CseYvpNlA5a95iOHvAE+GoA4afA0bHB0gFow4YdcDwc8CQKwdoPmeEbZ6Ibg5AnyEj6AApMT2GZ68uUcVyGSVGrOLmhp4M6zcvhfNREiExLqYUYMwbysppMTAwMDCoKkEmr9+9xtTEzaZENQeoa0Dof7+gk9cwCdhsNr0BAMkqdEl21BVoAAAAAElFTkSuQmCC"
+    },
+    {
+      "name": "fuel_barrel_end",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\fuel_barrel_end.png",
+      "folder": "",
+      "namespace": "",
+      "id": "2",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "particle": true,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "d4054e56-ecb9-48cc-8af8-06ad247e5195",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAYRJREFUWIXtV7tuwzAMZIv8iQcZsL8kUwGPXfqDWv0lCVAP/ZZ2KGicqaMertos5ZQ4Iu94FGnm6eX17VMeaBcRkWW5PgQ8xvWbgIjI7b41OW/vH4fvYRya/OcpiKgCZ0G931rIJATmKSRqYPBSuWJc9/OWCIudEIhx3R09YK9c8xT2c4wIxnYJWPAaYPs7IxLGgZaG3gELjsB6eXIkLBEkUUWAgStwSQU8d7tvBxLMnu0DrHsruBgFrA/rIqoA1h0lZ/J7mYnpAk+FAwGWvf2cA/FMS6EY6JOUwGbfOiFzxmZIQkBOjOUa82LuBHJjtrchFlXgL+2fwN6GYRzoPSiN3to54D2ngwjbr9QRte9+L5GkBJgRDpAextQ6EMBsegJjLKsYvYRWhR5W/TbsrUIue0pATRn/hIT65jqFEsAdTgO1EMHzGsPrFncj0rmgAZblWlxMkCRmnWvV7FqOCyojwiwH3LyW20BIJGdexk1reSnwmb9m2a249bb3GlQXKbTJb9sX2LfwXhauma4AAAAASUVORK5CYII="
+    },
+    {
+      "name": "fuel_barrel_lining",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\fuel_barrel_lining.png",
+      "folder": "",
+      "namespace": "",
+      "id": "3",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3a5e8e59-5f8b-4eea-adc7-15131ec06826",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADRJREFUOI1j9IkI/c9AAWBhYGBg+PnzJ1maf/78ycBEie0MDAyjBowaMGoAFFCUGxkYGBgAaEIK3SbNMegAAAAASUVORK5CYII="
+    },
+    {
+      "name": "fuel_oil_window",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\fuel_oil_window.png",
+      "folder": "",
+      "namespace": "",
+      "id": "4",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "20f473bf-fa7b-4a59-bdcd-b980288d423a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAATVJREFUOI2VUrtOw0AQnJg18dlIh3SRrnGBbCr8B/wIf8Bn8RWp6GhSUSGRjihSLCEXLiyBE8QjFLCrzcWA2Opub3ZudndGq+vLadP24Hhev8o5MzHC8C6FswZv7x8YHx6AFnW3Axgq0sSLuoOuIS5ggFagCYvcSq5pe8HRkGzvUgGGwTkmJi7W0ofa0jmNpbDPzMSiQisocit3rZj0g2YO5fO9Kh22W8BUHvVsCZocG9ijMWKKcP/QSkGogIMxvlt/KUjOPBIAm3kjOzaVx2beyM9MpofbtD2q0mF0c3Ux3fvmj8hMLHOIhowT5niwRW7ljXMUGgcDZtIuDImj/0oPiUn38xMQ31uBsjHX/doCE3mXIj8/AQDYu0d0Ty+yYgpdV5UOyekEAFDfrmRlmC33fJGZGJ/U/qsgEQ7bMwAAAABJRU5ErkJggg=="
+    },
+    {
+      "name": "crude_oil_window",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\textures\\crude_oil_window.png",
+      "folder": "",
+      "namespace": "",
+      "id": "5",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9e264668-2aed-421a-ba98-3d9a139beafa",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQNJREFUOI2NUkuOhTAMc9r0IxZcgA33P95bFBBRO4tROqGvb2YiIWhwgm1M+76/RARarbX+TEQYi5nhnOvv+b7vB2A2ZBePeNYBBVgGdmEIofdEpON4RpuZO3As7eli1mFLfSbL9izWzXQSEUIIIKKHBD231vrFIYQ3WjP6ek4pobWGnDNKKWDvPZxzICJc1/XjLvPUA8XUWr8lpJSQc+5DMUas6wrvfTfT3q3B3nvQtm2vt8/8UeoDALhZcMaemqdG2h6PwcEkTJ9SSETP3/gf6uNitno+AWGM1Bjr3K8SelyZsSwLAOA8T9Ra+y9mzb4NSowRAHAcB0QEIoJSylsuiAhfag+ZFpNJzXQAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        -135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  }
+}

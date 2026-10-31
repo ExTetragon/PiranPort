@@ -1,0 +1,51 @@
+{
+  "completedAt": "2026-10-31T23:19+08:00",
+  "version": "0.1.125",
+  "revision": 6,
+  "changedPixels": 43,
+  "paletteUnchanged": true,
+  "allCapPerimeterPixelsUnchanged": true,
+  "allGeometryAndUVUnchanged": true,
+  "allNonCapInteriorPixelsUnchanged": true,
+  "collisionCodeUnchanged": true,
+  "nativeAsepriteValidation": {
+    "findings": [
+      {
+        "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+        "layer": "Layer 1",
+        "frame": 1,
+        "check": "outline",
+        "severity": "note"
+      },
+      {
+        "message": "A 56-pixel straight boundary between #2679b3 and #90989a on 'Layer 1'. Let the edge wander, or dither part of it, so it reads as a surface rather than a contour line.",
+        "layer": "Layer 1",
+        "frame": 1,
+        "check": "banding",
+        "at": {
+          "x": 32,
+          "y": 57
+        },
+        "count": 56,
+        "severity": "note"
+      }
+    ],
+    "sprite": "shipyard_atlas.aseprite",
+    "passed": true,
+    "score": 100,
+    "summary": "Clean."
+  },
+  "nativeOperationsAllPassed": true,
+  "productionModelUnchanged": true,
+  "productionAtlasMatchesNativeExport": true,
+  "preview": "previews/shipyard-preview-v6-inner-highlights.png",
+  "comparison": "previews/inner-highlight-comparison.png",
+  "scope": "43 base-color pixels replaced with existing highlight colors inside crane caps; no palette, perimeter, UV, geometry or gameplay changes",
+  "buildPassed": true,
+  "staticJSONResources": 324,
+  "jarChangedEntries": [
+    "assets/piranport/textures/block/shipyard_atlas.png"
+  ],
+  "jar": "build/shipyard-v6-20261031/artifacts/libs/piranport-0.1.125.jar",
+  "jarSHA256": "2293dbebd7cd0bb17de3a8a55a2b84564a2a22425c3a57680f569daece21088c"
+}

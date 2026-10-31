@@ -10,6 +10,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.fluids.FluidStack;
@@ -31,6 +34,10 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     private BlockPos partnerPos;
     private long placeOrder = -1;
     private boolean axialConnectionAllowed = Config.FUEL_BARREL_AXIAL_CONNECTION.get();
+    private FluidStack displayFluid = FluidStack.EMPTY;
+    private int displayCapacity = 1;
+    private CompoundTag lastDisplayTag;
+    private boolean loading;
 
     public FuelBarrelBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FUEL_BARREL.get(), pos, state);
@@ -51,6 +58,66 @@ public class FuelBarrelBlockEntity extends BlockEntity {
 
     public FluidStack getStoredFluid() {
         return handler.getFluidInTank(0);
+    }
+
+    // 客户端只读取服务端汇总快照，不通过禁止客户端操作的流体能力查询。
+    public FluidStack getDisplayFluid() {
+        return level != null && level.isClientSide ? displayFluid.copy() : getStoredFluid();
+    }
+
+    public int getDisplayCapacity() {
+        return level != null && level.isClientSide ? displayCapacity
+                : Config.FUEL_BARREL_CAPACITY.get() * (getPartner() == null ? 1 : 2);
+    }
+
+    public double getDisplayFill() {
+        return Math.min(1.0, (double) getDisplayFluid().getAmount() / Math.max(1, getDisplayCapacity()));
+    }
+
+    private CompoundTag displayTag(HolderLookup.Provider registries) {
+        CompoundTag tag = new CompoundTag();
+        tag.put("DisplayFluid", getStoredFluid().saveOptional(registries));
+        tag.putInt("DisplayCapacity", getDisplayCapacity());
+        return tag;
+    }
+
+    @Override
+    public CompoundTag getUpdateTag(HolderLookup.Provider registries) { return displayTag(registries); }
+
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() { return ClientboundBlockEntityDataPacket.create(this); }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag, HolderLookup.Provider registries) {
+        displayFluid = FluidStack.parseOptional(registries, tag.getCompound("DisplayFluid"));
+        displayCapacity = Math.max(1, tag.getInt("DisplayCapacity"));
+    }
+
+    @Override
+    public void onDataPacket(Connection connection, ClientboundBlockEntityDataPacket packet, HolderLookup.Provider registries) {
+        handleUpdateTag(packet.getTag(), registries);
+    }
+
+    // 只有显示数据或空间分段变化时通知客户端，模拟和重复查询不会产生更新。
+    private void syncDisplay() {
+        if (level == null || level.isClientSide || isRemoved() || loading
+                || !level.getBlockState(worldPosition).is(getBlockState().getBlock())) return;
+        FuelBarrelBlockEntity other = getPartner();
+        FuelBarrelBlock.Part part = FuelBarrelBlock.Part.SINGLE;
+        if (other != null) {
+            Direction.Axis axis = getBlockState().getValue(FuelBarrelBlock.AXIS);
+            part = axis.choose(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ())
+                    < axis.choose(other.worldPosition.getX(), other.worldPosition.getY(), other.worldPosition.getZ())
+                    ? FuelBarrelBlock.Part.LOWER : FuelBarrelBlock.Part.UPPER;
+        }
+        BlockState state = level.getBlockState(worldPosition);
+        boolean changed = state.getValue(FuelBarrelBlock.PART) != part;
+        if (changed) level.setBlock(worldPosition, state.setValue(FuelBarrelBlock.PART, part), Block.UPDATE_CLIENTS);
+        CompoundTag tag = displayTag(level.registryAccess());
+        if (changed || !tag.equals(lastDisplayTag)) {
+            lastDisplayTag = tag.copy();
+            level.sendBlockUpdated(worldPosition, state, getBlockState(), Block.UPDATE_CLIENTS);
+        }
     }
 
     // 仅更新本格储量，配置降容后的超额流体仍可抽出。
@@ -113,16 +180,21 @@ public class FuelBarrelBlockEntity extends BlockEntity {
             setChanged();
         }
         if (partnerPos != null) {
-            if (!level.hasChunkAt(partnerPos)) return; // 不强制加载邻块，也不抹掉未加载的伙伴关系。
+            if (!level.hasChunkAt(partnerPos)) {
+                syncDisplay();
+                return; // 不强制加载邻块，也不抹掉未加载的伙伴关系。
+            }
             FuelBarrelBlockEntity other = getPartner();
             if (other != null) {
                 FuelBarrelBlockEntity master = chooseMaster(this, other);
                 rebalance(master, master == this ? other : this);
+                syncDisplay();
+                other.syncDisplay();
                 return;
             }
             disconnect();
         }
-        if (!axialConnectionAllowed) return;
+        if (!axialConnectionAllowed) { syncDisplay(); return; }
         Direction.Axis axis = getBlockState().getValue(FuelBarrelBlock.AXIS);
         for (Direction direction : Direction.values()) {
             if (direction.getAxis() != axis) continue;
@@ -140,6 +212,7 @@ public class FuelBarrelBlockEntity extends BlockEntity {
             ModLog.machine(ModLog.Event.CONNECT, this, "partner", other.worldPosition.toShortString(), "master", master.worldPosition.toShortString());
             return;
         }
+        syncDisplay();
     }
 
     // 按优先级分摊兼容流体，保持总量和组件不变。
@@ -189,11 +262,14 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     }
 
     private void contentsChanged() {
+        if (loading) return;
         setChanged();
         if (level != null && !level.isClientSide) {
             level.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
             FuelBarrelBlockEntity other = getPartner();
             if (other != null) level.updateNeighbourForOutputSignal(other.worldPosition, other.getBlockState().getBlock());
+            syncDisplay();
+            if (other != null) other.syncDisplay();
         }
     }
 
@@ -227,11 +303,16 @@ public class FuelBarrelBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-        // 配置降容不截断已存流体。
-        tank.setFluid(FluidStack.parseOptional(registries, tag.getCompound("Fluid")));
-        placeOrder = tag.getLong("PlaceOrder");
-        partnerPos = tag.contains("Partner") ? BlockPos.of(tag.getLong("Partner")) : null;
-        axialConnectionAllowed = tag.getBoolean("AxialConnectionAllowed");
+        loading = true;
+        try {
+            // 配置降容不截断已存流体。
+            tank.setFluid(FluidStack.parseOptional(registries, tag.getCompound("Fluid")));
+            placeOrder = tag.getLong("PlaceOrder");
+            partnerPos = tag.contains("Partner") ? BlockPos.of(tag.getLong("Partner")) : null;
+            axialConnectionAllowed = tag.getBoolean("AxialConnectionAllowed");
+        } finally {
+            loading = false;
+        }
     }
 
     @Override

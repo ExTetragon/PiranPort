@@ -1,6 +1,7 @@
 package com.lex0v0.piranport.registry;
 
 import com.lex0v0.piranport.PiranPort;
+import com.lex0v0.piranport.fluid.OilFluid;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.material.Fluid;
@@ -36,15 +37,15 @@ public final class ModFluids {
                     .canHydrate(false)
                     .descriptionId("fluid_type.piranport.fuel_oil")));
 
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> CRUDE_OIL =
-            FLUIDS.register("crude_oil", () -> new BaseFlowingFluid.Source(crudeOilProperties()));
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_CRUDE_OIL =
-            FLUIDS.register("flowing_crude_oil", () -> new BaseFlowingFluid.Flowing(crudeOilProperties()));
+    public static final DeferredHolder<Fluid, OilFluid.Source> CRUDE_OIL =
+            FLUIDS.register("crude_oil", () -> new OilFluid.Source(crudeOilProperties()));
+    public static final DeferredHolder<Fluid, OilFluid.Flowing> FLOWING_CRUDE_OIL =
+            FLUIDS.register("flowing_crude_oil", () -> new OilFluid.Flowing(crudeOilProperties()));
 
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Source> FUEL_OIL =
-            FLUIDS.register("fuel_oil", () -> new BaseFlowingFluid.Source(fuelOilProperties()));
-    public static final DeferredHolder<Fluid, BaseFlowingFluid.Flowing> FLOWING_FUEL_OIL =
-            FLUIDS.register("flowing_fuel_oil", () -> new BaseFlowingFluid.Flowing(fuelOilProperties()));
+    public static final DeferredHolder<Fluid, OilFluid.Source> FUEL_OIL =
+            FLUIDS.register("fuel_oil", () -> new OilFluid.Source(fuelOilProperties()));
+    public static final DeferredHolder<Fluid, OilFluid.Flowing> FLOWING_FUEL_OIL =
+            FLUIDS.register("flowing_fuel_oil", () -> new OilFluid.Flowing(fuelOilProperties()));
 
     private ModFluids() {
     }

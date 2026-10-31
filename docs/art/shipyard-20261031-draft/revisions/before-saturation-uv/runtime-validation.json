@@ -1,0 +1,37 @@
+{
+  "version": "0.1.125",
+  "completedAt": "2026-10-31 22:52 +08:00",
+  "sourceArtRevision": 3,
+  "modelElements": 56,
+  "maxHeight": 0.96875,
+  "fourFacingCachedShape": true,
+  "selectionMatchesCollision": true,
+  "noFullCubeOcclusion": true,
+  "sourceAtlasMatchesProduction": true,
+  "existingFactoryTextureUnchanged": true,
+  "gameTests": {
+    "discovered": 232,
+    "completed": 232,
+    "requiredPassed": 232
+  },
+  "clientChecks": {
+    "equipment": true,
+    "modTooltips": true,
+    "blueprints": true,
+    "titleScreen": true,
+    "jei": true,
+    "riggingCore": true,
+    "ammunition": true,
+    "shipyardModel": true,
+    "spark": true
+  },
+  "jar": {
+    "file": "build\\shipyard-integration-20261031\\artifacts\\libs\\piranport-0.1.125.jar",
+    "sha256": "d8a88fa1221d61de53e12312002d4c442170e906799eb64cb71682889fe83557",
+    "jsonResources": 324,
+    "developmentAssetsExcluded": true
+  },
+  "acceptanceReport": "build/shipyard-integration-20261031/artifacts/reports/acceptance/summary.json",
+  "clientScope": "Title-screen resource/model bake checks; no player world entered",
+  "productionIntegrated": true
+}

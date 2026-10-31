@@ -1,0 +1,34 @@
+{
+  "completedAt": "2026-10-31T20:46+08:00",
+  "draft": true,
+  "productionIntegrated": false,
+  "versionIncremented": false,
+  "referenceCount": 5,
+  "referenceCache": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores",
+  "nativeModel": "sources/shipyard_draft.bbmodel",
+  "elementCount": 56,
+  "groupCount": 6,
+  "bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      16,
+      15.5,
+      16
+    ]
+  },
+  "atlasDimensions": [
+    64,
+    64
+  ],
+  "texturePixelPerModelUnit": 1,
+  "atlasEmbeddedMatches": true,
+  "nativeGeometryAndUVMatchSpec": true,
+  "allFourViewsUnclipped": true,
+  "nativeProjectSHA256": "508cec0008a0b0a099b36a5b23845d10b75e8f74a2d565696028a477d9a5263b",
+  "preview": "previews/shipyard-preview.png",
+  "gameLaunched": false
+}

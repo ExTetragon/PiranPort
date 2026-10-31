@@ -26,7 +26,7 @@ public final class ModBlocks {
                     .sound(SoundType.METAL).strength(4.0F,8.0F).pushReaction(PushReaction.BLOCK)));
     public static final DeferredBlock<ShipyardBlock> SHIPYARD = BLOCKS.register("shipyard", () -> new ShipyardBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops()
-                    .sound(SoundType.METAL).strength(4.0F, 8.0F).pushReaction(PushReaction.BLOCK)));
+                    .noOcclusion().sound(SoundType.METAL).strength(4.0F, 8.0F).pushReaction(PushReaction.BLOCK)));
 
     // 3.1 矿物资源
     public static final DeferredBlock<Block> BAUXITE_ORE = BLOCKS.register("bauxite_ore",
@@ -68,6 +68,7 @@ public final class ModBlocks {
 
     public static final DeferredBlock<FuelBarrelBlock> FUEL_BARREL = BLOCKS.register("fuel_barrel",
             () -> new FuelBarrelBlock(BlockBehaviour.Properties.of()
+                    .noOcclusion()
                     .mapColor(MapColor.METAL)
                     .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
                     .requiresCorrectToolForDrops()

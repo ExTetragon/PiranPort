@@ -369,16 +369,18 @@
     "K1": {
       "coverage": "full",
       "tests": [
-        "BarrelInteractionGameTests.enchantmentEdgeCases"
+        "BarrelInteractionGameTests.enchantmentEdgeCases",
+        "MiningLootGameTests.saltpeterShovelsYieldFourAndOtherToolsTwoToFour"
       ],
-      "note": ""
+      "note": "Non-shovels yield 2–4; all six vanilla shovels yield four; silk touch has priority and fortune does not inflate."
     },
     "K2": {
       "coverage": "full",
       "tests": [
-        "BarrelInteractionGameTests.enchantmentEdgeCases"
+        "BarrelInteractionGameTests.enchantmentEdgeCases",
+        "MiningLootGameTests.saltpeterShovelsYieldFourAndOtherToolsTwoToFour"
       ],
-      "note": ""
+      "note": "Non-shovels yield 2–4; all six vanilla shovels yield four; silk touch has priority and fortune does not inflate."
     },
     "K3": {
       "coverage": "full",
@@ -1009,7 +1011,8 @@
       "coverage": "full",
       "tests": [
         "ShipyardGameTests.shipNationalitiesAndBilingualSearch",
-        "ShipyardGameTests.filtersIntersectAndRespectBlueprintScope"
+        "ShipyardGameTests.filtersIntersectAndRespectBlueprintScope",
+        "ShipyardGameTests.shipTypesIntersectAndPersist"
       ],
       "note": "逐舰国籍、中英文部分匹配、大小写和宽度归一、多选交并集及图纸范围"
     },
@@ -1530,6 +1533,42 @@
         "AmmunitionFactoryGameTests.onlyCurrentCyclePaidAndFiniteRepeat"
       ],
       "note": "发行包、集中日志及旧设施GUI回归；完成音实际听感需人工。"
+    },
+    "C6": {
+      "coverage": "full",
+      "tests": [
+        "MiningLootGameTests.saltpeterShovelsYieldFourAndOtherToolsTwoToFour"
+      ],
+      "note": "Actual loot table: empty hand and non-shovels yield 2–4; six vanilla shovels yield four; silk touch has priority."
+    },
+    "I13": {
+      "coverage": "full",
+      "tests": [
+        "OilFluidGameTests.crudeOilStaysOnWaterAndSpreads",
+        "OilFluidGameTests.fuelOilStaysOnWaterAndSpreads",
+        "OilFluidGameTests.crudeOilPreservesAllWaterStates",
+        "OilFluidGameTests.fuelOilPreservesAllWaterStates",
+        "OilFluidGameTests.crudeOilStillFallsAndSpreadsOnLand",
+        "OilFluidGameTests.fuelOilStillFallsAndSpreadsOnLand",
+        "OilFluidGameTests.shorelineWaterDoesNotStallDryDirections",
+        "OilFluidGameTests.oilBucketsKeepVanillaWaterReplacement"
+      ],
+      "note": "Server-side oil flow preserves water source/flowing/falling/waterlogged states and spreads across water; dry flow and vanilla bucket replacement remain intact. Visual rendering is covered separately by I5."
+    },
+    "I5": {
+      "coverage": "partial",
+      "tests": [],
+      "note": "OilAppearanceClientChecks verifies four fluid states, 32-frame water patterns, per-oil alpha (crude 242 / fuel 180), neutral tint, GPU animation and bucket models. OilWorldAppearanceChecks adds fresh-world bright-floor pools, waterfalls, floating oil and 126 preserved water blocks. Shader-pack compatibility and subjective visual acceptance remain manual."
+    },
+    "J38": {
+      "coverage": "partial",
+      "tests": [
+        "FuelBarrelDisplayGameTests.sharedDisplayUsesSpatialPartsOnAllAxes",
+        "FuelBarrelDisplayGameTests.displaySimulationAndPacketDoNotChangeStorage",
+        "FuelBarrelDisplayGameTests.splitAndRemovalRestoreSingleWithoutResurrection",
+        "FuelBarrelDisplayGameTests.excessFluidCapsDisplayWithoutTruncation"
+      ],
+      "note": "Server snapshots and spatial model parts are covered. Opt-in client checks cover synchronized amounts, all-axis fill direction, 24 baked lining sides, six seam views and 59 actual fluid UV meshes for fixed texture scale and stable anchors. Third-party graphics pipelines require manual review."
     }
   }
 }

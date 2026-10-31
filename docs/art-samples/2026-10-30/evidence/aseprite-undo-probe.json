@@ -1,0 +1,162 @@
+{
+  "server": "aseprite",
+  "requestPath": "F:\\codex\\tools\\mc-art\\aseprite-undo-probe-request.json",
+  "startedAt": "2026-10-29T17:14:10.959Z",
+  "results": [
+    {
+      "index": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "preflight",
+        "arguments": {}
+      },
+      "elapsedMs": 31,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "READY — Aseprite 1.3.18.6, active sprite naval_steel_16.aseprite (16×16)."
+          }
+        ],
+        "structuredContent": {
+          "mode": "live",
+          "switched": false,
+          "bridgeConnected": true,
+          "pluginConnected": true,
+          "asepriteVersion": "1.3.18.6",
+          "extensionVersion": "0.8.2",
+          "features": [
+            "draw_batch",
+            "recolor",
+            "validate",
+            "tileset",
+            "reference",
+            "filmstrip"
+          ],
+          "ready": true,
+          "activeSprite": {
+            "name": "naval_steel_16.aseprite",
+            "width": 16,
+            "height": 16,
+            "colorMode": "rgb",
+            "frames": 1,
+            "layers": 1
+          },
+          "directive": "Ready. Call sprite_info before your first edit so you are working from the real layer, frame and palette state."
+        }
+      }
+    },
+    {
+      "index": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "sprite_manage",
+        "arguments": {
+          "op": "activate",
+          "sprite": "#48"
+        }
+      },
+      "elapsedMs": 41,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "activate: naval_steel_16.aseprite. Refer to it as '#48'."
+          }
+        ],
+        "structuredContent": {
+          "op": "activate",
+          "sprite": "naval_steel_16.aseprite",
+          "id": 48
+        }
+      }
+    },
+    {
+      "index": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "draw",
+        "arguments": {
+          "sprite": "#48",
+          "label": "temporary undo probe",
+          "ops": [
+            {
+              "kind": "pixels",
+              "color": "#3b5566",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "elapsedMs": 22,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "1 op(s), 1 pixel(s) changed on 'base' frame 1. Now call look to see the result before moving on."
+          }
+        ],
+        "structuredContent": {
+          "layer": "base",
+          "sprite": "naval_steel_16.aseprite",
+          "opsApplied": 1,
+          "bounds": {
+            "width": 1,
+            "x": 0,
+            "y": 0,
+            "height": 1
+          },
+          "colorsSnapped": [],
+          "pixelsChanged": 1,
+          "frame": 1
+        }
+      }
+    },
+    {
+      "index": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "export",
+        "arguments": {
+          "sprite": "#48",
+          "op": "png",
+          "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-probe.png"
+        }
+      },
+      "elapsedMs": 88,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Wrote 1 file(s): E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-probe.png"
+          }
+        ],
+        "structuredContent": {
+          "files": [
+            "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-probe.png"
+          ],
+          "op": "png",
+          "sprite": "naval_steel_16.aseprite",
+          "frameCount": 1,
+          "width": 16,
+          "height": 16,
+          "frame": 1
+        }
+      }
+    }
+  ],
+  "images": [],
+  "ok": true,
+  "serverVersion": {
+    "name": "aseprite-ai-artist",
+    "title": "Aseprite AI Artist",
+    "version": "0.8.2"
+  },
+  "finishedAt": "2026-10-29T17:14:13.416Z",
+  "serverStderr": "[aseprite-ai-artist] control link up on :9932\n"
+}

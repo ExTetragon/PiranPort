@@ -1,0 +1,41 @@
+{
+  "version": "0.1.135",
+  "assets": [
+    {
+      "name": "ship_blueprint",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 11,
+      "sha256": "8fbf645bf087c869649424efe2805dd1007f7786e4b1f2e7ab25f42a137557f0"
+    },
+    {
+      "name": "equipment_blueprint",
+      "size": [
+        32,
+        32
+      ],
+      "colors": 13,
+      "sha256": "ab50638131ce0d4a2f6167e3234bba28256288d155e90d276d173a025e317baf"
+    }
+  ],
+  "drawingMode": "Aseprite live",
+  "productionExportsMatch": true,
+  "jar": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\blueprint-art-20261031\\artifacts\\libs\\piranport-0.1.135.jar",
+  "jarSha256": "2248c6c50545893fa8008b47d2813e0f432f4dac2687629b34d3a2d615b250f2",
+  "packagedModelsAndTexturesMatch": true,
+  "staticJsonResources": 324,
+  "gradleBuild": "passed",
+  "asepriteValidation": "passed",
+  "gameClientStarted": false,
+  "textureCount": 129,
+  "visualReview": {
+    "coldRead": "斜放的蓝色纸页，分别叠加八辐舵轮和铜色炮弹",
+    "blockingFindings": [],
+    "limitations": [
+      "纸边维持原版大像素阶梯，符号采用32×32原生像素",
+      "游戏内主观外观待确认"
+    ]
+  }
+}

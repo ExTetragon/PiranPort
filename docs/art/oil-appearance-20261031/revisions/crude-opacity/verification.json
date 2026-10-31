@@ -1,0 +1,130 @@
+{
+  "version": "0.1.130",
+  "date": "2026-10-31",
+  "environment": {
+    "java": "21.0.5",
+    "minecraft": "1.21.1",
+    "neoForge": "21.1.259",
+    "os": "Windows"
+  },
+  "dieselReference": {
+    "repository": "george8188625/Create-Diesel-Generators",
+    "branch": "1.21.1",
+    "commit": "79ce136730871b6f3f7b55d3cc748ff2bec2ad12",
+    "dominantRGB": "#C19E57"
+  },
+  "client": {
+    "fourFluidStates": true,
+    "fourWaterPatternsAndOilAlpha": true,
+    "alpha": {
+      "crudeOil": 230,
+      "fuelOil": 180
+    },
+    "twoBucketModels": true,
+    "worldLoaded": false,
+    "gpuDistinctFrames": {
+      "fuel_oil_still": 32,
+      "fuel_oil_flow": 16,
+      "crude_oil_flow": 16,
+      "crude_oil_still": 32
+    },
+    "atlasTicks": 72,
+    "passed": true
+  },
+  "textures": {
+    "crude_oil_still": {
+      "size": [
+        16,
+        512
+      ],
+      "frames": 32,
+      "uniqueFrames": 32,
+      "frameTimeTicks": 2,
+      "metadataMatchesVanilla": true,
+      "sha256": "28a79367288176ae50018501a85d8f2ccd871a7605fd4adaf6d7052e057c7877",
+      "rgbAndFramesUnchanged": true,
+      "alphaBefore": 180,
+      "alpha": 230
+    },
+    "crude_oil_flow": {
+      "size": [
+        32,
+        1024
+      ],
+      "frames": 32,
+      "uniqueFrames": 32,
+      "frameTimeTicks": 1,
+      "metadataMatchesVanilla": true,
+      "sha256": "c35b9c94727a158660465dc23eab4f355e84e1b78ed49c0a7234f7df45f206ff",
+      "rgbAndFramesUnchanged": true,
+      "alphaBefore": 180,
+      "alpha": 230
+    },
+    "fuel_oil_still": {
+      "size": [
+        16,
+        512
+      ],
+      "frames": 32,
+      "uniqueFrames": 32,
+      "frameTimeTicks": 2,
+      "waterPatternAndAlphaPreserved": true,
+      "metadataMatchesVanilla": true,
+      "sha256": "7a6d66438ce5f4679ac3a25f8a1a869e90970dc65bf75a52a523bf1780a8edd1"
+    },
+    "fuel_oil_flow": {
+      "size": [
+        32,
+        1024
+      ],
+      "frames": 32,
+      "uniqueFrames": 32,
+      "frameTimeTicks": 1,
+      "waterPatternAndAlphaPreserved": true,
+      "metadataMatchesVanilla": true,
+      "sha256": "1a74563976310d48f6cf361b5b3ea1952d5b2df8bd8fbbb54969106d4d32a9a5"
+    }
+  },
+  "buckets": {
+    "crude_oil_bucket": {
+      "changedLiquidPixels": 24,
+      "metalAndSilhouettePreserved": true,
+      "alphaPreserved": true,
+      "sha256": "3b4492cd53446ba58ec6c1e039e16d714d497c99e908c415c427979a84382ff0"
+    },
+    "fuel_oil_bucket": {
+      "changedLiquidPixels": 24,
+      "metalAndSilhouettePreserved": true,
+      "alphaPreserved": true,
+      "sha256": "f176f22a973f65da6f71b07d7ea92582e3a2afd7013da9bdb2db61f498a9a8b0"
+    }
+  },
+  "gameTests": {
+    "compiled": 227,
+    "executedThisRun": false
+  },
+  "staticJsonResources": 316,
+  "productionClassChanges": [],
+  "serverClassesUnchanged": true,
+  "defaultJarFilesMatchTestedBuild": true,
+  "jar": {
+    "file": "build\\libs\\piranport-0.1.130.jar",
+    "sha256": "8cc9124dc3bfc8826a26c71753f8ea2ecae4e4a1056563abd80d7682dc450f50",
+    "jsonResources": 316,
+    "developmentAssetsExcluded": true
+  },
+  "pdfUnchanged": true,
+  "existingFilesChanged": [
+    "src\\main\\resources\\META-INF\\neoforge.mods.toml",
+    "src\\main\\resources\\assets\\piranport\\textures\\block\\crude_oil_flow.png",
+    "src\\main\\resources\\assets\\piranport\\textures\\block\\crude_oil_still.png",
+    "src\\gameTest\\java\\com\\lex0v0\\piranport\\client\\OilAppearanceClientChecks.java"
+  ],
+  "coverage": {
+    "total": 209,
+    "full": 141,
+    "partial": 68
+  },
+  "productionClassesUnchangedFrom": "0.1.129",
+  "scope": "Only the two crude-oil animation strips change alpha from 180 to 230; RGB, metadata, fuel textures and bucket textures remain unchanged."
+}

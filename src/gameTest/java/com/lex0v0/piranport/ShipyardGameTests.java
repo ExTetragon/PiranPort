@@ -7,6 +7,7 @@ import com.lex0v0.piranport.blockentity.shipyard.ShipyardBrowseState;
 import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 import com.lex0v0.piranport.domain.ship.ShipNationality;
 import com.lex0v0.piranport.domain.ship.ShipSize;
+import com.lex0v0.piranport.domain.ship.ShipType;
 import com.lex0v0.piranport.item.AmmunitionItem;
 import com.lex0v0.piranport.item.blueprint.BlueprintFamily;
 import com.lex0v0.piranport.item.blueprint.BlueprintRules;
@@ -142,32 +143,50 @@ public final class ShipyardGameTests {
         for(int i=0;i<expected.length;i++)h.assertTrue(ShipDefinitions.ALL.get(i).nationality().path().equals(expected[i]),"nationality follows current ship identity");
         var menu=new ShipyardMenu(1,player(h).getInventory(),yard(h));menu.browse.all=true;
         for(String query:List.of("LEX","lex","列克","ＣＶ－２")){
-            menu.browse.filter=new ShipyardFilter(query,Set.of(),Set.of());
+            menu.browse.filter=new ShipyardFilter(query,Set.of(),Set.of(),Set.of());
             h.assertTrue(menu.visibleShips().size()==1&&menu.visibleShips().getFirst().id().equals(id("lexington_cv2")),"bilingual case-insensitive substring search");
         }
         for(String query:List.of("u-47","U47","ｕ４７")){
-            menu.browse.filter=new ShipyardFilter(query,Set.of(),Set.of());
+            menu.browse.filter=new ShipyardFilter(query,Set.of(),Set.of(),Set.of());
             h.assertTrue(menu.visibleShips().size()==1&&menu.visibleShips().getFirst().id().equals(id("u47")),"punctuation and width normalization");
         }
-        menu.browse.filter=new ShipyardFilter("托",Set.of(),Set.of());
+        menu.browse.filter=new ShipyardFilter("托",Set.of(),Set.of(),Set.of());
         h.assertTrue(menu.visibleShips().size()==2,"all substring matches retained");h.succeed();
     }
 
     @GameTest(template = "empty")
     public static void filtersIntersectAndRespectBlueprintScope(GameTestHelper h) {
         var yard=yard(h);var menu=new ShipyardMenu(1,player(h).getInventory(),yard);
-        menu.browse.filter=new ShipyardFilter("",Set.of(ShipSize.LARGE,ShipSize.MEDIUM),Set.of(ShipNationality.UNITED_STATES,ShipNationality.UNITED_KINGDOM));
+        menu.browse.filter=new ShipyardFilter("",Set.of(ShipSize.LARGE,ShipSize.MEDIUM),Set.of(ShipNationality.UNITED_STATES,ShipNationality.UNITED_KINGDOM),Set.of());
         h.assertTrue(menu.visibleShips().isEmpty(),"filters do not bypass empty blueprint scope");
         menu.browse.all=true;h.assertTrue(menu.visibleShips().size()==4,"OR within groups, AND between groups");
         yard.insert(0,blueprint(BlueprintType.AIRCRAFT_CARRIER),false);menu.browse.all=false;
         h.assertTrue(menu.visibleShips().size()==2,"license scope precedes filters");
-        menu.browse.filter=new ShipyardFilter("hOoD",Set.of(ShipSize.LARGE),Set.of(ShipNationality.UNITED_KINGDOM));
+        menu.browse.filter=new ShipyardFilter("hOoD",Set.of(ShipSize.LARGE),Set.of(ShipNationality.UNITED_KINGDOM),Set.of());
         h.assertTrue(menu.visibleShips().isEmpty(),"matching name cannot bypass blueprint");
         menu.browse.all=true;h.assertTrue(menu.visibleShips().size()==1,"show all queries unlicensed matches");
         h.assertTrue(yard.start(id("hood"),null)==ShipyardBlockEntity.StartResult.INVALID_BLUEPRINT,"query grants no build permission");
-        menu.browse.filter=new ShipyardFilter("",Set.of(),Set.of(ShipNationality.JAPAN));
+        menu.browse.filter=new ShipyardFilter("",Set.of(),Set.of(ShipNationality.JAPAN),Set.of());
         h.assertTrue(menu.visibleShips().isEmpty(),"empty nationality group has no matches");
         menu.browse.filter=ShipyardFilter.NONE;h.assertTrue(menu.browse.all&&menu.visibleShips().size()==10,"clear leaves show-all unchanged");h.succeed();
+    }
+
+    @GameTest(template = "empty")
+    public static void shipTypesIntersectAndPersist(GameTestHelper h) {
+        var yard=yard(h);var menu=new ShipyardMenu(1,player(h).getInventory(),yard);menu.browse.all=true;
+        menu.browse.filter=new ShipyardFilter("",Set.of(),Set.of(),Set.of(ShipType.AIRCRAFT_CARRIER,ShipType.SUBMARINE));
+        h.assertTrue(menu.visibleShips().size()==3,"multiple ship classes form a union");
+        menu.browse.filter=new ShipyardFilter("",Set.of(ShipSize.SMALL),Set.of(ShipNationality.GERMANY),Set.of(ShipType.SUBMARINE));
+        h.assertTrue(menu.visibleShips().size()==1&&menu.visibleShips().getFirst().id().equals(id("u47")),"class intersects size and nationality");
+        var restored=ShipyardBrowseState.load(menu.browse.save());
+        h.assertTrue(restored.filter.equals(menu.browse.filter)&&restored.filter.active(),"class filter survives browse network and persistence format");
+        menu.browse.all=false;h.assertTrue(menu.visibleShips().isEmpty(),"class query cannot bypass missing blueprint");
+        yard.insert(0,blueprint(BlueprintType.AIRCRAFT_CARRIER),false);h.assertTrue(menu.visibleShips().isEmpty(),"other class license grants no matching result");
+        menu.browse.all=true;menu.browse.filter=new ShipyardFilter("",Set.of(ShipSize.LARGE),Set.of(),Set.of(ShipType.SUBMARINE));
+        h.assertTrue(menu.visibleShips().isEmpty(),"contradictory size and class are an empty intersection");
+        var all=new ShipyardFilter("",Set.of(),Set.of(),java.util.EnumSet.allOf(ShipType.class));
+        h.assertTrue(all.equals(ShipyardFilter.NONE),"selecting all classes means unrestricted");
+        h.succeed();
     }
 
     @GameTest(template = "empty")
@@ -175,7 +194,7 @@ public final class ShipyardGameTests {
         var yard=yard(h);supply(h,yard,"glowworm",2);start(h,yard,"glowworm");var task=yard.job().id;
         var first=player(h);var second=player(h);var a=new ShipyardMenu(1,first.getInventory(),yard);var b=new ShipyardMenu(2,second.getInventory(),yard);
         a.browse.all=true;a.browse.selected=id("glowworm");a.browse.scroll=6;
-        a.browse.filter=new ShipyardFilter("  U47  ",Set.of(ShipSize.SMALL),Set.of(ShipNationality.GERMANY));a.normalizeBrowse();
+        a.browse.filter=new ShipyardFilter("  U47  ",Set.of(ShipSize.SMALL),Set.of(ShipNationality.GERMANY),Set.of(ShipType.SUBMARINE));a.normalizeBrowse();
         h.assertTrue(a.browse.selected==null&&a.browse.scroll==0,"hidden preview clears and scroll clamps");
         a.removed(first);h.assertTrue(!b.browse.filter.active(),"other viewer remains independent");
         var saved=yard.saveWithoutMetadata(h.getLevel().registryAccess());yard.loadWithComponents(saved,h.getLevel().registryAccess());

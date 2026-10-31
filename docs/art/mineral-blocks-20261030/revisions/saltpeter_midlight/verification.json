@@ -1,0 +1,28 @@
+{
+  "version": "0.1.123",
+  "completedAt": "2026-10-30 03:58",
+  "changedMidtonePixels": 108,
+  "from": "#e2d8c1",
+  "to": "#e8e1d0",
+  "otherPixelsUnchanged": 148,
+  "grainLayoutUnchanged": true,
+  "pinkPixels": 8,
+  "pinkPositionsUnchanged": true,
+  "protectedPngCount": 121,
+  "allProtectedUnchanged": true,
+  "nativeAsepriteValidation": {
+    "findings": [
+      {
+        "layer": "Layer 1",
+        "severity": "note",
+        "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+        "frame": 1,
+        "check": "outline"
+      }
+    ],
+    "sprite": "saltpeter_block.aseprite",
+    "passed": true,
+    "score": 100,
+    "summary": "Clean."
+  }
+}

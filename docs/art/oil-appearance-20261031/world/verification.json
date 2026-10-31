@@ -1,0 +1,25 @@
+{
+  "world": "oil-visual-1793439100467",
+  "waterBlocksPreserved": true,
+  "waterBlockCount": 126,
+  "screenshots": [
+    "overview",
+    "waterfalls-a",
+    "waterfalls-b",
+    "floating",
+    "pools"
+  ],
+  "crudeOilAlpha": 242,
+  "passed": true,
+  "version": "0.1.130",
+  "sourceProductionUnchanged": true,
+  "productionClassesUnchanged": true,
+  "productionTexturesUnchanged": true,
+  "animationChangedPixels": 261803,
+  "renderer": "Vanilla Minecraft, no shader pack",
+  "gameTests": {
+    "compiled": 227,
+    "executedThisRun": false
+  },
+  "runDirectory": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\oil-world-20261031\\run-client"
+}

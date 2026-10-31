@@ -1,0 +1,79 @@
+{
+  "version": "0.1.137",
+  "assets": [
+    {
+      "name": "ship_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "sha256": "a607c79a14ca0baba94f477fd75292670f3254f83cf8d3efcbfb6eb624ea126e"
+    },
+    {
+      "name": "equipment_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "sha256": "e023364be7be06b2533b2d50f62cfb776ff5098abca69baab93ce6b406a2f0a9"
+    }
+  ],
+  "drawingMode": "Aseprite live",
+  "dimensions": [
+    16,
+    16
+  ],
+  "productionExportsMatch": true,
+  "pixelSpecMatches": true,
+  "wheelBounds": [
+    6,
+    6,
+    9,
+    9
+  ],
+  "outlineColor": "#435c69",
+  "paperAndEquipmentUnchanged": true,
+  "asepriteValidation": [
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "ship_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    },
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "equipment_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    }
+  ],
+  "gameClientStarted": false,
+  "gradleBuild": "passed",
+  "staticJsonResources": 324,
+  "packagedModelsAndTexturesMatch": true,
+  "jar": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\blueprint-wheel-20261031\\artifacts\\libs\\piranport-0.1.137.jar",
+  "jarSha256": "e22181420948f1f5e460906c5ae7cab636295f0d29a70f3fd40e2d6d644843b1",
+  "documentationLinksVerified": 18,
+  "backgroundPreview": "wheel-comparison-v3.png",
+  "visualReview": "9×9深色轮廓圆环在浅、深背景上均可辨认，16×16小图保留贯通轮轴"
+}

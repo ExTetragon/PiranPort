@@ -92,7 +92,12 @@ public final class DevelopmentFactoryUiAcceptance {
             }else if(stage==5&&mc.screen instanceof DevelopmentFactoryScreen s&&s.getMenu().factory.job()==null){
                 require(s.getMenu().factory.fuel().getAmount()==16000,"cancel_refunds_through_network");click(s,tr("search"));require(s.getFocused() instanceof EditBox,"search_focus");type(s,"discard me");s.keyPressed(GLFW.GLFW_KEY_ESCAPE,0,0);require(!s.getMenu().browse.filter.active(),"escape_discards_filter_draft");click(s,tr("search"));type(s,"ＭＫ．１６");click(s,Component.translatable("item.piranport.main_gun").getString());stage=6;delay=4;
             }else if(stage==6&&mc.screen instanceof DevelopmentFactoryScreen s){capture(mc,"filter");stage=61;
-            }else if(stage==61&&mc.screen instanceof DevelopmentFactoryScreen s){click(s,tr("apply"));stage=7;delay=4;
+            }else if(stage==61&&mc.screen instanceof DevelopmentFactoryScreen s){
+                UiTooltipCapture.request(s,output,"factory-filter-summary.png",(int)((s.getGuiLeft()+192-135)*scale(mc)),(int)((s.getGuiTop()+126-114+50)*scale(mc)));stage=62;
+            }else if(stage==62&&mc.screen instanceof DevelopmentFactoryScreen s){
+                var text=String.join(" ",UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("factory-filter-summary.png",List.of()));
+                require(List.of("当前筛选","全部装备","主炮","ＭＫ．１６").stream().allMatch(text::contains),"live_filter_summary_includes_category_and_keyword");
+                click(s,tr("apply"));stage=7;delay=4;
             }else if(stage==7&&mc.screen instanceof DevelopmentFactoryScreen s){
                 require(s.getMenu().visibleEntries().size()==1&&s.getMenu().visibleEntries().getFirst().id().equals(id("us_triple_mk16_8in")),"fullwidth_text_and_category_applied");capture(mc,"filtered");stage=71;
             }else if(stage==71&&mc.screen instanceof DevelopmentFactoryScreen s){var b=button(s,tr("search"));s.mouseClicked((b.getX()+6)*scale(mc),(b.getY()+6)*scale(mc),1);require(!s.getMenu().browse.filter.active()&&s.getMenu().browse.all,"right_clear_preserves_scope");select(s,"quick_repair");click(s,tr("build"));stage=8;delay=8;

@@ -1,0 +1,48 @@
+{
+  "server": "aseprite",
+  "requestPath": "F:\\codex\\tools\\mc-art\\aseprite-redone-request.json",
+  "startedAt": "2026-10-29T17:14:39.798Z",
+  "results": [
+    {
+      "index": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "export",
+        "arguments": {
+          "sprite": "#48",
+          "op": "png",
+          "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-redone.png"
+        }
+      },
+      "elapsedMs": 70,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Wrote 1 file(s): E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-redone.png"
+          }
+        ],
+        "structuredContent": {
+          "files": [
+            "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art-samples\\2026-10-30\\evidence\\steel-redone.png"
+          ],
+          "op": "png",
+          "sprite": "naval_steel_16.aseprite",
+          "frameCount": 1,
+          "width": 16,
+          "height": 16,
+          "frame": 1
+        }
+      }
+    }
+  ],
+  "images": [],
+  "ok": true,
+  "serverVersion": {
+    "name": "aseprite-ai-artist",
+    "title": "Aseprite AI Artist",
+    "version": "0.8.2"
+  },
+  "finishedAt": "2026-10-29T17:14:42.126Z",
+  "serverStderr": "[aseprite-ai-artist] control link up on :9932\n"
+}

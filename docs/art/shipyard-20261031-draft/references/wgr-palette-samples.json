@@ -1,0 +1,77 @@
+{
+  "basis": "Original Warship Girls R colors; saturated blue/gold/red accents with neutral concrete and steel unchanged, revision 4",
+  "samples": [
+    {
+      "role": "dock_concrete",
+      "reference": "core_10441",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10441.png",
+      "sourceSHA256": "218c61fe25715c3486a785fc770762b67046568dd85391afb853dc3462fad141",
+      "sampleXY": [
+        50,
+        57
+      ],
+      "sampleRGB": "#cfcfcf",
+      "adjustedSceneColor": "#c7c8c1"
+    },
+    {
+      "role": "ship_steel",
+      "reference": "core_10441",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10441.png",
+      "sourceSHA256": "218c61fe25715c3486a785fc770762b67046568dd85391afb853dc3462fad141",
+      "sampleXY": [
+        53,
+        53
+      ],
+      "sampleRGB": "#909090",
+      "adjustedSceneColor": "#90989a"
+    },
+    {
+      "role": "red_hull",
+      "reference": "core_10441",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10441.png",
+      "sourceSHA256": "218c61fe25715c3486a785fc770762b67046568dd85391afb853dc3462fad141",
+      "sampleXY": [
+        48,
+        82
+      ],
+      "sampleRGB": "#b2573a",
+      "adjustedSceneColor": "#ba4f31"
+    },
+    {
+      "role": "blue_gantry",
+      "reference": "core_10441",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10441.png",
+      "sourceSHA256": "218c61fe25715c3486a785fc770762b67046568dd85391afb853dc3462fad141",
+      "sampleXY": [
+        96,
+        41
+      ],
+      "sampleRGB": "#55bbff",
+      "adjustedSceneColor": "#329bd4"
+    },
+    {
+      "role": "yellow_crane",
+      "reference": "core_10441",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10441.png",
+      "sourceSHA256": "218c61fe25715c3486a785fc770762b67046568dd85391afb853dc3462fad141",
+      "sampleXY": [
+        32,
+        38
+      ],
+      "sampleRGB": "#e3a73c",
+      "adjustedSceneColor": "#d4a02c"
+    },
+    {
+      "role": "wood_deck",
+      "reference": "core_10141",
+      "sourcePNG": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores\\data_ui__core_10141.png",
+      "sourceSHA256": "dec664236d60d1d2bf52352ae87d3a5c7445d93821579bf4de5238fd17eadd55",
+      "sampleXY": [
+        42,
+        62
+      ],
+      "sampleRGB": "#e6c39a",
+      "adjustedSceneColor": "#b7a17a"
+    }
+  ]
+}

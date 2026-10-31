@@ -1,0 +1,96 @@
+{
+  "server": "aseprite",
+  "requestPath": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\mineral-block-textures-20261030\\salt-balance-validation.json",
+  "startedAt": "2026-10-29T19:53:49.776Z",
+  "results": [
+    {
+      "index": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "preflight",
+        "arguments": {
+          "mode": "live"
+        }
+      },
+      "elapsedMs": 18,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "READY — Aseprite 1.3.18.6, active sprite saltpeter_block.aseprite (16×16)."
+          }
+        ],
+        "structuredContent": {
+          "mode": "live",
+          "switched": false,
+          "bridgeConnected": true,
+          "pluginConnected": true,
+          "asepriteVersion": "1.3.18.6",
+          "extensionVersion": "0.8.2",
+          "features": [
+            "draw_batch",
+            "recolor",
+            "validate",
+            "tileset",
+            "reference",
+            "filmstrip"
+          ],
+          "ready": true,
+          "activeSprite": {
+            "name": "saltpeter_block.aseprite",
+            "width": 16,
+            "height": 16,
+            "colorMode": "rgb",
+            "frames": 1,
+            "layers": 1
+          },
+          "directive": "Ready. Call sprite_info before your first edit so you are working from the real layer, frame and palette state."
+        }
+      }
+    },
+    {
+      "index": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "validate",
+        "arguments": {
+          "sprite": "#819",
+          "strict": false
+        }
+      },
+      "elapsedMs": 36,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Clean.\n[note] outline: No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent. on 'Layer 1' frame 1"
+          }
+        ],
+        "structuredContent": {
+          "findings": [
+            {
+              "layer": "Layer 1",
+              "severity": "note",
+              "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+              "frame": 1,
+              "check": "outline"
+            }
+          ],
+          "sprite": "saltpeter_block.aseprite",
+          "passed": true,
+          "score": 100,
+          "summary": "Clean."
+        }
+      }
+    }
+  ],
+  "images": [],
+  "ok": true,
+  "serverVersion": {
+    "name": "aseprite-ai-artist",
+    "title": "Aseprite AI Artist",
+    "version": "0.8.2"
+  },
+  "finishedAt": "2026-10-29T19:53:52.144Z",
+  "serverStderr": "[aseprite-ai-artist] control link up on :9932\n"
+}

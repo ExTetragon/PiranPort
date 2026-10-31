@@ -1,0 +1,35 @@
+{
+  "version": "0.1.119",
+  "completedAt": "2026-10-30 03:36",
+  "colorMap": {
+    "#56362b": "#805843",
+    "#8d4335": "#9b6349",
+    "#b8563d": "#b36c49"
+  },
+  "changedShadowPixels": 155,
+  "unchangedBodyAndHighlightPixels": 101,
+  "pixelCategoryLayoutUnchanged": true,
+  "protectedPngCount": 121,
+  "allProtectedUnchanged": true,
+  "nativeAsepriteValidation": {
+    "findings": [
+      {
+        "layer": "Layer 1",
+        "severity": "note",
+        "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+        "frame": 1,
+        "check": "outline"
+      }
+    ],
+    "sprite": "bauxite_block.aseprite",
+    "passed": true,
+    "score": 100,
+    "summary": "Clean."
+  },
+  "build": {
+    "version": "0.1.119",
+    "resourceCheck": "passed",
+    "jarBuild": "passed",
+    "packedTextureMatchesSource": true
+  }
+}

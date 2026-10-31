@@ -29,7 +29,7 @@ public final class RiggingTooltips {
             return lines;
         }
         var ship = definition.orElseThrow();
-        lines.add(Component.translatable(ship.translationKey()).withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("ship_class_line."+ship.id().getNamespace()+"."+ship.id().getPath()).withStyle(ChatFormatting.GRAY));
         lines.add(ClassificationText.ship(ship).withStyle(ChatFormatting.GRAY));
         lines.add(line("proficiency", RiggingCoreRules.getProficiency(core), RiggingProficiency.MAX));
         var stats = RiggingStatsCalculator.calculate(core).orElseThrow();

@@ -1,0 +1,139 @@
+{
+  "completedAt": "2026-10-30T01:21:03+08:00",
+  "applications": {
+    "aseprite": {
+      "path": "D:/Optical/aseprite/build/bin/aseprite.exe",
+      "version": "1.3.18.6-8-g3669f4774-dev"
+    },
+    "blockbench": {
+      "path": "C:/Program Files/Blockbench/Blockbench.exe",
+      "version": "5.2.2"
+    },
+    "node": {
+      "path": "C:/Program Files/nodejs/node.exe",
+      "version": "24.19.0"
+    }
+  },
+  "mcp": {
+    "aseprite-ai-artist": {
+      "version": "0.8.2",
+      "transport": "stdio",
+      "livePreflightReady": true,
+      "toolsDiscovered": 18
+    },
+    "blockbench": {
+      "version": "1.10.1",
+      "transport": "streamable-http",
+      "endpoint": "http://127.0.0.1:3000/bb-mcp",
+      "toolsDiscoveredWithoutProject": 18,
+      "toolsDiscoveredJavaBlock": 60,
+      "pluginSha256": "caf94540e50257eaeb5aa51ab4b34b56aa6ac258a0f8c0bee2025c2cf18d5db9"
+    }
+  },
+  "existingCodexConfigurationPreserved": true,
+  "asepriteUndo": {
+    "probe_changed_pixels": true,
+    "undo_restored_baseline": true,
+    "redo_restored_probe": true,
+    "final_undo_restored_baseline": true
+  },
+  "blockbenchUndo": {
+    "probe_changed_geometry": true,
+    "undo_restored_baseline": true,
+    "redo_restored_probe": true,
+    "final_undo_restored_baseline": true
+  },
+  "staticSamples": {
+    "textures": {
+      "naval_biscuit_16": {
+        "size": [
+          16,
+          16
+        ],
+        "opaqueColors": 5,
+        "alphaValues": [
+          0,
+          255
+        ],
+        "bbox": [
+          1,
+          1,
+          15,
+          15
+        ],
+        "sha256": "3e584e7695df981b68e106f60fa8f4323eb56c763a12e0bf4f50c0fe4f44a4be"
+      },
+      "naval_shell_32": {
+        "size": [
+          32,
+          32
+        ],
+        "opaqueColors": 9,
+        "alphaValues": [
+          0,
+          255
+        ],
+        "bbox": [
+          2,
+          2,
+          30,
+          30
+        ],
+        "sha256": "9b4c3df8c91dfdb286527cc4441b75fc17c3e86658443ee48ef19ef13467b219"
+      }
+    },
+    "model": {
+      "javaBlockVersion": "1.9.0",
+      "cubeCount": 20,
+      "allVerticesWithinOneBlock": true,
+      "positiveCuboids": true,
+      "allFaceUVsWithin16": true,
+      "allFacesReferenceExistingTexture": true,
+      "allTextureFilesExist": true
+    }
+  },
+  "clientSmoke": {
+    "success": true,
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.259",
+    "gameDirectory": "run/art-mcp-smoke-20261030",
+    "resourcePackLoaded": true,
+    "resourcePackOverridesModAssets": true,
+    "resourceReload": [
+      "[01:16:39] [Render thread/INFO] [minecraft/ReloadableResourceManager]: Reloading ResourceManager: vanilla, mod_resources, mod/spark, mod/piranport, mod/mezz_config, mod/neoforge, mod/jei, file/PiranPort-Art-Samples.zip"
+    ],
+    "checks": {
+      "blueprints": true,
+      "equipment": true,
+      "jei": true,
+      "spark": true,
+      "riggingCore": true,
+      "titleScreen": true,
+      "ammunition": true,
+      "modTooltips": true
+    },
+    "piranportModelTextureErrors": [],
+    "worldLoaded": false,
+    "scope": "Title-screen resource loading only; editor previews cover visual inspection."
+  },
+  "prototypeOnly": true,
+  "modVersion": "0.1.111",
+  "files": {
+    "sources/ammunition_press.bbmodel": "d7a3b308f47d0ca970c3c88b62af6a64bc8c0e74ddf1a91abcc6109ecb39c6b4",
+    "sources/biscuit-grid.json": "e6317ee2ee9f7f44b9c9023e45fddfc39b48691873559829939773e660365c03",
+    "sources/naval_biscuit_16.aseprite": "050066cf3ebacfe26aef9b35e14fc9e447ae697e13b93d1216d189834c26122c",
+    "sources/naval_shell_32.aseprite": "33da1be4bfe195688508e100fc64c0f3eadefb8a09fc9cc55e158bb849ab2cf4",
+    "sources/naval_steel_16.aseprite": "736b4432cea4edc13bd348b1cc5eba61be6986092bc040291a0b425965bdc1a5",
+    "sources/press-plan.json": "e7faccc606cc03136e13ef0cb6ff56a5904dc82b181c1345e5e703415aefed7d",
+    "textures/block/naval_steel_16.png": "e2cfd69779d0660ce2c7c0035162c0919fc3d8f6494d061f62b180606733f0c7",
+    "textures/block/press_badge.png": "6027c6a6ed6aed4142593573353747e1ba7e9d4da4c2588a9ddbb5c0b7196b7f",
+    "textures/block/press_copper.png": "f6091d26b8c2345eb9a260c5733f306d9cfeab5df46cd81b97c7811da13648ca",
+    "textures/block/press_dark.png": "bfeb99587626a83865ebcda5da2e4ef3b2a44e6d834fc15d167028ef7c2c7490",
+    "textures/block/press_green.png": "2f55704ee3811577f41466d0ceee581dbdf9b4a4823e6b7dc9aecff020c9ac3d",
+    "textures/block/press_steel.png": "a7b2c7781a80f8fd734c465be8fd5ae6368f165f7e44f23f02969569bff92012",
+    "textures/block/press_warning.png": "f19eba34712e3160b3d8f6593cc136b431824dfcea51a0de6a7b6609b0e18c01",
+    "textures/item/naval_biscuit_16.png": "3e584e7695df981b68e106f60fa8f4323eb56c763a12e0bf4f50c0fe4f44a4be",
+    "textures/item/naval_shell_32.png": "9b4c3df8c91dfdb286527cc4441b75fc17c3e86658443ee48ef19ef13467b219",
+    "models/block/ammunition_press.json": "b5fe3460770c1d26317b0ef9c773f12ff401dbd91fbdbc0c91a082908fb203f5"
+  }
+}

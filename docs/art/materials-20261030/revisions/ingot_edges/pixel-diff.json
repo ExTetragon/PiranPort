@@ -1,0 +1,14 @@
+{
+  "steel_ingot": {
+    "changedPixels": 16,
+    "alphaUnchanged": true,
+    "outsideEdgePixelsUnchanged": true,
+    "visibleColors": 8
+  },
+  "aluminum_ingot": {
+    "changedPixels": 16,
+    "alphaUnchanged": true,
+    "outsideEdgePixelsUnchanged": true,
+    "visibleColors": 8
+  }
+}

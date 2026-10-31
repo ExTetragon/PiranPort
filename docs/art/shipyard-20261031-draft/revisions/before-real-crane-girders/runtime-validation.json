@@ -1,0 +1,41 @@
+{
+  "version": "0.1.125",
+  "completedAt": "2026-10-31T23:30+08:00",
+  "sourceArtRevision": 8,
+  "productionIntegrated": true,
+  "atlasSize": [
+    128,
+    128
+  ],
+  "beamFacesRemapped": 18,
+  "paletteAndOriginalAtlasRegionUnchanged": true,
+  "nonBeamPixelUVGeometryAndCollisionUnchanged": true,
+  "sourceAtlasMatchesProduction": true,
+  "topRimPixelsUnchanged": true,
+  "buildPassed": true,
+  "staticJSONResources": 324,
+  "clientChecks": {
+    "riggingCore": true,
+    "ammunition": true,
+    "shipyardModel": true,
+    "spark": true,
+    "equipment": true,
+    "modTooltips": true,
+    "blueprints": true,
+    "titleScreen": true,
+    "jei": true
+  },
+  "clientLog": "build/shipyard-v8-20261031/client-smoke.log",
+  "artValidation": "all-face-beam-validation.json",
+  "jar": {
+    "file": "build/shipyard-v8-20261031/artifacts/libs/piranport-0.1.125.jar",
+    "sha256": "e78b4f995adbfeb894988d8b5ffe45e4ae53fd6905633f1fc532dc4eabc6fa33",
+    "changedEntriesFromRevision7": [
+      "assets/piranport/models/block/shipyard.json",
+      "assets/piranport/textures/block/shipyard_atlas.png"
+    ],
+    "allOtherEntriesByteIdentical": true
+  },
+  "previousRuntimeValidation": "revisions/before-all-face-beams/runtime-validation.json",
+  "scope": "Native Aseprite/Blockbench review, build, JAR comparison and actual title-screen model bake checks; no GameTest server or player world entered."
+}

@@ -1,0 +1,67 @@
+{
+  "version": "0.1.125",
+  "revision": "contrast follow-up, same fix",
+  "completedAt": "2026-10-30 04:12",
+  "changedPixels": 140,
+  "unchangedBaseAndPinkPixels": 116,
+  "grainLayoutUnchanged": true,
+  "pinkPositionsAndColorsUnchanged": true,
+  "neutralRamps": {
+    "before": {
+      "colors": [
+        "#d6cfc0",
+        "#e0d9c9",
+        "#e8e1d0",
+        "#ede9d9",
+        "#f4f0e3"
+      ],
+      "luminance": [
+        207.40519999999998,
+        217.333,
+        225.2608,
+        232.6952,
+        239.9118
+      ],
+      "span": 32.50660000000002,
+      "maxStep": 9.927800000000019
+    },
+    "after": {
+      "colors": [
+        "#d2cbbc",
+        "#ddd6c6",
+        "#e8e1d0",
+        "#f0ecdc",
+        "#f8f4e7"
+      ],
+      "luminance": [
+        203.40519999999998,
+        214.333,
+        225.2608,
+        235.6952,
+        243.91179999999997
+      ],
+      "span": 40.50659999999999,
+      "maxStep": 10.927800000000019
+    }
+  },
+  "luminanceSpanGainFromPreviousPass": 0.24610386813754648,
+  "smoothedBaselineSpan": 28.506599999999963,
+  "meanLuminanceChange": -0.18359375000000056,
+  "protectedPngCount": 121,
+  "allProtectedUnchanged": true,
+  "nativeAsepriteValidation": {
+    "findings": [
+      {
+        "layer": "Layer 1",
+        "severity": "note",
+        "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+        "frame": 1,
+        "check": "outline"
+      }
+    ],
+    "sprite": "saltpeter_block.aseprite",
+    "passed": true,
+    "score": 100,
+    "summary": "Clean."
+  }
+}

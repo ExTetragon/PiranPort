@@ -1,0 +1,146 @@
+{
+  "version": "0.1.141",
+  "assets": [
+    {
+      "name": "ship_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 10,
+      "sha256": "1d1fdb9915fdd50dc39d9b31d98e49ad609b08f1a2913dd14328cd8c33707973"
+    },
+    {
+      "name": "equipment_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "sha256": "e023364be7be06b2533b2d50f62cfb776ff5098abca69baab93ce6b406a2f0a9"
+    }
+  ],
+  "dimensions": [
+    16,
+    16
+  ],
+  "drawingMode": "Aseprite live",
+  "productionExportsMatch": true,
+  "pixelSpecMatches": true,
+  "wheelBounds": [
+    8,
+    8,
+    7,
+    7
+  ],
+  "wheelReference": "0.1.136",
+  "originalWheelPixelsAndPositionUnchanged": true,
+  "onlyPixelDifferencesFrom136": [
+    [
+      9,
+      13
+    ],
+    [
+      10,
+      14
+    ],
+    [
+      11,
+      15
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      13,
+      13
+    ],
+    [
+      14,
+      10
+    ],
+    [
+      14,
+      12
+    ],
+    [
+      15,
+      11
+    ]
+  ],
+  "outlinePixelCount": 8,
+  "wheelHandles": [
+    [
+      11,
+      8
+    ],
+    [
+      14,
+      11
+    ],
+    [
+      11,
+      14
+    ],
+    [
+      8,
+      11
+    ]
+  ],
+  "outlineColors": {
+    "lit": "#acb9c1",
+    "shade": "#7f898f"
+  },
+  "outlineOnlyOutsidePaper": true,
+  "innerHolesUnoutlined": true,
+  "paperAndEquipmentUnchanged": true,
+  "asepriteValidation": [
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        },
+        {
+          "message": "No single colour owns the silhouette edge on 'Emblem', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Emblem",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "ship_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    },
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "equipment_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    }
+  ],
+  "gameClientStarted": false,
+  "gradleBuild": "passed",
+  "staticJsonResources": 324,
+  "packagedModelsAndTexturesMatch": true,
+  "jar": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\blueprint-small-wheel-20261031\\artifacts\\libs\\piranport-0.1.141.jar",
+  "jarSha256": "b057e64978f5e38666769fbe06d27b5ff7be3609afbad882c74acbe0c9b4e437",
+  "documentationLinksVerified": 18,
+  "backgroundPreview": "wheel-comparison-v7.png",
+  "visualReview": "原136版小舵轮原样保留，仅在纸外增加8个纸边同色明暗灰描边像素"
+}

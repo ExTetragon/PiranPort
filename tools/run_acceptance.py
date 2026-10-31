@@ -127,8 +127,8 @@ def main():
             if not match:
                 raise ValueError('Client did not reach the title screen with the startup check enabled')
             helpers = json.loads(match[1])
-            if not all(helpers.get(key) for key in ['jei', 'spark', 'titleScreen', 'blueprints', 'riggingCore', 'modTooltips', 'equipment', 'ammunition']):
-                raise ValueError('Acceptance helpers, blueprint or rigging client resources failed to load')
+            if not all(helpers.get(key) for key in ['jei', 'spark', 'titleScreen', 'blueprints', 'riggingCore', 'modTooltips', 'equipment', 'ammunition', 'shipyardModel']):
+                raise ValueError('Acceptance helpers or client model/resources failed to load')
             report['clientSmoke'] = helpers
         if args.worldgen:
             world = 'run/acceptance-worldgen-' + execution

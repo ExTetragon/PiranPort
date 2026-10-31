@@ -6,9 +6,11 @@
 
 **PiranPort** — a comprehensive **Warship Girls R**-themed mod for **Minecraft 1.21.1 (NeoForge)**: play as a shipgirl, gather resources, cook food, and craft riggings and weapons in survival, fight Abyssal enemies across the Overworld, campaign maps, and the Abyssal World, and explore an independent story. Its content is organized into three systems: combat, logistics, and story.
 
-> **Status: early development, version 0.1.105.** 104 registered items include food, resources, blueprints, eight ammunition types, rigging cores, the shipyard, and 15 equipment categories with 21 durable models and 2 plain consumables. Equipment has durability, aircraft fuel storage, creative variants and 32×32 icons; the development factory provides 23 recipes, blueprint reservation, refunds, persistent storage, automation and category/text filters. Repair, automatic consumable effects and combat remain unimplemented.
+> **Status: early development, version 0.1.125.** 104 registered items include food, resources, blueprints, eight ammunition types, rigging cores, the shipyard, and 15 equipment categories with 21 durable models and 2 plain consumables. Equipment has durability, aircraft fuel storage, creative variants and 32×32 icons; the development factory provides 23 recipes, blueprint reservation, refunds, persistent storage, automation and category/text filters. Repair, automatic consumable effects and combat remain unimplemented.
 
 The [ammunition production line](docs/3.2.4-弹药生产线-实现方案.md) now provides eight recipes, finite production plans, per-cycle charging, pause/resume, graceful interruption, sided item access and copper nugget conversions. Its GUI shows single-cycle or total requirements and preserves the last closed browsing state on the machine.
+
+The shipyard now uses a dedicated block/item model with facing-aware selection and collision shapes matched to its geometry.
 
 ---
 
@@ -65,7 +67,7 @@ PiranPort is organized into three systems: combat, logistics, and story.
 | Package | `com.lex0v0.piranport` |
 | Organization | lex0v0 |
 | Maven Group | `com.lex0v0.piranport` |
-| Artifact | `piranport-0.1.95.jar` |
+| Artifact | `piranport-0.1.125.jar` |
 
 ---
 

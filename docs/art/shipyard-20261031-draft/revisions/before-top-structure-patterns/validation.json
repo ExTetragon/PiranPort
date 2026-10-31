@@ -1,0 +1,132 @@
+{
+  "completedAt": "2026-10-31T23:18+08:00",
+  "revision": 6,
+  "hullScaleFromDraft01": [
+    1.2,
+    1.12,
+    1.15
+  ],
+  "gantryColorReference": "Warship Girls R core_10441, adjusted for scene harmony",
+  "patternReference": "GregTechCEu/GregTech-Modern style only; patterns follow actual dock construction",
+  "colorDirection": "Neutral concrete and steel unchanged; saturated blue and gold cranes and red hull; localized highlights",
+  "surfacePatternRoles": {
+    "outside": "Cast panel joints and wall footing",
+    "coping": "Concrete lip, rubbed steel runner and anchors",
+    "inside": "Steel lining and drainage channels beside the tracks",
+    "bottom": "Longitudinal support beams, cradle crossmembers and a small access cover",
+    "ship": "Steel hull seams, localized red-hull highlights, longitudinal deck boards"
+  },
+  "preservedPatternTiles": [
+    5
+  ],
+  "preservedLatticeBodyTiles": [
+    11,
+    18
+  ],
+  "narrowFaceUV": "Thin painted sides sample midtone rows; lattice sides sample row 3; undersides avoid the top highlight row; texel density unchanged",
+  "capEdgeUV": {
+    "density": 4,
+    "edgeWidthInModelUnits": 0.25,
+    "regions": {
+      "gantry_crossbeam": [
+        32,
+        48,
+        56,
+        10,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "gantry_post": [
+        88,
+        48,
+        8,
+        8,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "gantry_edge": [
+        88,
+        56,
+        2,
+        1,
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "jib_mast_cap": [
+        96,
+        48,
+        8,
+        8,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "jib_mast": [
+        104,
+        48,
+        6,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ],
+      "jib_arm": [
+        96,
+        56,
+        21,
+        6,
+        "Y",
+        "I",
+        "J",
+        "O"
+      ]
+    },
+    "style": "Unchanged one-pixel perimeter rim; short, staggered interior glints and small folded ends"
+  },
+  "gregtechReferenceCommit": "ec40d99d6a6e24d130bf4ddae0d7243281afad45",
+  "draft": false,
+  "productionIntegrated": true,
+  "runtimeVersion": "0.1.125",
+  "artEditsIncrementVersion": false,
+  "runtimeValidation": "runtime-validation.json",
+  "scope": "Native art exports and Blockbench previews; runtime checks recorded separately",
+  "referenceCount": 5,
+  "referenceCache": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores",
+  "nativeModel": "sources/shipyard_draft.bbmodel",
+  "elementCount": 56,
+  "groupCount": 6,
+  "bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      16,
+      15.5,
+      16
+    ]
+  },
+  "atlasDimensions": [
+    128,
+    64
+  ],
+  "texturePixelPerModelUnit": 1,
+  "mastStripePixelPerModelUnit": 2,
+  "capEdgePixelPerModelUnit": 4,
+  "atlasEmbeddedMatches": true,
+  "nativeGeometryAndUVMatchSpec": true,
+  "hullDoesNotIntersectCranes": true,
+  "allFiveViewsUnclipped": true,
+  "nativeProjectSHA256": "f3f8d9544bd39b6f3b0043d7c616bf03efd7aef0289219e8f3d76800db3617cc",
+  "preview": "previews/shipyard-preview-v6-inner-highlights.png",
+  "gameLaunched": false
+}

@@ -1,6 +1,7 @@
 package com.lex0v0.piranport.client.gui.screens;
 
 import com.lex0v0.piranport.client.gui.ManufacturingGuiStyle;
+import com.lex0v0.piranport.client.gui.ManufacturingFilterSummary;
 
 import com.lex0v0.piranport.blockentity.developmentfactory.FactoryFilter;
 import com.lex0v0.piranport.domain.equipment.EquipmentCategory;
@@ -40,14 +41,20 @@ public final class FactoryFilterDialog {
     }
     private static Component tr(String key,Object...args){return Component.translatable("gui.piranport.development_factory."+key,args);}
     public FactoryFilter value(){return new FactoryFilter(input.getValue(),categories);}
+    public Component summary(){
+        var conditions=new ArrayList<Component>();
+        for(var category:EquipmentCategory.values())if(categories.contains(category))conditions.add(Component.translatable(category.translationKey()));
+        if(!input.getValue().isBlank())conditions.add(ManufacturingFilterSummary.keyword(value().text()));
+        return ManufacturingFilterSummary.compose(tr(all?"scope_all":"scope_permitted"),conditions);
+    }
     public List<AbstractWidget> widgets(){return List.copyOf(widgets);}
-    public List<Component> tooltip(double mx,double my){for(var e:labels.entrySet())if(e.getKey().isMouseOver(mx,my))return List.of(e.getValue());return List.of();}
+    public List<Component> tooltip(double mx,double my){if(mx>=x+12&&mx<x+288&&my>=y+45&&my<y+58)return List.of(summary());for(var e:labels.entrySet())if(e.getKey().isMouseOver(mx,my))return List.of(e.getValue());return List.of();}
     private Button button(int left,int top,int width,int height,Component text,Runnable action,BooleanSupplier checked){var button=new FilterButton(x+left,y+top,width,height,text,action,checked);widgets.add(button);return button;}
     public void render(GuiGraphics g,int mx,int my,float tick){
         ManufacturingGuiStyle.modal(g, x, y, 300, 230);
         g.drawString(font,tr("search"),x+(300-font.width(tr("search")))/2,y+10,WHITE,false);
         g.fill(x+12,y+24,x+272,y+40,0xff142b3d);outline(g,x+12,y+24,260,16,input.isFocused()?0xff67b4e7:0xff58788f);
-        g.drawString(font,tr(all?"scope_all":"scope_permitted"),x+12,y+47,MUTED,false);
+        ManufacturingFilterSummary.draw(g,font,summary(),x+12,y+47,276,MUTED);
         String[] groups={"weapons","devices","aircraft"};for(int col=0;col<3;col++)g.drawString(font,tr(groups[col]),x+12+col*94,y+62,WHITE,false);
         var matches=tr("matches",count.applyAsInt(value()));g.drawString(font,matches,x+(300-font.width(matches))/2,y+191,MUTED,false);
         widgets.forEach(w->w.render(g,mx,my,tick));

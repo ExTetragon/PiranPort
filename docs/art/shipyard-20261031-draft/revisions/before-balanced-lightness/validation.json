@@ -1,0 +1,56 @@
+{
+  "completedAt": "2026-10-31T22:17+08:00",
+  "revision": 2,
+  "hullScaleFromDraft01": [
+    1.2,
+    1.12,
+    1.15
+  ],
+  "gantryColorReference": "core_10441",
+  "patternReference": "GregTechCEu/GregTech-Modern",
+  "gantryColorAdjustment": "deeper_blue",
+  "gregtechReferenceCommit": "ec40d99d6a6e24d130bf4ddae0d7243281afad45",
+  "draft": true,
+  "productionIntegrated": false,
+  "versionIncremented": false,
+  "referenceCount": 5,
+  "referenceCache": "E:\\Leisure\\Coding\\Minecraft\\mc-refs\\WarshipGirlsR\\v5.5.1\\remodel-cores",
+  "nativeModel": "sources/shipyard_draft.bbmodel",
+  "elementCount": 56,
+  "groupCount": 6,
+  "bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      16,
+      15.5,
+      16
+    ]
+  },
+  "atlasDimensions": [
+    128,
+    64
+  ],
+  "texturePixelPerModelUnit": 1,
+  "mastStripePixelPerModelUnit": 2,
+  "atlasEmbeddedMatches": true,
+  "nativeGeometryAndUVMatchSpec": true,
+  "hullDoesNotIntersectCranes": true,
+  "allFiveViewsUnclipped": true,
+  "nativeProjectSHA256": "13fcc3ecdae10fc1c92cdfadbc1e93a6e5dade14d64ab4c7f59f20825835080d",
+  "preview": "previews/shipyard-preview-v2-deeper-blue.png",
+  "gameLaunched": false,
+  "onlyGantryBlueChanged": true,
+  "geometryAndUVUnchanged": true,
+  "bluePixelsChanged": 784,
+  "blueRampMapping": {
+    "#164c75": "#123c60",
+    "#327caf": "#28638e",
+    "#55bbff": "#347fb5",
+    "#88d5ee": "#5b9fc6",
+    "#99ddff": "#82b9d8"
+  }
+}

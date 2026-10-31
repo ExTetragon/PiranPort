@@ -1,0 +1,136 @@
+{
+  "draft": true,
+  "productionIntegrated": false,
+  "version": "0.1.130",
+  "styleRevision": "modern-v2",
+  "textures": {
+    "crude_oil_window.png": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 7,
+      "alphaValues": [
+        242
+      ],
+      "sha256": "681aab4cb129355c724d676dc3fa8e461b36041b5264ac40c441943ca5a342c3"
+    },
+    "fuel_barrel_end.png": {
+      "size": [
+        32,
+        32
+      ],
+      "colors": 3,
+      "alphaValues": [
+        255
+      ],
+      "sha256": "3c33b57e41657852f2e6918ec5cce92a313f26fb62597e7af29cd21a72817396"
+    },
+    "fuel_barrel_lining.png": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 3,
+      "alphaValues": [
+        255
+      ],
+      "sha256": "ece7eeead8a4a19a43f015d7ac1671cd9c63a2242b40826bdf1dd4da0c42ab9a"
+    },
+    "fuel_barrel_side_pair.png": {
+      "size": [
+        32,
+        64
+      ],
+      "colors": 18,
+      "alphaValues": [
+        0,
+        96,
+        255
+      ],
+      "sha256": "6972f362dc13f129f1bc7f2858e4cc18d8285744de1eccd9f382a1a1632b0b9a"
+    },
+    "fuel_barrel_side_single.png": {
+      "size": [
+        32,
+        32
+      ],
+      "colors": 18,
+      "alphaValues": [
+        0,
+        96,
+        255
+      ],
+      "sha256": "c3df4589527e61cc1f31e9788196ac7e804c1c612f22b10bb5767f7c9e024aea"
+    },
+    "fuel_oil_window.png": {
+      "size": [
+        16,
+        16
+      ],
+      "colors": 9,
+      "alphaValues": [
+        180
+      ],
+      "sha256": "2263379352676b364ffa54703e69ad12b8a0df54cdd4eb6bbdf08512877c67cb"
+    }
+  },
+  "models": {
+    "fuel_barrel_design_board.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 20
+    },
+    "pair_crude_three_quarters.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    },
+    "pair_fuel_half.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    },
+    "pair_horizontal_fuel_half.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    },
+    "single_crude_half.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    },
+    "single_empty.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 2
+    },
+    "single_fuel_full.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    },
+    "single_fuel_half.bbmodel": {
+      "geometryAndUvUnchanged": true,
+      "elements": 3
+    }
+  },
+  "previews": {
+    "design-board.png": {
+      "size": [
+        1252,
+        712
+      ],
+      "sha256": "ff9307a71374404f919085e0bccd91dc9abf799f0ebfabdeda41e5b53608d031"
+    },
+    "pair_horizontal_fuel_half.png": {
+      "size": [
+        631,
+        485
+      ],
+      "sha256": "16c68d655bdb8844370811c4d62c97bc1b3e5463a244a25f4fd41a25895fead5"
+    }
+  },
+  "sharedWindowContinuous": true,
+  "fluidAndLiningTexturesUnchanged": true,
+  "weightedSrgbBandValueDifference": {
+    "before": 106.63,
+    "after": 76.21,
+    "reductionPercent": 28.5
+  },
+  "productionFilesUnchanged": true
+}

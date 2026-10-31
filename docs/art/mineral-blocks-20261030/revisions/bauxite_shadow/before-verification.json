@@ -1,0 +1,91 @@
+{
+  "version": "0.1.118",
+  "createdAt": "2026-10-30T03:31:36",
+  "textures": {
+    "aluminum_block": {
+      "width": 16,
+      "height": 16,
+      "colors": 9,
+      "opaquePixels": 256,
+      "sha256": "531ff29bf3dc42f25038d69af67717b7db948e15510c92f21094ddbadc26315f",
+      "sourceSha256": "5297b9a3e35fb0d0b20d00b06c74346f48117efdfd91bde0951d3511474c2e5b"
+    },
+    "steel_block": {
+      "width": 16,
+      "height": 16,
+      "colors": 9,
+      "opaquePixels": 256,
+      "sha256": "cec96006f4affddea81cd7f863b502dea8d13be807ade1cd37373f818a6fdb49",
+      "sourceSha256": "6e08ced222277a7163c8d9b1b116e957ae2ef1b2658fab984736a4f25b81c8c6"
+    },
+    "saltpeter_block": {
+      "width": 16,
+      "height": 16,
+      "colors": 6,
+      "opaquePixels": 256,
+      "sha256": "cfa354d41378fbb25f3ceae89d1825454a380e9e8182ac14f66f37c9856a5df3",
+      "sourceSha256": "8e71de56acb73dc66838a4d84eeb4dce3f40caef4111de04ca79cc694117c4b8"
+    },
+    "bauxite_block": {
+      "width": 16,
+      "height": 16,
+      "colors": 7,
+      "opaquePixels": 256,
+      "sha256": "e2aad7f2dd9d7db6266f7173b150812e8552582537c540661b97843371aef733",
+      "sourceSha256": "0761e001320cbae7c33c5da42d431ba2423423d12d29974d01706f3e071e0812"
+    },
+    "bauxite_ore": {
+      "width": 16,
+      "height": 16,
+      "colors": 10,
+      "opaquePixels": 256,
+      "sha256": "80be92ae958e6e29d0ff8d970476639609147ff99e779fc6741eee84b2f1acb2",
+      "sourceSha256": "3bb9ee768aaaedb804876cd48ebebe8ca0919858ae4ea32a96529b2b32ef927b"
+    }
+  },
+  "nativeAsepriteValidation": {
+    "count": 5,
+    "passed": true,
+    "scores": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "sourcePatternChecks": {
+    "goldBlockNineColorMap": true,
+    "sandSixColorMap": true,
+    "oreStonePixelsUnchanged": 197,
+    "orePixelsRecolored": 59
+  },
+  "protectedPngCount": 117,
+  "protectedPngUnchanged": true,
+  "totalProductionPngCount": 122,
+  "fuelBarrelChanged": false,
+  "blockbenchPreview": {
+    "nativeScreenshots": 5,
+    "cubeFaces": 6,
+    "uv": [
+      0,
+      0,
+      16,
+      16
+    ],
+    "embeddedTextures": 5,
+    "productionModelsChanged": false
+  },
+  "visualReview": "Aseprite enlarged preview, 3x3 tiling and Blockbench cube reviewed; final visual approval and actual game lighting pending.",
+  "build": {
+    "jar": "build\\libs\\piranport-0.1.118.jar",
+    "sha256": "5686ac25810c51de2ec0506abb494f0aed47efd538eccb4b800b58eaf6f93c5e",
+    "packedPngMatches": 5,
+    "modVersionMatches": true
+  },
+  "staticResources": {
+    "command": "python tools/verify_resources.py",
+    "result": "passed",
+    "jsonFiles": 316
+  }
+}

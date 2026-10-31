@@ -43,17 +43,20 @@ final class RiggingClientChecks {
                 Language.inject(language);
                 for (var ship : ShipDefinitions.ALL) {
                     if (!language.has(ship.translationKey()) || !language.has(ship.type().translationKey()) || !language.has(ship.size().translationKey())) return false;
+                    String classKey="ship_class_line.piranport."+ship.id().getPath();
+                    if(!language.has(classKey))return false;
                     var stack = RiggingCoreRules.create(ship.id());
                     var simple = stack.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.NORMAL);
                     RiggingClientEvents.applyTooltip(stack, simple, false);
                     if (simple.size() != 2 || !simple.get(1).getString().equals(code.equals("zh_cn") ? "舰装核心" : "Rigging Core")) return false;
                     if (simple.getFirst().getStyle().getColor().getValue() != RiggingCoreItem.NAME_COLOR) return false;
+                    if(!simple.getFirst().getString().equals(language.getOrDefault(ship.translationKey())))return false;
                     stack.set(DataComponents.CUSTOM_NAME, Component.literal("Alias"));
                     RiggingCoreRules.setProficiency(stack, 200);
                     var lines = stack.getTooltipLines(Item.TooltipContext.EMPTY, null, TooltipFlag.ADVANCED);
                     RiggingClientEvents.applyTooltip(stack, lines, true);
                     if (!lines.getFirst().getString().equals("Alias") || lines.getFirst().getStyle().getColor().getValue() != RiggingCoreItem.NAME_COLOR) return false;
-                    if (!lines.get(1).getString().equals(language.getOrDefault(ship.translationKey()))) return false;
+                    if (!lines.get(1).getString().equals(language.getOrDefault(classKey))) return false;
                     String separator = code.equals("zh_cn") ? "·" : " · ";
                     String expectedClassification = language.getOrDefault(ship.size().translationKey()) + separator
                             + language.getOrDefault(ship.type().translationKey()) + separator + language.getOrDefault(ship.nationality().translationKey());

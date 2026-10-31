@@ -1,0 +1,64 @@
+{
+  "completedAt": "2026-10-31T23:23+08:00",
+  "version": "0.1.125",
+  "revision": 7,
+  "changedPixels": 223,
+  "paletteUnchanged": true,
+  "allCapPerimeterPixelsUnchanged": true,
+  "allGeometryAndUVUnchanged": true,
+  "allNonCapInteriorPixelsUnchanged": true,
+  "collisionCodeUnchanged": true,
+  "nativeAsepriteValidation": {
+    "findings": [
+      {
+        "message": "No single colour owns the silhouette edge on 'Layer 1', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+        "layer": "Layer 1",
+        "frame": 1,
+        "check": "outline",
+        "severity": "note"
+      },
+      {
+        "message": "A 56-pixel straight boundary between #2679b3 and #90989a on 'Layer 1'. Let the edge wander, or dither part of it, so it reads as a surface rather than a contour line.",
+        "layer": "Layer 1",
+        "frame": 1,
+        "check": "banding",
+        "at": {
+          "x": 32,
+          "y": 57
+        },
+        "count": 56,
+        "severity": "note"
+      }
+    ],
+    "sprite": "shipyard_atlas.aseprite",
+    "passed": true,
+    "score": 100,
+    "summary": "Clean."
+  },
+  "nativeOperationsAllPassed": true,
+  "productionModelUnchanged": true,
+  "productionAtlasMatchesNativeExport": true,
+  "blueCrossBracedBays": 5,
+  "yellowDiagonalBays": 3,
+  "capRecessPanels": true,
+  "recessColorsLighterThanSideSlots": true,
+  "recessColors": {
+    "blue": "#2679b3",
+    "yellow": "#b47e21"
+  },
+  "deepSideColors": {
+    "blue": "#214b74",
+    "yellow": "#8e631c",
+    "mastWarning": "#30363a"
+  },
+  "preview": "previews/shipyard-preview-v7-top-structure.png",
+  "comparison": "previews/top-structure-comparison.png",
+  "scope": "Structural motifs inside crane tops; existing palette and lighter middle shades used; no perimeter, side texture, UV, geometry or gameplay changes",
+  "buildPassed": true,
+  "staticJSONResources": 324,
+  "jarChangedEntries": [
+    "assets/piranport/textures/block/shipyard_atlas.png"
+  ],
+  "jar": "build/shipyard-v7-20261031/artifacts/libs/piranport-0.1.125.jar",
+  "jarSHA256": "82b477ba27f21dcf1dde2b35e31e34de0a5fc35347882b3c7de151907264d2af"
+}

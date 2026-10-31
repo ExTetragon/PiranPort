@@ -1,0 +1,660 @@
+{
+  "server": "blockbench",
+  "requestPath": "F:\\codex\\tools\\mc-art\\blockbench-discovery-request.json",
+  "startedAt": "2026-10-29T17:07:22.233Z",
+  "results": [
+    {
+      "index": 1,
+      "method": "tools/list",
+      "params": {},
+      "elapsedMs": 5,
+      "result": {
+        "tools": [
+          {
+            "name": "capture_app_screenshot",
+            "title": "Capture App Screenshot",
+            "description": "Returns the image data of the Blockbench app.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "max_size": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 8192,
+                  "description": "Longest side of the returned image in pixels; larger images are scaled down proportionally. Omit for full size."
+                },
+                "format": {
+                  "type": "string",
+                  "enum": [
+                    "png",
+                    "jpeg",
+                    "webp"
+                  ],
+                  "description": "Encoding of the returned image: \"png\" (default, lossless), or the smaller \"jpeg\" (no transparency: transparent pixels become white) or \"webp\"."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Capture App Screenshot",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "create_offscreen_view",
+            "title": "Create Offscreen View",
+            "description": "Creates a private offscreen viewport that renders the current project without moving the user's camera. Use it with set_camera_angle and capture_screenshot (view: <id>) for multi-angle inspection. The camera starts where the user's is unless copy_view is \"none\". Up to 4 views may exist at once; delete them with delete_offscreen_view when done. Views still open when your MCP session ends are deleted.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "description": "ID for the new view. Generated as view_N when omitted."
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 2048,
+                  "description": "Width in pixels (16–2048).",
+                  "default": 1024
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 2048,
+                  "description": "Height in pixels (16–2048).",
+                  "default": 768
+                },
+                "antialias": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Multisample antialiasing. Disable for crisp pixel-art inspection."
+                },
+                "copy_view": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "View to target: \"active\" for the viewport the user last interacted with, the ID of an offscreen view from create_offscreen_view, or a viewport ID from list_views."
+                    },
+                    {
+                      "type": "string",
+                      "const": "none"
+                    }
+                  ],
+                  "default": "active",
+                  "description": "View whose camera seeds the new one. Defaults to \"active\" (the user's viewport); pass \"none\" for Blockbench's default angle."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Create Offscreen View",
+              "idempotentHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "list_views",
+            "title": "List Views",
+            "description": "Lists render targets: the user's connected viewports (the active one flagged) and the plugin's offscreen views, each with size and camera position, target, projection, FOV, zoom, and side-view lock.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "List Views",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "resize_offscreen_view",
+            "title": "Resize Offscreen View",
+            "description": "Changes the pixel size of an offscreen view. The user's viewports follow their layout and cannot be resized here.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "view": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "description": "ID of the offscreen view to resize."
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 2048,
+                  "description": "Width in pixels (16–2048)."
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 16,
+                  "maximum": 2048,
+                  "description": "Height in pixels (16–2048)."
+                }
+              },
+              "required": [
+                "view",
+                "width",
+                "height"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Resize Offscreen View",
+              "idempotentHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "delete_offscreen_view",
+            "title": "Delete Offscreen View",
+            "description": "Disposes an offscreen view and releases its WebGL context. The user's viewports are not affected.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "view": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,64}$",
+                  "description": "ID of the offscreen view to dispose."
+                }
+              },
+              "required": [
+                "view"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Delete Offscreen View",
+              "destructiveHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "get_capabilities",
+            "title": "Get Capabilities",
+            "description": "Discover Blockbench/plugin versions, desktop or web environment, active project summary, and registered model formats. Returns detailed boolean format features (null means unknown; includes molang and java_cube_shade_direction_override) plus the format's remember_files and animation_grouping settings, compact supported-feature lists for all formats, and optional tool registration states. Works with no open project. Format features do not guarantee that every enabled MCP tool can run in the current mode or selection.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "format_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Optional registered format ID to inspect, such as 'free'. Defaults to the active project's format. Does not switch or create a project."
+                },
+                "include_tools": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Include all registered MCP tool names, stability status, and current enabled state. Use list_modes and set_mode to navigate before calling mode-dependent tools."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Get Capabilities",
+              "readOnlyHint": true,
+              "destructiveHint": false,
+              "idempotentHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "list_export_formats",
+            "title": "List Export Formats",
+            "description": "Lists registered export codecs, file extensions, compile/export support, and availability under the native export action's condition. Use before `export_model` to pick a codec.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "only_current_format": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "If true, only return codecs compatible with the current project's format."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "List Export Formats",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "list_modes",
+            "title": "List Modes",
+            "description": "Lists Blockbench editor tabs/modes with IDs, names, native availability, and the current mode. Includes plugin-added modes. Use before set_mode to discover whether Edit, Paint, Animate, or Display is available for the current project. Camera angles are controlled separately by set_camera_angle.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "List Modes",
+              "readOnlyHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "set_mode",
+            "title": "Set Mode",
+            "description": "Switches Blockbench's editor tab through its native mode trigger, respecting the mode's condition. Use mode_id='animate' to enter Animate before animation work, 'paint' before native painting tools, or 'edit' to return. Returns the resulting mode and available modes; refresh tools/list for changed tool availability. Selecting the current mode does nothing. Does not change the project's format. When the user enabled the AI Scratchpad setting, mode_id='ai_scratchpad' relaxes the format's cube size, rotation and integer-size guardrails until another mode is selected.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "mode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Mode ID returned by list_modes, such as 'edit', 'paint', 'animate', or 'display'. The Animate tab uses 'animate'. The current project must satisfy the mode's native condition."
+                }
+              },
+              "required": [
+                "mode_id"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Set Mode",
+              "destructiveHint": false,
+              "idempotentHint": true,
+              "openWorldHint": false
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "create_brush_preset",
+            "title": "Create Brush Preset",
+            "description": "Creates a custom brush preset with specified settings. Omitted settings are stored as unset so loading the preset keeps the current value.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the brush preset."
+                },
+                "size": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 100,
+                  "description": "Brush size."
+                },
+                "opacity": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "description": "Opacity (0-255), independent of Blockbench's opacity range setting."
+                },
+                "softness": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100,
+                  "description": "Brush softness percentage."
+                },
+                "shape": {
+                  "type": "string",
+                  "enum": [
+                    "square",
+                    "circle"
+                  ],
+                  "description": "Brush shape. Omit to keep the current shape when loading."
+                },
+                "color": {
+                  "type": "string",
+                  "description": "Brush color as hex string."
+                },
+                "blend_mode": {
+                  "type": "string",
+                  "enum": [
+                    "default",
+                    "set_opacity",
+                    "color",
+                    "behind",
+                    "multiply",
+                    "add",
+                    "screen",
+                    "overlay",
+                    "difference"
+                  ],
+                  "description": "Brush blend mode. Omit to keep the current blend mode when loading."
+                },
+                "pixel_perfect": {
+                  "type": "boolean",
+                  "description": "Enable pixel perfect drawing."
+                },
+                "screen_space": {
+                  "type": "boolean",
+                  "description": "Enable screen-space brush projection when the preset is loaded (Blockbench 5.2+). Omit to keep the current setting."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Create Brush Preset",
+              "destructiveHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "list_particle_presets",
+            "title": "List Particle Presets",
+            "description": "Lists particle effect presets (smoke, fire, sparks, magic, glow, snow, drip, ...), built-in sprites and textures, materials and facing modes. Every preset uses a texture that ships with Minecraft and Blockbench, so it previews and runs with no image file. Read this before create_particle_effect.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "include_designs": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Include each preset's design knobs, useful as a template for custom effects."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "List Particle Presets",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "get_average_fps",
+            "title": "Get Average FPS",
+            "description": "Measures the average frames per second of Blockbench's render loop by counting rendered frames for duration_ms, then returns the average with the frame count, the fps_limit setting, Blockbench's own last-second counter, window focus at the start of the window plus whether it changed, whether the page was hidden, and whether rendering was paused. The call waits for the whole window; keep other tools idle meanwhile for a representative reading. A minimised or fully occluded Blockbench renders no frames and freezes its timers, so the call returns an empty window at once with document_hidden and rendering_paused set rather than waiting; bring the window to the foreground to measure a real frame rate.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "duration_ms": {
+                  "type": "integer",
+                  "minimum": 250,
+                  "maximum": 10000,
+                  "default": 2000,
+                  "description": "Sampling window in milliseconds (250–10000). The call waits this long while counting rendered frames."
+                }
+              },
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Get Average FPS",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "create_project",
+            "title": "Create Project",
+            "description": "Creates a project with the given name and format, and returns a resource link to its live .bbmodel file.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "format": {
+                  "type": "string",
+                  "default": "bedrock_block",
+                  "description": "Project format ID from Blockbench's Formats registry (e.g. bedrock_block, java_block, free). Unknown IDs are rejected with the list of valid IDs."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Create Project",
+              "destructiveHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "trigger_action",
+            "title": "Trigger Action",
+            "description": "Triggers an available Blockbench Action and respects its condition. The native action owns Undo; only a newly opened dialog may be auto-confirmed.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "description": "Action ID from Blockbench's BarItems registry."
+                },
+                "confirmDialog": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Whether to confirm a newly opened dialog from this action. Existing unrelated dialogs are never confirmed."
+                },
+                "confirmEvent": {
+                  "type": "string",
+                  "description": "JSON object of MouseEvent options, with optional event type (default click)."
+                }
+              },
+              "required": [
+                "action"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Trigger Action",
+              "destructiveHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "risky_eval",
+            "title": "Eval",
+            "description": "Evaluates JavaScript and returns its JSON result. Does not create an Undo entry. Mutating code must manage its own correctly scoped Undo transaction; read-only evaluation leaves history unchanged.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "JavaScript code to evaluate. Do not pass `console` commands or comments."
+                }
+              },
+              "required": [
+                "code"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Eval",
+              "destructiveHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "emulate_clicks",
+            "title": "Emulate Clicks",
+            "description": "Emulates clicks on the given interface elements.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "position": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    },
+                    "button": {
+                      "type": "string",
+                      "enum": [
+                        "left",
+                        "right"
+                      ],
+                      "default": "left",
+                      "description": "Mouse button to use."
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "additionalProperties": false
+                },
+                "drag": {
+                  "type": "object",
+                  "properties": {
+                    "to": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "description": "X coordinate."
+                        },
+                        "y": {
+                          "type": "number",
+                          "description": "Y coordinate."
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "duration": {
+                      "type": "number",
+                      "default": 100,
+                      "description": "Duration of the drag in milliseconds."
+                    }
+                  },
+                  "required": [
+                    "to"
+                  ],
+                  "additionalProperties": false,
+                  "description": "Drag options. If set, will perform a drag from position to 'to'."
+                }
+              },
+              "required": [
+                "position"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Emulate Clicks",
+              "destructiveHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "fill_dialog",
+            "title": "Fill Dialog",
+            "description": "Fills the dialog with the given values.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {
+                "values": {
+                  "type": "string",
+                  "description": "Stringified form of values to fill the dialog with."
+                },
+                "confirm": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Whether to confirm or cancel the dialog after filling it. True to confirm, false to cancel."
+                }
+              },
+              "required": [
+                "values"
+              ],
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "Fill Dialog",
+              "destructiveHint": true,
+              "openWorldHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          },
+          {
+            "name": "geckolib_list_easings",
+            "title": "List GeckoLib Easings",
+            "description": "Lists every easing name GeckoLib accepts on keyframes, which of them read easingArgs, and each argument's default and meaning. Needs no project, so it can be called while planning an animation.",
+            "inputSchema": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false,
+              "$schema": "https://json-schema.org/draft/2020-12/schema"
+            },
+            "annotations": {
+              "title": "List GeckoLib Easings",
+              "readOnlyHint": true
+            },
+            "execution": {
+              "taskSupport": "forbidden"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "images": [],
+  "ok": true,
+  "serverVersion": {
+    "name": "Blockbench MCP",
+    "version": "1.10.1"
+  },
+  "finishedAt": "2026-10-29T17:07:22.278Z"
+}

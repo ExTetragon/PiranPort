@@ -1,0 +1,138 @@
+{
+  "version": "0.1.136",
+  "assets": [
+    {
+      "name": "ship_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 10,
+      "sha256": "c00632869d8e30e9e27cc1ff7528de1a966a068f9b6bd39151c29af9c1418e34"
+    },
+    {
+      "name": "equipment_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "sha256": "e023364be7be06b2533b2d50f62cfb776ff5098abca69baab93ce6b406a2f0a9"
+    }
+  ],
+  "drawingMode": "Aseprite live",
+  "productionExportsMatch": true,
+  "dimensions": [
+    16,
+    16
+  ],
+  "pixelSpecMatches": true,
+  "paperWhiteHighlights": 2,
+  "wheelBounds": [
+    8,
+    8,
+    7,
+    7
+  ],
+  "gridSegments": [
+    [
+      [
+        4,
+        9
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    [
+      [
+        6,
+        12
+      ],
+      [
+        14,
+        7
+      ]
+    ],
+    [
+      [
+        5,
+        5
+      ],
+      [
+        12,
+        12
+      ]
+    ],
+    [
+      [
+        8,
+        2
+      ],
+      [
+        15,
+        9
+      ]
+    ]
+  ],
+  "asepriteValidation": [
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        },
+        {
+          "message": "No single colour owns the silhouette edge on 'Emblem', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Emblem",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "ship_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    },
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "equipment_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    }
+  ],
+  "gameClientStarted": false,
+  "gradleBuild": "passed",
+  "staticJsonResources": 324,
+  "packagedModelsAndTexturesMatch": true,
+  "jar": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\blueprint-art-16px-20261031\\artifacts\\libs\\piranport-0.1.136.jar",
+  "jarSha256": "e46f380314f0b5a07e538ac79509cd1d72cf0dc6209ea44e88071650298cd551",
+  "documentationLinksVerified": 18,
+  "visualReview": {
+    "subject": "蓝色斜放纸页，右下角分别为简化舵轮轮廓和铜色炮弹",
+    "checked": [
+      "16×16与整数放大预览",
+      "约一像素纸边与两处白色高光",
+      "右下角图案布局",
+      "沿纸页方向的低对比度网格"
+    ],
+    "limitations": [
+      "舵轮仅保留圆环、轮轴和握柄轮廓",
+      "本轮未启动游戏"
+    ]
+  }
+}

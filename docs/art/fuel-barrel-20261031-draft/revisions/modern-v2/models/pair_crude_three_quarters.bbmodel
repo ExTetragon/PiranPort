@@ -1,0 +1,510 @@
+{
+  "meta": {
+    "format_version": "5.0",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "pair_crude_three_quarters",
+  "parent": "",
+  "java_block_version": "1.9.0",
+  "ambientocclusion": true,
+  "front_gui_light": false,
+  "visible_box": [
+    1,
+    1,
+    0
+  ],
+  "variable_placeholders": "",
+  "multi_file_ruleset": "",
+  "variable_placeholder_buttons": [],
+  "unhandled_root_fields": {},
+  "ai_used": true,
+  "ai_agents": "piranport-mc-art-task",
+  "resolution": {
+    "width": 32,
+    "height": 32
+  },
+  "elements": [
+    {
+      "name": "pair_crude_three_quarters_shell",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        32,
+        16
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            32,
+            64
+          ],
+          "texture": 1
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            32
+          ],
+          "texture": 2
+        }
+      },
+      "type": "cube",
+      "uuid": "fad14790-777f-43de-be58-3aa71f90abc0"
+    },
+    {
+      "name": "pair_crude_three_quarters_lining",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0.3,
+        0.3,
+        0.3
+      ],
+      "to": [
+        15.7,
+        31.7,
+        15.7
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 3
+        }
+      },
+      "type": "cube",
+      "uuid": "5cd27a9e-e763-40e0-a31b-76d1f8969049"
+    },
+    {
+      "name": "pair_crude_three_quarters_oil",
+      "box_uv": false,
+      "render_order": "default",
+      "rescale": false,
+      "locked": false,
+      "shade": true,
+      "light_emission": 0,
+      "export": true,
+      "scope": 0,
+      "allow_mirror_modeling": true,
+      "from": [
+        0.15,
+        0.15,
+        0.15
+      ],
+      "to": [
+        15.85,
+        23.924999999999997,
+        15.85
+      ],
+      "autouv": 0,
+      "color": 0,
+      "origin": [
+        8,
+        16.0,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": 5
+        }
+      },
+      "type": "cube",
+      "uuid": "a36f6594-8c5f-43fb-abde-d4d54722c1cd"
+    }
+  ],
+  "groups": [],
+  "outliner": [
+    "fad14790-777f-43de-be58-3aa71f90abc0",
+    "5cd27a9e-e763-40e0-a31b-76d1f8969049",
+    "a36f6594-8c5f-43fb-abde-d4d54722c1cd"
+  ],
+  "textures": [
+    {
+      "name": "fuel_barrel_side_single",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\fuel_barrel_side_single.png",
+      "folder": "",
+      "namespace": "",
+      "id": "0",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "c79c3a76-bbfe-48fc-9595-33183d626664",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAkVJREFUWIXFVz1P20AYfmguR2LsiNhW1PRDTBVDfkXVpSyw8ANYurKjLFnyP/gBSFWRqnag6tJKXdqyMDBWaoUU4mDZJkVOCCyxuYt99qXnNI/0Sr671+/73Ifvfbzy5mD/DksEGQyu0NrcXErys/NzEADoOT08e2ogHIUAgDAcLTSx7wW4nWgAgEcLzSQBjsBGs1VYYNedgJZs0JIN151wxoKwjW8/f6D5eJVzoLTMtUXb43sBLLvOjX89PU34vXj+RExgNjmbcDweP7xESMJPhND/uxI9U6Oa+OKkzwAhJLYIvhfEJkK729nLiqt0CI2ajqpWQVWrcP3lihk/d9udwywS8mspCjBdEaOmx9s1uhnE4+1uZ6/b7hzORUBfW1PlBdf1gekKZPnFBHZf7yIYDgEAjucoE/j950Q4tr21jbfvT3gCLKyapZT83edP0r6ph1DXNM7YwDLBd16+UiMQDIecYWZW88zwnwj8T0gRiGbcsM1EX5Z/YQQi9PoDCa8CzoBMwKjP8RzO5oX0TSialeonm0pA9SL68j1ZhnMJHH08iiUZLVMlAqul7PHjD8cANJ4Ai+D6WokAi7xiVMg9EGmCWfUEiXKcSoDScsKyYNR0rs3qAeRUxNQtiOo6W5bnkeqsHsgDR2Cj2cKvi7O4XcRZSNOBQgJpqliEWZHKKqIIrAJuWA1g+hMkJCCbHBLKeH2dP17hbT/u972H/qVXQ4Lp8oQ3AFAFANCci0QVVt0GAFz2r0BMs46Ly17uS4uAadZxD2/K4YNzWtypAAAAAElFTkSuQmCC"
+    },
+    {
+      "name": "fuel_barrel_side_pair",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\fuel_barrel_side_pair.png",
+      "folder": "",
+      "namespace": "",
+      "id": "1",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 64,
+      "uv_width": 32,
+      "uv_height": 64,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "3ebbabb6-970f-4265-9882-0c4bbe39d95a",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAABACAYAAAB7jnWuAAAAAXNSR0IArs4c6QAAAo9JREFUaIHtmT1P20AYx/80jklMbBHbipq+iKliyKeoupSFLnwAlq7dqyxZ8j34AEgVSFU7gJgqdWpZGBgrtUIKSbBsQ5ET0i7Y3PktPnwXC+S/dJLvfL7n53t5fH5u6f3HD/9QoKTx+AKd9fVCjJ+cnkICgMFogBfPVXgTDwDgeROhhh3bxc1MAQA8EWopgyiAtXaHW8OWNYNcMSFXTFjWjEqkJDLz/ecPtJ8uUxVkuUrlk4bHsV0YZpO6/+34OFLv1ctnyQBh46TB6XR695AkReolyXP+LvnXslqPrLjMc0CSpCD5cmw3SEnq9nvbae3mmoSq1kBdqaGu1Kjyak0Prvvd3k4aRPa+TGogZjgm1+Pgutvvbfe7vZ2k54UvwzTjCwGYpxKgBBACQPqBQgBIP1AIAIu4Aaha414bmVhX3FhZyQ1kWQ4bwNbbLbhXVwCAkT3KDfD7z0Hivc2NTXz6fEADkDI0IzdAVsUPgaJQeb9nFgaQ1+De0WHmukKW4bvXb4oFYFEJwASwd3TINMG4ApCGeUI8jCHw37hl6pGytPrcAHwNhtm+89z9QFyDLEbSlPnPiJfBsB7GJCwBRCr373l4+2ZoxmL3A4ZmUAmMKya2B3hsSpkBdr/uBoFKuSoLNbr/ZR+AQgOQci8vhQKQ4rYKHNuNxBQXCnBfPU6AMj7AohLg8QMIDdf7SjsvmBeujwWQ5WokpUnVGlQ+7AfSIuaxHyM/2kUGq1giYCx+gAJYa3fw6+wkyPP4KsadEyUCxJ2aJSl8iBUXJyRPyFpGC7g9JE0EyGocGU7OVlfp6eXdDINyx74rL9wPSLjtHu8aAOoAALki1qjRNAEA58MLSLrexNn5YO5DIqTrTfwH/KfYij2NuywAAAAASUVORK5CYII="
+    },
+    {
+      "name": "fuel_barrel_end",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\fuel_barrel_end.png",
+      "folder": "",
+      "namespace": "",
+      "id": "2",
+      "group": "",
+      "scope": 0,
+      "width": 32,
+      "height": 32,
+      "uv_width": 32,
+      "uv_height": 32,
+      "particle": true,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "9da94268-63fb-4f18-bcd7-dd90eb97b5a3",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAZBJREFUWIXFl02KwzAMhTVDrpBAwJAztKteaLaznxtmlZwhYCi0h5hZDDbKs2z5JyEPCk1qS19kSVE/vn6+f+lCdUREYz9c4vz5fv0DEBFNxhRtntdld/243ZPrN2vF+13OIqfn++W/Y9Q4UElEO7wxGROAOMfOsBQtvg/Xp2wHAPO6+I0xx7FIIRju57ajAJJzNMyvOcxm7e6YOMjYD+LRBACScy03+D4pGed18RBZADXOufgerbo+8YYjrXXO7XCN/SAeTwCgGcpVbinujuCop4+VKfchArRq7IegQ5ISjaxGVAqBcsc4GRMcqc8BqUmcIUxGNQnP1uUA2UkYa7+t8hF43O7Jmt+s9Z8WYRkGR7BZWzycaEr1ltNzQOukOwBXIjwKLaWJnVV6I6pJWPMuaBrJeKPg/VszzEGleaJ4HkAIEjIYwXENdx6TCOCiIEHg0+I+PsJx5zFwD4AlghASCAqH1pyjS74NcUDVQA4fy50QRMqF1J+WlO3oWC6J/ybNfJqKqqDGWI06ahg8j9Af/TkQXMYPW20AAAAASUVORK5CYII="
+    },
+    {
+      "name": "fuel_barrel_lining",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\fuel_barrel_lining.png",
+      "folder": "",
+      "namespace": "",
+      "id": "3",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "79acd882-7a0e-4c9f-b9d8-c71e2d5916ca",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAADRJREFUOI1j9IkI/c9AAWBhYGBg+PnzJ1maf/78ycBEie0MDAyjBowaMGoAFFCUGxkYGBgAaEIK3SbNMegAAAAASUVORK5CYII="
+    },
+    {
+      "name": "fuel_oil_window",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\fuel_oil_window.png",
+      "folder": "",
+      "namespace": "",
+      "id": "4",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "85d1bd0a-a7cd-400a-a17d-ab83e6ba14af",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAATVJREFUOI2VUrtOw0AQnJg18dlIh3SRrnGBbCr8B/wIf8Bn8RWp6GhSUSGRjihSLCEXLiyBE8QjFLCrzcWA2Opub3ZudndGq+vLadP24Hhev8o5MzHC8C6FswZv7x8YHx6AFnW3Axgq0sSLuoOuIS5ggFagCYvcSq5pe8HRkGzvUgGGwTkmJi7W0ofa0jmNpbDPzMSiQisocit3rZj0g2YO5fO9Kh22W8BUHvVsCZocG9ijMWKKcP/QSkGogIMxvlt/KUjOPBIAm3kjOzaVx2beyM9MpofbtD2q0mF0c3Ux3fvmj8hMLHOIhowT5niwRW7ljXMUGgcDZtIuDImj/0oPiUn38xMQ31uBsjHX/doCE3mXIj8/AQDYu0d0Ty+yYgpdV5UOyekEAFDfrmRlmC33fJGZGJ/U/qsgEQ7bMwAAAABJRU5ErkJggg=="
+    },
+    {
+      "name": "crude_oil_window",
+      "path": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\docs\\art\\fuel-barrel-20261031-draft\\revisions\\modern-v2\\textures\\crude_oil_window.png",
+      "folder": "",
+      "namespace": "",
+      "id": "5",
+      "group": "",
+      "scope": 0,
+      "width": 16,
+      "height": 16,
+      "uv_width": 16,
+      "uv_height": 16,
+      "particle": false,
+      "use_as_default": false,
+      "layers_enabled": false,
+      "sync_to_project": "",
+      "file_format": "png",
+      "render_mode": "default",
+      "render_sides": "auto",
+      "wrap_mode": "limited",
+      "pbr_channel": "color",
+      "fps": 7,
+      "force_translucent": false,
+      "frame_time": 1,
+      "frame_order_type": "loop",
+      "frame_order": "",
+      "frame_interpolate": false,
+      "visible": true,
+      "internal": true,
+      "saved": true,
+      "uuid": "5a9ae55c-72da-4a22-81b6-556c5cb4594f",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAQNJREFUOI2NUkuOhTAMc9r0IxZcgA33P95bFBBRO4tROqGvb2YiIWhwgm1M+76/RARarbX+TEQYi5nhnOvv+b7vB2A2ZBePeNYBBVgGdmEIofdEpON4RpuZO3As7eli1mFLfSbL9izWzXQSEUIIIKKHBD231vrFIYQ3WjP6ek4pobWGnDNKKWDvPZxzICJc1/XjLvPUA8XUWr8lpJSQc+5DMUas6wrvfTfT3q3B3nvQtm2vt8/8UeoDALhZcMaemqdG2h6PwcEkTJ9SSETP3/gf6uNitno+AWGM1Bjr3K8SelyZsSwLAOA8T9Ra+y9mzb4NSowRAHAcB0QEIoJSylsuiAhfag+ZFpNJzXQAAAAASUVORK5CYII="
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [
+        30,
+        -135,
+        0
+      ],
+      "scale": [
+        0.625,
+        0.625,
+        0.625
+      ]
+    }
+  }
+}

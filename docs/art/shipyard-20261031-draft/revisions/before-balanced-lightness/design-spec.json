@@ -1,0 +1,5845 @@
+{
+  "draft": true,
+  "revision": 2,
+  "productionIntegrated": false,
+  "modelBounds": [
+    16,
+    15.5,
+    16
+  ],
+  "texelDensity": "1 texture pixel per model unit; mast warning stripes use 2 pixels per model unit",
+  "atlasSize": [
+    128,
+    64
+  ],
+  "palette": {
+    ".": null,
+    "N": "#293c43",
+    "G": "#47565a",
+    "S": "#607175",
+    "M": "#7d8d90",
+    "C": "#a4b0b0",
+    "L": "#c2cbc7",
+    "H": "#dce1d5",
+    "D": "#836c3d",
+    "O": "#a78a47",
+    "Y": "#c6aa59",
+    "I": "#e1c878",
+    "J": "#ead793",
+    "R": "#673d38",
+    "T": "#895044",
+    "U": "#a36450",
+    "V": "#bd8564",
+    "A": "#867451",
+    "B": "#b09b70",
+    "E": "#cbb98d",
+    "F": "#315963",
+    "K": "#437b83",
+    "Q": "#74a7aa",
+    "P": "#e5a66a",
+    "0": "#123c60",
+    "1": "#28638e",
+    "2": "#347fb5",
+    "3": "#5b9fc6",
+    "4": "#82b9d8"
+  },
+  "atlasOps": [
+    {
+      "kind": "grid",
+      "x": 0,
+      "y": 0,
+      "rows": [
+        "MMMMMMMSMMMMMMMM",
+        "MHLLLLLSCLLLLLHM",
+        "MSCCCCCSCCCCCCSM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MHLLLLLSCLLLLLHM",
+        "MSCCCCCSCCCCCCSM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MHLLLLLSCLLLLLHM",
+        "MSCCCCCSCCCCCCSM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MHLLLLLSCLLLLLHM",
+        "MSCCCCCSCCCCCCSM",
+        "MMMMMMMSMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 16,
+      "y": 0,
+      "rows": [
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LHCLLCCLLCCLLCCL",
+        "LSCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "MMMMMMMMMMMMMMMM",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LHCLLCCLLCCLLCCL",
+        "LSCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL",
+        "LCCLLCCLLCCLLCCL"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 32,
+      "y": 0,
+      "rows": [
+        "CCCCCCCCCCCCSSSS",
+        "CCGGGGGGGGCMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CSGNSGNSGNGMSSSS",
+        "CCGGGGGGGGCMSSSS",
+        "CMMMMMMMMMMMSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 48,
+      "y": 0,
+      "rows": [
+        "IIIIIIIIIIIIIIII",
+        "YYYYYYYYYYYYYYYY",
+        "YYYDYYYYYYYDYYYY",
+        "YYYIYYYYYYYIYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "OOOOOOOOOOOOOOOO",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "DDDDDDDDDDDDDDDD"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 64,
+      "y": 0,
+      "rows": [
+        "JJJJJJJJJJJJJJJJ",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IYYYYYYYYYYYYYYI",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "IIIIIIIIIIIIIIII",
+        "OOOOOOOOOOOOOOOO"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 80,
+      "y": 0,
+      "rows": [
+        "IYNNYYNNYYNNYYNN",
+        "YNNYYNNYYNNYYNNY",
+        "NNYYNNYYNNYYNNYY",
+        "NYYNNYYNNYYNNYYN",
+        "IYNNYYNNYYNNYYNN",
+        "YNNYYNNYYNNYYNNY",
+        "NNYYNNYYNNYYNNYY",
+        "NYYNNYYNNYYNNYYN",
+        "IYNNYYNNYYNNYYNN",
+        "YNNYYNNYYNNYYNNY",
+        "NNYYNNYYNNYYNNYY",
+        "NYYNNYYNNYYNNYYN",
+        "IYNNYYNNYYNNYYNN",
+        "YNNYYNNYYNNYYNNY",
+        "NNYYNNYYNNYYNNYY",
+        "NYYNNYYNNYYNNYYN"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 96,
+      "y": 0,
+      "rows": [
+        "LLLLLLLLLLLLLLLL",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMCMMMSMMMCMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "SSSSSSSSSSSSSSSS",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM",
+        "MMMMMMMSMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 112,
+      "y": 0,
+      "rows": [
+        "VVVVVVVVVVVVVVVV",
+        "UUUUUUUUUUUUUUUU",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "TTTTTTTTRTTTTTTT",
+        "RRRRRRRRRRRRRRRR",
+        "RRRRRRRRRRRRRRRR"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 0,
+      "y": 16,
+      "rows": [
+        "EEEEEEEEEEEEEEEE",
+        "BBBBBABBBBBBBBBB",
+        "BBBBBABBBBBBBBBB",
+        "AAAAAAAAAAAAAAAA",
+        "EEEEEEEEEEEEEEEE",
+        "BBBBBBBBBBABBBBB",
+        "BBBBBBBBBBABBBBB",
+        "AAAAAAAAAAAAAAAA",
+        "EEEEEEEEEEEEEEEE",
+        "BBBABBBBBBBBBBBB",
+        "BBBABBBBBBBBBBBB",
+        "AAAAAAAAAAAAAAAA",
+        "EEEEEEEEEEEEEEEE",
+        "BBBBBBBBBABBBBBB",
+        "BBBBBBBBBABBBBBB",
+        "AAAAAAAAAAAAAAAA"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 16,
+      "y": 16,
+      "rows": [
+        "LLLLLLLLLLLLLLLL",
+        "CCCCCCCCCCCCCCCC",
+        "MMMMMMMMMMMMMMMM",
+        "SSSSSSSSSSSSSSSS",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 32,
+      "y": 16,
+      "rows": [
+        "LLLLLLLLLLLLLLLL",
+        "NQNMMMMMMMMMMMMM",
+        "YMKMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "SSSSMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 48,
+      "y": 16,
+      "rows": [
+        "IIIIIIIIIIIIIIII",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YDDYYDDYYDDYYDDY",
+        "YDDYYDDYYDDYYDDY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YDDYYDDYYDDYYDDY",
+        "YDDYYDDYYDDYYDDY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YDDYYDDYYDDYYDDY",
+        "YDDYYDDYYDDYYDDY",
+        "YYYYYYYYYYYYYYYY",
+        "YYYYYYYYYYYYYYYY",
+        "YDDYYDDYYDDYYDDY"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 64,
+      "y": 16,
+      "rows": [
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN",
+        "NNNNNNNNNNNNNNNN"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 80,
+      "y": 16,
+      "rows": [
+        "CCCCCCCCCCCCCCCC",
+        "QQMQQMQQMQQMQQMQ",
+        "KKKKKKKKKKKKKKKK",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 96,
+      "y": 16,
+      "rows": [
+        "YYYYYYYYYYYYYYYY",
+        "SSSSSSSSSSSSSSSS",
+        "CCCCCCCCCCCCCCCC",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS",
+        "SSSSSSSSSSSSSSSS"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 112,
+      "y": 16,
+      "rows": [
+        "YYYYYYYYYYYYYYYY",
+        "MMMMMMMMMMMMMMMM",
+        "GGNGGGNGGGNGGGNG",
+        "GGNGGGNGGGNGGGNG",
+        "GGNGGGNGGGNGGGNG",
+        "GGNGGGNGGGNGGGNG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 0,
+      "y": 32,
+      "rows": [
+        "3333333333333333",
+        "2222222222222222",
+        "2220222222202222",
+        "2223222222232222",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "1111111111111111",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "2222222222222222",
+        "0000000000000000"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 16,
+      "y": 32,
+      "rows": [
+        "4444444444444444",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3222222222222223",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "3333333333333333",
+        "1111111111111111"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 32,
+      "y": 32,
+      "rows": [
+        "3333333333333333",
+        "2222222222222222",
+        "2222222222222222",
+        "2002200220022002",
+        "2002200220022002",
+        "2222222222222222",
+        "2222222222222222",
+        "2002200220022002",
+        "2002200220022002",
+        "2222222222222222",
+        "2222222222222222",
+        "2002200220022002",
+        "2002200220022002",
+        "2222222222222222",
+        "2222222222222222",
+        "2002200220022002"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 48,
+      "y": 32,
+      "rows": [
+        "GGGGGGGGGGGGGGGG",
+        "GMMMMMMMMMMMMMMG",
+        "GMHCCCCCCCCCCHMG",
+        "GMSSSSSSSSSSSSMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMCSMLGMMMLGSCMG",
+        "GMSSSSSSSSSSSSMG",
+        "GMHCCCCCCCCCCHMG",
+        "GMMMMMMMMMMMMMMG",
+        "GGGGGGGGGGGGGGGG"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 64,
+      "y": 32,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "LLLLLLLLLLLLLLLL",
+        "CCCMCCCCCCCMCCCC",
+        "SSSSSSSSSSSSSSSS",
+        "MMMMMMMMMMMMMMMM",
+        "LLLLLLLLLLLLLLLL",
+        "CCCMCCCCCCCMCCCC",
+        "SSSSSSSSSSSSSSSS",
+        "MMMMMMMMMMMMMMMM",
+        "LLLLLLLLLLLLLLLL",
+        "CCCMCCCCCCCMCCCC",
+        "SSSSSSSSSSSSSSSS",
+        "MMMMMMMMMMMMMMMM",
+        "LLLLLLLLLLLLLLLL",
+        "CCCMCCCCCCCMCCCC",
+        "SSSSSSSSSSSSSSSS"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 80,
+      "y": 32,
+      "rows": [
+        "HHHSHHHHHHHSHHHH",
+        "MMMCMMMMMMMCMMMM",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL",
+        "LLLLLLLLLLLLLLLL"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 96,
+      "y": 32,
+      "rows": [
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "CMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "CMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "CMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL",
+        "CMLLLLLLLLLLLLLL",
+        "HMLLLLLLLLLLLLLL"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 112,
+      "y": 32,
+      "rows": [
+        "CCCLCCCCCCCLCCCC",
+        "GGGGGGGGGGGGGGGG",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 0,
+      "y": 48,
+      "rows": [
+        "2222222222222222",
+        "MMMMMMMMMMMMMMMM",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG",
+        "GGGGGGGGGGGGGGGG"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 16,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 32,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 48,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 64,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 80,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 96,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    },
+    {
+      "kind": "grid",
+      "x": 112,
+      "y": 48,
+      "rows": [
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM",
+        "MMMMMMMMMMMMMMMM"
+      ],
+      "legend": {
+        ".": null,
+        "N": "#293c43",
+        "G": "#47565a",
+        "S": "#607175",
+        "M": "#7d8d90",
+        "C": "#a4b0b0",
+        "L": "#c2cbc7",
+        "H": "#dce1d5",
+        "D": "#836c3d",
+        "O": "#a78a47",
+        "Y": "#c6aa59",
+        "I": "#e1c878",
+        "J": "#ead793",
+        "R": "#673d38",
+        "T": "#895044",
+        "U": "#a36450",
+        "V": "#bd8564",
+        "A": "#867451",
+        "B": "#b09b70",
+        "E": "#cbb98d",
+        "F": "#315963",
+        "K": "#437b83",
+        "Q": "#74a7aa",
+        "P": "#e5a66a",
+        "0": "#123c60",
+        "1": "#28638e",
+        "2": "#347fb5",
+        "3": "#5b9fc6",
+        "4": "#82b9d8"
+      }
+    }
+  ],
+  "hullScaleFromDraft01": [
+    1.2,
+    1.12,
+    1.15
+  ],
+  "gantryColorReference": "core_10441",
+  "gantryColorAdjustment": "deeper_blue",
+  "patternReference": "GregTechCEu/GregTech-Modern",
+  "tiles": [
+    {
+      "name": "concrete_side",
+      "index": 0
+    },
+    {
+      "name": "concrete_cap",
+      "index": 1
+    },
+    {
+      "name": "dock_floor",
+      "index": 2
+    },
+    {
+      "name": "gantry_panel",
+      "index": 3
+    },
+    {
+      "name": "gantry_cap",
+      "index": 4
+    },
+    {
+      "name": "hazard_mast",
+      "index": 5
+    },
+    {
+      "name": "hull_plate",
+      "index": 6
+    },
+    {
+      "name": "red_hull",
+      "index": 7
+    },
+    {
+      "name": "wood_deck",
+      "index": 8
+    },
+    {
+      "name": "steel_rail",
+      "index": 9
+    },
+    {
+      "name": "control_panel",
+      "index": 10
+    },
+    {
+      "name": "lattice_girder",
+      "index": 11
+    },
+    {
+      "name": "cable",
+      "index": 12
+    },
+    {
+      "name": "bridge_glass",
+      "index": 13
+    },
+    {
+      "name": "walkway_marking",
+      "index": 14
+    },
+    {
+      "name": "hoist_casing",
+      "index": 15
+    },
+    {
+      "name": "blue_gantry_panel",
+      "index": 16
+    },
+    {
+      "name": "blue_gantry_cap",
+      "index": 17
+    },
+    {
+      "name": "blue_gantry_lattice",
+      "index": 18
+    },
+    {
+      "name": "foundation_bottom",
+      "index": 19
+    },
+    {
+      "name": "inner_wall",
+      "index": 20
+    },
+    {
+      "name": "horizontal_rim",
+      "index": 21
+    },
+    {
+      "name": "wall_endcap",
+      "index": 22
+    },
+    {
+      "name": "foundation_skirt",
+      "index": 23
+    },
+    {
+      "name": "blue_hoist_casing",
+      "index": 24
+    },
+    {
+      "name": "reserved_25",
+      "index": 25
+    },
+    {
+      "name": "reserved_26",
+      "index": 26
+    },
+    {
+      "name": "reserved_27",
+      "index": 27
+    },
+    {
+      "name": "reserved_28",
+      "index": 28
+    },
+    {
+      "name": "reserved_29",
+      "index": 29
+    },
+    {
+      "name": "reserved_30",
+      "index": 30
+    },
+    {
+      "name": "reserved_31",
+      "index": 31
+    }
+  ],
+  "elements": [
+    {
+      "name": "foundation",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        1.5,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            32,
+            128,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            32,
+            128,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            32,
+            128,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            32,
+            128,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            32,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            48,
+            32,
+            64,
+            48
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "floor_grating",
+      "from": [
+        2,
+        1.5,
+        0
+      ],
+      "to": [
+        14,
+        2,
+        14
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            44,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            46,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            44,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            46,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            44,
+            14
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            44,
+            14
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "port_wall",
+      "from": [
+        0,
+        1.5,
+        0
+      ],
+      "to": [
+        2,
+        5.5,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            32,
+            98,
+            36.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            64,
+            32,
+            80,
+            36.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            4.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            16,
+            4.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "starboard_wall",
+      "from": [
+        14,
+        1.5,
+        0
+      ],
+      "to": [
+        16,
+        5.5,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            32,
+            98,
+            36.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            16,
+            4.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            4.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            64,
+            32,
+            80,
+            36.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "rear_bulkhead",
+      "from": [
+        2,
+        1.5,
+        14
+      ],
+      "to": [
+        14,
+        5,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            32,
+            76,
+            35.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2,
+            3.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            12,
+            3.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2,
+            3.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            80,
+            32,
+            92,
+            34
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            12,
+            2
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "port_wall_cap",
+      "from": [
+        0,
+        5.5,
+        0
+      ],
+      "to": [
+        2,
+        6,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            18,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            32,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            18,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            32,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "port_toe_rail",
+      "from": [
+        0.5,
+        6,
+        1
+      ],
+      "to": [
+        1,
+        6.25,
+        13
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            16,
+            108,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            16,
+            108,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            28
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "starboard_wall_cap",
+      "from": [
+        14,
+        5.5,
+        0
+      ],
+      "to": [
+        16,
+        6,
+        16
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            0,
+            18,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            0,
+            32,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            0,
+            18,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            0,
+            32,
+            0.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            0,
+            18,
+            16
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "starboard_toe_rail",
+      "from": [
+        14.5,
+        6,
+        1
+      ],
+      "to": [
+        15,
+        6.25,
+        13
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            16,
+            108,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            16,
+            108,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            16,
+            96.5,
+            28
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "entrance_lip",
+      "from": [
+        2,
+        1.5,
+        0
+      ],
+      "to": [
+        14,
+        2,
+        0.5
+      ],
+      "group": "Dock",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            28,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            28,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            28,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            28,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "floor_track_4",
+      "from": [
+        4,
+        2,
+        1.5
+      ],
+      "to": [
+        4.5,
+        2.25,
+        13.5
+      ],
+      "group": "Cradle",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            28.0,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            28.0,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            28.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            28.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "floor_track_11",
+      "from": [
+        11,
+        2,
+        1.5
+      ],
+      "to": [
+        11.5,
+        2.25,
+        13.5
+      ],
+      "group": "Cradle",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            28.0,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            28.0,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            28.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            28.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "keel_block_4.5",
+      "from": [
+        5,
+        2.25,
+        4.5
+      ],
+      "to": [
+        11,
+        3.1,
+        5.5
+      ],
+      "group": "Cradle",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            22,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            22,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            22,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            22,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "keel_block_9.5",
+      "from": [
+        5,
+        2.25,
+        9.5
+      ],
+      "to": [
+        11,
+        3.1,
+        10.5
+      ],
+      "group": "Cradle",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            22,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            22,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            16.85
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            22,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            22,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "red_keel",
+      "from": [
+        5.6,
+        3.0,
+        2.325
+      ],
+      "to": [
+        10.4,
+        4.12,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            0,
+            116.8,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            0,
+            122.35,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            0,
+            116.8,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            0,
+            122.35,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            0,
+            116.8,
+            10.35
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            0,
+            116.8,
+            10.35
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "red_hull_center",
+      "from": [
+        3.8,
+        3.84,
+        4.625
+      ],
+      "to": [
+        12.2,
+        5.52,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            0,
+            120.4,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            0,
+            120.05,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            0,
+            120.4,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            0,
+            120.05,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            0,
+            120.4,
+            8.05
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            0,
+            120.4,
+            8.05
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "red_bow_shoulder",
+      "from": [
+        4.7,
+        3.84,
+        2.325
+      ],
+      "to": [
+        11.3,
+        5.52,
+        4.625
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            0,
+            114.3,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            0,
+            114.3,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            2.3
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            2.3
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "red_bow_tip",
+      "from": [
+        5.9,
+        4.12,
+        1.175
+      ],
+      "to": [
+        10.1,
+        5.52,
+        2.325
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            0,
+            116.2,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            0,
+            113.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            0,
+            116.2,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            0,
+            113.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            0,
+            116.2,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            0,
+            116.2,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "red_stern",
+      "from": [
+        4.7,
+        3.84,
+        12.675
+      ],
+      "to": [
+        11.3,
+        5.52,
+        13.825
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            0,
+            113.15,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            0,
+            113.15,
+            1.68
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            0,
+            118.6,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "upper_hull_center",
+      "from": [
+        3.2,
+        5.52,
+        4.625
+      ],
+      "to": [
+        12.8,
+        6.92,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            0,
+            105.6,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            0,
+            104.05,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            0,
+            105.6,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            0,
+            104.05,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            25.6,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            0,
+            105.6,
+            8.05
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "upper_bow_shoulder",
+      "from": [
+        4.4,
+        5.52,
+        2.325
+      ],
+      "to": [
+        11.6,
+        6.92,
+        4.625
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            0,
+            103.2,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            0,
+            98.3,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            0,
+            103.2,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            0,
+            98.3,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            23.2,
+            18.3
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            0,
+            103.2,
+            2.3
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "upper_bow_tip",
+      "from": [
+        5.6,
+        5.52,
+        1.175
+      ],
+      "to": [
+        10.4,
+        6.92,
+        2.325
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            0,
+            100.8,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            0,
+            97.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            0,
+            100.8,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            0,
+            97.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            20.8,
+            17.15
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            0,
+            100.8,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "upper_stern",
+      "from": [
+        4.1,
+        5.52,
+        12.675
+      ],
+      "to": [
+        11.9,
+        6.92,
+        13.825
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            0,
+            103.8,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            0,
+            97.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            0,
+            103.8,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            0,
+            97.15,
+            1.4
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            23.8,
+            17.15
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            0,
+            103.8,
+            1.15
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "main_deck",
+      "from": [
+        3.8,
+        6.92,
+        4.625
+      ],
+      "to": [
+        12.2,
+        7.2,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            16,
+            8.4,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            16,
+            8.05,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            16,
+            8.4,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            16,
+            8.05,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            16,
+            8.4,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            16,
+            8.4,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "fore_deck",
+      "from": [
+        5.0,
+        6.92,
+        2.325
+      ],
+      "to": [
+        11.0,
+        7.2,
+        4.625
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            16,
+            6.0,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            16,
+            2.3,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            16,
+            6.0,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            16,
+            2.3,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            16,
+            6.0,
+            18.3
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            16,
+            6.0,
+            18.3
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "bow_deck",
+      "from": [
+        6.2,
+        6.92,
+        1.463
+      ],
+      "to": [
+        9.8,
+        7.2,
+        2.325
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            16,
+            3.6,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            16,
+            0.862,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            16,
+            3.6,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            16,
+            0.862,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            16,
+            3.6,
+            16.862
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            16,
+            3.6,
+            16.862
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gunwale_4",
+      "from": [
+        3.2,
+        6.92,
+        4.625
+      ],
+      "to": [
+        3.8,
+        7.48,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            24.05,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            24.05,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gunwale_11.5",
+      "from": [
+        12.2,
+        6.92,
+        4.625
+      ],
+      "to": [
+        12.8,
+        7.48,
+        12.675
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            24.05,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            24.05,
+            16.56
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            24.05
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "bridge_lower",
+      "from": [
+        5.9,
+        7.2,
+        8.075
+      ],
+      "to": [
+        10.1,
+        8.32,
+        10.95
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            0,
+            100.2,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            96,
+            0,
+            98.875,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            96,
+            0,
+            100.2,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            96,
+            0,
+            98.875,
+            1.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            20.2,
+            18.875
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            96,
+            0,
+            100.2,
+            2.875
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "bridge_windows",
+      "from": [
+        6.5,
+        8.32,
+        8.65
+      ],
+      "to": [
+        9.5,
+        9.44,
+        10.375
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            80,
+            16,
+            83.0,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            80,
+            16,
+            81.725,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            80,
+            16,
+            83.0,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            80,
+            16,
+            81.725,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            19.0,
+            17.725
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            80,
+            16,
+            83.0,
+            17.725
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "bridge_roof",
+      "from": [
+        6.2,
+        9.44,
+        8.363
+      ],
+      "to": [
+        9.8,
+        9.72,
+        10.662
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            19.6,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            18.299,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            19.6,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            18.299,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            19.6,
+            18.299
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            19.6,
+            18.299
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "unfinished_frame_1",
+      "from": [
+        4.4,
+        7.2,
+        11.525
+      ],
+      "to": [
+        5.0,
+        8.32,
+        12.1
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "unfinished_frame_2",
+      "from": [
+        11.0,
+        7.2,
+        11.525
+      ],
+      "to": [
+        11.6,
+        8.32,
+        12.1
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            17.12
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.6,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "unfinished_cross_member",
+      "from": [
+        4.4,
+        8.04,
+        11.525
+      ],
+      "to": [
+        11.6,
+        8.32,
+        12.1
+      ],
+      "group": "Hull",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            23.2,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            23.2,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.575,
+            16.28
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            23.2,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            23.2,
+            16.575
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_port_shoe",
+      "from": [
+        0.75,
+        6,
+        11.25
+      ],
+      "to": [
+        3,
+        6.5,
+        14
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            18.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            18.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_port_post",
+      "from": [
+        1,
+        6.5,
+        11.5
+      ],
+      "to": [
+        3,
+        13.75,
+        13.5
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            32,
+            34,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            32,
+            32,
+            34.0,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            32,
+            32,
+            34,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            32,
+            32,
+            34.0,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            32,
+            18,
+            34.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            32,
+            32,
+            34,
+            34.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_port_edge",
+      "from": [
+        1,
+        6.5,
+        11.25
+      ],
+      "to": [
+        1.5,
+        13.75,
+        11.5
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            32,
+            0.25,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            32,
+            0.25,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            32,
+            16.5,
+            32.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            32.25
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_starboard_shoe",
+      "from": [
+        13,
+        6,
+        11.25
+      ],
+      "to": [
+        15.25,
+        6.5,
+        14
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            18.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            18.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            18.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_starboard_post",
+      "from": [
+        13,
+        6.5,
+        11.5
+      ],
+      "to": [
+        15,
+        13.75,
+        13.5
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            32,
+            34,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            32,
+            32,
+            34.0,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            32,
+            32,
+            34,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            32,
+            32,
+            34.0,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            32,
+            18,
+            34.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            32,
+            32,
+            34,
+            34.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_starboard_edge",
+      "from": [
+        13,
+        6.5,
+        11.25
+      ],
+      "to": [
+        13.5,
+        13.75,
+        11.5
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            32,
+            0.25,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            32,
+            0.25,
+            39.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            32,
+            16.5,
+            32.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            32,
+            0.5,
+            32.25
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_crossbeam",
+      "from": [
+        1,
+        13.75,
+        11.25
+      ],
+      "to": [
+        15,
+        15.25,
+        13.75
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            32,
+            14,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            32,
+            2.5,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            32,
+            14,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            32,
+            2.5,
+            33.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            32,
+            30,
+            34.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            32,
+            14,
+            34.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_underside_rail",
+      "from": [
+        2.5,
+        13.25,
+        12
+      ],
+      "to": [
+        13.5,
+        13.75,
+        13
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            27.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            17,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            27.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            17,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            27.0,
+            17
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            27.0,
+            17
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_trolley",
+      "from": [
+        8.5,
+        12.5,
+        11.75
+      ],
+      "to": [
+        10.5,
+        13.25,
+        13.25
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            48,
+            2.0,
+            48.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            48,
+            1.5,
+            48.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            48,
+            2.0,
+            48.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            48,
+            1.5,
+            48.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            0,
+            48,
+            2.0,
+            49.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            48,
+            2.0,
+            49.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_cable",
+      "from": [
+        9.375,
+        9.75,
+        12.375
+      ],
+      "to": [
+        9.625,
+        12.5,
+        12.625
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            18.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "gantry_hook",
+      "from": [
+        9.125,
+        9.25,
+        12.25
+      ],
+      "to": [
+        9.875,
+        9.75,
+        12.75
+      ],
+      "group": "Gantry",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.75,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_base",
+      "from": [
+        0.25,
+        6,
+        5
+      ],
+      "to": [
+        2.25,
+        6.5,
+        7
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            18.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            18,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            18.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            18,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            18.0,
+            18
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            18.0,
+            18
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_mast",
+      "from": [
+        0.5,
+        6.5,
+        5.25
+      ],
+      "to": [
+        2,
+        14.25,
+        6.75
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            80,
+            0,
+            83.0,
+            15.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            80,
+            0,
+            83.0,
+            15.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            80,
+            0,
+            83.0,
+            15.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            80,
+            0,
+            83.0,
+            15.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            65.5,
+            1.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            80,
+            0,
+            83.0,
+            3.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_mast_cap",
+      "from": [
+        0.25,
+        14.25,
+        5
+      ],
+      "to": [
+        2.25,
+        15.5,
+        7
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            0,
+            66.0,
+            1.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            64,
+            0,
+            66,
+            1.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            66.0,
+            1.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            64,
+            0,
+            66,
+            1.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            66.0,
+            2
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            64,
+            0,
+            66.0,
+            2
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_arm",
+      "from": [
+        2.25,
+        14.25,
+        5.25
+      ],
+      "to": [
+        7.5,
+        15.25,
+        6.75
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            48,
+            16,
+            53.25,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            48,
+            16,
+            49.5,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            48,
+            16,
+            53.25,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            48,
+            16,
+            49.5,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            69.25,
+            1.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            48,
+            16,
+            53.25,
+            17.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_trolley",
+      "from": [
+        6,
+        13.75,
+        5.5
+      ],
+      "to": [
+        7.25,
+        14.25,
+        6.5
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            112,
+            16,
+            113.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            112,
+            16,
+            113.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            112,
+            16,
+            113.25,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            112,
+            16,
+            113.0,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            112,
+            16,
+            113.25,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            112,
+            16,
+            113.25,
+            17.0
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_cable",
+      "from": [
+        6.5,
+        9,
+        5.875
+      ],
+      "to": [
+        6.75,
+        13.75,
+        6.125
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            20.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            20.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            20.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            20.75
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            64,
+            16,
+            64.25,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_hook_vertical",
+      "from": [
+        6.25,
+        8.5,
+        5.75
+      ],
+      "to": [
+        6.75,
+        9,
+        6.25
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "jib_hook_return",
+      "from": [
+        6.75,
+        8.5,
+        5.75
+      ],
+      "to": [
+        7.25,
+        8.75,
+        6.25
+      ],
+      "group": "Jib",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            16.5,
+            16.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "control_box",
+      "from": [
+        14,
+        6,
+        0.5
+      ],
+      "to": [
+        16,
+        8.5,
+        3
+      ],
+      "group": "Controls",
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            16,
+            34,
+            18.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            2.5,
+            2.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            2,
+            2.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            2.5,
+            2.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            0,
+            18,
+            2.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            2,
+            2.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "control_screen_rim",
+      "from": [
+        14.25,
+        6.75,
+        0.35
+      ],
+      "to": [
+        15.75,
+        8,
+        0.5
+      ],
+      "group": "Controls",
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            16,
+            33.5,
+            17.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            32,
+            16,
+            32.15,
+            17.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            32,
+            16,
+            33.5,
+            17.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            32,
+            16,
+            32.15,
+            17.25
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            32,
+            16,
+            33.5,
+            16.15
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            32,
+            16,
+            33.5,
+            16.15
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    },
+    {
+      "name": "service_duct",
+      "from": [
+        14.75,
+        3,
+        13.5
+      ],
+      "to": [
+        15.75,
+        5.5,
+        15
+      ],
+      "group": "Controls",
+      "faces": {
+        "north": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            18.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "east": {
+          "uv": [
+            16,
+            16,
+            17.5,
+            18.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "south": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            18.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "west": {
+          "uv": [
+            16,
+            16,
+            17.5,
+            18.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "up": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            17.5
+          ],
+          "texture": "shipyard_atlas"
+        },
+        "down": {
+          "uv": [
+            16,
+            16,
+            17.0,
+            17.5
+          ],
+          "texture": "shipyard_atlas"
+        }
+      }
+    }
+  ],
+  "elementCount": 56,
+  "referenceFeatures": [
+    "浅灰敞口坞池",
+    "后部门式吊架",
+    "侧面黄黑悬臂吊",
+    "灰色舰体与红色船底",
+    "木色施工甲板"
+  ],
+  "scope": "外观预览，无动画、状态切换、碰撞或交互代码变更"
+}

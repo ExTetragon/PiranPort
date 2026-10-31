@@ -1,0 +1,39 @@
+{
+  "rows": [
+    "................",
+    "................",
+    ".....OOOO.......",
+    "....OHHLHO......",
+    "....OMMMMDO.....",
+    "...ODDMMMMHOO...",
+    "..OHMMMMLLLLHO..",
+    ".OLHMMMMMHHMMDO.",
+    ".OHDDMMMHMMMMDO.",
+    ".ODDSMMMHLMMHDO.",
+    "..OOSSMMMLHMLDO.",
+    "....ODDDSSLHLDO.",
+    ".....OODSDDDDO..",
+    ".......OOOOOO...",
+    "................",
+    "................"
+  ],
+  "legend": {
+    ".": null,
+    "O": "#56362b",
+    "D": "#8d4335",
+    "S": "#b8563d",
+    "M": "#f28e43",
+    "H": "#ffb967",
+    "L": "#ffedaa"
+  },
+  "height": 16,
+  "width": 16,
+  "palette": [
+    "#56362b",
+    "#8d4335",
+    "#b8563d",
+    "#f28e43",
+    "#ffb967",
+    "#ffedaa"
+  ]
+}

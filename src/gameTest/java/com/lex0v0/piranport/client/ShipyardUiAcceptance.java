@@ -1,6 +1,11 @@
 package com.lex0v0.piranport.client;
 
 import com.lex0v0.piranport.client.gui.screens.ShipyardScreen;
+import com.lex0v0.piranport.client.gui.screens.ShipyardFilterDialog;
+import com.lex0v0.piranport.blockentity.shipyard.ShipyardFilter;
+import com.lex0v0.piranport.domain.ship.ShipType;
+import com.lex0v0.piranport.domain.ship.ShipSize;
+import com.lex0v0.piranport.domain.ship.ShipDefinitions;
 
 import com.lex0v0.piranport.logging.ModLog;
 import com.google.gson.GsonBuilder;
@@ -174,6 +179,7 @@ public final class ShipyardUiAcceptance {
                 require(List.of("running","cancel-confirmation","output-pending","no-blueprint","no-blueprint-query","long-name").stream().allMatch(name->Files.isRegularFile(output.resolve("screenshots/shipyard-"+name+".png"))),"six_actual_client_screenshots");
                 click(screen,"搜索与筛选");stage=16;delay=4;
             } else if(stage==16&&mc.screen instanceof ShipyardScreen screen){
+                checkClassCoupling(mc);
                 require(screen.getFocused() instanceof EditBox,"search_focuses_input");
                 screen.keyPressed(GLFW.GLFW_KEY_E,0,0);screen.charTyped('E',0);
                 require(mc.screen==screen&&input(screen).getValue().equals("E"),"inventory_key_types_without_closing_menu");
@@ -183,10 +189,15 @@ public final class ShipyardUiAcceptance {
             } else if(stage==17&&mc.screen instanceof ShipyardScreen screen){
                 capture(mc,"filter-dialog");stage=171;
             } else if(stage==171&&mc.screen instanceof ShipyardScreen screen){
+                UiTooltipCapture.request(screen,output,"shipyard-filter-summary.png",(int)((screen.getGuiLeft()+192-160)*scale(mc)),(int)((screen.getGuiTop()+126-105+50)*scale(mc)));stage=172;
+            } else if(stage==172&&mc.screen instanceof ShipyardScreen screen){
+                var text=String.join(" ",UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-filter-summary.png",List.of()));
+                require(List.of("当前筛选","全部舰船","小型","潜艇","G国","u47").stream().allMatch(text::contains),"live_filter_summary_includes_scope_and_all_draft_conditions");
                 click(screen,"应用");stage=18;delay=4;
             } else if(stage==18&&mc.screen instanceof ShipyardScreen screen){
                 require(screen.getFocused()==button(screen,"搜索与筛选"),"apply_returns_focus_to_search_entry");
                 var menu=screen.getMenu();require(menu.browse.filter.active()&&menu.visibleShips().size()==1&&menu.visibleShips().getFirst().id().equals(id("u47")),"text_size_nation_filter_applies");
+                require(menu.browse.filter.types().contains(com.lex0v0.piranport.domain.ship.ShipType.SUBMARINE),"ship_class_selection_applies_through_network");
                 require(menu.browse.selected==null&&menu.shipyard.job().recipe.ship().equals(id("saratoga")),"hidden_preview_clears_but_task_keeps_running");capture(mc,"filter-active");
                 stage=181;
             } else if(stage==181&&mc.screen instanceof ShipyardScreen screen){
@@ -198,7 +209,7 @@ public final class ShipyardUiAcceptance {
                 require(!screen.getMenu().browse.filter.active()&&!screen.getMenu().browse.all&&screen.getMenu().visibleShips().size()==4,"right_clear_preserves_permission_scope");
                 click(screen,"显示全部");click(screen,"搜索与筛选");focusInput(screen);type(screen,"列克");
                 click(screen,"大型");click(screen,"中型");click(screen,"U国");click(screen,"E国");click(screen,"应用");
-                require(screen.getMenu().browse.filter.sizes().size()==2&&screen.getMenu().browse.filter.nationalities().size()==2&&screen.getMenu().visibleShips().size()==1,"chinese_input_and_multi_select");
+                require(screen.getMenu().browse.filter.types().size()==6&&screen.getMenu().browse.filter.nationalities().size()==2&&screen.getMenu().visibleShips().size()==1,"chinese_input_and_multi_select");
                 rightClear(screen);require(screen.getMenu().browse.all&&screen.getMenu().visibleShips().size()==10,"right_clear_preserves_all_scope");
                 stage=20;delay=4;
             } else if(stage==20&&mc.screen instanceof ShipyardScreen screen){
@@ -206,12 +217,23 @@ public final class ShipyardUiAcceptance {
             } else if(stage==201&&mc.screen instanceof ShipyardScreen screen){
                 Language.inject(ClientLanguage.loadFrom(mc.getResourceManager(),List.of("en_us"),false));click(screen,Component.translatable("gui.piranport.shipyard.search").getString());
                 require(screen.children().stream().filter(child->child instanceof Button b&&b.visible&&b.active).map(child->(Button)child)
-                        .allMatch(b->mc.font.width(b.getMessage())<=b.getWidth()-4),"english_filter_labels_fit_buttons");
+                        .allMatch(b->mc.font.width(b.getMessage())<=b.getWidth()-4),"english_abbreviations_fit_all_buttons");
+                var codes=List.of("BB","BC","CV","CA","CVL","CL","BM","DD","SS");
+                for(int i=0;i<codes.size();i++){
+                    var type=button(screen,codes.get(i));var nation=button(screen,i==8?"Other":List.of("C","E","F","G","I","J","S","U").get(i));
+                    require(type.getX()==nation.getX()&&type.getWidth()==nation.getWidth()&&type.getY()==button(screen,"BB").getY(),"class_nation_column_"+i);
+                }
+                click(screen,"BB");click(screen,"BC");click(screen,"CV");
                 focusInput(screen);type(screen,"HoOd");stage=21;delay=4;
             } else if(stage==21&&mc.screen instanceof ShipyardScreen screen){
                 capture(mc,"filter-english");stage=211;
             } else if(stage==211&&mc.screen instanceof ShipyardScreen screen){
+                var carrier=button(screen,"CVL");
+                UiTooltipCapture.request(screen,output,"shipyard-class-full-name.png",(int)((carrier.getX()+5)*scale(mc)),(int)((carrier.getY()+5)*scale(mc)));stage=212;
+            } else if(stage==212&&mc.screen instanceof ShipyardScreen screen){
+                require(UiTooltipCapture.TOOLTIP_TEXT.getOrDefault("shipyard-class-full-name.png",List.of()).contains("Light Aircraft Carrier"),"long_class_name_available_in_actual_tooltip");
                 screen.keyPressed(GLFW.GLFW_KEY_ENTER,0,0);
+                require(screen.getMenu().browse.filter.types().equals(java.util.Set.of(ShipType.BATTLESHIP,ShipType.BATTLECRUISER,ShipType.AIRCRAFT_CARRIER)),"manual_class_group_applies_without_extra_size_restriction");
                 require(screen.getMenu().visibleShips().size()==1&&screen.getMenu().visibleShips().getFirst().id().equals(id("hood")),"enter_applies_english_case_insensitive_search");
                 rightClear(screen);Language.inject(ClientLanguage.loadFrom(mc.getResourceManager(),List.of("en_us","zh_cn"),false));
                 CHECKS.put("success",true);Files.writeString(output.resolve("summary.json"),new GsonBuilder().setPrettyPrinting().create().toJson(CHECKS));
@@ -233,6 +255,29 @@ public final class ShipyardUiAcceptance {
     }
 
     private static float scale(Minecraft mc){return Math.max(.25f,Math.min(1,Math.min((mc.getWindow().getGuiScaledWidth()-12)/348f,(mc.getWindow().getGuiScaledHeight()-12)/280f)));}
+    // 直接操作真实弹窗控件，检查分组双向联动及部分选择不会丢失匹配结果。
+    private static void checkClassCoupling(Minecraft mc){
+        var d=new ShipyardFilterDialog(mc.font,192,126,ShipyardFilter.NONE,true,f->0,f->{},()->{});
+        for(var size:ShipSize.values()){
+            var group=java.util.EnumSet.noneOf(ShipType.class);for(var t:ShipType.values())if(t.size()==size)group.add(t);
+            press(d,Component.translatable(size.translationKey()).getString());
+            require(d.value().types().equals(group),"size_selects_all_classes_"+size.path());
+            var first=group.iterator().next();press(d,Component.translatable("gui.piranport.shipyard.type."+first.path()).getString());
+            require(d.value().types().size()==group.size()-1&&!d.summary().getString().contains(Component.translatable(size.translationKey()).getString()),"partial_classes_clear_size_"+size.path());
+            press(d,Component.translatable("gui.piranport.shipyard.type."+first.path()).getString());
+            require(d.value().types().equals(group)&&d.summary().getString().contains(Component.translatable(size.translationKey()).getString()),"all_classes_select_size_"+size.path());
+            press(d,Component.translatable(size.translationKey()).getString());
+            require(!d.value().active(),"size_deselects_its_classes_"+size.path());
+        }
+        press(d,Component.translatable(ShipSize.LARGE.translationKey()).getString());
+        press(d,Component.translatable("gui.piranport.shipyard.type.heavy_cruiser").getString());
+        require(d.value().types().size()==4&&d.value().matches(ShipDefinitions.byId(id("quincy"))),"partial_other_group_remains_in_results");
+        var reopened=new ShipyardFilterDialog(mc.font,192,126,d.value(),true,f->0,f->{},()->{});
+        require(reopened.value().equals(d.value())&&reopened.summary().equals(d.summary()),"coupled_selection_restores_from_browse");
+        press(d,Component.translatable(ShipSize.LARGE.translationKey()).getString());
+        require(d.value().types().equals(java.util.Set.of(ShipType.HEAVY_CRUISER)),"deselect_group_keeps_other_partial_group");
+    }
+    private static void press(ShipyardFilterDialog d,String text){d.widgets().stream().filter(w->w instanceof Button&&w.getMessage().getString().equals(text)).map(w->(Button)w).findFirst().orElseThrow().onPress();}
     private static Button button(ShipyardScreen screen,String label){return screen.children().stream().filter(child->child instanceof Button b&&b.visible&&b.getMessage().getString().equals(label)).map(child->(Button)child).toList().getLast();}
     private static void click(ShipyardScreen screen,String label){var button=button(screen,label);float s=scale(Minecraft.getInstance());screen.mouseClicked((button.getX()+button.getWidth()/2.)*s,(button.getY()+button.getHeight()/2.)*s,0);}
     private static void rightClear(ShipyardScreen screen){var b=button(screen,Component.translatable("gui.piranport.shipyard.search").getString());float s=scale(Minecraft.getInstance());screen.mouseClicked((b.getX()+6)*s,(b.getY()+6)*s,1);}

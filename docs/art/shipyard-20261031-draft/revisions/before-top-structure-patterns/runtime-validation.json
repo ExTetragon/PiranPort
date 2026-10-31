@@ -1,0 +1,23 @@
+{
+  "version": "0.1.125",
+  "completedAt": "2026-10-31T23:19+08:00",
+  "sourceArtRevision": 6,
+  "productionIntegrated": true,
+  "changedPixels": 43,
+  "paletteAndCapPerimeterUnchanged": true,
+  "geometryUVAndCollisionUnchanged": true,
+  "sourceAtlasMatchesProduction": true,
+  "buildPassed": true,
+  "staticJSONResources": 324,
+  "artValidation": "inner-highlight-validation.json",
+  "jar": {
+    "file": "build/shipyard-v6-20261031/artifacts/libs/piranport-0.1.125.jar",
+    "sha256": "2293dbebd7cd0bb17de3a8a55a2b84564a2a22425c3a57680f569daece21088c",
+    "changedEntriesFromRevision5": [
+      "assets/piranport/textures/block/shipyard_atlas.png"
+    ],
+    "allOtherEntriesByteIdentical": true
+  },
+  "previousRuntimeValidation": "revisions/before-inner-highlights/runtime-validation.json",
+  "scope": "Native Aseprite and Blockbench checks plus build and JAR comparison; no GameTest server or game client rerun."
+}

@@ -1,16 +1,31 @@
 {
   "variants": {
-    "axis=y": {
+    "axis=y,part=single": {
       "model": "piranport:block/fuel_barrel"
     },
-    "axis=x": {
-      "model": "piranport:block/fuel_barrel",
-      "x": 90,
-      "y": 90
+    "axis=y,part=lower": {
+      "model": "piranport:block/fuel_barrel_y_lower"
     },
-    "axis=z": {
-      "model": "piranport:block/fuel_barrel",
-      "x": 90
+    "axis=y,part=upper": {
+      "model": "piranport:block/fuel_barrel_y_upper"
+    },
+    "axis=x,part=single": {
+      "model": "piranport:block/fuel_barrel_x_single"
+    },
+    "axis=x,part=lower": {
+      "model": "piranport:block/fuel_barrel_x_lower"
+    },
+    "axis=x,part=upper": {
+      "model": "piranport:block/fuel_barrel_x_upper"
+    },
+    "axis=z,part=single": {
+      "model": "piranport:block/fuel_barrel_z_single"
+    },
+    "axis=z,part=lower": {
+      "model": "piranport:block/fuel_barrel_z_lower"
+    },
+    "axis=z,part=upper": {
+      "model": "piranport:block/fuel_barrel_z_upper"
     }
   }
 }

@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -31,17 +32,24 @@ import org.jetbrains.annotations.Nullable;
 // 处理燃料桶的放置、交互、连接更新和采集结算。
 public class FuelBarrelBlock extends BaseEntityBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
+    public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
+
+    // 连接外观按轴向空间顺序划分，与先放置的主桶身份无关。
+    public enum Part implements StringRepresentable {
+        SINGLE, LOWER, UPPER;
+        @Override public String getSerializedName() { return name().toLowerCase(java.util.Locale.ROOT); }
+    }
 
     public FuelBarrelBlock(Properties properties) {
         super(properties);
-        registerDefaultState(stateDefinition.any().setValue(AXIS, Direction.Axis.Y));
+        registerDefaultState(stateDefinition.any().setValue(AXIS, Direction.Axis.Y).setValue(PART, Part.SINGLE));
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() { return simpleCodec(FuelBarrelBlock::new); }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(AXIS); }
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) { builder.add(AXIS, PART); }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -133,5 +141,7 @@ public class FuelBarrelBlock extends BaseEntityBlock {
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (level.getBlockEntity(pos) instanceof FuelBarrelBlockEntity barrel) barrel.refreshConnection();
+        // 低频复核配置降容与区块可用性，未变化的显示快照不会发送网络更新。
+        level.scheduleTick(pos, this, 20);
     }
 }

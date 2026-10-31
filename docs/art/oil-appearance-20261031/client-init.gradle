@@ -1,0 +1,10 @@
+allprojects { project ->
+    project.afterEvaluate {
+        project.neoForge.runs.named('acceptanceClient') {
+            gameDirectory = project.file('build/oil-appearance-20261031/run-client')
+            programArguments.addAll '--width', '1280', '--height', '900'
+            systemProperty 'piranport.acceptance.oilAppearance', 'true'
+            systemProperty 'piranport.acceptance.oilOutput', project.file('build/oil-appearance-20261031/client').absolutePath
+        }
+    }
+}

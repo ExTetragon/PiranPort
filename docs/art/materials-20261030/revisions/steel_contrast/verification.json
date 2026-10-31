@@ -1,0 +1,15 @@
+{
+  "changedPixels": 82,
+  "alphaUnchanged": true,
+  "outlineUnchanged": true,
+  "ridgePixelsUnchanged": 16,
+  "faceGrayRangeBefore": [
+    85,
+    152
+  ],
+  "faceGrayRangeAfter": [
+    104,
+    146
+  ],
+  "faceSpanReduction": 0.3731343283582089
+}

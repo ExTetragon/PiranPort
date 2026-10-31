@@ -1,0 +1,10 @@
+allprojects { project ->
+    project.afterEvaluate {
+        project.neoForge.runs.named('acceptanceClient') {
+            gameDirectory = project.file('build/oil-world-20261031/run-client')
+            programArguments.addAll '--width', '1280', '--height', '900'
+            systemProperty 'piranport.acceptance.oilWorld', 'true'
+            systemProperty 'piranport.acceptance.oilWorldOutput', project.file('build/oil-world-20261031/client').absolutePath
+        }
+    }
+}

@@ -62,7 +62,7 @@ public final class ModLog {
 
     public enum Failure {
         BLUEPRINT_RESOURCES("图纸客户端资源检查失败"), CORE_RESOURCES("核心客户端资源检查失败"),
-        TOOLTIPS("物品悬浮检查失败"), EQUIPMENT_RESOURCES("装备客户端资源检查失败"),
+        TOOLTIPS("物品悬浮检查失败"), EQUIPMENT_RESOURCES("装备客户端资源检查失败"), SHIPYARD_RESOURCES("船坞客户端模型检查失败"),
         SHIPYARD_UI("船坞界面验收失败"), FACTORY_UI("工厂界面验收失败"), AMMUNITION_UI("弹药生产线界面验收失败"),
         WORLDGEN("自然生成验收失败"), REPORT("验收报告写入失败");
         private final String text;

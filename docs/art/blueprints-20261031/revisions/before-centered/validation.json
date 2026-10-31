@@ -1,0 +1,222 @@
+{
+  "version": "0.1.124",
+  "assets": [
+    {
+      "name": "ship_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 13,
+      "sha256": "62a3165516cd6e46521f02a716a2b2bd518d2ae864eb9319917cdfb225c231f7"
+    },
+    {
+      "name": "equipment_blueprint",
+      "size": [
+        16,
+        16
+      ],
+      "colors": 11,
+      "sha256": "e023364be7be06b2533b2d50f62cfb776ff5098abca69baab93ce6b406a2f0a9"
+    }
+  ],
+  "dimensions": [
+    16,
+    16
+  ],
+  "drawingMode": "Aseprite live",
+  "productionExportsMatch": true,
+  "pixelSpecMatches": true,
+  "wheelBounds": [
+    9,
+    8,
+    7,
+    7
+  ],
+  "wheelReference": "0.1.136",
+  "wheelShift": [
+    1,
+    1
+  ],
+  "wheelShapeUnchanged": true,
+  "outlineEnabled": false,
+  "wheelHandles": [
+    [
+      12,
+      8
+    ],
+    [
+      15,
+      11
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      9,
+      11
+    ]
+  ],
+  "paperOutsideGradient": [
+    {
+      "x": 14,
+      "y": 10,
+      "distance": 1.414,
+      "stage": 2,
+      "originalColor": "#d5d7bf",
+      "color": "#9aa69e"
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "distance": 1.0,
+      "stage": 1,
+      "originalColor": "#9aa69e",
+      "color": "#87978f"
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "distance": 1.0,
+      "stage": 1,
+      "originalColor": "#f6f2d9",
+      "color": "#d5d7bf"
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "distance": 1.414,
+      "stage": 2,
+      "originalColor": "#9aa69e",
+      "color": "#70857f"
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "distance": 2.236,
+      "stage": 3,
+      "originalColor": "#d5d7bf",
+      "color": "#87978f"
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "distance": 2.828,
+      "stage": 3,
+      "originalColor": "#9aa69e",
+      "color": "#5d7570"
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "distance": 1.0,
+      "stage": 1,
+      "originalColor": "#d5d7bf",
+      "color": "#b6bbaa"
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "distance": 2.0,
+      "stage": 3,
+      "originalColor": "#9aa69e",
+      "color": "#5d7570"
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "distance": 2.828,
+      "stage": 3,
+      "originalColor": "#d5d7bf",
+      "color": "#87978f"
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "distance": 2.236,
+      "stage": 3,
+      "originalColor": "#d5d7bf",
+      "color": "#87978f"
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "distance": 2.828,
+      "stage": 3,
+      "originalColor": "#d5d7bf",
+      "color": "#87978f"
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "distance": 3.162,
+      "stage": 3,
+      "originalColor": "#d5d7bf",
+      "color": "#87978f"
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "distance": 3.606,
+      "stage": 3,
+      "originalColor": "#9aa69e",
+      "color": "#5d7570"
+    }
+  ],
+  "innerHolesUnchanged": true,
+  "paperAndEquipmentUnchanged": true,
+  "asepriteValidation": [
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        },
+        {
+          "message": "No single colour owns the silhouette edge on 'Emblem', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Emblem",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "ship_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    },
+    {
+      "findings": [
+        {
+          "message": "No single colour owns the silhouette edge on 'Paper', so this sprite is not outlined. That is a valid style — just keep it consistent.",
+          "layer": "Paper",
+          "frame": 1,
+          "check": "outline",
+          "severity": "note"
+        }
+      ],
+      "sprite": "equipment_blueprint.aseprite",
+      "passed": true,
+      "score": 100,
+      "summary": "Clean."
+    }
+  ],
+  "gameClientStarted": false,
+  "gradleBuild": "passed",
+  "staticJsonResources": 324,
+  "packagedModelsAndTexturesMatch": true,
+  "jar": "E:\\Leisure\\Coding\\Minecraft\\PiranPort\\1.21.1-neoforge\\build\\art-version-merge-20261031\\artifacts\\libs\\piranport-0.1.124.jar",
+  "jarSha256": "9342cd485fcd26d254f49eaaef31ce17815e4700ad0879c39f07da378da7fa13",
+  "documentationLinksVerified": 18,
+  "backgroundPreview": "wheel-comparison-v10.png",
+  "visualReview": "舵轮几何右下各移一像素，四个握柄完整，纸外渐暗随新坐标重算，未添加外描边",
+  "previousVersion": "0.1.144",
+  "versionBaseline": "art-contiguous-20261031",
+  "artworkValidationInheritedFromRawVersion": "0.1.144",
+  "originalValidationPath": "version-baseline-before-20261031/validation.json",
+  "versionOnlyPackageChange": true
+}

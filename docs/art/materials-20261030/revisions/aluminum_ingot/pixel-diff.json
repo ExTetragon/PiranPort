@@ -1,0 +1,29 @@
+{
+  "changedPixels": 4,
+  "coordinates": [
+    [
+      13,
+      8
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      13,
+      9
+    ],
+    [
+      11,
+      10
+    ]
+  ],
+  "from": "#6c849e",
+  "to": "#8193aa",
+  "alphaUnchanged": true,
+  "outlineUnchanged": true,
+  "size": [
+    16,
+    16
+  ]
+}

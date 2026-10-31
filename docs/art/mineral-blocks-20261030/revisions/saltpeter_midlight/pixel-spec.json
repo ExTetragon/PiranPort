@@ -1,0 +1,38 @@
+{
+  "width": 16,
+  "height": 16,
+  "rows": [
+    "EDDEDBEDEDBEDEBE",
+    "BDDBDBBEABCDFADB",
+    "EDABBCDDDDDBDBBD",
+    "DEEBDBEBEEBEDBDD",
+    "BDFDBEDEDEDDBDDE",
+    "DBDDEEEDBDEBDDBD",
+    "BCDBBFBDBBADDBDB",
+    "DBDDBDDBDBBBDCDB",
+    "BDEDDEBABEBDEDBD",
+    "CDBDDDBBDADBDDEB",
+    "DADEDBDEDDEDABDE",
+    "BBDDEDBDEEBBBDBD",
+    "BDBEBEDBCFEDBBDE",
+    "EDEDEADEDEDEDDCD",
+    "DEDCFEEDEDEDAEDD",
+    "EDEDEEDEDBDDEDED"
+  ],
+  "legend": {
+    "E": "#ece8d8",
+    "D": "#e8e1d0",
+    "B": "#d8d0bd",
+    "A": "#ccc3b4",
+    "C": "#efd9d3",
+    "F": "#f8f4e8"
+  },
+  "palette": [
+    "#ccc3b4",
+    "#d8d0bd",
+    "#efd9d3",
+    "#e8e1d0",
+    "#ece8d8",
+    "#f8f4e8"
+  ]
+}

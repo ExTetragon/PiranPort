@@ -38,7 +38,8 @@ public final class ModClientEvents {
 
         @Override
         public int getTintColor() {
-            return 0xFF1B1B1B;
+            // 原版水动画已按油色重着色，保持白色 tint 避免再次乘暗。
+            return 0xFFFFFFFF;
         }
     };
 
@@ -55,11 +56,16 @@ public final class ModClientEvents {
 
         @Override
         public int getTintColor() {
-            return 0xFF3A2A12;
+            return 0xFFFFFFFF;
         }
     };
 
     private ModClientEvents() {
+    }
+    @SubscribeEvent
+    public static void registerRenderers(net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(com.lex0v0.piranport.registry.ModBlockEntities.FUEL_BARREL.get(),
+                context -> new com.lex0v0.piranport.client.renderer.FuelBarrelRenderer());
     }
     @SubscribeEvent public static void registerScreens(RegisterMenuScreensEvent event) { event.register(ModMenus.SHIPYARD.get(), ShipyardScreen::new); event.register(ModMenus.DEVELOPMENT_FACTORY.get(), DevelopmentFactoryScreen::new); event.register(ModMenus.AMMUNITION_FACTORY.get(), com.lex0v0.piranport.client.gui.screens.AmmunitionFactoryScreen::new); }
 

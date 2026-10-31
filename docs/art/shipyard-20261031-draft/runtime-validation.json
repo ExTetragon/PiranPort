@@ -1,0 +1,33 @@
+{
+  "version": "0.1.125",
+  "completedAt": "2026-10-31T23:50+08:00",
+  "sourceArtRevision": 10,
+  "productionIntegrated": true,
+  "atlasSize": [
+    128,
+    128
+  ],
+  "changedTexturePixels": 148,
+  "paletteAllPerimetersColumnsUVGeometryAndCollisionUnchanged": true,
+  "sourceAtlasMatchesProduction": true,
+  "yellowDecorNoGrayOrBlue": true,
+  "blueHatchFootprint": [
+    12,
+    4
+  ],
+  "bluePlacardPixelWidth": 12,
+  "buildPassed": true,
+  "staticJSONResources": 324,
+  "artValidation": "scaled-detail-validation.json",
+  "jar": {
+    "file": "build/shipyard-v10-20261031/artifacts/libs/piranport-0.1.125.jar",
+    "sha256": "ebd579c889b9ad045b5b65bca3ec1dfac7af9ee8c3701531422dfc22307ed89c",
+    "changedEntriesFromRevision9": [
+      "assets/piranport/textures/block/shipyard_atlas.png"
+    ],
+    "allOtherEntriesByteIdentical": true
+  },
+  "previousModelBakeValidation": "revisions/before-real-crane-girders/runtime-validation.json",
+  "manufacturerReference": "references/real-crane-girders.json",
+  "scope": "Native Aseprite/Blockbench review, build and JAR comparison; no GameTest server or game client rerun because geometry, UVs and atlas dimensions unchanged."
+}
