@@ -38,6 +38,9 @@ run/
 **/src/generated/**/.cache/
 repo/
 !**/src/**/repo/
-# Keep design documents and their source workbooks under version control.
-docs/~$*.xlsx
-/tools/__pycache__/
+# 文档、美术源稿、测试与工具统一保留在仓库外。
+/docs/
+/tools/
+/src/gameTest/
+/gameTest/
+/gametest/

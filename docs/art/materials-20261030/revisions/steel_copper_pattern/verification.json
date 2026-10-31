@@ -1,8 +1,0 @@
-{
-  "source": "minecraft:item/copper_ingot",
-  "paletteUnchanged": true,
-  "ridgePixelsUnchanged": 16,
-  "alphaUnchanged": true,
-  "changedPixels": 70,
-  "otherMaterialTexturesUnchanged": 8
-}

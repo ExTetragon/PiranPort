@@ -37,15 +37,8 @@ base {
 // Minecraft 1.21.1 ships Java 21 to end users, so mods should target Java 21.
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
-sourceSets {
-    gameTest
-}
-sourceSets.gameTest.compileClasspath += sourceSets.main.output
-sourceSets.gameTest.runtimeClasspath += sourceSets.main.output
-
 neoForge {
     version = project.neo_version
-    addModdingDependenciesTo sourceSets.gameTest
 
     parchment {
         mappingsVersion = project.parchment_mappings_version
@@ -58,42 +51,11 @@ neoForge {
     runs {
         client {
             client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
             server()
             programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        // Runs all registered gametests, then exits.
-        gameTestServer {
-            type = "gameTestServer"
-            gameDirectory = file("run/gametest")
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        worldgenAcceptance {
-            server()
-            gameDirectory = file(providers.gradleProperty('acceptanceWorldDir').getOrElse('run/acceptance-worldgen'))
-            programArgument '--nogui'
-            systemProperty 'piranport.acceptance.worldgen', 'true'
-            systemProperty 'piranport.acceptance.worldgenReport', layout.buildDirectory.file('reports/acceptance/worldgen.json').get().asFile.absolutePath
-        }
-
-        acceptanceClient {
-            client()
-            gameDirectory = file('run/acceptance-client')
-            systemProperty 'piranport.acceptance.clientSmoke', providers.gradleProperty('acceptanceClientSmoke').getOrElse('false')
-        }
-
-        shipyardUiClient {
-            client()
-            gameDirectory = file('run/shipyard-ui-client')
-            programArguments.addAll '--width', '1280', '--height', '900'
-            systemProperty 'piranport.acceptance.shipyardUi', 'true'
-            systemProperty 'piranport.acceptance.shipyardUiReport', layout.buildDirectory.dir('reports/shipyard-ui').get().asFile.absolutePath
         }
 
         data {
@@ -115,7 +77,6 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet(sourceSets.main)
-            sourceSet(sourceSets.gameTest)
         }
     }
 }
@@ -123,8 +84,6 @@ neoForge {
 // Optional runtime-only dependencies that should not be published.
 configurations {
     runtimeClasspath.extendsFrom localRuntime
-    gameTestImplementation.extendsFrom implementation
-    gameTestRuntimeOnly.extendsFrom runtimeOnly
 }
 
 dependencies {
@@ -159,24 +118,13 @@ idea {
     }
 }
 
-// Compile the in-game regressions during build; execute them with runGameTestServer.
-tasks.named("check") { dependsOn tasks.named("gameTestClasses") }
-
-// Isolated natural world generation using the normal NeoForge development server.
-tasks.named('runWorldgenAcceptance') {
-    doFirst {
-        def target = file(providers.gradleProperty('acceptanceWorldDir').getOrElse('run/acceptance-worldgen'))
-        target.mkdirs()
-        def props = new File(target, 'server.properties')
-        if (!props.exists()) props.text = '''level-seed=20261022
-level-name=world
-server-ip=127.0.0.1
-server-port=0
-online-mode=false
-max-tick-time=-1
-spawn-protection=0
-view-distance=2
-simulation-distance=2
-'''
+// 本地验证显式启用，普通构建不依赖仓库外的测试或工具。
+if (providers.gradleProperty('withLocalTests').map { it.toBoolean() }.getOrElse(false)) {
+    def localTests = file(providers.gradleProperty('localTestRoot').getOrElse("../dev/${projectDir.name}"))
+    def acceptanceScript = new File(localTests, 'acceptance.gradle')
+    if (!acceptanceScript.isFile()) {
+        throw new GradleException("Local tests are missing: ${acceptanceScript}. Restore the local dev directory or omit -PwithLocalTests=true.")
     }
+    ext.localAcceptanceDir = localTests
+    apply from: acceptanceScript
 }
